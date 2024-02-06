@@ -21,7 +21,7 @@ class HAEADataset(Dataset):
 
 
     def __len__(self):
-        return len(self.dataset)
+        return dataset.size(1)
 
 
     def make_dataset(self):

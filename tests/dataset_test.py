@@ -7,6 +7,7 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import torch
+import apache_beam as beam
 
 ds, chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
 with beam.Pipeline() as p:

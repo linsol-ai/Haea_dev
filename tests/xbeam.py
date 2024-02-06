@@ -77,8 +77,7 @@ def main(argv):
             | xbeam.DatasetToChunks(source_dataset, source_chunks)
             | xbeam.SplitChunks({'time': 1})
             | beam.MapTuple(rekey_chunk_on_month_hour)
-            | xbeam.Mean.PerKey()
-            | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+    
         )
 
 

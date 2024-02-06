@@ -73,7 +73,8 @@ class WeatherDataset:
 
     def load_init(self, start_date, end_date):
         print("데이터셋 불러오는 중...")
-        
+        lat_min, lat_max = 32.2, 39.0
+lon_min, lon_max = 124.2, 131
         ds, chunks = xbeam.open_zarr(self.url)
         ds = ds.sel(time=slice(start_date, end_date))
         lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]

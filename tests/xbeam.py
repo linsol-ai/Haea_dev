@@ -39,7 +39,7 @@ def main():
         # 데이터셋을 Beam PCollection으로 로드
         dataset = (
             p 
-            | "Read Dataset" >> beam.Create([xr.open_dataset('your_dataset.nc')])
+            | "Read Dataset" >> beam.Create([xr.open_dataset('')])
             | "Split into chunks" >> xbeam.SplitChunks(spatial_keys + [temporal_key])
         )
 

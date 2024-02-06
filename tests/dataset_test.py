@@ -20,7 +20,7 @@ def run_pipeline():
             | xbeam.DatasetToChunks()  # 데이터셋을 청크로 분할
             | beam.Map(lambda chunk: chunk.mean(dim='time'))  # 시간에 따른 평균 계산
             | xbeam.ChunksToDataset()  # 결과 청크를 데이터셋으로 병합
-            | 'Write results' >> xbeam.WriteNetcdf('path/to/output/data.nc')  # 결과 NetCDF 파일로 저장
+            | xbeam.WriteNetcdf('path/to/output/data.nc')  # 결과 NetCDF 파일로 저장
         )
 
 

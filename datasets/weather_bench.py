@@ -117,8 +117,6 @@ class WeatherDataset:
         result = {}
         start = time.time()
 
-        
-
         with ThreadPoolExecutor() as executor:
             futures = {}
             for val in variables:

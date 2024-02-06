@@ -42,13 +42,7 @@ def main():
     source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
     template = xbeam.make_template(source_dataset)    
 
-    with beam.Pipeline(runner='beam.runners.Runner') as root:
-        (
-            root
-            | xbeam.DatasetToChunks(source_dataset, source_chunks)
-            | xbeam.SplitChunks({'time': 10})
-            | beam.MapTuple(rekey_chunk_on_month_hour)
-        )
+    print(template)
 
 
 if __name__ == '__main__':

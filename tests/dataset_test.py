@@ -13,10 +13,10 @@ if __name__ == '__main__':
     end_date = pd.to_datetime('2021-08-01')
     ds = ds.sel(time=slice(start_date, end_date))
     lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
-    lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
-    lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
-    ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
+lon_min, lon_max = 124.2, 131
+
+# isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
+ds = ds.sel(latitude=slice(lat_min, lat_max), longitude=slice(lon_min, lon_max))
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     arr = ds[variable]

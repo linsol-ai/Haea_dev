@@ -10,7 +10,7 @@ import time
 # 파이프라인 실행
 if __name__ == '__main__':
     start = time.time()
-    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'lat': 25, 'lon': 25, 'time': -1})
+    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'latitude': 25, 'lon': 25, 'time': -1})
 
     print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
     start_date = pd.to_datetime('2021-01-01')

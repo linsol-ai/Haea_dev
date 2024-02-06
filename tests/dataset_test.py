@@ -29,5 +29,5 @@ if __name__ == '__main__':
 
     end = time.time()
     print(f"{end - start:.5f} sec")
-    print(arr.shape)
+    print(arr)
 

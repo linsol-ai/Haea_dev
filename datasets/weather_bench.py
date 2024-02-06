@@ -76,7 +76,7 @@ class WeatherDataset:
         ds, chunks = xbeam.open_zarr(self.url)
         ds = ds.sel(time=slice(start_date, end_date))
         lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
-lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+        lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
         self.ds = ds
 
 

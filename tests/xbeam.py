@@ -61,7 +61,7 @@ def main():
         | xbeam.SplitChunks({'time': 10})
         | beam.MapTuple(rekey_chunk_on_month_hour)
         | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
-    ) 
+        ) 
 
     print(template)
 

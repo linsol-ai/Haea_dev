@@ -56,7 +56,7 @@ def main():
         (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | x
+        | xbeam.Ma
         | xbeam.SplitChunks({'time': 10})
         ) 
 

@@ -52,8 +52,6 @@ def main():
       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
     )
 
-    output_chunks = {'time': 1}
-
     with beam.Pipeline(runner='DirectRunner') as root:
         (
         root

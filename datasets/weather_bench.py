@@ -75,6 +75,7 @@ class WeatherDataset:
         print("데이터셋 불러오는 중...")
         ds, chunks = xbeam.open_zarr(self.url)
         ds = ds.sel(time=slice(start_date, end_date))
+        
         self.ds = ds
 
 

@@ -22,13 +22,7 @@ if __name__ == '__main__':
     arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
 
     # 새 차원을 추가하고 데이터 변수를 결합
-    data_arrays = [arr[var].expand_dims('variable').assign_coords(variable=[var]) for var in variable]
-    combined_ds = xarray.concat(data_arrays, dim='variable')
-    # 결과 확인
-    print(combined_ds)
-    stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
-    stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
-    print(stacked_ds)
+
     arr = stacked_ds.to_numpy()
     print(arr.shape)
 

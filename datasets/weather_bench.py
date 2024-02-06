@@ -81,6 +81,7 @@ class WeatherDataset:
         lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
         ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
         self.ds = ds
+        print(self.ds)
 
 
     def get_key_without_level(self):

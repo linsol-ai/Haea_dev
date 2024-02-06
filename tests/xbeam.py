@@ -66,6 +66,7 @@ def main(argv):
         
     template = (
         xbeam.make_template(source_dataset)
+        .sel(time=slice(start_date, end_date))
         .isel(time=0, drop=True)
         .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
     )

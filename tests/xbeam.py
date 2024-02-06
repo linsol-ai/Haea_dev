@@ -33,7 +33,16 @@ RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset):
-    
+   start_date = pd.to_datetime('2021-01-01')
+    end_date = pd.to_datetime('2021-02-01')
+   
+
+    arr = ds.sel(time=slice(start_date, end_date))
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
+
+    # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
+    arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max)) 
     
 
 

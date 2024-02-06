@@ -62,8 +62,7 @@ def main():
             )
         )
 
-        # 결과 처리 (예: 파일로 저장)
-        # filtered_dataset | "Write Results" >> ...
+        print(filtered_dataset)
 
 
 if __name__ == '__main__':

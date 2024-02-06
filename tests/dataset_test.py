@@ -28,6 +28,6 @@ if __name__ == '__main__':
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
     stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
     print(stacked_ds)
-    arr = stacked_ds.compute()
+    arr = stacked_ds.to_numpy()
     print(arr)
 

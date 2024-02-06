@@ -46,8 +46,7 @@ def main():
             | "Split into chunks" >> xbeam.SplitChunks({'time':10})
         )
 
-       
-
+    
         print(dataset)
 
 

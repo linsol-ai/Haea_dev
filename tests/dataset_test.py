@@ -5,15 +5,6 @@ import apache_beam as beam
 import pandas as pd
 import numpy as np
 
-# Xarray-Beam 파이프라인 정의
-def run_pipeline(dataset:xarray.Dataset):
-
-    pipeline = xbeam.DatasetToChunks(dataset, chunks={'time': 20}, split_vars=False)
-    pipeline |= beam.MapTuple(lambda k, v: print(k, type(v)))
-
-    with beam.Pipeline(runner='DirectRunner') as p:
-        p | pipeline
-
 
 # 파이프라인 실행
 if __name__ == '__main__':

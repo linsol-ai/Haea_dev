@@ -14,6 +14,8 @@ ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-
 start_date = pd.to_datetime('2021-01-01')
 end_date = pd.to_datetime('2021-08-01')
 ds = ds.sel(time=slice(start_date, end_date))
-
+lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
+        lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+        ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
 with beam.Pipeline() as p:
     p | xbeam.DatasetToChunks(ds) | beam.MapTuple(lambda k, v: print(k, type(v)))

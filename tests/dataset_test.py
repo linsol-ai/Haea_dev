@@ -40,6 +40,7 @@ if __name__ == '__main__':
     stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
     print(stacked_ds)
     arr = stacked_ds.compute()
+    
     end = time.time()
     print(f"{end - start:.5f} sec")
 

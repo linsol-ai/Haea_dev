@@ -38,7 +38,7 @@ class HAEADataset(Dataset):
 
 
     def __getitem__(self, item):
-        
+        return self.dataset[item]
     
 
     def pos_to_pos(self, input):

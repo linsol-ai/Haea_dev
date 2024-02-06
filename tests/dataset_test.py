@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-
+    print(arr)
     # 새 차원을 추가하고 데이터 변수를 결합
 
     arr = arr.to_numpy()

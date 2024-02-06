@@ -97,7 +97,7 @@ class WeatherDataset:
         arr = self.ds[key]
         arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
-        
+
 
         data = data.to_numpy()
         data = torch.from_numpy(data)
@@ -273,6 +273,8 @@ if __name__ == '__main__':
 
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
+
+    
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)

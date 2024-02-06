@@ -1,6 +1,5 @@
 import xarray_beam as xbeam
 import xarray
-import apache_beam as beam
 import pandas as pd
 import numpy as np
 import time

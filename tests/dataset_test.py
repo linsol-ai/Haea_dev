@@ -11,7 +11,7 @@ def run_pipeline(dataset:xarray.Dataset):
     pipeline = xbeam.DatasetToChunks(ds, chunks={'time': 20}, split_vars=False)
     pipeline |= beam.MapTuple(lambda k, v: print(k, type(v)))
 
-    with beam.Pipeline() as p:
+    with beam.Pipeline( runner='DirectRunner',) as p:
         p | pipeline
 
 

@@ -39,7 +39,7 @@ def rekey_chunk_on_month_hour(
 
 
 def main():
-    source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
+    source_dataset, source_chunks = xbeam.open_zarr('')
         
    
 

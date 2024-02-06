@@ -59,7 +59,7 @@ def main():
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.SplitChunks({'time': 10})
-        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+        | xbeam.ChunksToZarr('example-data-v3.zarr', template, output_chunks)
         ) 
 
     print(template)

@@ -58,12 +58,7 @@ def main(argv):
     arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
 
         
-    template = (
-        xbeam.make_template(source_dataset)
-        .sel(time=slice(start_date, end_date))
-       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-    )
-    output_chunks = {'hour': 1, 'month': 1}
+   
 
     with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
         (

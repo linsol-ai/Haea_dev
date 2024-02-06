@@ -10,7 +10,7 @@ import time
 # 파이프라인 실행
 if __name__ == '__main__':
     start = time.time()
-    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'time': 10, 'latitude': 100, 'longitude': 100, 'level': 1})
+    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'time': 10, 'latitude': 100, 'longitude': 100,})
 
     print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
     start_date = pd.to_datetime('2021-01-01')
@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-    
+
     # 새 차원을 추가하고 데이터 변수를 결합
 
     data_arrays = [arr[var].expand_dims('variable').assign_coords(variable=[var]) for var in variable]

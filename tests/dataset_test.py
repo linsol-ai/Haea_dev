@@ -19,6 +19,6 @@ if __name__ == '__main__':
     ds = ds.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
-    arr = ds[variable]
+    arr = ds['geopotential']
     print(arr)
 

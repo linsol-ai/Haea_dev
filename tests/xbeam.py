@@ -51,6 +51,19 @@ def main(argv):
   # are small (the template argument in ChunksToZarr is optional), but it makes
   # the pipeline slightly more efficient.
   max_month = source_dataset.time.dt.month.max().item()  # normally 12
+
+  start_date = pd.to_datetime('2021-01-01')
+    end_date = pd.to_datetime('2021-02-01')
+   
+
+    arr = ds.sel(time=slice(start_date, end_date))
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
+
+    # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
+    arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+
+    
   template = (
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)

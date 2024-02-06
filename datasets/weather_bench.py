@@ -102,7 +102,7 @@ class WeatherDataset:
             data = normalize_tensor(data)
         return data
     
-    def load_bart(self, variables, levels, wind_batch, device):
+    def load_bart(self, variables, levels,  wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
 
         result = {}
@@ -263,15 +263,16 @@ class WeatherDataset:
 
 if __name__ == '__main__':
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
-        start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-08-01')
-    weather.load_init(start_date, end_date)
+    weather.load_init()
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
+
+    start_date = pd.to_datetime('2021-01-01')
+    end_date = pd.to_datetime('2021-08-01')
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
 
-    output = weather.load_bart(variable, levels, 128, device)
+    output = weather.load_bart(variable, levels, start_date, end_date, 128, device)

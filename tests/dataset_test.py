@@ -25,7 +25,7 @@ if __name__ == '__main__':
     print(arr)
     # 새 차원을 추가하고 데이터 변수를 결합
 
-    arr = arr.co
+    arr = arr.compute()
 
     end = time.time()
     print(f"{end - start:.5f} sec")

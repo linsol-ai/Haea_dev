@@ -104,6 +104,7 @@ class WeatherDataset:
         data = data.to_numpy()
         data = torch.from_numpy(data)
         if normalize:
+            
             data = normalize_tensor(data)
         return data
     

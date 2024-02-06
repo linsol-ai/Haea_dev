@@ -4,6 +4,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 import apache_beam as beam
 import pandas as pd
 import numpy as np
+import time
 
 
 # 파이프라인 실행

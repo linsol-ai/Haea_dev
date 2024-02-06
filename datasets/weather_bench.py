@@ -80,7 +80,7 @@ class WeatherDataset:
         lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
         lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
         ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
-
+        print
         ds = ds.load()
         print(ds)
         self.ds = ds

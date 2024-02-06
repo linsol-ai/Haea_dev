@@ -122,7 +122,7 @@ class WeatherDataset:
         arr = self.ds[key]
         data = arr.to_numpy()
         data = torch.from_numpy(data)
-        data = torch.transpose(dataset, 0, 1)
+        data = torch.transpose(data, 0, 1)
         data = remove_nan(data.flatten(1))
         print(data.shape)
         return data

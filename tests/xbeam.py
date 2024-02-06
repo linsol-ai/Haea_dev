@@ -31,7 +31,7 @@ def main():
 
     # 데이터셋을 분할하기 위한 키 설정
     temporal_key = xbeam.Key({'time':10})
-    spatial_keys = [xbeam.Key({'latitude':1}), xbeam.Key('longitude')]
+    spatial_keys = [xbeam.Key({'latitude': 1}), xbeam.Key('longitude')]
 
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131

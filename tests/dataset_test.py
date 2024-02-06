@@ -13,6 +13,9 @@ pipeline_options = PipelineOptions(
 
 # Xarray-Beam 파이프라인 정의
 def run_pipeline():
+    with beam.Pipeline() as p:
+    p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.MapTuple(lambda k, v: print(k, type(v)))
+    
     with beam.Pipeline(options=pipeline_options) as p:
         _ = (
             p

@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # 새 차원을 추가하고 데이터 변수를 결합
 
     arr = arr['geopotential']
-    numpy_array = arr.compute().values
+    numpy_array = arr.ton
 
     end = time.time()
     print(f"{end - start:.5f} sec")

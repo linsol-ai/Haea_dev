@@ -23,6 +23,6 @@ if __name__ == '__main__':
 
     # 새 차원을 추가하고 데이터 변수를 결합
 
-    arr = stacked_ds.to_numpy()
+    arr = arr.to_numpy()
     print(arr.shape)
 

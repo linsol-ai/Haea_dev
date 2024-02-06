@@ -85,6 +85,7 @@ class WeatherDataset:
 
     def load_data_unet(self, key, level, normalize=True):
         arr = self.ds[key]
+
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)
@@ -93,8 +94,9 @@ class WeatherDataset:
         return data
 
 
-    def load_level_val(self, key, level, normalize):
+    def load_level_val(self, key, level, start_date, end_date, normalize):
         arr = self.ds[key]
+        arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)
@@ -102,7 +104,7 @@ class WeatherDataset:
             data = normalize_tensor(data)
         return data
     
-    def load_bart(self, variables, levels,  wind_batch, device):
+    def load_bart(self, variables, levels, start_date, end_date, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
 
         result = {}
@@ -112,7 +114,7 @@ class WeatherDataset:
             for val in variables:
                 result[val] = {}
                 for level in levels:
-                    key = executor.submit(self.load_level_val, val, level, val not in wind_keys)
+                    key = executor.submit(self.load_level_val, val, level, start_date, end_date, val not in wind_keys)
                     futures[key] = (val, level)
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

@@ -33,9 +33,6 @@ if __name__ == '__main__':
     print(combined_ds)
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
     stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
-    print(stacked_ds)
-    arr = stacked_ds.compute()
-
     arr = arr.to_numpy()
 
     end = time.time()

@@ -13,7 +13,7 @@ class HAEADataset(Dataset):
     special_tokens = [0, 1, 2, 3, 4]
 
 
-    def __init__(self, dataset, var_list, dataset_size, seq_len=20):
+    def __init__(self, dataset, var_len, dataset_size, seq_len=20):
         self.dataset = dataset
         self.var_list = var_list
         self.seq_len = seq_len
@@ -25,7 +25,7 @@ class HAEADataset(Dataset):
 
 
     def make_dataset(self):
-        
+
 
     def __getitem__(self, item):
         t1, t2, is_next_label = self.random_sent(item)

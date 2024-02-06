@@ -51,6 +51,7 @@ def main():
       .sel(time=slice(start_date, end_date))
       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
     )
+    
     with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
     (
         root

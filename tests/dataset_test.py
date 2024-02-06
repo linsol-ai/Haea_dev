@@ -16,17 +16,8 @@ pipeline_options = PipelineOptions(
 # Xarray-Beam 파이프라인 정의
 def run_pipeline(dataset:xarray.Dataset):
     with beam.Pipeline(runner=runner, argv=argv) as root:
-    for eval_name, eval_config in eval_configs.items():
-      logging.info(f'Logging Eval config: {eval_config}')
-      _ = (
-          root
-          | f'evaluate_{eval_name}'
-          >> _EvaluateAllMetrics(
-              eval_name, eval_config, data_config, input_chunks, fanout=fanout
-          )
-          | f'save_{eval_name}'
-          >> _SaveOutputs(eval_name, data_config, eval_config.output_format)
-      )
+        with beam.Pipeline() as p:
+    p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.MapTuple(lambda k, v: print(k, type(v)))
 
 
 # 파이프라인 실행

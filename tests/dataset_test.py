@@ -12,7 +12,7 @@ if __name__ == '__main__':
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
-    arr = ds['temperature']
+    arr = ds['geopotential']
 
     arr = arr.sel(time=slice(start_date, end_date))
     lat_min, lat_max = 32.2, 39.0

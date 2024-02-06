@@ -40,7 +40,11 @@ def rekey_chunk_on_month_hour(
 
 def main():
     source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
-    template = xbeam.make_template(source_dataset)    
+    template = (
+      xbeam.make_template(source_dataset)
+      .isel(time=0, drop=True)
+      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
+  ) 
 
     print(template)
 

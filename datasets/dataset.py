@@ -24,6 +24,9 @@ class HAEADataset(Dataset):
         return len(self.dataset)
 
 
+    def 
+
+
     def __getitem__(self, item):
         t1, t2, is_next_label = self.random_sent(item)
         t1_random, t1_label = self.random_variable_seq(t1)

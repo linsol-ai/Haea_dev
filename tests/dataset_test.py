@@ -29,9 +29,9 @@ if __name__ == '__main__':
     end_date = pd.to_datetime('2021-08-01')
     ds = ds.sel(time=slice(start_date, end_date))
     lat_min, lat_max = lat
-        lon_min, lon_max = lon
-        lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
-        lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
-        ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
+    lon_min, lon_max = lon
+    lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
+    lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+     ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
 
     run_pipeline()

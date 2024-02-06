@@ -93,7 +93,7 @@ class WeatherDataset:
         return data
 
 
-    def load_level_val(self, key, level,  normalize):
+    def load_level_val(self, key, level, normalize):
         arr = self.ds[key]
         data = arr.sel(level=level)
         data = data.to_numpy()

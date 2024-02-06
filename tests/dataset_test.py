@@ -3,6 +3,7 @@ import xarray
 from apache_beam.options.pipeline_options import PipelineOptions
 import apache_beam as beam
 import pandas as pd
+import numpy as np
 
 # Apache Beam 파이프라인 옵션 설정
 pipeline_options = PipelineOptions(

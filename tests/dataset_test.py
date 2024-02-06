@@ -17,7 +17,7 @@ pipeline_options = PipelineOptions(
 def run_pipeline(dataset:xarray.Dataset):
     with beam.Pipeline(runner=runner, argv=argv) as root:
         with beam.Pipeline() as p:
-    p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.MapTuple(lambda k, v: print(k, type(v)))
+            p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.MapTuple(lambda k, v: print(k, type(v)))
 
 
 # 파이프라인 실행

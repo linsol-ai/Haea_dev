@@ -28,3 +28,4 @@ if __name__ == '__main__':
     ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
     
     ds = xbeam.DatasetToChunks(ds, chunks={'time': 20}, split_vars=False)
+    

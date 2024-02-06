@@ -36,7 +36,7 @@ if __name__ == '__main__':
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
     stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
     print(stacked_ds)
-    arr = stacked_ds.compute()
+    numpy_array = result.compute().values
 
     end = time.time()
     print(f"{end - start:.5f} sec")

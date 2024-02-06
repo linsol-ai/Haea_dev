@@ -55,7 +55,7 @@ def main():
     with beam.Pipeline(runner='DirectRunner') as root:
         (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks).sel
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.
         | xbeam.SplitChunks({'time': 10})
         ) 

@@ -53,7 +53,7 @@ def main(argv):
     max_month = source_dataset.time.dt.month.max().item()  # normally 12
 
     start_date = pd.to_datetime('2021-01-01')
-        end_date = pd.to_datetime('2021-02-01')
+    end_date = pd.to_datetime('2021-02-01')
     
 
         arr = ds.sel(time=slice(start_date, end_date))

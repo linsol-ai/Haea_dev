@@ -52,6 +52,8 @@ def main():
       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
     )
 
+    output_chunks = {'hour': 1, 'month': 1}
+
     with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
     (
         root

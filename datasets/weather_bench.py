@@ -268,7 +268,7 @@ class WeatherDataset:
 
 
 if __name__ == '__main__':
-    weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
+    weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
     lat_min, lat_max = 32.2, 39.0

@@ -16,7 +16,7 @@ def run_pipeline():
     with beam.Pipeline(options=pipeline_options) as p:
         _ = (
             p
-            | 'Read NetCDF' >> xbeam.open_zarr('path/to/your/data.nc')  # NetCDF 파일 읽기
+            | 'Read NetCDF' >> xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')  # NetCDF 파일 읽기
             | 'Dataset to chunks' >> xbeam.DatasetToChunks()  # 데이터셋을 청크로 분할
             | 'Calculate mean' >> beam.Map(lambda chunk: chunk.mean(dim='time'))  # 시간에 따른 평균 계산
             | 'Chunks to dataset' >> xbeam.ChunksToDataset()  # 결과 청크를 데이터셋으로 병합

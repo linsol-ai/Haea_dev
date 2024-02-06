@@ -10,7 +10,7 @@ import time
 # 파이프라인 실행
 if __name__ == '__main__':
     start = time.time()
-    ds = xarray.open('your_dataset.nc', chunks={'time': 10, 'latitude': 100, 'longitude': 100, 'level': 1})
+    ds = xarray.open_zarr('your_dataset.nc', chunks={'time': 10, 'latitude': 100, 'longitude': 100, 'level': 1})
 
     print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
     start_date = pd.to_datetime('2021-01-01')

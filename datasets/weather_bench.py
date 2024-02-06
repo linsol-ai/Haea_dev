@@ -276,6 +276,7 @@ if __name__ == '__main__':
 
     lat_min, lat_max = 24.5, 44.0
     lon_min, lon_max = 120, 139.5
+     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
     weather.load_init(start_date, end_date, (lat_min, lat_max), (lon_min, lon_max),)

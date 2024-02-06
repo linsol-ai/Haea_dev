@@ -10,7 +10,7 @@ import time
 import torch
 import apache_beam as beam
 
-ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'time': 100})
+ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
 start_date = pd.to_datetime('2021-01-01')
 end_date = pd.to_datetime('2021-12-01')
 lat_min, lat_max = 24.5, 44.0

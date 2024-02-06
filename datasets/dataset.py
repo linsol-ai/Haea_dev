@@ -26,9 +26,9 @@ class HAEADataset(Dataset):
 
     def make_dataset(self):
         dataset = []
-        for t in range(len(self.dataset)):
+        for t in range(se):
             src = [(t, v) for v in range(self.var_len)]
-            
+
 
 
     def __getitem__(self, item):

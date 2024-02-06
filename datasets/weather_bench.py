@@ -147,9 +147,9 @@ class WeatherDataset:
         with ThreadPoolExecutor() as executor:
             futures = {}
             u_wind = result[wind_keys[0]]
-                v_wind = result[wind_keys[1]][level]
-                key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, device, False, True)
-                futures[key] = level
+            v_wind = result[wind_keys[1]]
+            key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, device, False, True)
+            futures[key] = level
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 level = futures[future]

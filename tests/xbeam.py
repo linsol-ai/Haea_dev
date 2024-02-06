@@ -30,7 +30,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 def main():
 
     # 데이터셋을 분할하기 위한 키 설정
-    temporal_key = xbeam.Key({'time':})
+    temporal_key = xbeam.Key({'time':10})
     spatial_keys = [xbeam.Key('latitude'), xbeam.Key('longitude')]
 
     lat_min, lat_max = 32.2, 39.0

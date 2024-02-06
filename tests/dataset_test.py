@@ -14,6 +14,7 @@ pipeline_options = PipelineOptions(
 # Xarray-Beam 파이프라인 정의
 def run_pipeline():
     ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
+    
     with beam.Pipeline() as p:
         p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.Map(lambda chunk: chunk.mean(dim='time'))
 

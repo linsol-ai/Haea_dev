@@ -12,7 +12,7 @@ def run_pipeline(dataset:xarray.Dataset):
     pipeline |= beam.MapTuple(lambda k, v: print(k, type(v)))
 
     with beam.Pipeline() as p:
-        p | p
+        p | pipeline
 
 
 # 파이프라인 실행

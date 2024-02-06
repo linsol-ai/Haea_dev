@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     arr = arr.to_numpy()
 
-     end = time.time()
-        print(f"{end - start:.5f} sec")
+    end = time.time()
+    print(f"{end - start:.5f} sec")
     print(arr.shape)
 

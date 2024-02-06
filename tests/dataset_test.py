@@ -8,8 +8,8 @@ import numpy as np
 # Xarray-Beam 파이프라인 정의
 def run_pipeline(dataset:xarray.Dataset):
 
-
     
+
      with beam.Pipeline() as p:
         p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}, split_vars=False) | beam.MapTuple(lambda k, v: print(k, type(v)))
 

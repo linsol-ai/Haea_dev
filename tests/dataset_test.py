@@ -41,5 +41,5 @@ if __name__ == '__main__':
     print(stacked_ds)
     arr = stacked_ds.compute()
 
-          print(f"{end - start:.5f} sec")
+    print(f"{end - start:.5f} sec")
 

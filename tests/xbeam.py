@@ -43,7 +43,7 @@ def main():
         
    
 
-    with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+    with beam.Pipeline(runner=RUNNER.value) as root:
         (
             root
             | xbeam.DatasetToChunks(source_dataset, source_chunks)

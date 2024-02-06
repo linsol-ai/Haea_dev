@@ -43,7 +43,7 @@ def main():
         dataset = (
             p 
             | "Read Dataset" >> beam.Create([xr.open_dataset('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')])
-            | "Split into chunks" >> xbeam.SplitChunks(spatial_keys + [temporal_key])
+            | "Split into chunks" >> xbeam.SplitChunks({'time':10})
         )
 
         # 필터링 작업 정의

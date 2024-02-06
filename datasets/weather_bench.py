@@ -271,6 +271,8 @@ if __name__ == '__main__':
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
+    lat_min, lat_max = 32.2, 39.0
+lon_min, lon_max = 124.2, 131
 
     weather.load_init(start_date, end_date, )
 

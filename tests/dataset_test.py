@@ -15,7 +15,7 @@ pipeline_options = PipelineOptions(
 def run_pipeline():
     ds = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
     with beam.Pipeline() as p:
-        p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.Map(lambda chunk: chunk.mean(dim='time')))
+        p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.Map(lambda chunk: chunk.mean(dim='time'))
 
     with beam.Pipeline(options=pipeline_options) as p:
         _ = (

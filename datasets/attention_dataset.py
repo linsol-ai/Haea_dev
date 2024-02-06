@@ -1,3 +1,5 @@
+
+
 class BERTDataset(Dataset):
     pad_index = 0
     unk_index = 1

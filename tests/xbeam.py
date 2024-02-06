@@ -47,10 +47,6 @@ def rekey_chunk_on_month_hour(
 
 
 def main():
-    import xarray_beam as xbeam
-import xarray as xr
-import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
 
 # 데이터셋을 분할하기 위한 키 설정
 temporal_key = xbeam.Key('time')

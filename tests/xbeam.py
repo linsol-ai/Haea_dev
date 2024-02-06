@@ -55,7 +55,6 @@ def main(argv):
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
     
-
     arr = ds.sel(time=slice(start_date, end_date))
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131

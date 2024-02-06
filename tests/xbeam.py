@@ -47,9 +47,6 @@ def main():
     arr = ds.sel(time=slice(start_date, end_date))
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131
-
-    # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
-    arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
     template = (
       xbeam.make_template(source_dataset)
       .sel(time=slice(start_date, end_date))

@@ -1,4 +1,3 @@
-import xarray_beam as xbeam
 import xarray
 import pandas as pd
 import numpy as np

@@ -5,14 +5,6 @@ import apache_beam as beam
 import pandas as pd
 import numpy as np
 
-# Apache Beam 파이프라인 옵션 설정
-pipeline_options = PipelineOptions(
-    runner='DirectRunner',  # 로컬에서 실행하는 경우 'DirectRunner' 사용
-    project='YOUR_PROJECT_ID',  # GCP 프로젝트 ID 설정
-    region='YOUR_REGION',  # GCP 리전 설정
-    temp_location='gs://YOUR_BUCKET/temp',  # 임시 파일 저장 위치 설정
-)
-
 # Xarray-Beam 파이프라인 정의
 def run_pipeline(dataset:xarray.Dataset):
      with beam.Pipeline() as p:

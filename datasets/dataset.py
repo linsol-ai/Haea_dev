@@ -16,8 +16,7 @@ class HAEADataset(Dataset):
     def __init__(self, dataset, var_len, time_len, dataset_size):
         self.dataset = dataset
         self.var_len = var_len
-
-        self.seq_len = seq_len
+        self.time_len = time_len
         self.dataset_size = dataset_size
 
 

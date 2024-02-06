@@ -44,42 +44,42 @@ def rekey_chunk_on_month_hour(
 
 
 def main(argv):
-  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
+    source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
 
-  # This lazy "template" allows us to setup the Zarr outputs before running the
-  # pipeline. We don't really need to supply a template here because the outputs
-  # are small (the template argument in ChunksToZarr is optional), but it makes
-  # the pipeline slightly more efficient.
-  max_month = source_dataset.time.dt.month.max().item()  # normally 12
+    # This lazy "template" allows us to setup the Zarr outputs before running the
+    # pipeline. We don't really need to supply a template here because the outputs
+    # are small (the template argument in ChunksToZarr is optional), but it makes
+    # the pipeline slightly more efficient.
+    max_month = source_dataset.time.dt.month.max().item()  # normally 12
 
-  start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-02-01')
-   
-
-    arr = ds.sel(time=slice(start_date, end_date))
-    lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
-
-    # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
-    arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-
+    start_date = pd.to_datetime('2021-01-01')
+        end_date = pd.to_datetime('2021-02-01')
     
-  template = (
-      xbeam.make_template(source_dataset)
-      .isel(time=0, drop=True)
-      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
-  )
-  output_chunks = {'hour': 1, 'month': 1}
 
-  with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
-    (
-        root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | xbeam.SplitChunks({'time': 1})
-        | beam.MapTuple(rekey_chunk_on_month_hour)
-        | xbeam.Mean.PerKey()
-        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+        arr = ds.sel(time=slice(start_date, end_date))
+        lat_min, lat_max = 32.2, 39.0
+        lon_min, lon_max = 124.2, 131
+
+        # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
+        arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+
+        
+    template = (
+        xbeam.make_template(source_dataset)
+        .isel(time=0, drop=True)
+        .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
     )
+    output_chunks = {'hour': 1, 'month': 1}
+
+    with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+        (
+            root
+            | xbeam.DatasetToChunks(source_dataset, source_chunks)
+            | xbeam.SplitChunks({'time': 1})
+            | beam.MapTuple(rekey_chunk_on_month_hour)
+            | xbeam.Mean.PerKey()
+            | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+        )
 
 
 if __name__ == '__main__':

@@ -35,6 +35,7 @@ def main():
 
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131
+    source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
 
     # Apache Beam 파이프라인 설정
     pipeline_options = PipelineOptions()

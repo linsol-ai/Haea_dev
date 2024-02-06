@@ -99,7 +99,7 @@ class WeatherDataset:
         data = arr.sel(level=level)
 
         lat_indices = np.where((data.latitude >= lat_min) & (data.latitude <= lat_max))[0]
-        lon_indices = np.where((data.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+        lon_indices = np.where((data.longitude >= lon_min) & (data.longitude <= lon_max))[0]
 
         data = data.to_numpy()
         data = torch.from_numpy(data)

@@ -71,7 +71,7 @@ class WeatherDataset:
         self.url = url
     
 
-    def load_init(self):
+    def load_init(self, start):
         print("데이터셋 불러오는 중...")
         ds, chunks = xbeam.open_zarr(self.url)
         self.ds = ds

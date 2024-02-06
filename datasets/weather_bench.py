@@ -3,7 +3,6 @@ from tqdm import tqdm
 
 import numpy as np
 import xarray_beam as xbeam
-import xarray
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
@@ -72,17 +71,9 @@ class WeatherDataset:
         self.url = url
     
 
-    def load_init(self, start_date, end_date, lat, lon, vars):
+    def load_init(self):
         print("데이터셋 불러오는 중...")
-        ds = xarray.open_zarr(self.url, chunks={'time': 18})
-        ds = ds[vars]
-        ds = ds.sel(time=slice(start_date, end_date))
-        lat_min, lat_max = lat
-        lon_min, lon_max = lon
-        lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
-        lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
-        ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
-        print(ds)
+        ds, chunks = xbeam.open_zarr(self.url)
         self.ds = ds
 
 
@@ -91,8 +82,10 @@ class WeatherDataset:
         return variables_without_level
 
 
-    def load_data_unet(self, key, level, normalize=True):
+    def load_data_unet(self, key, level, start_date, end_date, normalize=True):
         arr = self.ds[key]
+
+        arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)
@@ -101,8 +94,9 @@ class WeatherDataset:
         return data
 
 
-    def load_level_val(self, key, level, normalize):
+    def load_level_val(self, key, level, start_date, end_date, normalize):
         arr = self.ds[key]
+        arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)
@@ -110,18 +104,17 @@ class WeatherDataset:
             data = normalize_tensor(data)
         return data
     
-    def load_bart(self, variables, levels, wind_batch, device):
+    def load_bart(self, variables, levels, start_date, end_date, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
 
         result = {}
         start = time.time()
-
         with ThreadPoolExecutor() as executor:
             futures = {}
             for val in variables:
                 result[val] = {}
                 for level in levels:
-                    key = executor.submit(self.load_level_val, val, level, val not in wind_keys)
+                    key = executor.submit(self.load_level_val, val, level, start_date, end_date, val not in wind_keys)
                     futures[key] = (val, level)
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):
@@ -271,21 +264,17 @@ class WeatherDataset:
 
 
 if __name__ == '__main__':
-    start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-08-01')
+    weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
+    weather.load_init()
 
-    lat_min, lat_max = 24.5, 44.0
-    lon_min, lon_max = 120, 139.5
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
+    levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
 
-    weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
-    weather.load_init(start_date, end_date, (lat_min, lat_max), (lon_min, lon_max), variable)
-
-
-    levels = [50,  100,  150,  200,  250,  300,  400,  500,  600,  700,  850,  925, 1000]
+    start_date = pd.to_datetime('2021-01-01')
+    end_date = pd.to_datetime('2021-02-01')
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
 
-    output = weather.load_bart(variable, levels, 128, device)
+    output = weather.load_bart(variable, levels, start_date, end_date, 128, device)

@@ -87,7 +87,7 @@ class WeatherDataset:
 
     def load_init(self, start_date, end_date, lat, lon):
         print("데이터셋 불러오는 중...")
-        ds = xarray.open_zarr(self.url, chunks="auto")
+        ds = xarray.open_zarr(self.url, chunks=None)
 
         ds = ds.sel(time=slice(start_date, end_date))
 

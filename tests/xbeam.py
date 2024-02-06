@@ -21,7 +21,10 @@ import numpy as np
 import xarray
 import xarray_beam as xbeam
 import pandas as pd
-
+    import xarray_beam as xbeam
+import xarray as xr
+import apache_beam as beam
+from apache_beam.options.pipeline_options import PipelineOptions
 
 INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
 OUTPUT_PATH = flags.DEFINE_string('example-data-v3.zarr', None, help='Output Zarr path')

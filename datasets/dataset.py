@@ -26,7 +26,7 @@ class HAEADataset(Dataset):
     def make_dataset(self):
         dataset = []
         for _ in range(len(self.dataset)):
-
+            src = []
 
     def __getitem__(self, item):
         t1, t2, is_next_label = self.random_sent(item)

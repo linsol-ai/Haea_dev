@@ -27,4 +27,4 @@ if __name__ == '__main__':
     lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
     ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
     
-    xbeam.DatasetToChunks(ds, chunks={'time': 20}, split_vars=False)
+    ds = xbeam.DatasetToChunks(ds, chunks={'time': 20}, split_vars=False)

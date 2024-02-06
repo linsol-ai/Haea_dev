@@ -85,8 +85,6 @@ class WeatherDataset:
 
     def load_data_unet(self, key, level, normalize=True):
         arr = self.ds[key]
-
-
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)

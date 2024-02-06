@@ -10,7 +10,7 @@ import time
 # 파이프라인 실행
 if __name__ == '__main__':
     start = time.time()
-    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'time':10, 'latitude': 5, 'longitude': 5})
+    ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', chunks={'time': 10, 'latitude': 5, 'longitude': 5})
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-12-01')
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

@@ -98,7 +98,7 @@ class WeatherDataset:
         arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
 
-        lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
+        lat_indices = np.where((self.ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
         lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
 
         data = data.to_numpy()

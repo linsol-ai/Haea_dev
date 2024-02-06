@@ -27,7 +27,7 @@ if __name__ == '__main__':
     print(arr)
     # 새 차원을 추가하고 데이터 변수를 결합
 
-        data_arrays = [arr[var].expand_dims('variable').assign_coords(variable=[var]) for var in variable]
+    data_arrays = [arr[var].expand_dims('variable').assign_coords(variable=[var]) for var in variable]
     combined_ds = xarray.concat(data_arrays, dim='variable')
     # 결과 확인
     print(combined_ds)

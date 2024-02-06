@@ -94,7 +94,7 @@ class WeatherDataset:
         return data
 
 
-    def load_level_val(self, key, level, start_date, end_date, normalize):
+    def load_level_val(self, key, level, start_date, end_date, lat, lon, normalize):
         lat_max, lat_min = lat
         lon_min, lon_max = lon
         arr = self.ds[key]

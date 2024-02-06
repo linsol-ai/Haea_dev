@@ -126,7 +126,7 @@ class WeatherDataset:
         print(data.shape)
         return data
     
-    
+
     def load_bart(self, variables, levels, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
         result = {}
@@ -146,8 +146,7 @@ class WeatherDataset:
         wind_result = {}
         with ThreadPoolExecutor() as executor:
             futures = {}
-            for level in levels:
-                u_wind = result[wind_keys[0]][level]
+             u_wind = result[wind_keys[0]][level]
                 v_wind = result[wind_keys[1]][level]
                 key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, device, False, True)
                 futures[key] = level

@@ -34,7 +34,7 @@ class HAEADataset(Dataset):
                     [(t_n, v) for v in range(self.var_len)]
                 )
             dataset.append((src, tgt))
-        return torch.dataset
+        return torch.tensor(dataset
 
 
     def __getitem__(self, item):

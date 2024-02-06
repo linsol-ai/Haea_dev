@@ -71,17 +71,11 @@ class WeatherDataset:
         self.url = url
     
 
-    def load_init(self, start_date, end_date, lat, lon):
+    def load_init(self, start_date, end_date):
         print("데이터셋 불러오는 중...")
-        lat_min, lat_max = lat
-        lon_min, lon_max = lon
         ds, chunks = xbeam.open_zarr(self.url)
         ds = ds.sel(time=slice(start_date, end_date))
-        lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
-        lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
-        ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
         self.ds = ds
-        print(self.ds)
 
 
     def get_key_without_level(self):
@@ -269,12 +263,9 @@ class WeatherDataset:
 
 if __name__ == '__main__':
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
-    start_date = pd.to_datetime('2021-01-01')
+        start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
-    lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
-
-    weather.load_init(start_date, end_date, (lat_min, lat_max), )
+    weather.load_init(start_date, end_date)
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]

@@ -95,7 +95,6 @@ class WeatherDataset:
 
     def load_level_val(self, key, level,  normalize):
         arr = self.ds[key]
-        arr = arr.sel(time=slice(start_date, end_date))
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = torch.from_numpy(data)

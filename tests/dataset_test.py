@@ -22,5 +22,5 @@ lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
 ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
 
 with beam.Pipeline() as p:
-    p | xbeam.DatasetToChunks(ds, chunks) | beam.MapTuple(lambda k, v: print(k, type(v)))
+    p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}) | beam.MapTuple(lambda k, v: print(k, type(v)))
 

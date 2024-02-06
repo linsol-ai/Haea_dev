@@ -272,7 +272,7 @@ if __name__ == '__main__':
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-08-01')
 
-    weather.load_init(start_date, end_date)
+    weather.load_init(start_date, end_date, )
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]

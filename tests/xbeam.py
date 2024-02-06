@@ -26,9 +26,7 @@ import xarray as xr
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
-INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
-OUTPUT_PATH = flags.DEFINE_string('example-data-v3.zarr', None, help='Output Zarr path')
-RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
+
 
 
 # pylint: disable=expression-not-assigned

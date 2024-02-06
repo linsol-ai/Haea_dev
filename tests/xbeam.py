@@ -33,7 +33,7 @@ RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset):
-   start_date = pd.to_datetime('2021-01-01')
+    start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
    
 

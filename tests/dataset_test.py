@@ -1,6 +1,5 @@
 import xarray_beam as xbeam
 import xarray
-from apache_beam.options.pipeline_options import PipelineOptions
 import apache_beam as beam
 import pandas as pd
 import numpy as np
@@ -40,7 +39,7 @@ if __name__ == '__main__':
     stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
     print(stacked_ds)
     arr = stacked_ds.compute()
-    
+
     end = time.time()
     print(f"{end - start:.5f} sec")
 

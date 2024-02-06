@@ -8,3 +8,4 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import torch
 
+ds, chunks = xbeam.open_zarr(self.url)

@@ -272,6 +272,8 @@ if __name__ == '__main__':
 
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)

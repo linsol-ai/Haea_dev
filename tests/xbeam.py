@@ -42,7 +42,7 @@ def main():
         # 데이터셋을 Beam PCollection으로 로드
         dataset = (
             p 
-            | "Read Dataset" >> beam.Create([xr.open_dataset('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')])
+            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, source_chunks)
             | "Split into chunks" >> xbeam.SplitChunks({'time':10})
         )
 

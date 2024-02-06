@@ -9,7 +9,7 @@ class BERTDataset(Dataset):
     unk_index = 1
     eos_index = 2
     sos_index = 3
-    mask_index = 4
+
     special_tokens = [0, 1, 2, 3, 4]
 
 

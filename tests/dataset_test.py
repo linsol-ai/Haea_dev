@@ -10,7 +10,7 @@ def run_pipeline(dataset:xarray.Dataset):
 
     pipeline 
 
-     with beam.Pipeline() as p:
+    with beam.Pipeline() as p:
         p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}, split_vars=False) | beam.MapTuple(lambda k, v: print(k, type(v)))
 
 

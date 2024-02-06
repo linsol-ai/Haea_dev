@@ -28,7 +28,8 @@ class HAEADataset(Dataset):
         dataset = []
         for t in range(len(self.dataset)):
             src = [(t, v) for v in range(self.var_len)]
-            
+    
+
 
     def __getitem__(self, item):
         t1, t2, is_next_label = self.random_sent(item)

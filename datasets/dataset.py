@@ -38,48 +38,7 @@ class HAEADataset(Dataset):
 
 
     def __getitem__(self, item):
-        t1, t2, is_next_label = self.random_sent(item)
-        t1_random, t1_label = self.random_variable_seq(t1)
-        t2_random, t2_label = self.random_variable_seq(t2)
-
-        # [CLS] tag = SOS tag, [SEP] tag = EOS tag
-        t1 = [ [self.sos_index, t1[0][1], t1[0][2]] ] + t1_random + [ [self.eos_index, t1[0][1], t1[0][2]] ]
-        t2 = t2_random + [ [self.eos_index, t2[0][1], t2[0][2]] ]
-
-        t1_label = [ [self.pad_index, t1[0][1], t1[0][2]] ] + t1_label + [ [self.pad_index, t1[0][1], t1[0][2]] ]
-        t2_label = t2_label + [ [self.pad_index, t2[0][1], t2[0][2]] ]
-
-
-        segment_label = ([1 for _ in range(len(t1))] + [2 for _ in range(len(t2))])[:self.seq_len]
-
-        bert_input = (t1 + t2)[:self.seq_len]
-        bert_label = (t1_label + t2_label)[:self.seq_len]
-
-        padding1 = [ [self.pad_index, 0, 0] for _ in range(self.seq_len - len(bert_input))]
-        padding2 = [ self.pad_index for _ in range(self.seq_len - len(bert_input))]
-
-        predict = []
-
-        for i, token in enumerate(bert_label):
-            key = token[0]
-            if key != self.pad_index:
-                predict.append(i)
         
-        predict.extend([0 for _ in range(self.seq_len - len(predict))])
-        bert_input.extend(padding1), bert_label.extend(padding1), segment_label.extend(padding2)
-
-        bert_input, _, val_seq = self.pos_to_pos(bert_input)
-        bert_label, time_seq, _ = self.pos_to_pos(bert_label)
-
-        output = {"bert_input": bert_input,
-                  "bert_label": bert_label,
-                  "predict": predict,
-                  "time_seq": time_seq,
-                  "val_seq": val_seq,
-                  "segment_label": segment_label,
-                  "is_next": is_next_label}
-
-        return {key: torch.tensor(value) for key, value in output.items()}
     
 
     def pos_to_pos(self, input):

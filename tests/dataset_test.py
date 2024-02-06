@@ -14,14 +14,13 @@ pipeline_options = PipelineOptions(
 # Xarray-Beam 파이프라인 정의
 def run_pipeline():
     with beam.Pipeline(options=pipeline_options) as p:
-        (
+        
             p
             | xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')  # NetCDF 파일 읽기
             | xbeam.DatasetToChunks()  # 데이터셋을 청크로 분할
             | beam.Map(lambda chunk: chunk.mean(dim='time'))  # 시간에 따른 평균 계산
             | xbeam.ChunksToDataset()  # 결과 청크를 데이터셋으로 병합
-        )
-
+        
 # 파이프라인 실행
 if __name__ == '__main__':
     run_pipeline()

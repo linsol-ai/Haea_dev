@@ -95,6 +95,7 @@ class WeatherDataset:
 
 
     def load_level_val(self, key, level, start_date, end_date, normalize):
+        lat_max, lat_min = lat
         
         arr = self.ds[key]
         arr = arr.sel(time=slice(start_date, end_date))

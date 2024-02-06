@@ -39,7 +39,7 @@ def rekey_chunk_on_month_hour(
 
 
 def main():
-    source_dataset, source_chunks = xbeam.open_zarr('')
+    source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
         
    
 

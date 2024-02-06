@@ -101,7 +101,7 @@ class WeatherDataset:
         lat_indices = np.where((data.latitude >= lat_min) & (data.latitude <= lat_max))[0]
         lon_indices = np.where((data.longitude >= lon_min) & (data.longitude <= lon_max))[0]
 
-        
+        ds_kor = arr.isel(latitude=lat_indices, longitude=lon_indices)
 
         data = data.to_numpy()
         data = torch.from_numpy(data)

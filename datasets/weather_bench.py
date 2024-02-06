@@ -279,4 +279,4 @@ if __name__ == '__main__':
     device = torch.device(device)
 
 
-    output = weather.load_bart(variable, levels, start_date, end_date, (lat_min, la), (), 128, device)
+    output = weather.load_bart(variable, levels, start_date, end_date, (lat_min, lat_max), (), 128, device)

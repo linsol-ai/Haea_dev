@@ -20,5 +20,5 @@ if __name__ == '__main__':
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     arr = ds['geopotential']
-    print(arr)
+    print(arr.to)
 

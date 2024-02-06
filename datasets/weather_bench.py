@@ -271,7 +271,7 @@ if __name__ == '__main__':
     levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
 
     start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-02-01')
+    end_date = pd.to_datetime('2021-08-01')
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)

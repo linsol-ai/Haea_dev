@@ -33,6 +33,9 @@ def main():
     temporal_key = xbeam.Key('time')
     spatial_keys = [xbeam.Key('latitude'), xbeam.Key('longitude')]
 
+      lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
+
     # Apache Beam 파이프라인 설정
     pipeline_options = PipelineOptions()
     with beam.Pipeline(options=pipeline_options) as p:

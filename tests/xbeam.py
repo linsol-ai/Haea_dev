@@ -75,7 +75,7 @@ def main(argv):
         (
             root
             | xbeam.DatasetToChunks(source_dataset, source_chunks)
-            | xbeam.SplitChunks({'time': 1})
+            | xbeam.SplitChunks({'time': 10})
             | beam.MapTuple(rekey_chunk_on_month_hour)
         )
 

@@ -4,7 +4,7 @@ import random
 import numpy as np
 
 
-class BERTDataset(Dataset):
+class HAEADataset(Dataset):
     pad_index = 0
     unk_index = 1
     eos_index = 2

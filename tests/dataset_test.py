@@ -32,6 +32,6 @@ if __name__ == '__main__':
     lon_min, lon_max = 124.2, 131   
     lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
     lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
-     ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
+    ds = ds.isel(latitude=lat_indices, longitude=lon_indices)
 
     run_pipeline()

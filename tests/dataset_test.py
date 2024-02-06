@@ -14,7 +14,7 @@ if __name__ == '__main__':
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
     arr = ds['geopotential']
 
-    ds = ds.sel(time=slice(start_date, end_date))
+    arr = arr.sel(time=slice(start_date, end_date))
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131
 

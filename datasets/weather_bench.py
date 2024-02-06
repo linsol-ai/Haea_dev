@@ -74,6 +74,8 @@ class WeatherDataset:
     def load_init(self):
         print("데이터셋 불러오는 중...")
         ds, chunks = xbeam.open_zarr(self.url)
+        start_date = pd.to_datetime('2021-01-01')
+    end_date = pd.to_datetime('2021-08-01')
         self.ds = ds
 
 

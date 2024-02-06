@@ -14,7 +14,7 @@ pipeline_options = PipelineOptions(
 )
 
 # Xarray-Beam 파이프라인 정의
-def run_pipeline():
+def run_pipeline(dataset):
     with beam.Pipeline(runner=runner, argv=argv) as root:
     for eval_name, eval_config in eval_configs.items():
       logging.info(f'Logging Eval config: {eval_config}')

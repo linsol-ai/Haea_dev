@@ -33,7 +33,6 @@ class HAEADataset(Dataset):
                 tgt.extend(
                     [(t_n, v) for v in range(self.var_len)]
                 )
-                
             dataset.append((src, tgt))
 
 

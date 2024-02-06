@@ -13,7 +13,7 @@ class HAEADataset(Dataset):
     special_tokens = [0, 1, 2, 3, 4]
 
 
-    def __init__(self, dataset: torch.Tensor, var_len: int, time_len: int, dataset_size):
+    def __init__(self, dataset: torch.Tensor, var_len: int, time_len: int):
         self.dataset = dataset
         self.var_len = var_len
         self.time_len = time_len

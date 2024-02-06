@@ -34,6 +34,7 @@ class HAEADataset(Dataset):
                     [(t_n, v) for v in range(self.var_len)]
                 )
             dataset.append((src, tgt))
+        return 
 
 
     def __getitem__(self, item):

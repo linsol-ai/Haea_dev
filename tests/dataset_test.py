@@ -13,7 +13,7 @@ if __name__ == '__main__':
     ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr', consolidated=True, chunks={'latitude': 'auto', 'longitude': 'auto'})
     print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
     start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2022-01-03')
+    end_date = pd.to_datetime('2022-01-01')
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
     arr = ds.sel(time=slice(start_date, end_date))

@@ -45,12 +45,12 @@ def main():
     end_date = pd.to_datetime('2021-02-01')
     lat_min, lat_max = 32.2, 39.0
     lon_min, lon_max = 124.2, 131
-    
+
     template = (
       xbeam.make_template(source_dataset)
       .sel(time=slice(start_date, end_date))
       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-  ) 
+    ) 
 
     print(template)
 

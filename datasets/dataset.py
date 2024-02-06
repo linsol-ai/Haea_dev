@@ -14,7 +14,7 @@ class HAEADataset(Dataset):
 
 
     def __init__(self, dataset: torch.Tensor, time_len: int):
-        # dataset.shape = (time, var_len, h)
+        # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.var_len = dataset.size(1)
         self.time_len = time_len

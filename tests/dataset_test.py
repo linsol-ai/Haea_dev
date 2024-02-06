@@ -2,6 +2,7 @@ import xarray_beam as xbeam
 import xarray
 from apache_beam.options.pipeline_options import PipelineOptions
 import apache_beam as beam
+import pad
 
 # Apache Beam 파이프라인 옵션 설정
 pipeline_options = PipelineOptions(

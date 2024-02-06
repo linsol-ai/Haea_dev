@@ -14,7 +14,7 @@ if __name__ == '__main__':
     ds = ds.chunk({'latitude': 'auto', 'longitude': 100})
     print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
     start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-02-01')
+    end_date = pd.to_datetime('2021-01-01')
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
     arr = ds.sel(time=slice(start_date, end_date))

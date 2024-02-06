@@ -21,8 +21,6 @@ if __name__ == '__main__':
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     ds = ds.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
 
-    variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
-    arr = ds[variable]
     # 새 차원을 추가하고 데이터 변수를 결합
     data_arrays = [arr[var].expand_dims('variable').assign_coords(variable=[var]) for var in variable]
     combined_ds = xarray.concat(data_arrays, dim='variable')

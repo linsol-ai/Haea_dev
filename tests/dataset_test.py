@@ -12,7 +12,7 @@ def run_pipeline(dataset:xarray.Dataset):
     pipeline |= beam.MapTuple(lambda k, v: print(k, type(v)))
 
     with beam.Pipeline() as p:
-        p | xbeam.DatasetToChunks(ds, chunks={'time': 1000}, split_vars=False) | beam.MapTuple()
+        p | p
 
 
 # 파이프라인 실행

@@ -50,6 +50,15 @@ def main():
       xbeam.make_template(source_dataset)
       .sel(time=slice(start_date, end_date))
       .sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+    )
+    with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+    (
+        root
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
+        | xbeam.SplitChunks({'time': 1})
+        | beam.MapTuple(rekey_chunk_on_month_hour)
+        | xbeam.Mean.PerKey()
+        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
     ) 
 
     print(template)

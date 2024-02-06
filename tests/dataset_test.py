@@ -18,8 +18,8 @@ if __name__ == '__main__':
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
     arr = ds.sel(time=slice(start_date, end_date))
-    lat_min, lat_max = 24.5, 44.0
-    lon_min, lon_max = 120, 139.5
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))

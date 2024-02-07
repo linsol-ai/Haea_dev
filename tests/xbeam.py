@@ -1,6 +1,6 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-x
+import xarray_beam
 import xarray as xr
 import fsspec
 

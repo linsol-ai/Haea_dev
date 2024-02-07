@@ -34,7 +34,7 @@ def run():
         d1 = (
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
-            
+            'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
         )
         d2 = (
             d1

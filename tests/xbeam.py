@@ -35,6 +35,10 @@ def run():
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )
+        d1 = (
+            p
+            | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
+        )
         
 
 if __name__ == '__main__':

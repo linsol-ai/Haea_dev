@@ -26,7 +26,7 @@ class PreprocessERA5Data(beam.DoFn):
 def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitude_range, time_range):
     pipeline_options = PipelineOptions(
         runner='DataflowRunner',
-        project='dataflow_preprocess',
+        project='genfit-7ba0d',
         temp_location=f'gs://{bucket_name}/temp',
         region='us-east',
     )

@@ -29,7 +29,7 @@ def run():
         _ = (
             p
             | 'CreateDatasetPattern' >> beam.Create([f'gs://{GCS_BUCKET}/{INPUT_ZARR_PATH}'])
-            | 'OpenZarrDataset' >> xbeam.OpenZarr()
+            | 'OpenZarrDataset' >> xarray_beam.OpenZarr()
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xbeam.WriteZarr(f'gs://{GCS_BUCKET}/{OUTPUT_ZARR_PATH}', 
                                                   template_ds=None)  # template_ds 설정 필요에 따라 조정

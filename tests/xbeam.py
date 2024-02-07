@@ -16,7 +16,7 @@ options = PipelineOptions(
 class ReadZarrData(beam.DoFn):
     def process(self, element, latitude, longitude, start_time, end_time):
         # Zarr 데이터셋 열기
-        ds = xr.open_zarr(store)
+        ds = xarray.open_zarr(store)
 
         # 특정 위경도 및 시간으로 데이터 필터링
         ds_filtered = ds.sel(lat=latitude, lon=longitude, time=slice(start_time, end_time))

@@ -1,6 +1,6 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-import xarray as xr
+import xarray
 import xarray_beam as xbeam
 
 # GCS 경로 설정

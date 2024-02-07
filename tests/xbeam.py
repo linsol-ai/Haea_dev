@@ -30,7 +30,7 @@ def run():
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(source_dataset, chunks=source_chunks)
             | xarray_beam.SplitChunks({'time': 1})
             | 'PreprocessDataset' >> beam.MapTuple(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', e)
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', te)
         )
 
         

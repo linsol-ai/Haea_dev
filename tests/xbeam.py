@@ -22,7 +22,6 @@ import xarray
 import xarray_beam as xbeam
 import pandas as pd
 import xarray as xr
-import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
 variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

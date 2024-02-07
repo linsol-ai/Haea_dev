@@ -4,7 +4,7 @@ import xarray as xr
 import xarray_beam as xbeam
 
 # GCS 경로 설정
-GCS_BUCKET = 'YOUR_BUCKET_NAME'
+GCS_BUCKET = 'dataflow_preprocess'
 INPUT_ZARR_PATH = 'path/to/your/input/data.zarr'
 OUTPUT_ZARR_PATH = 'path/to/your/output/data.zarr'
 

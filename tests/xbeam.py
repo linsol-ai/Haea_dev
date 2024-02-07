@@ -35,6 +35,7 @@ def run():
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )
+        
 
 if __name__ == '__main__':
     run()

@@ -34,9 +34,6 @@ def run():
         _ = (
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
-            | 'ChunkingDataset' >> beam.Map(get_chunk)
-            | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-            | 'WriteZarrToGCS' >> beam.Map(save_chunk)
         )
 
 if __name__ == '__main__':

@@ -72,13 +72,6 @@ def main():
             | 
         )
 
-        filtered_dataset = (
-            dataset
-            | "Filter by Time and Coordinates" >> beam.Filter(
-                PreprocessData
-            )
-        )   
-
     
         print(filtered_dataset)
 

@@ -23,7 +23,7 @@ def save_chunk(dataset):
 
 def preprocess_dataset(element):
     ds = element[1] 
-    ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
+    ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(30, 50), lon=slice(-130, -60))
     return ds_filtered
 
 def run():

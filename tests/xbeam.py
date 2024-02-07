@@ -40,7 +40,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
 
 # 파이프라인 실행
 if __name__ == '__main__':
-    bucket_name = 'dataflow_preprocess'
+    bucket_name = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
     input_filename = 'path/to/your/data.zarr'  # Zarr 파일 경로
     variable = 'your-variable-name'
     latitude_range = (-10, 10)  # 예시 경위도 범위

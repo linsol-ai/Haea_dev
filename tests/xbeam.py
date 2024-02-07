@@ -55,6 +55,7 @@ def main():
 
     # Apache Beam 파이프라인 설정
     options = PipelineOptions(
+        inp
         runner='DataflowRunner',
         project='genfit-7ba0d',
         job_name='unique-job-name',

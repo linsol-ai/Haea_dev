@@ -35,7 +35,7 @@ def run():
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )
-        d1 = (
+        d2 = (
             d1
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )

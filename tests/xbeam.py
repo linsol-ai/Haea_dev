@@ -5,47 +5,40 @@ import xarray as xr
 import zarr
 import gcsfs
 
-class PreprocessERA5Data(beam.DoFn):
-    def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):
-        fs = gcsfs.GCSFileSystem(project='genfit-7ba0d')
-        store = fs.get_mapper(f'gs://{bucket_name}/{element}')
-        ds = xr.open_zarr(store)
+class FilterAndProcessData(beam.DoFn):
+    def process(self, element, time_range, lat_range, lon_range):
+        # Zarr 데이터셋을 열기
+        ds = xr.open_zarr(fsspec.get_mapper('gcs://' + element), consolidated=True)
         
-        # 경위도 및 시간대에 따라 데이터 필터링
-        ds_filtered = ds.sel(latitude=slice(*latitude_range), longitude=slice(*longitude_range), time=slice(*time_range))
+        # 시간, 위도, 경도 범위에 따른 필터링
+        ds_filtered = ds.sel(time=slice(*time_range), lat=slice(*lat_range), lon=slice(*lon_range))
         
-        # 선택된 변수만 유지
-        ds_filtered = ds_filtered[[variable]]
+        # 필요한 전처리 로직 추가
+        # 예: ds_processed = ds_filtered.mean(dim='time')
         
-        # 결과를 Zarr 파일로 저장
-        output_store = fs.get_mapper(f'gs://{bucket_name}/preprocessed/{element}_preprocessed.zarr')
-        ds_filtered.to_zarr(output_store, mode='w')
-        
-        yield f'Processed and saved: {element}_preprocessed.zarr'
+        yield ds_filtered
 
-def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitude_range, time_range):
-    pipeline_options = PipelineOptions(
+def run():
+    # 파이프라인 옵션 설정
+    options = PipelineOptions(
         runner='DataflowRunner',
-        project='genfit-7ba0d',
-        temp_location=f'gs://{bucket_name}/temp',
-        region='us-east1',
-        requirements_file='/workspace/Haea/req.txt'
+        project='YOUR_PROJECT_ID',
+        temp_location='gs://YOUR_BUCKET_NAME/temp',
+        region='YOUR_REGION'
     )
     
-    with beam.Pipeline(options=pipeline_options) as p:
-        (
-            p
-            | 'CreateFileList' >> beam.Create([input_filename])
-            | 'PreprocessData' >> beam.ParDo(PreprocessERA5Data(), bucket_name, variable, latitude_range, longitude_range, time_range)
+    # 파이프라인 정의
+    with beam.Pipeline(options=options) as p:
+        # GCS에서 Zarr 파일 목록을 읽음
+        zarr_files = ['gs://YOUR_BUCKET_NAME/path/to/your/data.zarr']
+        
+        # Zarr 데이터 처리
+        (p | 'CreateFileList' >> beam.Create(zarr_files)
+           | 'FilterAndProcess' >> beam.ParDo(FilterAndProcessData(), time_range=('2023-01-01', '2023-01-31'), 
+                                               lat_range=(30, 50), lon_range=(-130, -60))
+           # 전처리된 데이터를 출력하거나 저장할 액션 추가
+           # 예: | 'WriteResults' >> beam.io.WriteToText('gs://YOUR_BUCKET_NAME/output/')
         )
 
-# 파이프라인 실행
 if __name__ == '__main__':
-    bucket_name = 'dataflow_preprocess'
-    input_filename = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'  # Zarr 파일 경로
-    variable = 'geopotential'
-    latitude_range = (-10, 10)  # 예시 경위도 범위
-    longitude_range = (100, 120)  # 예시 경도 범위
-    time_range = ('2020-01-01', '2020-12-31')  # 예시 시간 범위
-    
-    run_pipeline(bucket_name, input_filename, variable, latitude_range, longitude_range, time_range)
+    run()

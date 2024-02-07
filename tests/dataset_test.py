@@ -17,4 +17,4 @@ if __name__ == '__main__':
                           drop_variables=drop_vars
                           )
     arr=  xarray_beam.DatasetToChunks(ds, chunks={'time': 10}, split_vars=False)
-    print()
+    print(arr)

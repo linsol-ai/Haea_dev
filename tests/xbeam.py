@@ -30,6 +30,7 @@ variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_
 
 
 def PreprocessData(dataset):
+    dataset = dataset[variable]
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
    

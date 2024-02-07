@@ -15,9 +15,6 @@ options = PipelineOptions(
 
 class ReadZarrData(beam.DoFn):
     def process(self, element, latitude, longitude, start_time, end_time):
-        fs = gcsfs.GCSFileSystem()
-        store = gcsfs.GCSMap(root=f'{bucket}/{dataset_path}', gcs=fs)
-        
         # Zarr 데이터셋 열기
         ds = xr.open_zarr(store)
 

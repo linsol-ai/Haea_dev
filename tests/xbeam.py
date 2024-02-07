@@ -26,6 +26,7 @@ import xarray as xr
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
+variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 def PreprocessData(dataset):
     start_date = pd.to_datetime('2021-01-01')

@@ -15,5 +15,5 @@ if __name__ == '__main__':
                           chunks=None,
                           drop_variables=drop_vars
                           )
-    xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
+    xarray_beam.DatasetToChunks(ds, chunks={'time': 10}, split_vars=False)
 

@@ -53,7 +53,6 @@ def main():
         dataset = (
             p 
             | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, temporal_key.offsets, split_vars=False,)
-            | "PreprocessData" >> beam.MapTuple(PreprocessData)
         )
 
         filtered_dataset = (

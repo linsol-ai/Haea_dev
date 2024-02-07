@@ -11,10 +11,6 @@ OUTPUT_ZARR_PATH = f'gs://{GCS_BUCKET}/result/1440x721.zarr'
 # 파이프라인 옵션 설정
 options = PipelineOptions(
     runner='DirectRunner',
-    project='genfit-7ba0d',
-    temp_location=f'gs://{GCS_BUCKET}/temp',
-    region='us-east1',
-    requirements_file='/workspace/Haea/req.txt'
 )
 
 def get_chunk(dataset):

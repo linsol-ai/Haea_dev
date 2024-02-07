@@ -32,6 +32,7 @@ variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
+   
 
 def main():
 

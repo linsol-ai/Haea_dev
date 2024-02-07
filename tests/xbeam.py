@@ -37,7 +37,7 @@ def PreprocessData(dataset):
     lon_min, lon_max = 124.2, 131
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
-    arr = dataset.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+    dataset = dataset.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
 
 def main():
 

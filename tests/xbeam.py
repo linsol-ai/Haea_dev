@@ -29,7 +29,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
         project='genfit-7ba0d',
         temp_location=f'gs://{bucket_name}/temp',
         region='us-east1',
-        requirements_file=./requirements.txt
+        requirements_file=''
     )
     
     with beam.Pipeline(options=pipeline_options) as p:

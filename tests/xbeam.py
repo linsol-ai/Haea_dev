@@ -23,7 +23,7 @@ def run():
     # 파이프라인 옵션 설정
     options = PipelineOptions(
         runner='DataflowRunner',
-        project='YOUR_PROJECT_ID',
+        project='genfit-7ba0d',
         temp_location='gs://YOUR_BUCKET_NAME/temp',
         region='YOUR_REGION'
     )

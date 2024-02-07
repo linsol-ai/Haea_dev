@@ -21,7 +21,6 @@ import numpy as np
 import xarray
 import xarray_beam as xbeam
 import pandas as pd
-import xarray_beam as xbeam
 import xarray as xr
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions

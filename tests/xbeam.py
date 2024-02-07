@@ -59,7 +59,7 @@ def main():
     options = PipelineOptions(
         flags=argv,
         runner='DataflowRunner',
-        project='my-project-id',
+        project='genfit-7ba0d',
         job_name='unique-job-name',
         temp_location='gs://dataflow_preprocess/test',
         region='us-east1'

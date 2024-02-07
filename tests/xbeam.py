@@ -3,6 +3,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 import xarray_beam as xbeam
 import xarray as xr
 import zarr
+import gcsfs
 
 class PreprocessERA5Data(beam.DoFn):
     def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):

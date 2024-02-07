@@ -47,7 +47,7 @@ def PreprocessData(key, dataset: xarray.Dataset):
 
 def main():
 
-    temporal_key = xbeam.Key({'time')
+    temporal_key = xbeam.Key({'time': 10})
 
     # 데이터셋을 분할하기 위한 키 설정
 

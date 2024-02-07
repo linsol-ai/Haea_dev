@@ -52,7 +52,7 @@ def main():
         # 데이터셋을 Beam PCollection으로 로드
         dataset = (
             p 
-            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {{'time': 100, 'latitude': 50, 'longitude': 50}}, split_vars=False,)
+            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {{'time': 1000, 'latitude': 50, 'longitude': 50}}, split_vars=False,)
         )
 
         filtered_dataset = (

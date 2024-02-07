@@ -66,18 +66,18 @@ def main():
         )
 
         filtered_dataset = (
-        dataset
-        | "Filter by Time and Coordinates" >> beam.Filter(
-            lambda chunk: temporal_key in chunk.indexes and 
-                          chunk.indexes[temporal_key].min() >= pd.to_datetime('2021-01-01') and 
-                          chunk.indexes[temporal_key].max() <= pd.to_datetime('2021-02-01') and
-                          spatial_keys[0] in chunk.indexes and
-                          chunk.indexes[spatial_keys[0]].min() >= lat_min and
-                          chunk.indexes[spatial_keys[0]].max() <= lat_max and
-                          spatial_keys[1] in chunk.indexes and
-                          chunk.indexes[spatial_keys[1]].min() >= lon_min and
-                          chunk.indexes[spatial_keys[1]].max() <= lon_max
-        )
+            dataset
+            | "Filter by Time and Coordinates" >> beam.Filter(
+                lambda chunk: temporal_key in chunk.indexes and 
+                            chunk.indexes[temporal_key].min() >= pd.to_datetime('2021-01-01') and 
+                            chunk.indexes[temporal_key].max() <= pd.to_datetime('2021-02-01') and
+                            spatial_keys[0] in chunk.indexes and
+                            chunk.indexes[spatial_keys[0]].min() >= lat_min and
+                            chunk.indexes[spatial_keys[0]].max() <= lat_max and
+                            spatial_keys[1] in chunk.indexes and
+                            chunk.indexes[spatial_keys[1]].min() >= lon_min and
+                            chunk.indexes[spatial_keys[1]].max() <= lon_max
+            )
     )
 
     

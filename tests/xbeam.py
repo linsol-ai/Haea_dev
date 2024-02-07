@@ -28,7 +28,11 @@ def preprocess_dataset(element):
 
 def run():
     dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
-    tamp = dataset.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
+     template = (
+      xbeam.make_template(source_dataset)
+      .isel(time=0, drop=True)
+      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
+  )
     with beam.Pipeline(options=options) as p:
         _ = (
             p

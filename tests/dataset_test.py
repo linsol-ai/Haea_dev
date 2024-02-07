@@ -15,23 +15,5 @@ if __name__ == '__main__':
                           chunks=None,
                           drop_variables=drop_vars
                           )
-    print(f'size: {ds.nbytes / (1024 ** 4)} TiB')
-    start_date = pd.to_datetime('2021-01-01')
-    end_date = pd.to_datetime('2021-02-01')
-   
-
-    arr = ds.sel(time=slice(start_date, end_date))
-    lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
-
-    # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
-    arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-
-    # 새 차원을 추가하고 데이터 변수를 결합
-
-    arr = arr['geopotential']
-    numpy_array = arr.compute().values
-
-    end = time.time()
-    print(f"{end - start:.5f} sec")
+    
 

@@ -5,7 +5,7 @@ import xarray_beam as xbeam
 
 # GCS 경로 설정
 GCS_BUCKET = 'dataflow_preprocess'
-INPUT_ZARR_PATH = 'path/to/your/input/data.zarr'
+INPUT_ZARR_PATH = ''
 OUTPUT_ZARR_PATH = 'path/to/your/output/data.zarr'
 
 # 파이프라인 옵션 설정

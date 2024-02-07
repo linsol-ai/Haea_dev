@@ -4,6 +4,8 @@ import xarray_beam as xbeam
 import xarray as xr
 import zarr
 import fsspec
+
+
 class FilterAndProcessData(beam.DoFn):
     def process(self, element, time_range, lat_range, lon_range):
         # Zarr 데이터셋을 열기

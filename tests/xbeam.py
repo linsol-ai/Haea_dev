@@ -14,7 +14,7 @@ options = PipelineOptions(
 )
 
 def preprocess_dataset(key: xarray_beam.Key, dataset: xarray.Dataset):
-    ds = dataset
+    ds = dataset[0]
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
     return key, ds_filtered
 
@@ -30,7 +30,7 @@ def run():
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(source_dataset, chunks=source_chunks)
             | xarray_beam.SplitChunks({'time': 1})
             | 'PreprocessDataset' >> beam.MapTuple(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', e)
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', template=template)
         )
 
         

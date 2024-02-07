@@ -21,6 +21,8 @@ def get_chunk(dataset):
     import xarray_beam
     return xarray_beam.DatasetToChunks(dataset, chunks={'time: 10'}, split_vars=False)
 
+def sav
+
 def preprocess_dataset(dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))

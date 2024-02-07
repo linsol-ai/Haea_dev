@@ -27,7 +27,7 @@ def preprocess_dataset( key: xarray_beam.Key, dataset: xarray.Dataset):
     return key, ds_filtered.compute()
 
 def run():
-    dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
+    source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
     with beam.Pipeline(options=options) as p:
         _ = (
             p

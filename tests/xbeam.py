@@ -60,7 +60,7 @@ def main():
         job_name='unique-job-name',
         temp_location='gs://dataflow_preprocess/test',
         region='us-east1'
-        --requirements_file=./requirements.txt \
+        requirements_file=./requirements.txt \
     )
 
     with beam.Pipeline(options=options) as p:

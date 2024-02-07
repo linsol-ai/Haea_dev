@@ -37,7 +37,7 @@ def run():
         )
         d2 = (
             d1
-            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
+            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
         )
         
 

@@ -29,7 +29,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 
-def pro(
+def proprocess_data(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
    

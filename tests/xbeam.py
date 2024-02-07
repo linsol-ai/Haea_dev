@@ -1,12 +1,14 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import xarray_beam as xbeam
-import xarray
+import xarray as xr
 import zarr
 
 class PreprocessERA5Data(beam.DoFn):
     def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):
-        ds = xarray.open_zarr('')
+        fs = gcsfs.GCSFileSystem(project='genfit-7ba0d')
+        store = fs.get_mapper(f'gs://{bucket_name}/{element}')
+        ds = xr.open_zarr(store)
         
         # 경위도 및 시간대에 따라 데이터 필터링
         ds_filtered = ds.sel(latitude=slice(*latitude_range), longitude=slice(*longitude_range), time=slice(*time_range))

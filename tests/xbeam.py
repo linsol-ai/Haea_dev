@@ -52,7 +52,7 @@ def main():
         dataset = (
             p 
             | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {'time': 10}, split_vars=False,)
-            | "Read Dataset" >> beam.MapTuple()
+            | "Pre Dataset" >> beam.MapTuple()
             | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
         )
 

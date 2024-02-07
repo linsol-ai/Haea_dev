@@ -22,6 +22,7 @@ def save_chunk(dataset):
     return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
 
 def preprocess_dataset(ds):
+    ds 
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
     return ds_filtered
 

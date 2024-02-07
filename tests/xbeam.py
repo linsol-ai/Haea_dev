@@ -24,7 +24,7 @@ def get_chunk(dataset):
 def save_chunk(dataset):
     import xarray_beam
     xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
-    
+
 def preprocess_dataset(dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
@@ -37,7 +37,7 @@ def run():
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
             | 'ChunkingDataset' >> beam.Map(get_chunk)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
+            | 'WriteZarrToGCS' >> beam.Map(get_chunk)
         )
 
 if __name__ == '__main__':

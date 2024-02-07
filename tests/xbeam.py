@@ -1,7 +1,7 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import xarray as xr
-import xarray_beam as x
+import xarray_beam as xbeam
 
 # GCS 경로 설정
 GCS_BUCKET = 'YOUR_BUCKET_NAME'

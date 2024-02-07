@@ -30,6 +30,7 @@ def run():
             p
             | 'CreateDatasetPattern' >> beam.Create([f'gs://{GCS_BUCKET}/{INPUT_ZARR_PATH}'])
             | 'OpenZarrDataset' >> xarray_beam.open_zarr()
+            
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )

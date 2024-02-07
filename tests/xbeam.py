@@ -84,7 +84,7 @@ def main():
         )   
 
     
-        print(dataset)
+        print(filtered_dataset)
 
 
 if __name__ == '__main__':

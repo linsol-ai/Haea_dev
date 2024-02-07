@@ -1,1 +1,2 @@
 xarray-beam==0.6.3
+gcsfs==2023.12.2.post1

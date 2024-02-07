@@ -17,6 +17,7 @@ options = PipelineOptions(
 )
 
 def get_chunk(dataset):
+    import xarray_beam
     return xarray_beam.DatasetToChunks(dataset, chunks={'time: 10'}, split_vars=False)
 
 def preprocess_dataset(dataset):

@@ -1,45 +1,38 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-import xarray_beam as xbeam
+import xarraybeam as xbeam
 import xarray as xr
-import zarr
 import fsspec
 
+# GCS 경로 설정
+GCS_BUCKET = 'YOUR_BUCKET_NAME'
+INPUT_ZARR_PATH = 'path/to/your/input/data.zarr'
+OUTPUT_ZARR_PATH = 'path/to/your/output/data.zarr'
 
-class FilterAndProcessData(beam.DoFn):
-    def process(self, element, time_range, lat_range, lon_range):
-        # Zarr 데이터셋을 열기
-        ds = xr.open_zarr(fsspec.get_mapper('gcs://' + element), consolidated=True)
-        
-        # 시간, 위도, 경도 범위에 따른 필터링
-        ds_filtered = ds.sel(time=slice(*time_range), lat=slice(*lat_range), lon=slice(*lon_range))
-        
-        # 필요한 전처리 로직 추가
-        # 예: ds_processed = ds_filtered.mean(dim='time')
-        
-        yield ds_filtered
+# 파이프라인 옵션 설정
+options = PipelineOptions(
+    runner='DataflowRunner',
+    project='YOUR_PROJECT_ID',
+    temp_location=f'gs://{GCS_BUCKET}/temp',
+    region='YOUR_REGION'
+)
+
+def preprocess_dataset(element):
+    # Xarray 데이터셋 전처리 로직
+    # 예: 시간 및 공간 범위 필터링, 평균 계산 등
+    ds = element[1]
+    ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
+    return ds_filtered
 
 def run():
-    # 파이프라인 옵션 설정
-    options = PipelineOptions(
-        runner='DataflowRunner',
-        project='genfit-7ba0d',
-        temp_location='gs://dataflow_preprocess/temp',
-        region='us-east1',
-        
-    )
-    
-    # 파이프라인 정의
     with beam.Pipeline(options=options) as p:
-        # GCS에서 Zarr 파일 목록을 읽음
-        zarr_files = ['gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr']
-        
-        # Zarr 데이터 처리
-        (p | 'CreateFileList' >> beam.Create(zarr_files)
-           | 'FilterAndProcess' >> beam.ParDo(FilterAndProcessData(), time_range=('2023-01-01', '2023-01-31'), 
-                                               lat_range=(30, 50), lon_range=(-130, -60))
-           # 전처리된 데이터를 출력하거나 저장할 액션 추가
-           # 예: | 'WriteResults' >> beam.io.WriteToText('gs://YOUR_BUCKET_NAME/output/')
+        _ = (
+            p
+            | 'CreateDatasetPattern' >> beam.Create([f'gs://{GCS_BUCKET}/{INPUT_ZARR_PATH}'])
+            | 'OpenZarrDataset' >> xbeam.OpenZarr()
+            | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
+            | 'WriteZarrToGCS' >> xbeam.WriteZarr(f'gs://{GCS_BUCKET}/{OUTPUT_ZARR_PATH}', 
+                                                  template_ds=None)  # template_ds 설정 필요에 따라 조정
         )
 
 if __name__ == '__main__':

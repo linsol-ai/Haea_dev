@@ -25,7 +25,7 @@ def run():
         runner='DataflowRunner',
         project='genfit-7ba0d',
         temp_location='gs://dataflow_preprocess/temp',
-        region='YOUR_REGION'
+        region='us-east1'
     )
     
     # 파이프라인 정의

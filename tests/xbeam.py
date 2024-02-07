@@ -28,7 +28,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
         runner='DataflowRunner',
         project='genfit-7ba0d',
         temp_location=f'gs://{bucket_name}/temp',
-        region='us-east',
+        region='us-east1',
     )
     
     with beam.Pipeline(options=pipeline_options) as p:

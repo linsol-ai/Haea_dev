@@ -62,7 +62,7 @@ def main():
         project='my-project-id',
         job_name='unique-job-name',
         temp_location='gs://my-bucket/temp',
-        region='us-central1'
+        region='us-east1'
     )
 
     with beam.Pipeline(options=pipeline_options) as p:

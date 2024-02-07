@@ -30,7 +30,7 @@ def preprocess_dataset(ds):
     return ds_filtered
 
 def run():
-    ddxarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
+    dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
     with beam.Pipeline(options=options) as p:
         d1 = (
             p

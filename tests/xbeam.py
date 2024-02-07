@@ -18,7 +18,7 @@ options = PipelineOptions(
 )
 
 def get_chunk(dataset):
-    return xbeam.DatasetToChunks()
+    return xbeam.DatasetToChunks(dataset, chunks=)
 
 def preprocess_dataset(dataset):
     ds = dataset

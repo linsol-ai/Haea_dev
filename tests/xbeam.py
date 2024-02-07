@@ -25,9 +25,7 @@ def run():
         _ = (
             p
             | 'OpenZarrDataset' >> xr.open_zarr(INPUT_ZARR_PATH, chunks=None)
-            | xbeam.DatasetToChunks(forecast, self.input_chunks,
-          split_vars=False,
-      )
+            | 
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )

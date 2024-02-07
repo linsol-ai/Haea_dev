@@ -27,17 +27,18 @@ def preprocess_dataset(element):
     return ds_filtered
 
 def run():
-    dataset = xarray.open_zarr(INPUT_ZARR_PATH)
+    dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
     template = (
       xarray_beam.make_template(dataset)
       .sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
+
    ) 
     with beam.Pipeline(options=options) as p:
         _ = (
             p
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', template=template)
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', template=tamp)
         )
 
         

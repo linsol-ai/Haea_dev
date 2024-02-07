@@ -32,7 +32,7 @@ def run():
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)
       .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
-  )
+  ) 
     with beam.Pipeline(options=options) as p:
         _ = (
             p

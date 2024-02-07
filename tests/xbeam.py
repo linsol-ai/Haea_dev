@@ -28,7 +28,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
         runner='DataflowRunner',
         project='dataflow_preprocess',
         temp_location=f'gs://{bucket_name}/temp',
-        region='your-gcp-region',
+        region='us-east',
     )
     
     with beam.Pipeline(options=pipeline_options) as p:

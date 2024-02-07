@@ -13,14 +13,6 @@ options = PipelineOptions(
     runner='DirectRunner',
 )
 
-def get_chunk(dataset):
-    import xarray_beam
-    return xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
-
-def save_chunk(dataset):
-    import xarray_beam
-    return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
-
 def preprocess_dataset(key: xarray_beam.Key, dataset: xarray.Dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))

@@ -18,8 +18,6 @@ options = PipelineOptions(
 )
 
 def preprocess_dataset(element):
-    # Xarray 데이터셋 전처리 로직
-    # 예: 시간 및 공간 범위 필터링, 평균 계산 등
     ds = element[1]
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
     return ds_filtered
@@ -30,7 +28,6 @@ def run():
             p
             | 'CreateDatasetPattern' >> beam.Create([f'gs://{GCS_BUCKET}/{INPUT_ZARR_PATH}'])
             | 'OpenZarrDataset' >> xarray_beam.open_zarr()
-            
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )

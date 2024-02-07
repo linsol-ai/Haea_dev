@@ -31,6 +31,8 @@ class ReadZarrData(beam.DoFn):
         # 예제에서는 단순화를 위해 데이터의 요약 정보만 반환합니다.
         yield filtered_data.to_dict()
 
+        
+
 def preprocess_dataset(key: xarray_beam.Key, dataset: xarray.Dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))

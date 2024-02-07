@@ -17,6 +17,14 @@ options = PipelineOptions(
     requirements_file='/workspace/Haea/req.txt'
 )
 
+def get_chunk(dataset):
+    import xarray_beam
+    return xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
+
+def save_chunk(dataset):
+    import xarray_beam
+    return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
+
 def preprocess_dataset(ds):
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
     return ds_filtered
@@ -28,10 +36,14 @@ def run():
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )
         d2 = (
-            'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
+            d1
+            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
         )
-        _ = ('WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH))
+        _ = (
+            d2
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH)
+        )
 
         
 

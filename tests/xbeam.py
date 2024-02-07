@@ -13,7 +13,7 @@ options = PipelineOptions(
     runner='DataflowRunner',
     project='genfit-7ba0d',
     temp_location=f'gs://{GCS_BUCKET}/temp',
-    region='us-east1 (사우스캐롤라이나)'
+    region='us-east1'
 )
 
 def preprocess_dataset(dataset):

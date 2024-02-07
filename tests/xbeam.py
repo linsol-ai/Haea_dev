@@ -6,7 +6,7 @@ import xarray_beam as xbeam
 # GCS 경로 설정
 GCS_BUCKET = 'dataflow_preprocess'
 INPUT_ZARR_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
-OUTPUT_ZARR_PATH = 'gs://440x721.zarr'
+OUTPUT_ZARR_PATH = 'gs://GCS_BUCKET440x721.zarr'
 
 # 파이프라인 옵션 설정
 options = PipelineOptions(

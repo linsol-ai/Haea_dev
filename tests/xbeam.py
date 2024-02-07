@@ -51,12 +51,6 @@ def proprocess_data(
 
 def main():
 
-    temporal_key = xbeam.Key({'time': 50})
-
-    # 데이터셋을 분할하기 위한 키 설정
-
-    lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
     source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
 
     print(source_chunks)

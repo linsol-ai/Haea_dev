@@ -59,7 +59,7 @@ def main():
         project='genfit-7ba0d',
         job_name='unique-job-name',
         temp_location='gs://dataflow_preprocess/test',
-        region='us-east1'
+        region='us-east1',
         requirements_file='/workspace/Haea/req.txt'
     )
 

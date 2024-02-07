@@ -28,7 +28,7 @@ def run():
             | 'OpenZarrDataset' >> xr.open_zarr(INPUT_ZARR_PATH, chunks=None)
             | 'ChunkingDataset' >> beam.Map(xbeam.DatasetToChunks, chunks={'time: 10'}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xbeam.ChunksToZarr()
+            | 'WriteZarrToGCS' >> xbeam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )
 
 if __name__ == '__main__':

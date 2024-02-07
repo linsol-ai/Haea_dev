@@ -23,7 +23,7 @@ def get_chunk(dataset):
 
 def save_chunk(dataset):
     import xarray_beam
-    xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
+    return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
 
 def preprocess_dataset(dataset):
     ds = dataset

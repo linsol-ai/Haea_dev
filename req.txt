@@ -156,8 +156,3 @@ wcwidth==0.2.13
 Werkzeug==3.0.1
 xarray==2024.1.1
 xarray-beam==0.6.3
-xyzservices==2023.10.1
-yarl==1.9.4
-zarr==2.16.1
-zipp==3.17.0
-zstandard==0.22.0

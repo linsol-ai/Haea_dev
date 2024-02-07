@@ -21,7 +21,7 @@ def save_chunk(dataset):
     import xarray_beam
     return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
 
-def preprocess_dataset(element):
+def preprocess_dataset(key: xbeam.Key, dataset: xarray.Dataset):
     ds = element[1] 
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
     return ds_filtered

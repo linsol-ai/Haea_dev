@@ -30,17 +30,6 @@ variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_
 
 
 def PreprocessData(key, dataset: xarray.Dataset):
-    print(key, dataset)
-    return key, dataset
-
-def main():
-
-    # 데이터셋을 분할하기 위한 키 설정
-
-    lat_min, lat_max = 32.2, 39.0
-    lon_min, lon_max = 124.2, 131
-    dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
-
     dataset = dataset[variable]
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
@@ -52,6 +41,16 @@ def main():
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     dataset = dataset.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+    print()
+    return key, dataset
+
+def main():
+
+    # 데이터셋을 분할하기 위한 키 설정
+
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
+    source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
 
     print(source_chunks)
 
@@ -59,14 +58,15 @@ def main():
     pipeline_options = PipelineOptions()
     with beam.Pipeline(runner='DirectRunner') as p:
         # 데이터셋을 Beam PCollection으로 로드
-        result = (
+        dataset = (
             p 
-            | "Read Dataset" >> xbeam.DatasetToChunks(dataset, {'time': 10}, split_vars=False,)
+            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {'time': 10}, split_vars=False,)
             | "PreprocessData" >> beam.MapTuple(PreprocessData)
+            | print
         )
 
     
-        print(result)
+        print(dataset)
 
 
 if __name__ == '__main__':

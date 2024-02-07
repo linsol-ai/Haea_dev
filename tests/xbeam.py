@@ -38,15 +38,6 @@ def run():
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )
-        d2 = (
-            d1
-            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
-            | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-        )
-        _ = (
-            d2
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH)
-        )
 
         
 

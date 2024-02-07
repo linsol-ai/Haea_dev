@@ -41,7 +41,6 @@ def PreprocessData(key, dataset: xarray.Dataset):
 
     # isel 함수 대신 sel 함수를 사용하여 경위도 범위를 필터링
     dataset = dataset.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
-    print
     return key, dataset
 
 def main():

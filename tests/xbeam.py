@@ -70,7 +70,7 @@ def main():
     pipeline_options = PipelineOptions()
     with beam.Pipeline(runner='DirectRunner') as p:
         # 데이터셋을 Beam PCollection으로 로드
-        dataset = (
+        result = (
             p 
             | "Read Dataset" >> xbeam.DatasetToChunks(dataset, {'time': 10}, split_vars=False,)
             | "PreprocessData" >> beam.MapTuple(PreprocessData)

@@ -69,7 +69,7 @@ def main():
             p 
             | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {'time': 10}, split_vars=False,)
             | "Preprocess Dataset" >> beam.MapTuple(proprocess_data)
-            | "Save Dataset" >> xbeam.ChunksToZarr('')
+            | "Save Dataset" >> xbeam.ChunksToZarr('6h-1440x721.zarr')
         )
 
 

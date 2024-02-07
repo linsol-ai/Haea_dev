@@ -1,6 +1,7 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import xarray
+import xarray_beam
 
 # GCS 경로 설정
 GCS_BUCKET = 'dataflow_preprocess'

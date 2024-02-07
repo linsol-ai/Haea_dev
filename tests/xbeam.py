@@ -13,6 +13,24 @@ options = PipelineOptions(
     runner='DirectRunner',
 )
 
+class ReadZarrData(beam.DoFn):
+    def process(self, element, bucket, dataset_path, latitude, longitude, start_time, end_time):
+        fs = gcsfs.GCSFileSystem()
+        store = gcsfs.GCSMap(root=f'{bucket}/{dataset_path}', gcs=fs)
+        
+        # Zarr 데이터셋 열기
+        ds = xr.open_zarr(store)
+
+        # 특정 위경도 및 시간으로 데이터 필터링
+        ds_filtered = ds.sel(lat=latitude, lon=longitude, time=slice(start_time, end_time))
+
+        # 필터링된 데이터를 메모리에 저장
+        filtered_data = ds_filtered.compute()
+
+        # 필터링된 데이터를 JSON 또는 기타 형식으로 변환하여 반환
+        # 예제에서는 단순화를 위해 데이터의 요약 정보만 반환합니다.
+        yield filtered_data.to_dict()
+
 def preprocess_dataset(key: xarray_beam.Key, dataset: xarray.Dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))

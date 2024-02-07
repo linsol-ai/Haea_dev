@@ -32,7 +32,7 @@ def run():
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
             | 'ChunkingDataset' >> beam.Map(get_chunk)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xbeam.ChunksToZarr(OUTPUT_ZARR_PATH)
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(OUTPUT_ZARR_PATH)
         )
 
 if __name__ == '__main__':

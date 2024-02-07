@@ -27,7 +27,7 @@ def preprocess_dataset(element):
     return ds_filtered
 
 def run():
-    dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
+    dataset = xarray.open_zarr(INPUT_ZARR_PATH)
     template = (
       xarray_beam.make_template(dataset)
       .sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))

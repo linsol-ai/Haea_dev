@@ -40,7 +40,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
 
 # 파이프라인 실행
 if __name__ == '__main__':
-    bucket_name = 'your-bucket-name'
+    bucket_name = 'dataflow_preprocess'
     input_filename = 'path/to/your/data.zarr'  # Zarr 파일 경로
     variable = 'your-variable-name'
     latitude_range = (-10, 10)  # 예시 경위도 범위

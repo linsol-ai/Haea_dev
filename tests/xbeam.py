@@ -1,90 +1,70 @@
-# beam-playground:
-#   name: WordCount
-#   description: An example that counts words in Shakespeare's works.
-#   multifile: false
-#   pipeline_options: --output output.txt
-#   context_line: 87
-#   categories:
-#     - Combiners
-#     - Options
-#     - Quickstart
-#   complexity: MEDIUM
-#   tags:
-#     - options
-#     - count
-#     - combine
-#     - strings
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""Calculate climatology for the Pangeo ERA5 surface dataset."""
+from typing import Tuple
 
-import argparse
-import logging
-import re
-
+from absl import app
+from absl import flags
 import apache_beam as beam
-from apache_beam.io import ReadFromText
-from apache_beam.io import WriteToText
+import numpy as np
+import xarray
+import xarray_beam as xbeam
+import pandas as pd
+import xarray_beam as xbeam
+import xarray as xr
+import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-from apache_beam.options.pipeline_options import SetupOptions
+
+variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 
-class WordExtractingDoFn(beam.DoFn):
-  """Parse each line of input text into words."""
-  def process(self, element):
-    """Returns an iterator over the words of this element.
+def PreprocessData(chunk):
+    print(chunk)
+    return False
 
-    The element is a line of text.  If the line is blank, note that, too.
+def main():
 
-    Args:
-      element: the element being processed
+    temporal_key = xbeam.Key({'time': 50})
+    spatial_keys = [xbeam.Key({'latitude':1}), xbeam.Key({'longitude':1})]
 
-    Returns:
-      The processed element.
-    """
-    return re.findall(r'[\w\']+', element, re.UNICODE)
+    # 데이터셋을 분할하기 위한 키 설정
 
+    lat_min, lat_max = 32.2, 39.0
+    lon_min, lon_max = 124.2, 131
+    source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
 
-def run(argv=None, save_main_session=True):
-  """Main entry point; defines and runs the wordcount pipeline."""
-  parser = argparse.ArgumentParser()
-  parser.add_argument(
-      '--input',
-      dest='input',
-      default='gs://dataflow-samples/shakespeare/kinglear.txt',
-      help='Input file to process.')
-  parser.add_argument(
-      '--output',
-      dest='output',
-      required=True,
-      help='Output file to write results to.')
-  known_args, pipeline_args = parser.parse_known_args(argv)
+    print(source_chunks)
 
-  # We use the save_main_session option because one or more DoFn's in this
-  # workflow rely on global context (e.g., a module imported at module level).
-  pipeline_options = PipelineOptions(pipeline_args)
-  pipeline_options.view_as(SetupOptions).save_main_session = save_main_session
+    # Apache Beam 파이프라인 설정
+    pipeline_options = PipelineOptions()
+    with beam.Pipeline(runner='DirectRunner') as p:
+        # 데이터셋을 Beam PCollection으로 로드
+        dataset = (
+            p 
+            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {'time': 1000, 'latitude': 100, 'longitude': 100}, split_vars=False,)
+        )
 
-  # The pipeline will be run on exiting the with block.
-  with beam.Pipeline(options=pipeline_options) as p:
+        filtered_dataset = (
+            dataset
+            | "Filter by Time and Coordinates" >> beam.Filter(
+                PreprocessData
+            )
+        )   
 
-    # Read the text file[pattern] into a PCollection.
-    lines = p | 'Read' >> ReadFromText(known_args.input)
-
-    counts = (
-        lines
-        | 'Split' >> (beam.ParDo(WordExtractingDoFn()).with_output_types(str))
-        | 'PairWithOne' >> beam.Map(lambda x: (x, 1))
-        | 'GroupAndSum' >> beam.CombinePerKey(sum))
-
-    # Format the counts into a PCollection of strings.
-    def format_result(word, count):
-      return '%s: %d' % (word, count)
-
-    output = counts | 'Format' >> beam.MapTuple(format_result)
-
-    # Write the output using a "Write" transform that has side effects.
-    # pylint: disable=expression-not-assigned
-    output | 'Write' >> WriteToText(known_args.output)
+    
+        print(filtered_dataset)
 
 
 if __name__ == '__main__':
-  logging.getLogger().setLevel(logging.INFO)
-  run()
+  main()

@@ -24,7 +24,7 @@ def run():
       xarray_beam.make_template(source_dataset)
       .sel(time=slice('2023-01-01', '2023-01-31'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
    ) 
-    with beam.Pipeline(options=options) as p:
+    with beam.Pipeline() as p:
         _ = (
             p
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(source_dataset, chunks=source_chunks)

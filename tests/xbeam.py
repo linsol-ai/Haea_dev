@@ -36,7 +36,6 @@ def PreprocessData(chunk):
 def main():
 
     temporal_key = xbeam.Key({'time': 50})
-    spatial_keys = [xbeam.Key({'latitude':1}), xbeam.Key({'longitude':1})]
 
     # 데이터셋을 분할하기 위한 키 설정
 

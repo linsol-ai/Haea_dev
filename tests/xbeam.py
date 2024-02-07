@@ -29,7 +29,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 
-def PreprocessData(dataset: xarray.Dataset):
+def PreprocessData(key, dataset: xarray.Dataset):
     dataset = dataset[variable]
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')

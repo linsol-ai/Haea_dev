@@ -7,7 +7,7 @@ import gcsfs
 
 class PreprocessERA5Data(beam.DoFn):
     def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):
-        fs = gcsfs.GCSFileSystem(project='your-gcp-project')
+        fs = gcsfs.GCSFileSystem(project='genfit-7ba0d')
         store = fs.get_mapper(f'gs://{bucket_name}/{element}')
         ds = xr.open_zarr(store)
         

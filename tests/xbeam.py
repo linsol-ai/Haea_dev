@@ -34,7 +34,7 @@ def run():
     with beam.Pipeline(options=options) as p:
         d1 = (
             p
-            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(d1, chunks={'time': 10}, split_vars=False)
+            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
         )
         d2 = (
             d1

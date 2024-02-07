@@ -31,7 +31,7 @@ def preprocess_dataset(ds):
 
 def run():
     with beam.Pipeline(options=options) as p:
-        _ = (
+        d1 = (
             p
             | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
         )

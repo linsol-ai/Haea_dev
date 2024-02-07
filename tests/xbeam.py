@@ -6,7 +6,7 @@ import zarr
 
 class PreprocessERA5Data(beam.DoFn):
     def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):
-        ds = xr.open_zarr(store)
+        ds = xr.open_zarr('')
         
         # 경위도 및 시간대에 따라 데이터 필터링
         ds_filtered = ds.sel(latitude=slice(*latitude_range), longitude=slice(*longitude_range), time=slice(*time_range))

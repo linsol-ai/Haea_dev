@@ -41,8 +41,7 @@ def run():
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
         )
         _ = (
-            d2
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH)
+'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH)
         )
 
         

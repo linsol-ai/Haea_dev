@@ -26,7 +26,7 @@ def run():
     with beam.Pipeline(options=options) as p:
         _ = (
             p
-            | 'CreateDatasetPattern' >> beam.Create([INPUT_ZARR_PATH])
+            | 'CreateDatasetPattern' >> beam.Create([])
             | 'OpenZarrDataset' >> beam.Map(xr.open_zarr, chunks=None)
             | 'ChunkingDataset' >> beam.Map(xbeam.DatasetToChunks, chunks={'time: 10'}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)

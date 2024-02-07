@@ -1,7 +1,7 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import xarray_beam as xbeam
-import xarray as xr
+import xarray
 import zarr
 
 class PreprocessERA5Data(beam.DoFn):

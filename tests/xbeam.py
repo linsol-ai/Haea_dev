@@ -32,7 +32,7 @@ def preprocess_dataset(ds):
 def run():
     dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
     with beam.Pipeline(options=options) as p:
-         = (
+        _ = (
             p
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)

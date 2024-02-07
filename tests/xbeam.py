@@ -28,6 +28,7 @@ def preprocess_dataset(element):
 
 def run():
     dataset = xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)
+    
     with beam.Pipeline(options=options) as p:
         _ = (
             p

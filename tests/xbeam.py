@@ -14,7 +14,7 @@ options = PipelineOptions(
     project='genfit-7ba0d',
     temp_location=f'gs://{GCS_BUCKET}/temp',
     region='us-east1',
-    
+    requirements_file=
 )
 
 def preprocess_dataset(dataset):

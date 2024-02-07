@@ -35,6 +35,8 @@ def main():
     lon_min, lon_max = 124.2, 131
     source_dataset, source_chunks = xbeam.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr')
 
+    print(source_chunks)
+
     # Apache Beam 파이프라인 설정
     pipeline_options = PipelineOptions()
     with beam.Pipeline(options=pipeline_options) as p:

@@ -65,7 +65,7 @@ def main():
             | "PreprocessData" >> beam.MapTuple(PreprocessData)
         )
 
-         filtered_dataset = (
+        filtered_dataset = (
         dataset
         | "Filter by Time and Coordinates" >> beam.Filter(
             lambda chunk: temporal_key in chunk.indexes and 

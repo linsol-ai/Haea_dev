@@ -31,7 +31,7 @@ variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_
 
 def PreprocessData(chunk):
     
-    return key, dataset
+    return False
 
 def main():
 

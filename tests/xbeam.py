@@ -17,6 +17,8 @@ options = PipelineOptions(
     requirements_file='/workspace/Haea/req.txt'
 )
 
+def c
+
 def preprocess_dataset(dataset):
     ds = dataset
     ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))

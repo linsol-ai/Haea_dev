@@ -30,7 +30,7 @@ variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_
 
 
 def PreprocessData(key, dataset: xarray.Dataset):
-    print(k)
+    print(key, dataset)
     return key, dataset
 
 def main():

@@ -17,7 +17,7 @@ options = PipelineOptions(
     requirements_file='/workspace/Haea/req.txt'
 )
 
-def c
+def get_chunk()
 
 def preprocess_dataset(dataset):
     ds = dataset

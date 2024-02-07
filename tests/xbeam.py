@@ -24,14 +24,14 @@ def run():
     options = PipelineOptions(
         runner='DataflowRunner',
         project='genfit-7ba0d',
-        temp_location='gs://YOUR_BUCKET_NAME/temp',
+        temp_location='gs://dataflow_preprocess/temp',
         region='YOUR_REGION'
     )
     
     # 파이프라인 정의
     with beam.Pipeline(options=options) as p:
         # GCS에서 Zarr 파일 목록을 읽음
-        zarr_files = ['gs://YOUR_BUCKET_NAME/path/to/your/data.zarr']
+        zarr_files = ['gs://dataflow_preprocess/path/to/your/data.zarr']
         
         # Zarr 데이터 처리
         (p | 'CreateFileList' >> beam.Create(zarr_files)

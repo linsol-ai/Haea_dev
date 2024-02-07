@@ -42,7 +42,7 @@ def run_pipeline(bucket_name, input_filename, variable, latitude_range, longitud
 if __name__ == '__main__':
     bucket_name = 'dataflow_preprocess'
     input_filename = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'  # Zarr 파일 경로
-    variable = 'your-variable-name'
+    variable = 'geopotential'
     latitude_range = (-10, 10)  # 예시 경위도 범위
     longitude_range = (100, 120)  # 예시 경도 범위
     time_range = ('2020-01-01', '2020-12-31')  # 예시 시간 범위

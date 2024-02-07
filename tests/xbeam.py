@@ -63,6 +63,7 @@ def main():
     job_name='unique-job-name',
     temp_location='gs://my-bucket/temp',
     region='us-central1')
+    
     with beam.Pipeline(options=pipeline_options) as p:
         # 데이터셋을 Beam PCollection으로 로드
         (

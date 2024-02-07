@@ -29,7 +29,7 @@ def run():
     with beam.Pipeline(options=options) as p:
         _ = (
             p
-            | 'OpenZarrDataset' >> beam.Create([xr.open_zarr(INPUT_ZARR_PATH, chunks=None)])
+            | 'OpenZarrDataset' >> beam.Create([xarray.open_zarr(INPUT_ZARR_PATH, chunks=None)])
             | 'ChunkingDataset' >> beam.Map(get_chunk)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xbeam.ChunksToZarr(OUTPUT_ZARR_PATH)

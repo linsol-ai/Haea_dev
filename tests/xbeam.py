@@ -78,7 +78,7 @@ def main():
                             chunk.indexes[spatial_keys[1]].min() >= lon_min and
                             chunk.indexes[spatial_keys[1]].max() <= lon_max
             )
-    )   
+        )   
 
     
         print(dataset)

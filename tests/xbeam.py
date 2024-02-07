@@ -36,6 +36,7 @@ def run():
             p
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
+            
         )
         d2 = (
             d1

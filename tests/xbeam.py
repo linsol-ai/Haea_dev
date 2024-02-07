@@ -42,7 +42,7 @@ def run():
         )
         _ = (
             d2
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
+            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr(d2, OUTPUT_ZARR_PATH)
         )
 
         

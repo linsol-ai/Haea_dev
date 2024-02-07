@@ -18,7 +18,7 @@ options = PipelineOptions(
 )
 
 def get_chunk():
-    return xbeam
+    return xbeam.
 
 def preprocess_dataset(dataset):
     ds = dataset

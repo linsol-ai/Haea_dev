@@ -27,6 +27,8 @@ import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
 
+def 
+
 def main():
 
     # 데이터셋을 분할하기 위한 키 설정

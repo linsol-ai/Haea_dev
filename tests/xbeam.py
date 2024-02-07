@@ -61,7 +61,7 @@ def main():
         runner='DataflowRunner',
         project='my-project-id',
         job_name='unique-job-name',
-        temp_location='gs://dataflow_preprocess',
+        temp_location='gs://dataflow_preprocess/test',
         region='us-east1'
     )
 

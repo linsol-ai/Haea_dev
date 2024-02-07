@@ -55,7 +55,7 @@ def main():
 
     # Apache Beam 파이프라인 설정
     pipeline_options = PipelineOptions()
-    with beam.Pipeline(options=pipeline_options) as p:
+    with beam.Pipeline(runner=RUNNER.value) as p:
         # 데이터셋을 Beam PCollection으로 로드
         dataset = (
             p 

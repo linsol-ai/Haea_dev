@@ -17,7 +17,7 @@ options = PipelineOptions(
     requirements_file='/workspace/Haea/req.txt'
 )
 
-def get_chunk():
+def get_chunk(dataset):
     return xbeam.DatasetToChunks()
 
 def preprocess_dataset(dataset):

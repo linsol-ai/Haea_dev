@@ -59,7 +59,7 @@ def main():
         # 데이터셋을 Beam PCollection으로 로드
         dataset = (
             p 
-            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, {'time':50})
+            | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, source_chunks)
             | "PreprocessData" >> beam.MapTuple(PreprocessData)
         )
 

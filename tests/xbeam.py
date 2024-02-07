@@ -36,7 +36,7 @@ def run():
         _ = (
             p
             | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(source_dataset, chunks=source_chunks, split_vars=False)
-            | xarray_beam.SplitChunks({'time': 1})
+            | xarray_beam.SplitChunks({'time': 10})
             | 'PreprocessDataset' >> beam.Map(preprocess_dataset)
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr', template=template)
         )

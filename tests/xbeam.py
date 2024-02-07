@@ -33,7 +33,7 @@ def proprocess_data(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
 
-    dataset = dataset[]
+    dataset = dataset[variable]
     
     start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')

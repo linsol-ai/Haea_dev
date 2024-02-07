@@ -60,7 +60,6 @@ def main():
         dataset = (
             p 
             | "Read Dataset" >> xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=False,)
-            | xbeam.SplitChunks({'time': 10})
             | "PreprocessData" >> beam.Map(PreprocessData)
             | print
         )

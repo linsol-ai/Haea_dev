@@ -6,8 +6,6 @@ import zarr
 
 class PreprocessERA5Data(beam.DoFn):
     def process(self, element, bucket_name, variable, latitude_range, longitude_range, time_range):
-        fs = gcsfs.GCSFileSystem(project='genfit-7ba0d')
-        store = fs.get_mapper(f'gs://{bucket_name}/{element}')
         ds = xr.open_zarr(store)
         
         # 경위도 및 시간대에 따라 데이터 필터링

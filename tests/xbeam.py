@@ -28,7 +28,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 
 
 def PreprocessData(dataset):
-   start_date = pd.to_datetime('2021-01-01')
+    start_date = pd.to_datetime('2021-01-01')
     end_date = pd.to_datetime('2021-02-01')
    
 

@@ -31,7 +31,7 @@ def run():
     # 파이프라인 정의
     with beam.Pipeline(options=options) as p:
         # GCS에서 Zarr 파일 목록을 읽음
-        zarr_files = ['gs://dataflow_preprocess/path/to/your/data.zarr']
+        zarr_files = ['gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr']
         
         # Zarr 데이터 처리
         (p | 'CreateFileList' >> beam.Create(zarr_files)

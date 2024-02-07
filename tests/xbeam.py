@@ -14,7 +14,7 @@ options = PipelineOptions(
 )
 
 class ReadZarrData(beam.DoFn):
-    def process(self, element, bucket, dataset_path, latitude, longitude, start_time, end_time):
+    def process(self, element, latitude, longitude, start_time, end_time):
         fs = gcsfs.GCSFileSystem()
         store = gcsfs.GCSMap(root=f'{bucket}/{dataset_path}', gcs=fs)
         
@@ -31,7 +31,7 @@ class ReadZarrData(beam.DoFn):
         # 예제에서는 단순화를 위해 데이터의 요약 정보만 반환합니다.
         yield filtered_data.to_dict()
 
-        
+
 
 def preprocess_dataset(key: xarray_beam.Key, dataset: xarray.Dataset):
     ds = dataset

@@ -1,6 +1,6 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-import x as xbeam
+import xarray_beam as xbeam
 import xarray as xr
 import zarr
 import gcsfs

@@ -10,7 +10,7 @@ import pandas as pd
 
 
 INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
-OUTPUT_PATH = 'gs://era5_preprocess/1440x721/1959-2023.zarr'
+OUTPUT_PATH = 'gs://era5_preprocess/1440x721/1959-2022.zarr'
 RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

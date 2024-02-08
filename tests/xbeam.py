@@ -23,7 +23,7 @@ def rekey_chunk_on_month_hour(
   """Replace the 'time' dimension with 'month'/'hour'."""
   start_date = pd.to_datetime('2021-01-01')
   end_date = pd.to_datetime('2021-08-01')
-  ds_filtered = ds.sel(lat=latitude, lon=longitude, time=slice(start_time, end_time))
+  ds_filtered = ds.sel(time=slice('2023-01-01', '2023-01-31'), lat=slice(30, 50), lon=slice(-130, -60))
 
   month = dataset.time.dt.month.item()
   hour = dataset.time.dt.hour.item()

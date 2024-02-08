@@ -39,8 +39,13 @@ def main(argv):
       .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
   )
 
+  lat_min, lat_max = 32.2, 39.0
+lon_min, lon_max = 124.2, 131
 
-  
+# 해당 범위에 속하는 위도와 경도의 인덱스 찾기
+lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
+lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+
   output_chunks = {'time': 1, 'month': 1}
 
   with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:

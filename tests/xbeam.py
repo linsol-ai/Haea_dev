@@ -28,7 +28,7 @@ def rekey_chunk_on_month_hour(
 def main(argv):
   variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
-  source_dataset = source_dataset[]
+  source_dataset = source_dataset[variable]
   template = (
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)

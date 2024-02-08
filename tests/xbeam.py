@@ -18,8 +18,6 @@ RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 # pylint: disable=expression-not-assigned
 
 
-
-
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:

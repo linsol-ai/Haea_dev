@@ -51,7 +51,7 @@ def main(argv):
         runner='DataflowRunner',
         project='your-gcp-project',
         temp_location=f'gs://era5_preprocess/temp',
-        region='your-gcp-region',
+        region='era5_preprocess',
   )
 
 

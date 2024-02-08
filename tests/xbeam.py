@@ -45,7 +45,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  output_chunks = {'time': 1, 'month': 1}
+  output_chunks = {'time': 1}
 
   with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
     (

@@ -21,7 +21,7 @@ def daily_date_iterator(start_date: str, end_date: str
     for date in date_range:
         yield date.year, date.month, date.day
 
-
+class LoadTemporalDataForDateDoFn(beam.DoFn):
 
 
 def run():

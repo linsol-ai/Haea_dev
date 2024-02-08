@@ -38,7 +38,7 @@ def rekey_chunk_on_month_hour(
 
 def main(argv):
   START_DATE = f'{START_YEAR}-01-01'
-  END_DATE = f'2020-01-01'
+  END_DATE = f'{END}-01-01'
   OUTPUT_PATH = f'gs://era5_preprocess/1440x721/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)

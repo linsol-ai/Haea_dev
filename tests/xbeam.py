@@ -95,7 +95,7 @@ class LoadTemporalDataForDateDoFn(beam.DoFn):
         key = xb.Key(offsets, vars=set(dataset.data_vars.keys()))
         logging.info("Finished loading NetCDF files for %s-%s-%s", year, month, day)
         yield key, dataset
-        dataset.close()
+        dataset.close()'z'
 
 
 def run():

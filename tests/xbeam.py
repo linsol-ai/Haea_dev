@@ -1,7 +1,7 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-import xarray
-import xarray_beam
+import xarray as xr
+import xarray_beam a
 import pandas as pd
 import typing as t
 

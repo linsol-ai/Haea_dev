@@ -10,7 +10,7 @@ import xarray_beam as xbeam
 import pandas as pd
 
 
-INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
+INPUT_PATH = ''
 OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
 RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 

@@ -73,7 +73,7 @@ def main(argv):
         requirements_file='/workspace/Haea/req.txt',
         num_workers=FLAGS.num_worker,
         usePublicIps=False,
-        autoscaling_algorithm
+        autoscaling_algorithm=None
   )
 
 

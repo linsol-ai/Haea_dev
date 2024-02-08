@@ -7,6 +7,7 @@ import apache_beam as beam
 import numpy as np
 import xarray
 import xarray_beam as xbeam
+import pandas as pd
 
 
 INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')

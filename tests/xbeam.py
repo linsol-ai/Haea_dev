@@ -1,6 +1,6 @@
 
 from typing import Tuple
-from apache_beam.options.pipeline_options 
+from apache_beam.options.pipeline_options import PipelineOptions
 from absl import app
 import apache_beam as beam
 import numpy as np

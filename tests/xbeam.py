@@ -37,7 +37,7 @@ def main(argv):
   # pipeline. We don't really need to supply a template here because the outputs
   # are small (the template argument in ChunksToZarr is optional), but it makes
   # the pipeline slightly more efficient.
-  max_month = source_dataset.time.dt.month.max().item()  # normally 12
+  
   template = (
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)

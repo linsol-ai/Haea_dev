@@ -2,7 +2,7 @@
 from typing import Tuple
 from apache_beam.options.pipeline_options import PipelineOptions
 from absl import app
-END_DATE
+from absl import flags
 import apache_beam as beam
 import numpy as np
 import xarray

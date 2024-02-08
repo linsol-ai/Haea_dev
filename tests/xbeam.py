@@ -13,6 +13,13 @@ options = PipelineOptions(
     runner='DirectRunner',
 )
 
+   """Load temporal data for a day, with an xarray_beam key for it.
+        Args:
+            args (tuple): A tuple containing the year, month, and day.
+        Yields:
+            tuple: A tuple containing an xarray_beam key and the loaded dataset.
+        """
+
 def get_chunk(dataset):
     import xarray_beam
     return xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)

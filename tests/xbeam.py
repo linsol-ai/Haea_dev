@@ -24,6 +24,10 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 # pylint: disable=expression-not-assigned
 
+INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
+OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
+RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
+
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset, lat_indices=None, lon_indices=None

@@ -28,17 +28,6 @@ def rekey_chunk_on_month_hour(
 def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
 
-  # This lazy "template" allows us to setup the Zarr outputs before running the
-  # pipeline. We don't really need to supply a template here because the outputs
-  # are small (the template argument in ChunksToZarr is optional), but it makes
-  # the pipeline slightly more efficient.
-  max_month = source_dataset.time.dt.month.max().item()  # normally 12
-  template = (
-      xbeam.make_template(source_dataset)
-      .isel(time=0, drop=True)
-      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
-  )
-
   with beam.Pipeline(runner=RUNNER, argv=argv) as root:
     (
         root

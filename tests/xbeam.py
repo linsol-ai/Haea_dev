@@ -62,7 +62,7 @@ class LoadTemporalDataForDateDoFn(beam.DoFn):
             tuple: A tuple containing an xarray_beam key and the loaded dataset.
         """
         year, month, day = args
-        logging.info("Loading NetCDF files for %d-%d-%d", year, month, day)
+        logging.info("Loading zarr files for %d-%d-%d", year, month, day)
 
         try:
             single_level_vars = read_single_level_vars(

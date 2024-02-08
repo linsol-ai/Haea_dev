@@ -27,7 +27,6 @@ def rekey_chunk_on_month_hour(
 
 def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
-  max_month = source_dataset.time.dt.month.max().item()  # normally 12
   template = (
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)

@@ -22,6 +22,12 @@ def rekey_chunk_on_month_hour(
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   """Replace the 'time' dimension with 'month'/'hour'."""
   new_dataset = dataset.sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
+  month = dataset.time.dt.month.item()
+  hour = dataset.time.dt.hour.item()
+  new_key = key.with_offsets(time=None, month=month - 1, hour=hour)
+  new_dataset = dataset.squeeze('time', drop=True).expand_dims(
+      month=[month], hour=[hour]
+  )
   return key, new_dataset
 
 

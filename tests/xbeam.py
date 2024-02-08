@@ -15,7 +15,8 @@ RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover']
 
-NONE_LEVEL_VARIABLE
+NONE_LEVEL_VARIABLE = []
+
 # pylint: disable=expression-not-assigned
 
 

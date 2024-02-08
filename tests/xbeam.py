@@ -72,7 +72,8 @@ def main(argv):
         region='us-central1',
         requirements_file='/workspace/Haea/req.txt',
         num_workers=FLAGS.num_worker,
-        usePublicIps=False
+        usePublicIps=False,
+        autoscaling_algorithm
   )
 
 

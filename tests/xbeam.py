@@ -2,7 +2,6 @@
 from typing import Tuple
 
 from absl import app
-from absl import flags
 import apache_beam as beam
 import numpy as np
 import xarray

@@ -24,7 +24,7 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 # pylint: disable=expression-not-assigned
 
-INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
+START_DATE = flags.DEFINE_string('input_path', None, help='Input Zarr path')
 OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
 RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 

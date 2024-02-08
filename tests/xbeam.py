@@ -12,7 +12,7 @@ import xarray_beam as xbeam
 
 INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
 OUTPUT_PATH = 'gs://dataflow_preprocess/preprocessed'
-RUNNER = ''
+RUNNER = 'DirectRunner'
 
 # pylint: disable=expression-not-assigned
 

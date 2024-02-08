@@ -28,7 +28,7 @@ END_YEAR = flags.DEFINE_string('end_year', None, help='end_date')
 NUM_WORKER = flags.DEFINE_integer('num_worker', 12, help='num_worker')
 
 flags.mark_flag_as_required("start_year")
-
+flags.mark_flag_as_required("start_year")
 
 
 def rekey_chunk_on_month_hour(

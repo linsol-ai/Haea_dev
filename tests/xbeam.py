@@ -22,7 +22,7 @@ def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset, lat_indices, lon_indices
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   """Replace the 'time' dimension with 'month'/'hour'."""
-  new_dataset = dataset..isel(latitude=lat_indices, longitude=lon_indices)
+  new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
   return key, new_dataset
 
 

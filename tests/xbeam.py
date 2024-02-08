@@ -32,6 +32,13 @@ def main(argv):
   start_date = pd.to_datetime('2021-01-01')
   end_date = pd.to_datetime('2021-08-01')
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
+
+  lat_min, lat_max = 32.2, 39.0
+  lon_min, lon_max = 124.2, 131
+
+  # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
+  lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
+  lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
   
   template = (
       xbeam.make_template(source_dataset)

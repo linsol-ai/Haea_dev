@@ -15,13 +15,13 @@ OUTPUT_PATH = 'gs://dataflow_preprocess/preprocessed'
 RUNNER = 'DirectRunner'
 
 # pylint: disable=expression-not-assigned
-    
+
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   """Replace the 'time' dimension with 'month'/'hour'."""
-  new_dataset = dataset.sel(time=slice('2021-01-01', '2022-01-01'), lat=slice(32.2, 39.0), lon=slice(124.2, 131))
+  new_dataset = dataset.sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(32.2, 39.0), lon=slice(124.2, 131))
   return key, new_dataset
 
 

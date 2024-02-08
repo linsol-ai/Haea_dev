@@ -31,7 +31,7 @@ def rekey_chunk_on_month_hour(
 
 
 def main(argv):
-  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
+  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
 
   # This lazy "template" allows us to setup the Zarr outputs before running the
   # pipeline. We don't really need to supply a template here because the outputs

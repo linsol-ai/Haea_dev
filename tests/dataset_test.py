@@ -14,7 +14,6 @@ if __name__ == '__main__':
     ds = xarray.open_zarr('gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr', 
                           consolidated=True, 
                           chunks=None,
-                          drop_variables=drop_vars
                           )
     arr=  xarray_beam.DatasetToChunks(ds, chunks={'time': 10}, split_vars=False)
     print(arr)

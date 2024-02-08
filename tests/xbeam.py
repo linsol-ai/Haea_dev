@@ -36,6 +36,5 @@ def run():
             | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr')
         )
 
-
 if __name__ == '__main__':
     run()

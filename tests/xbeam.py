@@ -27,7 +27,7 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 START_DATE = flags.DEFINE_string('start_date', None, help='Input Zarr path')
 END_DATE = flags.DEFINE_string('end_date', None, help='Output Zarr path')
-RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
+NUM_WORKER = 
 
 
 def rekey_chunk_on_month_hour(

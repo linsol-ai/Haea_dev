@@ -17,6 +17,6 @@ if __name__ == '__main__':
                           )
     new_dataset = ds.sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(39.0, 32.2), longitude=slice(124.2, 131))
     
-    print(new_dataset.values)
+    print(new_dataset[].values)
     end = time.time()
     print(f"{end - start:.5f} sec")

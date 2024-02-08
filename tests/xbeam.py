@@ -8,7 +8,7 @@ import xarray
 import xarray_beam as xbeam
 import pandas as pd
 
-START_DATE = '2019-01-01'
+START_DATE = '2020-01-01'
 END_DATE = '2022-01-01'
 
 INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'

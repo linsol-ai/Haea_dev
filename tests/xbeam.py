@@ -15,7 +15,7 @@ OUTPUT_PATH = 'gs://dataflow_preprocess/preprocessed'
 RUNNER = 'DirectRunner'
 
 # pylint: disable=expression-not-assigned
-
+    
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset

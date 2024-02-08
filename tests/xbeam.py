@@ -22,13 +22,6 @@ def daily_date_iterator(start_date: str, end_date: str
         yield date.year, date.month, date.day
 
 
-def get_chunk(dataset):
-    import xarray_beam
-    return xarray_beam.DatasetToChunks(dataset, chunks={'time': 10}, split_vars=False)
-
-def save_chunk(dataset):
-    import xarray_beam
-    return xarray_beam.ChunksToZarr(dataset, OUTPUT_ZARR_PATH)
 
 def preprocess_dataset( key: xarray_beam.Key, dataset: xarray.Dataset):
     ds = dataset

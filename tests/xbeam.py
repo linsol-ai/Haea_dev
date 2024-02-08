@@ -10,7 +10,7 @@ import logging
 GCS_BUCKET = 'dataflow_preprocess'
 INPUT_ZARR_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
 OUTPUT_ZARR_PATH = f'gs://{GCS_BUCKET}/result/1440x721.zarr'
-TIME_RESOLUTION_HOURS = 6
+TIME_RESOLUTION_HOURS = 1
 HOURS_PER_DAY = 24
 
 # 파이프라인 옵션 설정

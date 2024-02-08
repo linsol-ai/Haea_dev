@@ -28,7 +28,7 @@ def rekey_chunk_on_month_hour(
   new_dataset = dataset.squeeze('time', drop=True).expand_dims(
       month=[month], hour=[hour]
   )
-  return key, new_dataset
+  return new_key, new_dataset
 
 
 def main(argv):

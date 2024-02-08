@@ -45,7 +45,7 @@ def main(argv):
   )
   output_chunks = {'hour': 1, 'month': 1}
 
-  with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+  with beam.Pipeline(runner=RUNNER, argv=argv) as root:
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

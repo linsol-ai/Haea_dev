@@ -4,6 +4,7 @@ import xarray as xr
 import xarray_beam as xb
 import pandas as pd
 import typing as t
+import logging
 
 # GCS 경로 설정
 GCS_BUCKET = 'dataflow_preprocess'

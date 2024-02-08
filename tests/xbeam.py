@@ -16,6 +16,6 @@ if __name__ == '__main__':
                           drop_variables=drop_vars
                           )
     ds = ds.sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(39.0, 32.2), longitude=slice(124.2, 131))
-    ds.to_zarr('dataflow_preprocess/',consolidated=True)
+    ds.to_zarr('dataflow_preprocess/test/test.zarr',consolidated=True)
     end = time.time()
     print(f"{end - start:.5f} sec")

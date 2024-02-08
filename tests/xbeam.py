@@ -52,7 +52,7 @@ def main(argv):
         project='your-gcp-project',
         temp_location=f'gs://{bucket_name}/temp',
         region='your-gcp-region',
-    )
+    
 
 
   with beam.Pipeline(runner=RUNNER, argv=argv) as root:

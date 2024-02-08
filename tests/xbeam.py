@@ -3,6 +3,7 @@ from apache_beam.options.pipeline_options import PipelineOptions
 import xarray
 import xarray_beam
 
+
 # GCS 경로 설정
 GCS_BUCKET = 'dataflow_preprocess'
 INPUT_ZARR_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'

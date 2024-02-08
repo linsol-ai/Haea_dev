@@ -1,123 +1,61 @@
+# limitations under the License.
+"""Calculate climatology for the Pangeo ERA5 surface dataset."""
+from typing import Tuple
+
+from absl import app
+from absl import flags
 import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
-import xarray as xr
-import xarray_beam as xb
-import pandas as pd
-import typing as t
-import logging
-
-# GCS 경로 설정
-GCS_BUCKET = 'dataflow_preprocess'
-INPUT_ZARR_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
-OUTPUT_ZARR_PATH = f'gs://{GCS_BUCKET}/result/1440x721.zarr'
-TIME_RESOLUTION_HOURS = 1
-HOURS_PER_DAY = 24
-
-# 파이프라인 옵션 설정
-options = PipelineOptions(
-    runner='DirectRunner',
-)
-
-def daily_date_iterator(start_date: str, end_date: str
-                        ) -> t.Iterable[t.Tuple[int, int, int]]:
-    date_range = pd.date_range(start=start_date, end=end_date, inclusive='left')
-    for date in date_range:
-        yield date.year, date.month, date.day
-
-def offset_along_time_axis(start_date: str, year: int, month: int, day: int) -> int:
-    """Offset in indices along the time axis, relative to start of the dataset."""
-    # Note the length of years can vary due to leap years, so the chunk lengths
-    # will not always be the same, and we need to do a proper date calculation
-    # not just multiply by 365*24.
-    time_delta = pd.Timestamp(
-        year=year, month=month, day=day) - pd.Timestamp(start_date)
-    return time_delta.days * HOURS_PER_DAY // TIME_RESOLUTION_HOURS
-
-class LoadTemporalDataForDateDoFn(beam.DoFn):
-    """A Beam DoFn for loading temporal data for a specific date.
-
-    This class is responsible for loading temporal data for a given date, including both
-    single-level and pressure-level variables.
-    Args:
-        data_path (str): The path to the data source.
-        start_date (str): The start date in ISO format (YYYY-MM-DD).
-        pressure_levels_group (str): The group label for the set of pressure levels.
-    Methods:
-        process(args): Loads temporal data for a specific date and yields it with an xarray_beam key.
-    Example:
-        >>> data_path = "gs://your-bucket/data/"
-        >>> start_date = "2023-09-01"
-        >>> pressure_levels_group = "weatherbench_13"
-        >>> loader = LoadTemporalDataForDateDoFn(data_path, start_date, pressure_levels_group)
-        >>> for result in loader.process((2023, 9, 11)):
-        ...     key, dataset = result
-        ...     print(f"Loaded data for key: {key}")
-        ...     print(dataset)
-    """
-    def __init__(self, data_path, start_date, pressure_levels_group):
-        """Initialize the LoadTemporalDataForDateDoFn.
-        Args:
-            data_path (str): The path to the data source.
-            start_date (str): The start date in ISO format (YYYY-MM-DD).
-            pressure_levels_group (str): The group label for the set of pressure levels.
-        """
-        self.data_path = data_path
-        self.start_date = start_date
-        self.pressure_levels_group = pressure_levels_group
-
-    def process(self, args):
-        """Load temporal data for a day, with an xarray_beam key for it.
-        Args:
-            args (tuple): A tuple containing the year, month, and day.
-        Yields:
-            tuple: A tuple containing an xarray_beam key and the loaded dataset.
-        """
-        year, month, day = args
-        logging.info("Loading zarr files for %d-%d-%d", year, month, day)
-
-        try:
-            single_level_vars = read_single_level_vars(
-                year,
-                month,
-                day,
-                variables=SINGLE_LEVEL_VARIABLES,
-                root_path=self.data_path)
-            multilevel_vars = read_multilevel_vars(
-                year,
-                month,
-                day,
-                variables=MULTILEVEL_VARIABLES,
-                pressure_levels=get_pressure_levels_arg(self.pressure_levels_group),
-                root_path=self.data_path)
-        except BaseException as e:
-            # Make sure we print the date as part of the error for easier debugging
-            # if something goes wrong. Note "from e" will also raise the details of the
-            # original exception.
-            raise RuntimeError(f"Error loading {year}-{month}-{day}") from e
-
-        # It is crucial to actually "load" as otherwise we get a pickle error.
-        single_level_vars = single_level_vars.load()
-        multilevel_vars = multilevel_vars.load()
-
-        dataset = xr.merge([single_level_vars, multilevel_vars])
-        dataset =   (dataset)
-        offsets = {"latitude": 0, "longitude": 0, "level": 0,
-                   "time": offset_along_time_axis(self.start_date, year, month, day)}
-        key = xb.Key(offsets, vars=set(dataset.data_vars.keys()))
-        logging.info("Finished loading NetCDF files for %s-%s-%s", year, month, day)
-        yield key, dataset
-        dataset.close()
+import numpy as np
+import xarray
+import xarray_beam as xbeam
 
 
-def run():
-    source_dataset, source_chunks = xarray_beam.open_zarr(INPUT_ZARR_PATH)
-    with beam.Pipeline(options=options) as p:
-        _ = (
-            p
-            | 'ChunkingDataset' >> xarray_beam.DatasetToChunks(source_dataset, chunks={'time': 10}, split_vars=False)
-            | 'PreprocessDataset' >> beam.MapTuple(preprocess_dataset)
-            | 'WriteZarrToGCS' >> xarray_beam.ChunksToZarr('/workspace/Haea/tests/1440x721.zarr')
-        )
+INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
+OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
+RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
+
+
+# pylint: disable=expression-not-assigned
+
+
+def rekey_chunk_on_month_hour(
+    key: xbeam.Key, dataset: xarray.Dataset
+) -> Tuple[xbeam.Key, xarray.Dataset]:
+  """Replace the 'time' dimension with 'month'/'hour'."""
+  month = dataset.time.dt.month.item()
+  hour = dataset.time.dt.hour.item()
+  new_key = key.with_offsets(time=None, month=month - 1, hour=hour)
+  new_dataset = dataset.squeeze('time', drop=True).expand_dims(
+      month=[month], hour=[hour]
+  )
+  return new_key, new_dataset
+
+
+def main(argv):
+  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
+
+  # This lazy "template" allows us to setup the Zarr outputs before running the
+  # pipeline. We don't really need to supply a template here because the outputs
+  # are small (the template argument in ChunksToZarr is optional), but it makes
+  # the pipeline slightly more efficient.
+  max_month = source_dataset.time.dt.month.max().item()  # normally 12
+  template = (
+      xbeam.make_template(source_dataset)
+      .isel(time=0, drop=True)
+      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
+  )
+  output_chunks = {'hour': 1, 'month': 1}
+
+  with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+    (
+        root
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
+        | xbeam.SplitChunks({'time': 1})
+        | beam.MapTuple(rekey_chunk_on_month_hour)
+        | xbeam.Mean.PerKey()
+        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+    )
+
 
 if __name__ == '__main__':
-    run()
+  app.run(main)

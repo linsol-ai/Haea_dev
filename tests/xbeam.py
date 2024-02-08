@@ -13,6 +13,30 @@ options = PipelineOptions(
     runner='DirectRunner',
 )
 
+def daily_date_iterator(start_date: str, end_date: str
+                        ) -> t.Iterable[t.Tuple[int, int, int]]:
+    """Iterate through all (year, month, day) tuples between start_date and
+    end_date (inclusive).
+
+    Args:
+        start_date (str): The start date in ISO format (YYYY-MM-DD).
+        end_date (str): The end date in ISO format (YYYY-MM-DD).
+
+    Yields:
+        tuple: A tuple containing the year, month, and day for each date in the range.
+
+    Example:
+        >>> for year, month, day in daily_date_iterator('2023-09-01', '2023-09-05'):
+        ...     print(f"Year: {year}, Month: {month}, Day: {day}")
+        Year: 2023, Month: 9, Day: 1
+        Year: 2023, Month: 9, Day: 2
+        Year: 2023, Month: 9, Day: 3
+        Year: 2023, Month: 9, Day: 4
+        Year: 2023, Month: 9, Day: 5
+    """
+    date_range = pd.date_range(start=start_date, end=end_date, inclusive='left')
+    for date in date_range:
+        yield date.year, date.month, date.day
 
 
 def get_chunk(dataset):

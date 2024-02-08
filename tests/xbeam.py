@@ -47,7 +47,7 @@ def main(argv):
 
   output_chunks = {'time': 1}
 
-  pipeline_options = PipelineOptions(
+  us-central1 = PipelineOptions(
         runner='DataflowRunner',
         project='your-gcp-project',
         temp_location=f'gs://era5_preprocess/temp',

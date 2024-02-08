@@ -50,7 +50,7 @@ def main(argv):
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='your-gcp-project',
-        temp_location=f'gs://dataflow_preprocess/temp',
+        temp_location=f'gs://era5_preprocess/temp',
         region='your-gcp-region',
   )
 

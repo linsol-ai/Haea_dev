@@ -17,6 +17,13 @@ RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 
 # pylint: disable=expression-not-assigned
 
+lat_min, lat_max = 32.2, 39.0
+lon_min, lon_max = 124.2, 131
+
+# 해당 범위에 속하는 위도와 경도의 인덱스 찾기
+lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
+lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
+
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset

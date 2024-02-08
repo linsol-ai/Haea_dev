@@ -31,8 +31,7 @@ def main(argv):
   source_dataset = source_dataset[variable]
   template = (
       xbeam.make_template(source_dataset)
-      .isel(time=0, drop=True)
-      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
+      .sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(32.2, 39.0), longitude=slice(124.2, 131))
   )
   output_chunks = {'hour': 1, 'month': 1}
 

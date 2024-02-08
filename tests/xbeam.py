@@ -28,7 +28,6 @@ END_YEAR = flags.DEFINE_string('end_year', None, help='end_date')
 NUM_WORKER = flags.DEFINE_integer('num_worker', 12, help='num_worker')
 
 flags.mark_flag_as_required("name")
-출처: https://wilowisp.tistory.com/entry/Abseil-Python-Common-Libraries [으름로그:티스토리]
 
 
 def rekey_chunk_on_month_hour(

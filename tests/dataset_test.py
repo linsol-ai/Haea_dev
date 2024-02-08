@@ -15,5 +15,4 @@ if __name__ == '__main__':
                           consolidated=True, 
                           chunks=None,
                           )
-    arr=  xarray_beam.DatasetToChunks(ds, chunks={'time': 10}, split_vars=False)
     print(arr)

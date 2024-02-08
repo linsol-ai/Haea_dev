@@ -22,6 +22,15 @@ def daily_date_iterator(start_date: str, end_date: str
     for date in date_range:
         yield date.year, date.month, date.day
 
+def offset_along_time_axis(start_date: str, year: int, month: int, day: int) -> int:
+    """Offset in indices along the time axis, relative to start of the dataset."""
+    # Note the length of years can vary due to leap years, so the chunk lengths
+    # will not always be the same, and we need to do a proper date calculation
+    # not just multiply by 365*24.
+    time_delta = pd.Timestamp(
+        year=year, month=month, day=day) - pd.Timestamp(start_date)
+    return time_delta.days * HOURS_PER_DAY // TIME_RESOLUTION_HOURS
+
 class LoadTemporalDataForDateDoFn(beam.DoFn):
     """A Beam DoFn for loading temporal data for a specific date.
 
@@ -95,7 +104,7 @@ class LoadTemporalDataForDateDoFn(beam.DoFn):
         key = xb.Key(offsets, vars=set(dataset.data_vars.keys()))
         logging.info("Finished loading NetCDF files for %s-%s-%s", year, month, day)
         yield key, dataset
-        dataset.close()'z'
+        dataset.close()
 
 
 def run():

@@ -27,7 +27,7 @@ def rekey_chunk_on_month_hour(
 
 
 def main(argv):
-  variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
+  
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
 
   start_date = pd.to_datetime('2021-01-01')

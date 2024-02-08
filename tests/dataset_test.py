@@ -15,4 +15,4 @@ if __name__ == '__main__':
                           consolidated=True, 
                           chunks=None,
                           )
-    print(arr)
+    print(ds)

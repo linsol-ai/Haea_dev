@@ -11,7 +11,7 @@ import pandas as pd
 
 
 INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
-OUTPUT_PATH = ''
+OUTPUT_PATH = 'gs://'
 RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 
 

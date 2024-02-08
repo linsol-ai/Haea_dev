@@ -46,7 +46,7 @@ def main(argv):
       .isel(time=0, drop=True)
       .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
   )
-  output_chunks = {'hour': 1, 'month': 1}
+
 
   with beam.Pipeline(runner=RUNNER, argv=argv) as root:
     (

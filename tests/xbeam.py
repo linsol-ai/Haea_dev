@@ -71,7 +71,7 @@ def main(argv):
         temp_location='gs://era5_preprocess/temp',
         region='us-central1',
         requirements_file='/workspace/Haea/req.txt',
-        num_workers=FLAGS.num_worker
+        num_workers=FLAGS.num_worker,
         usePublicIps=False
   )
 

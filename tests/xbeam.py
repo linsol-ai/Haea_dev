@@ -22,7 +22,7 @@ NONE_LEVEL_VARIABLE = [
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 # pylint: disable=expression-not-assigned
-
+FLAGS = flags.FLAGS
 START_YEAR = flags.DEFINE_string('start', None, help='start_year')
 END_YEAR = flags.DEFINE_string('end', None, help='end_year')
 NUM_WORKER = flags.DEFINE_integer('num_worker', 12, help='num_worker')

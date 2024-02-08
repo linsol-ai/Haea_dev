@@ -54,7 +54,7 @@ def main(argv):
         | xbeam.SplitChunks({'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.Mean.PerKey()
-        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+        | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )
 
 

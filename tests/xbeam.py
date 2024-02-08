@@ -27,7 +27,7 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 START_DATE = flags.DEFINE_string('start_date', None, help='start_date')
 END_DATE = flags.DEFINE_string('end_date', None, help='end_date')
-NUM_WORKER = flags.DEFINE_integer('num_worker', 12, help='end_date')
+NUM_WORKER = flags.DEFINE_integer('num_worker', 12, help='num_worker')
 
 
 def rekey_chunk_on_month_hour(

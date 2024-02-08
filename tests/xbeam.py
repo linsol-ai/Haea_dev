@@ -11,7 +11,7 @@ import pandas as pd
 
 
 INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
-OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
+OUTPUT_PATH = ''
 RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
 
 

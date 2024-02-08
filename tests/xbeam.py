@@ -26,7 +26,7 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 # pylint: disable=expression-not-assigned
 
 START_DATE = flags.DEFINE_string('start_date', None, help='start_date')
-END_DATE = flags.DEFINE_string('end_date', None, help='Output Zarr path')
+END_DATE = flags.DEFINE_string('end_date', None, help='v')
 NUM_WORKER = 
 
 

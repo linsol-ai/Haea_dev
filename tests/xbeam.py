@@ -100,7 +100,7 @@ class LoadTemporalDataForDateDoFn(beam.DoFn):
         multilevel_vars = multilevel_vars.load()
 
         dataset = xr.merge([single_level_vars, multilevel_vars])
-        dataset = align_coordinates(dataset)
+        dataset =   (dataset)
         offsets = {"latitude": 0, "longitude": 0, "level": 0,
                    "time": offset_along_time_axis(self.start_date, year, month, day)}
         key = xb.Key(offsets, vars=set(dataset.data_vars.keys()))

@@ -1,21 +1,73 @@
-import xarray
-import pandas as pd
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""Calculate climatology for the Pangeo ERA5 surface dataset."""
+from typing import Tuple
+
+from absl import app
+from absl import flags
+import apache_beam as beam
 import numpy as np
-import time
-import xarray_beam
+import xarray
+import xarray_beam as xbeam
 
-drop_vars = ['10m_u_component_of_wind', '10m_v_component_of_wind', '2m_dewpoint_temperature', '2m_temperature', 'angle_of_sub_gridscale_orography', 'anisotropy_of_sub_gridscale_orography', 'boundary_layer_height', 'geopotential_at_surface', 'high_vegetation_cover', 'lake_cover', 'land_sea_mask', 'leaf_area_index_high_vegetation', 'leaf_area_index_low_vegetation', 'low_vegetation_cover', 'mean_sea_level_pressure', 'mean_surface_latent_heat_flux', 'mean_surface_net_long_wave_radiation_flux', 'mean_surface_net_short_wave_radiation_flux', 'mean_surface_sensible_heat_flux', 'mean_top_downward_short_wave_radiation_flux', 'mean_top_net_long_wave_radiation_flux', 'mean_top_net_short_wave_radiation_flux', 'mean_vertically_integrated_moisture_divergence', 'potential_vorticity', 'sea_ice_cover', 'sea_surface_temperature', 'slope_of_sub_gridscale_orography', 'snow_depth', 'soil_type',  'standard_deviation_of_filtered_subgrid_orography', 'standard_deviation_of_orography', 'surface_pressure', 'total_cloud_cover', 'total_column_water', 'total_column_water_vapour', 'total_precipitation_12hr', 'total_precipitation_24hr', 'total_precipitation_6hr', 'type_of_high_vegetation', 'type_of_low_vegetation', 'volumetric_soil_water_layer_1', 'volumetric_soil_water_layer_2', 'volumetric_soil_water_layer_3', 'volumetric_soil_water_layer_4']
-variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
-# 파이프라인 실행
+INPUT_PATH = flags.DEFINE_string('input_path', None, help='Input Zarr path')
+OUTPUT_PATH = flags.DEFINE_string('output_path', None, help='Output Zarr path')
+RUNNER = flags.DEFINE_string('runner', None, 'beam.runners.Runner')
+
+
+# pylint: disable=expression-not-assigned
+
+
+def rekey_chunk_on_month_hour(
+    key: xbeam.Key, dataset: xarray.Dataset
+) -> Tuple[xbeam.Key, xarray.Dataset]:
+  """Replace the 'time' dimension with 'month'/'hour'."""
+  month = dataset.time.dt.month.item()
+  hour = dataset.time.dt.hour.item()
+  new_key = key.with_offsets(time=None, month=month - 1, hour=hour)
+  new_dataset = dataset.squeeze('time', drop=True).expand_dims(
+      month=[month], hour=[hour]
+  )
+  return new_key, new_dataset
+
+
+def main(argv):
+  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
+
+  # This lazy "template" allows us to setup the Zarr outputs before running the
+  # pipeline. We don't really need to supply a template here because the outputs
+  # are small (the template argument in ChunksToZarr is optional), but it makes
+  # the pipeline slightly more efficient.
+  max_month = source_dataset.time.dt.month.max().item()  # normally 12
+  template = (
+      xbeam.make_template(source_dataset)
+      .isel(time=0, drop=True)
+      .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
+  )
+  output_chunks = {'hour': 1, 'month': 1}
+
+  with beam.Pipeline(runner=RUNNER.value, argv=argv) as root:
+    (
+        root
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
+        | xbeam.SplitChunks({'time': 1})
+        | beam.MapTuple(rekey_chunk_on_month_hour)
+        | xbeam.Mean.PerKey()
+        | xbeam.ChunksToZarr(OUTPUT_PATH.value, template, output_chunks)
+    )
+
+
 if __name__ == '__main__':
-    start = time.time()
-    ds = xarray.open_zarr('ㅓ', 
-                          consolidated=True, 
-                          chunks={'time':10},
-                          drop_variables=drop_vars
-                          )
-    ds = ds.sel(time=slice('2021-01-01', '2022-01-01'), latitude=slice(39.0, 32.2), longitude=slice(124.2, 131))
-    print(ds.)
-    end = time.time()
-    print(f"{end - start:.5f} sec")
+  app.run(main)

@@ -47,7 +47,7 @@ def main(argv):
 
   output_chunks = {'time': 1}
 
-  us-central1 = PipelineOptions(
+  pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='your-gcp-project',
         temp_location=f'gs://era5_preprocess/temp',
@@ -55,7 +55,7 @@ def main(argv):
   )
 
 
-  with beam.Pipeline(runner=RUNNER, argv=argv) as root:
+  with beam.Pipeline(options=pipeline_options) as root:
     (
         root
         | xbeam.DatasetToChunks(source_dataset, {'time':1})

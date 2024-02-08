@@ -34,8 +34,8 @@ def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH.value)
 
   start_date = pd.to_datetime('2021-01-01')
-end_date = pd.to_datetime('2021-08-01')
-ds = ds.sel(time=slice(start_date, end_date))
+  end_date = pd.to_datetime('2021-08-01')
+  ds = ds.sel(time=slice(start_date, end_date))
   
   template = (
       xbeam.make_template(source_dataset)

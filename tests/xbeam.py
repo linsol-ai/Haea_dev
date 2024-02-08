@@ -40,7 +40,7 @@ def rekey_chunk_on_month_hour(
 
 
 def main(argv):
-  START_DATE = f'{FLAGS.start_}-01-01'
+  START_DATE = f'{FLAGS.start}-01-01'
   END_DATE = f'{END_YEAR}-01-01'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
   OUTPUT_PATH = f'gs://era5_preprocess/1440x721/{START_DATE}_{END_DATE}.zarr'

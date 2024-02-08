@@ -29,7 +29,7 @@ def rekey_chunk_on_month_hour(
 def main(argv):
   
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
-  source_dataset =
+  source_dataset = 
   start_date = pd.to_datetime('2021-01-01')
   end_date = pd.to_datetime('2021-08-01')
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))

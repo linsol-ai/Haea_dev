@@ -61,7 +61,6 @@ def main(argv):
         temp_location='gs://era5_preprocess/temp',
         region='us-central1',
         requirements_file='/workspace/Haea/req.txt',
-        machine_type='n2-standard-32'
   )
 
 

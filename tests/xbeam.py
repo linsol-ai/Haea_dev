@@ -27,12 +27,14 @@ def rekey_chunk_on_month_hour(
 
 def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
+  tmax_month = source_dataset.time.dt.month.max().item()  # normally 12
   template = (
       xbeam.make_template(source_dataset)
       .isel(time=0, drop=True)
       .expand_dims(month=np.arange(1, max_month + 1), hour=np.arange(24))
   )
-  
+  output_chunks = {'hour': 1, 'month': 1}
+
   with beam.Pipeline(runner=RUNNER, argv=argv) as root:
     (
         root

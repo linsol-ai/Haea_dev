@@ -22,7 +22,7 @@ def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   """Replace the 'time' dimension with 'month'/'hour'."""
-  new_dataset = ds.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
+  new_dataset = dataset.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
   return key, new_dataset
 
 

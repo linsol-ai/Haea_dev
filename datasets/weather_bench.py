@@ -105,7 +105,7 @@ class WeatherDataset:
 
     NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
 
-    DATE_OFFSET = [()]
+    DATE_OFFSET = [(2023,)]
 
 
     def __init__(self, start:int, end:int, device:torch.device):

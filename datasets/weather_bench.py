@@ -135,8 +135,6 @@ class WeatherDataset:
         return data
 
 
-  
-
     
     
     def load_data(self, variables, start_date, end_date, wind_batch, device):

@@ -128,7 +128,7 @@ class WeatherDataset:
         arr = self.ds[key]
         data = arr.sel(level=level)
         data = data.to_numpy()
-        data = 
+        data = remove_missing_values
         data = torch.from_numpy(data)
         return data
     

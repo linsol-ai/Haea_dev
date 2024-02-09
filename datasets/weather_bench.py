@@ -67,35 +67,31 @@ def preprocess_wind_data(u, v, device):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-def interpolate_2d_slices(array):
-    batch, width, height = array.shape
-    # 결과를 저장할 새 배열 생성
-    interpolated_array = np.empty_like(array)
-    
+def remove_missing_values(data):
+    batch, width, height = data.shape
+    interpolated_array = np.zeros_like(data)
     for i in range(batch):
-        x = np.arange(0, width)
-        y = np.arange(0, height)
-        # 메시 그리드 생성
-        X, Y = np.meshgrid(x, y, indexing='ij')
-        
-        # 현재 배치 슬라이스에서 NaN이 아닌 값에 대한 마스크 생성
-        mask = ~np.isnan(array[i, :, :])
-        
-        # NaN이 아닌 값의 위치와 해당 값 가져오기
-        x_valid = X[mask]
-        y_valid = Y[mask]
-        z_valid = array[i, mask]
-        
-        if np.sum(mask) > 0:  # 유효한 값이 하나라도 있는 경우
-            # 2D 보간 함수 생성
-            interp_func = interpolate.interp2d(y_valid, x_valid, z_valid, kind='linear')
-            # 전체 그리드에 대해 보간 수행
-            interpolated_array[i, :, :] = interp_func(y, x)
+        has_nan = np.isnan(data[i]).any()
+        if has_nan:
+            x = np.arange(width)
+            y = np.arange(height)
+            #mask invalid values
+            array = np.ma.masked_invalid(data[i])
+            xx, yy = np.meshgrid(x, y)
+            #get only the valid values
+            x1 = xx[~array.mask]
+            y1 = yy[~array.mask]
+            newarr = array[~array.mask]
+
+            GD1 = interpolate.griddata((x1, y1), newarr.ravel(),
+                                    (xx, yy),
+                                        method='cubic')
+            interpolated_array[i] = GD1
         else:
-            # 유효한 값이 없는 경우, 해당 배치는 변경 없이 복사
-            interpolated_array[i, :, :] = array[i, :, :]
-    
+            interpolated_array[i] = data[i]
+            
     return interpolated_array
+        
 
 
 

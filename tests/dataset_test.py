@@ -13,7 +13,7 @@ NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_compo
 if __name__ == '__main__':
 
     start = time.time()
-    ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks=None)
+    ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks={'time': })
     ds = ds['10m_u_component_of_wind']
     print(ds)
     print(ds.values)

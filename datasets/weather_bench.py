@@ -167,7 +167,7 @@ class WeatherDataset:
         levels = dataset.level.values
         result = {}
 
-        print(da)
+        print(dataset)
 
         with ThreadPoolExecutor() as executor:
             futures = {}

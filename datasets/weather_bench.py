@@ -245,9 +245,9 @@ class WeatherDataset:
         return dataset, wind_dataset
 
 
-    def calculate_wind(self, c, v_wind, batch, device):
+    def calculate_wind(self, u_wind, v_wind, batch, device):
         part_size = (len(u_wind) // batch) + 1
-        
+        u_wind = re
         u_wind = torch.chunk(torch.from_numpy(u_wind), part_size, 0)
         v_wind = torch.chunk(torch.from_numpy(v_wind), part_size, 0)
         output = []

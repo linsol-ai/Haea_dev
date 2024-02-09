@@ -186,7 +186,7 @@ class WeatherDataset:
                 wind_result[level] = torch.swapaxes(data, 0, 1)
 
             del result[self.HAS_LEVEL_VARIABLE]
-            del result[self.NO]
+            del result[self.NONE_LEVEL_WIND_VAR]
 
 
         # shape => (var*level, time, h, w)

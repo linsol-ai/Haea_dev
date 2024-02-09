@@ -66,7 +66,7 @@ def preprocess_wind_data(u, v, device):
 
 
 def interpolate_nan(tensor):
-    # 
+    # tensor.shape = (time, width, height)
     # 텐서의 복사본을 생성하여 원본 데이터를 보존
     result = tensor.clone()
     # 텐서의 모든 요소를 순회

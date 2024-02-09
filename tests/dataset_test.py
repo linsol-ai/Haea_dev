@@ -15,5 +15,6 @@ if __name__ == '__main__':
     start = time.time()
     ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks={'time':10})
     ds = ds[HAS_LEVEL_VARIABLE]
-    
+    data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in variables]
+combined_ds = xr.concat(data_arrays, dim='variable')
     print(ds)

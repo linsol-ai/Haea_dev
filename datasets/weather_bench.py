@@ -210,11 +210,12 @@ class WeatherDataset:
                     dataset.append(data) 
             else:
                 dataset.append(result[val])
-                
+
         dataset = torch.stack(dataset, dim=0)
         # shape => (time, var, h * w)
         dataset = torch.swapaxes(dataset, 0, 1)
         print(dataset.shape)
+        
         
         # shape => (level, 3, time, h, w)
         wind_dataset = []

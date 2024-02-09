@@ -70,8 +70,8 @@ def interpolate_nan(tensor):
     # 텐서의 복사본을 생성하여 원본 데이터를 보존
     result = tensor.clone()
     # 텐서의 모든 요소를 순회
-    for i in range(tensor.size(0)):
-        for j in range(tensor.size(1)):
+    for i in range(tensor.size(1)):
+        for j in range(tensor.size(2)):
             # 현재 위치의 값이 NaN인지 확인
             if torch.isnan(tensor[i, j]):
                 left = tensor[i, j-1] if j > 0 else torch.tensor(float('nan'))

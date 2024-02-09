@@ -103,9 +103,10 @@ class WeatherDataset:
         arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
         data = data.to_numpy()
         data = torch.from_numpy(data)
-        
-        if normalize:
-            data = normalize_tensor(data)
+        has_nan = torch.isnan(output).any()
+    if has_nan:
+        nan_indices = torch.isnan(output)
+        output[nan_indices] = 0
         return data
     
     def load_bart(self, variables, start_date, end_date, wind_batch, device):

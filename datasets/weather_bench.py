@@ -108,7 +108,7 @@ class WeatherDataset:
     def __init__(self, year_offset:int, device:torch.device):
         end, start = self.DATE_OFFSET[year_offset]
         self.start = pd.to_datetime(f'{start}-01-01')
-        self.end = pd.to_datetime(f'{end}-01-01')
+        self.end = pd.to_datetime(f'{end}-01-11')
         self.device = device
 
         dataset_urls = [
@@ -247,7 +247,7 @@ class WeatherDataset:
 
     def calculate_wind(self, u_wind, v_wind, batch, device):
         part_size = (len(u_wind) // batch) + 1
-        
+
         u_wind = torch.chunk(torch.from_numpy(u_wind), part_size, 0)
         v_wind = torch.chunk(torch.from_numpy(v_wind), part_size, 0)
         output = []

@@ -105,7 +105,7 @@ class WeatherDataset:
         return variables_without_level
 
 
-    def load_data_unet(self, key, level, start_date, end_date, normalize=True):
+    def load_data_unet(self, key, level, start_date, end_date):
         arr = self.ds[key]
 
         arr = arr.sel(time=slice(start_date, end_date))

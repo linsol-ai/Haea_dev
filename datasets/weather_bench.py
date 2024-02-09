@@ -153,7 +153,8 @@ class WeatherDataset:
                     key = executor.submit(self.load_variable, val, level)
                     futures[key] = (val, level)
 
-            for val in self.NONE_LEVEL_VARIABLE
+            for val in self.NONE_LEVEL_VARIABLE:
+
                 key = executor.submit(self.load_variable, val)
                 futures[key] = val
 

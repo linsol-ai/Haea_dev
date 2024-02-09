@@ -61,10 +61,6 @@ def preprocess_wind_data(u, v, device):
 
         # 2. 풍향 주기 코딩
         sin_encoded, cos_encoded = cyclic_encoding(torch.deg2rad(wind_direction))
-
-        wind_speed = remove_missing_values(wind_speed)
-        sin_encoded = remove_missing_values(sin_encoded)
-        cos_encoded = remove_missing_values(cos_encoded)
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 

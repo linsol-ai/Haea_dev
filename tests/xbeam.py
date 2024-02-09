@@ -43,7 +43,7 @@ def main(argv):
   START_DATE = f'{FLAGS.start}-01-01'
   END_DATE = f'{FLAGS.end}-01-01'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
-  OUTPUT_PATH = f'gs://era5_preprocess/64x32/{START_DATE}_{END_DATE}.zarr'
+  OUTPUT_PATH = f'gs://era5_preprocess/1440x721/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATH)
   source_dataset = source_dataset[VARIABLE]

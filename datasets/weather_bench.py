@@ -97,7 +97,7 @@ def remove_missing_value_tensor(data):
     batch, width, height = data.shape
     interpolated_array = torch.zeros_like(data)
     for i in range(batch):
-        has_nan = np.isnan(data[i]).any()
+        has_nan = torch.isnan(data[i]).any()
         if has_nan:
             x = np.arange(width)
             y = np.arange(height)

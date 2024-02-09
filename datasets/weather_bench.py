@@ -116,7 +116,7 @@ class WeatherDataset:
             futures = {}
             for val in variables:
                 result[val] = {}
-                for level in self.ds.:
+                for level in self.ds.levels:
                     key = executor.submit(self.load_level_val, val, level, start_date, end_date, lat, lon, val not in wind_keys)
                     futures[key] = (val, level)
 

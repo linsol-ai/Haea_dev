@@ -64,6 +64,7 @@ def main(argv):
   )
 
   output_chunks = source_chunks.copy()
+  
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

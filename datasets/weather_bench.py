@@ -145,7 +145,7 @@ class WeatherDataset:
         for dataset in self.datasets:
             result = self.load_data(dataset, wind_batch)
             var_dataset.append(result[0])
-            wind_dataset
+            wind_dataset.append(re)
     
     def load_data(self, dataset:xr.Dataset, wind_batch=256) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()

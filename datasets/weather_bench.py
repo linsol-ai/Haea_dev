@@ -217,7 +217,7 @@ class WeatherDataset:
         print(dataset.shape)
         
 
-        # wind.shape => (level, 3, time, h, w)
+        # wind.shape => (level, 3, time, h * w)
         wind_dataset = []
         wind_dataset.append(wind_result[-1])
         for level in levels:

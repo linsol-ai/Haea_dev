@@ -123,8 +123,7 @@ class WeatherDataset:
         print("데이터셋 불러오는 중...")
         self.datasets = []
         for urls in dataset_urls:
-            dataset = xr.open_zarr(urls, chunks=None, consolidated=True)
-            self.load_data(dataset, )
+            self.datasets.append(xr.open_zarr(urls, chunks=None, consolidated=True))
 
 
     def load_variable(self, key, level=None):
@@ -141,7 +140,7 @@ class WeatherDataset:
 
 
     
-    def load_data(self, dataset:xr.Dataset, wind_batch=256):
+    def load_dataset(self, dataset:xr.Dataset, wind_batch=256):
         start = time.time()
         levels = dataset.level.values
         result = {}

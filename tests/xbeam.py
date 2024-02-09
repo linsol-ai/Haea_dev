@@ -41,7 +41,7 @@ def rekey_chunk_on_month_hour(
 
 def main(argv):
   START_DATE = f'{FLAGS.start}-01-01'
-  END_DATE = f'{FLAGS.end}-01-11'
+  END_DATE = f'{FLAGS.end}-01-03'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
   OUTPUT_PATH = f'gs://era5_preprocess/1440x720/{START_DATE}_{END_DATE}.zarr'
 
@@ -63,7 +63,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  output_chunks = {'time': 113}
+  output_chunks = {'time': 103}
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
@@ -77,7 +77,7 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root:
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, {'time': })
+        | xbeam.DatasetToChunks(source_dataset, {'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

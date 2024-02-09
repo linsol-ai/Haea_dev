@@ -130,7 +130,7 @@ class WeatherDataset:
 
 
     def load_variable(self, dataset, key, level=None):
-        data = self.ds[key]
+        data = dataset[key]
         if level:
             data = data.sel(level=level)
         data = data.to_numpy()

@@ -153,8 +153,7 @@ class WeatherDataset:
                     key = executor.submit(self.load_variable, val, level)
                     futures[key] = (val, level)
 
-            for val in self.NONE_LEVEL_VARIABLE:
-                result[val] = {}
+            for val in self.NONE_LEVEL_VARIABLE
                 key = executor.submit(self.load_variable, val)
                 futures[key] = val
 
@@ -163,8 +162,8 @@ class WeatherDataset:
                 # shape => (level, time, h, w)
                 data = future.result()
                 result[val][level] = data
-     
-        
+
+
         wind_result = {}
         with ThreadPoolExecutor() as executor:
             futures = {}

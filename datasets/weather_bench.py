@@ -99,10 +99,10 @@ def remove_missing_value_tensor(data):
     for i in range(batch):
         has_nan = torch.isnan(data[i]).any()
         if has_nan:
-            x = np.arange(width)
-            y = np.arange(height)
+            x = torch.arange(width)
+            y = torch.arange(height)
             #mask invalid values
-            array = np.ma.masked_invalid(data[i])
+            array = torch.ma.masked_invalid(data[i])
             xx, yy = np.meshgrid(x, y)
             #get only the valid values
             x1 = xx[~array.mask]

@@ -102,7 +102,7 @@ class WeatherDataset:
     NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation_24hr', 'total_precipitation_6hr']
 
     DATASETS = [
-         ''
+         'gs://era5_preprocess/64x32/2018-01-01_2023-01-01.zarr'
     ]
 
     def __init__(self, url):

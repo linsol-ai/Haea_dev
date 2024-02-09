@@ -200,7 +200,7 @@ class WeatherDataset:
                     data = result[val][level]
                     dataset.append(data) 
             else:
-                dataset.a
+                dataset
             
         
         # shape => (level, time, 3, h, w)

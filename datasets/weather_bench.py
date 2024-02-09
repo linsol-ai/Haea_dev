@@ -107,12 +107,6 @@ class WeatherDataset:
         self.ds = ds
 
 
-    def get_key_without_level(self):
-        variables_without_level = [var for var in self.ds.data_vars if 'level' not in self.ds[var].dims]
-        return variables_without_level
-
-
-
     def load_level_val(self, key, level):
         arr = self.ds[key]
         data = arr.sel(level=level)

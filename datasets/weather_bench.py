@@ -141,7 +141,6 @@ class WeatherDataset:
 
     
     def load_dataset(self, wind_batch=256):
-        wind_keys = ['u_component_of_wind', 'v_component_of_wind']
         levels = self.ds.level.values
         result = {}
         start = time.time()

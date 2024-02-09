@@ -73,7 +73,7 @@ def main(argv):
         region='us-west3'
   )
 
-  with beam.Pipeline(options=pipeline_options) as root  :
+  with beam.Pipeline(options=pipeline_options) as root :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

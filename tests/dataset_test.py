@@ -19,3 +19,5 @@ if __name__ == '__main__':
     combined_ds = xarray.concat(data_arrays, dim='variable')
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
     print(stacked_ds.to_numpy())
+     end = time.time()
+        print(f"{end - start:.5f} sec")

@@ -142,7 +142,7 @@ class WeatherDataset:
         for dataset in self.datasets:
 
     
-    def load_data(self, dataset:xr.Dataset, wind_batch=256) -> T:
+    def load_data(self, dataset:xr.Dataset, wind_batch=256) -> Tuple:
         start = time.time()
         levels = dataset.level.values
         result = {}

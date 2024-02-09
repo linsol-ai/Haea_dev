@@ -171,7 +171,7 @@ class WeatherDataset:
         with ThreadPoolExecutor() as executor:
             futures = {}
             for level in levels:
-                u_wind = result[self.[0]][level]
+                u_wind = result[self.HAS[0]][level]
                 v_wind = result[wind_keys[1]][level]
                 key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, device)
                 futures[key] = level

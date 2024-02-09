@@ -11,7 +11,7 @@ import pandas as pd
 
 
 
-INPUT_PATH = 'gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721.zarr'
+INPUT_PATH = 'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-1440x721.zarr'
 RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

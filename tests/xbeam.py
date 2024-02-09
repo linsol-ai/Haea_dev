@@ -21,7 +21,7 @@ NONE_LEVEL_VARIABLE = [
 ]
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
-LAT = [(32.2, ), (), ()]
+LAT = [(32.2, 39.), (), ()]
 
 
 

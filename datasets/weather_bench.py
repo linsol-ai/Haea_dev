@@ -103,7 +103,7 @@ def remove_missing_value_tensor(data):
             y = torch.arange(height)
             #mask invalid values
             array = torch.ma.masked_invalid(data[i])
-            xx, yy = np.meshgrid(x, y)
+            xx, yy = torch.meshgrid(x, y)
             #get only the valid values
             x1 = xx[~array.mask]
             y1 = yy[~array.mask]

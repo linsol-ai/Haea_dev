@@ -195,7 +195,7 @@ class WeatherDataset:
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
                 continue
             try:
-    iter(my_object)
+                iter(my_object)
     print("이터러블 객체입니다.")
 except TypeError:
     print("이터러블 객체가 아닙니다.")

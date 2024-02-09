@@ -132,7 +132,7 @@ class WeatherDataset:
         data = data.to_numpy()
         data = remove_missing_values(data)
         data = torch.from_numpy(data)
-        # data.shape
+        # data.shape = (time, width, height)
         data = data.flatten()
         return data
 

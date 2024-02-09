@@ -140,7 +140,7 @@ class WeatherDataset:
 
 
     
-    def load_dataset(self, datawind_batch=256):
+    def load_dataset(self, dataset, wind_batch=256):
         levels = self.ds.level.values
         result = {}
         start = time.time()

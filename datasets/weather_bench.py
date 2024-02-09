@@ -126,7 +126,7 @@ class WeatherDataset:
             self.datasets.append(xr.open_zarr(urls, chunks=None, consolidated=True))
 
 
-    def load_variable(self, key, level=N):
+    def load_variable(self, key, level=None):
         arr = self.ds[key]
         data = arr.sel(level=level)
         data = data.to_numpy()

@@ -67,7 +67,7 @@ def main(argv):
   input_chunks['time'] = 4
 
   output_chunks = source_chunks.copy()
-  output_chunks['time'] = 144
+  output_chunks['time'] = 166
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

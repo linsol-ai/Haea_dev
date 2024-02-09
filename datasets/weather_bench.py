@@ -92,31 +92,6 @@ def remove_missing_values(data):
             interpolated_array[i] = data[i]
             
     return interpolated_array
-
-def remove_missing_value_tensor(data):
-    batch, width, height = data.shape
-    interpolated_array = torch.zeros_like(data)
-    for i in range(batch):
-        has_nan = torch.isnan(data[i]).any()
-        if has_nan:
-            x = torch.arange(width)
-            y = torch.arange(height)
-            #mask invalid values
-            array = torch.ma.masked_invalid(data[i])
-            xx, yy = torch.meshgrid(x, y)
-            #get only the valid values
-            x1 = xx[~array.mask]
-            y1 = yy[~array.mask]
-            newarr = array[~array.mask]
-
-            GD1 = interpolate.griddata((x1, y1), newarr.ravel(),
-                                    (xx, yy),
-                                        method='cubic')
-            interpolated_array[i] = GD1
-        else:
-            interpolated_array[i] = data[i]
-            
-    return interpolated_array
         
 
 

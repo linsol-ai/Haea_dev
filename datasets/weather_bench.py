@@ -143,7 +143,6 @@ class WeatherDataset:
     def load_dataset(self, dataset:xr.Dataset, wind_batch=256):
         levels = dataset.level.values
         result = {}
-        start = time.time()
         with ThreadPoolExecutor() as executor:
             futures = {}
             for val in variables:

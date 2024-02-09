@@ -7,6 +7,8 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import torch
+from scipy import interpolate
+
 
 def normalize_tensor(data):
     # 최솟값을 0으로 조정

@@ -106,9 +106,9 @@ class WeatherDataset:
     ]
 
     def __init__(self, start:int, end:int):
-        self.start = start
+        self.start = pd.to_datetime('2021-01-01')
         self.end = end
-        
+
     
 
     def load_dataset(self):

@@ -100,10 +100,10 @@ class WeatherDataset:
     def __init__(self, url):
         self.url = url
     
-    
+
     def load_init(self):
         print("데이터셋 불러오는 중...")
-        ds, chunks = xbeam.open_zarr(self.url)
+        ds, chunks = xa.open_zarr(self.url)
         self.ds = ds
 
 

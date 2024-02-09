@@ -63,7 +63,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  output_chunks = {'time': 103}
+  output_chunks = {'time': 100}
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
@@ -78,6 +78,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, {'time': 1})
+        | xbeam.SplitChunks({'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

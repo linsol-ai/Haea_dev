@@ -184,30 +184,6 @@ class WeatherDataset:
         return dataset, wind_dataset
 
 
-    def load_unet(self, variable, levels, start_date, end_date, normalize=True):
-        result = {}
-        start = time.time()
-        with ThreadPoolExecutor() as executor:
-            futures = {executor.submit(self.load_data_unet, variable, level, start_date, end_date, normalize): level for level in levels}
-            for future in tqdm(as_completed(futures), desc="Processing futures"):
-                key = futures[future]
-                # shape => (time, h, w)
-                result[key] = future.result()
-
-        # shape => (level, time, h, w)
-        dataset = []
-        for key in levels:
-            dataset.append(result[key])
-
-        dataset = torch.stack(dataset, dim=0)
-        dataset = dataset.reshape(-1, dataset.size(2), dataset.size(3))
-        dataset = torch.unsqueeze(dataset, dim=1)
-        # shape => (time, level, c, h, w)
-        print(dataset.shape)
-        end = time.time()
-        print(f"{end - start:.5f} sec")
-        return dataset
-
 
     def calculate_wind(self, u_wind, v_wind, batch, device):
         part_size = (len(u_wind) // batch) + 1

@@ -194,7 +194,11 @@ class WeatherDataset:
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
                 continue
-            if type(result[val]) is list:
+            try:
+    iter(my_object)
+    print("이터러블 객체입니다.")
+except TypeError:
+    print("이터러블 객체가 아닙니다.")
                  
             for level in levels:
                 data = result[val][level]

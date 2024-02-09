@@ -199,7 +199,7 @@ class WeatherDataset:
             del result[self.NONE_LEVEL_WIND_VAR]
 
 
-        # shape => (var*level, time, h * w)
+        # dataset.shape => (var*level, time, h * w)
         dataset = []
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
@@ -216,7 +216,7 @@ class WeatherDataset:
         dataset = torch.swapaxes(dataset, 0, 1)
         print(dataset.shape)
         
-        
+
         # shape => (level, 3, time, h, w)
         wind_dataset = []
         wind_dataset.append(wind_result[-1])

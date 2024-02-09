@@ -163,7 +163,8 @@ class WeatherDataset:
                 data = future.result()
                 if level == -1:
                      result[val] = data
-                result[val][level] = data
+                else:
+                    result[val][level] = data
 
 
         wind_result = {}

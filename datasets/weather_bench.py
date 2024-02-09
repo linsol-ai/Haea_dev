@@ -134,7 +134,7 @@ class WeatherDataset:
         data = torch.from_numpy(data)
         # data.shape = (time, width, height)
         data = data.flatten(0)
-        
+        # data.shape = (time, width, height)
         return data
 
 

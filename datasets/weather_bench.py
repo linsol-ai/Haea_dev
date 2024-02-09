@@ -185,7 +185,7 @@ class WeatherDataset:
                 data = future.result()
                 wind_result[level] = torch.swapaxes(data, 0, 1)
 
-            del result[wind_keys[0]]
+            del result[self.HAS]
             del result[wind_keys[1]]
 
 

@@ -68,7 +68,7 @@ def main(argv):
         project='genfit-7ba0d',
         temp_location='gs://era5_preprocess/temp',
         requirements_file='/workspace/Haea/req.txt',
-        region='	us-west3'
+        region='us-west3'
   )
 
 

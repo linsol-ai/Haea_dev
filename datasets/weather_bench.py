@@ -118,8 +118,8 @@ class WeatherDataset:
         print("데이터셋 불러오는 중...")
         self.datasets = []
         for urls in dataset_urls:
-            self.datasets.append(xr.load_dataset(urls))
-        
+            self.datasets.append(xr.load_dataset(urls, ch))
+
 
 
     def load_level_val(self, key, level):

@@ -69,7 +69,7 @@ def main(argv):
         runner='DataflowRunner',
         project='genfit-7ba0d',
         temp_location='gs://era5_preprocess/temp',
-        region='v',
+        region='us-west2',
         requirements_file='/workspace/Haea/req.txt',
   )
 

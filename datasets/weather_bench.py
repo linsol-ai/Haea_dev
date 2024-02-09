@@ -201,12 +201,6 @@ class WeatherDataset:
                 dataset.append(data) 
             else:
                 print("이터러블 객체가 아닙니다.")
-            try:
-                iter(my_object)
-                for level in levels:
-                data = result[val][level]
-                dataset.append(data) 
-            except TypeError:
             
                  
             for level in levels:

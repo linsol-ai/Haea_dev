@@ -75,7 +75,7 @@ def main(argv):
 
   source_chunks['time'] = 16
 
-  with beam.Pipeline(options=pipeline_options) as root:
+  with beam.Pipeline(options=pipeline_options) as root  :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

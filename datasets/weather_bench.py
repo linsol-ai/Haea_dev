@@ -109,7 +109,7 @@ class WeatherDataset:
     
     def load_bart(self, variables, start_date, end_date, lat, lon, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
-        levels = ds.level.values
+        levels = self.ds.level.values
         result = {}
         start = time.time()
         with ThreadPoolExecutor() as executor:

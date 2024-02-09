@@ -106,7 +106,7 @@ class WeatherDataset:
     ]
 
     def __init__(self, start:int, end:int):
-        self.url = url
+        =
     
 
     def load_dataset(self):

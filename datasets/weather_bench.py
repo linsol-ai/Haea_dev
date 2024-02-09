@@ -141,7 +141,7 @@ class WeatherDataset:
 
     
     def load_dataset(self, dataset:xr.Dataset, wind_batch=256):
-             tart = time.time()
+        start = time.time()
         levels = dataset.level.values
         result = {}
         with ThreadPoolExecutor() as executor:

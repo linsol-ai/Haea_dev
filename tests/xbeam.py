@@ -70,7 +70,7 @@ def main(argv):
         project='genfit-7ba0d',
         temp_location='gs://era5_preprocess/temp',
         requirements_file='/workspace/Haea/req.txt',
-        region=''
+        region='us-central1'
         use_public_ips=False
   )
 

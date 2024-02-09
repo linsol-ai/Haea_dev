@@ -107,7 +107,8 @@ class WeatherDataset:
 
     def __init__(self, start:int, end:int):
         self.start = start
-        self.en
+        self.end = end
+        
     
 
     def load_dataset(self):

@@ -13,12 +13,12 @@ NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_compo
 if __name__ == '__main__':
 
     start = time.time()
-    ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks={'time':10})
+    ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks=None)
     ds = ds[HAS_LEVEL_VARIABLE]
     data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in HAS_LEVEL_VARIABLE]
     combined_ds = xarray.concat(data_arrays, dim='variable')
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
-    
+
     print(stacked_ds.to_numpy())
     end = time.time()
     print(f"{end - start:.5f} sec")

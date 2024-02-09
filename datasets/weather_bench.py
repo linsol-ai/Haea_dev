@@ -2,7 +2,7 @@ import numpy as np
 from tqdm import tqdm
 
 import numpy as np
-import xarray
+import xarray as xr
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time

@@ -176,7 +176,7 @@ class WeatherDataset:
                 futures[key] = level
             
             u_wind, v_wind = result[self.NONE_LEVEL_WIND_VAR]
-            key = executor.submit(self.calculate_wind,re sult[], v_wind, wind_batch, self.device)
+            key = executor.submit(self.calculate_wind,u_wind, v_wind,, wind_batch, self.device)
             futures[key] = level
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

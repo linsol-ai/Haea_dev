@@ -93,7 +93,7 @@ def remove_missing_values(data):
             
     return interpolated_array
 
-def remove_missing_values(data):
+def remove_missing_tensor(data):
     batch, width, height = data.shape
     interpolated_array = np.zeros_like(data)
     for i in range(batch):

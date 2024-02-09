@@ -110,7 +110,7 @@ class WeatherDataset:
         self.start = pd.to_datetime(f'{start}-01-01')
         self.end = pd.to_datetime(f'{end}-01-01')
         self.device = device
-        
+
         dataset_urls = [
             f'gs://era5_preprocess/1440x720/{start}-01-01_{end}-01-01.zarr',
             f'gs://era5_preprocess/240x121/{start}-01-01_{end}-01-01.zarr',
@@ -135,7 +135,7 @@ class WeatherDataset:
         return data
 
 
-    def load_level_data(self, ):
+    def load_level_data(self, wind_batch):
          
 
     

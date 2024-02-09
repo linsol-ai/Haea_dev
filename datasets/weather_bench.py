@@ -196,7 +196,7 @@ class WeatherDataset:
                 continue
             try:
                 iter(my_object)
-    
+                
             except TypeError:
             
                  

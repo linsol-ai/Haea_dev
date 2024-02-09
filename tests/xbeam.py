@@ -77,10 +77,10 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root:
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks, chunks={time:})
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.SplitChunks({'time': 10})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
-        | xbeam.ChunksToZarr(OUTPUT_PATH, template, None)
+        | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )
 
 

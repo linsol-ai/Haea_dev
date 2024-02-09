@@ -63,8 +63,6 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  output_chunks = {'time': 1}
-
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='genfit-7ba0d',

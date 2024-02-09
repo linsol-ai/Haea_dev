@@ -124,7 +124,7 @@ class WeatherDataset:
         self.datasets = []
         for urls in dataset_urls:
             dataset = xr.open_zarr(urls, chunks=None, consolidated=True)
-            self.datasets.append(xr.open_zarr(urls, chunks=None, consolidated=True))
+            
 
 
     def load_variable(self, key, level=None):

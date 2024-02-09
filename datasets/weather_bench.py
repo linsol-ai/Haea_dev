@@ -135,7 +135,7 @@ class WeatherDataset:
         data = torch.from_numpy(data)
         has_nan = torch.isnan(output).any()
         if has_nan:
-            interpolate_2d_slices
+            interpolate_2d_slices()
         return data
     
     def load_bart(self, variables, start_date, end_date, wind_batch, device):

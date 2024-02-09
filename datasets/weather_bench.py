@@ -106,9 +106,10 @@ class WeatherDataset:
     NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
 
 
-    def __init__(self, start:int, end:int, device:T.device):
+    def __init__(self, start:int, end:int, device:torch.device):
         self.start = pd.to_datetime(f'{start}-01-01')
         self.end = pd.to_datetime(f'{end}-01-01')
+        self.de
         dataset_urls = [
             f'gs://era5_preprocess/1440x720/{start}-01-01_{end}-01-01.zarr',
             f'gs://era5_preprocess/240x121/{start}-01-01_{end}-01-01.zarr',

@@ -112,7 +112,6 @@ class WeatherDataset:
             f'gs://era5_preprocess/64x32/{start}-01-01_{end}-01-01.zarr',
              f'gs://era5_preprocess/64x32/{start}-01-01_{end}-01-01.zarr',
              f'gs://era5_preprocess/64x32/{start}-01-01_{end}-01-01.zarr'
-
         ]
 
     

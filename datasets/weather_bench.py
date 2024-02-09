@@ -133,7 +133,7 @@ class WeatherDataset:
         return data
 
 
-    def load_level_data(se):
+    def load_level_data(self, ):
          
 
     

@@ -105,7 +105,7 @@ class WeatherDataset:
          'gs://era5_preprocess/64x32/2018-01-01_2023-01-01.zarr'
     ]
 
-    def __init__(self, start:int, end):
+    def __init__(self, start:int, end:int):
         self.url = url
     
 

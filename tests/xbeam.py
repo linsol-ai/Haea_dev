@@ -63,7 +63,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  
+  input_chunks = 
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 118

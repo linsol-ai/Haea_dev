@@ -65,6 +65,28 @@ def preprocess_wind_data(u, v, device):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
+def interpolate_nan(tensor):
+    # 텐서의 복사본을 생성하여 원본 데이터를 보존
+    result = tensor.clone()
+    # 텐서의 모든 요소를 순회
+    for i in range(tensor.size(0)):
+        for j in range(tensor.size(1)):
+            # 현재 위치의 값이 NaN인지 확인
+            if torch.isnan(tensor[i, j]):
+                left = tensor[i, j-1] if j > 0 else torch.tensor(float('nan'))
+                right = tensor[i, j+1] if j < tensor.size(1) - 1 else torch.tensor(float('nan'))
+                
+                # 양쪽 값이 모두 유효한 경우에만 보간 수행
+                if not torch.isnan(left) and not torch.isnan(right):
+                    result[i, j] = (left + right) / 2
+                # 한쪽 값만 유효한 경우는 해당 값을 사용 (선택적)
+                elif not torch.isnan(left):
+                    result[i, j] = left
+                elif not torch.isnan(right):
+                    result[i, j] = right
+    return result
+
+
 class WeatherDataset:
 
     def __init__(self, url):

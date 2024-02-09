@@ -106,6 +106,7 @@ class WeatherDataset:
     ]
 
     def __init__(self, start:int, end:int):
+        self.start_year = start
         self.
     
 

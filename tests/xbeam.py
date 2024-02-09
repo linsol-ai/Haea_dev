@@ -75,7 +75,7 @@ def main(argv):
         temp_location='gs://era5_preprocess/temp',
         requirements_file='/workspace/Haea/req.txt',
         region='us-west3',
-        
+        --machine_type
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

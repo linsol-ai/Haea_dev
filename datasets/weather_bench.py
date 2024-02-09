@@ -199,7 +199,7 @@ class WeatherDataset:
             del result[self.NONE_LEVEL_WIND_VAR]
 
 
-        # dataset.shape => (var*level, time, h * w)
+        # datasetshape => (var*level, time, h * w)
         dataset = []
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
@@ -217,7 +217,7 @@ class WeatherDataset:
         print(dataset.shape)
         
 
-        # dataset.shape => (level, 3, time, h, w)
+        # shape => (level, 3, time, h, w)
         wind_dataset = []
         wind_dataset.append(wind_result[-1])
         for level in levels:

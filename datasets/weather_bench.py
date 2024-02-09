@@ -159,7 +159,7 @@ class WeatherDataset:
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val, level = futures[future]
-                # shape => (level, time, h, w)
+                # shape => (level, time, h * w)
                 data = future.result()
                 if level == -1:
                      result[val] = data

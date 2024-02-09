@@ -11,5 +11,4 @@ if __name__ == '__main__':
 
     start = time.time()
     ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks=None)
-print(ds.nbytes / (10**9))
     print(ds)

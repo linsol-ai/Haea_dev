@@ -103,7 +103,7 @@ class WeatherDataset:
 
     def load_init(self):
         print("데이터셋 불러오는 중...")
-        ds, chunks = xa.open_zarr(self.url)
+        ds, chunks = xr.open_zarr(self.url)
         self.ds = ds
 
 

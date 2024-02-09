@@ -248,33 +248,6 @@ class WeatherDataset:
         return torch.concat(output, dim=1)
 
 
-    def load_wind(self, levels, start_date, end_date, batch, device):
-        result = {}
-        start = time.time()
-        with ThreadPoolExecutor() as executor:
-            futures = {executor.submit(self.load_data_wind, level, start_date, end_date, batch, device): level for level in levels}
-            for future in tqdm(as_completed(futures), desc="Processing futures"):
-                key = futures[future]
-                # shape => (3, time, h, w)
-                result[key] = future.result()
-                # shape => (time, 3, h, w)
-                result[key] = torch.swapaxes(result[key], 0, 1)
-
-        # shape => (level, time, 3, h, w)
-        dataset = []
-        for key in levels:
-            dataset.append(result[key])
-
-        dataset = torch.stack(dataset, dim=0)
-        # shape => (time, level, 3, h, w)
-        dataset = torch.swapaxes(dataset, 0, 1)
-
-        print(dataset.shape)
-        end = time.time()
-        print(f"{end - start:.5f} sec")
-        return dataset
-
-
 if __name__ == '__main__':
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
     weather.load_init()

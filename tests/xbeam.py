@@ -22,7 +22,7 @@ NONE_LEVEL_VARIABLE = [
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 LAT = [(32.2, 39.0), (20, 70), (0, 70)]
-LON = [(3), (20, 70), (0, 70)]
+LON = [(), (20, 70), (0, 70)]
 
 
 # pylint: disable=expression-not-assigned

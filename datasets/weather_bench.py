@@ -97,7 +97,6 @@ class WeatherDataset:
     def load_level_val(self, key, level):
         arr = self.ds[key]
         data = arr.sel(level=level)
-        arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
         data = data.to_numpy()
         data = torch.from_numpy(data)
         has_nan = torch.isnan(output).any()

@@ -197,8 +197,8 @@ class WeatherDataset:
                 
             if hasattr(result[val], '__iter__'):
                 for level in levels:
-                data = result[val][level]
-                dataset.append(data) 
+                    data = result[val][level]
+                    dataset.append(data) 
             else:
                 print("이터러블 객체가 아닙니다.")
             

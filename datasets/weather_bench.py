@@ -183,6 +183,7 @@ class WeatherDataset:
         print(f"{end - start:.5f} sec")
         return dataset, wind_dataset
 
+
     def calculate_wind(self, u_wind, v_wind, batch, device):
         part_size = (len(u_wind) // batch) + 1
         

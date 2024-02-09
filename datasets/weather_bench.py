@@ -105,6 +105,8 @@ class WeatherDataset:
 
     NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
 
+    
+
 
     def __init__(self, start:int, end:int, device:torch.device):
         self.start = pd.to_datetime(f'{start}-01-01')

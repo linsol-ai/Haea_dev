@@ -112,16 +112,6 @@ class WeatherDataset:
         return variables_without_level
 
 
-    def load_data_unet(self, key, level, start_date, end_date, normalize=True):
-        arr = self.ds[key]
-
-        arr = arr.sel(time=slice(start_date, end_date))
-        data = arr.sel(level=level)
-        data = data.to_numpy()
-        data = torch.from_numpy(data)
-        if normalize:
-             data = normalize_tensor(data)
-        return data
 
 
     def load_level_val(self, key, level):

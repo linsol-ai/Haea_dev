@@ -104,8 +104,8 @@ class WeatherDataset:
         data = data.to_numpy()
         data = torch.from_numpy(data)
         has_nan = torch.isnan(output).any()
-    if has_nan:
-        nan_indices = torch.isnan(output)
+        if has_nan:
+            nan_indices = torch.isnan(output)
         output[nan_indices] = 0
         return data
     

@@ -191,7 +191,7 @@ class WeatherDataset:
 
         # shape => (var*level, time, h, w)
         dataset = []
-        for val in variables:
+        for val in self.:
             if val in wind_keys:
                 continue
             for level in levels:

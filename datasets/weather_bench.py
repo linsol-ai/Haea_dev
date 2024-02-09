@@ -148,7 +148,7 @@ class WeatherDataset:
             wind_dataset.append(result[1])
         
         # var_dataset.shape = (time, var * level, h * w)
-        var_dataset = torch.stack(var_dataset, dim=0)
+        var_dataset = torch.stack(var_dataset, dim=2)
 
     
     def load_data(self, dataset:xr.Dataset, wind_batch=256) -> Tuple[torch.Tensor, torch.Tensor]:

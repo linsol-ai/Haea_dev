@@ -260,7 +260,7 @@ class WeatherDataset:
 
 
 if __name__ == '__main__':
-    weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')
+    weather = WeatherDataset()
     weather.load_init()
 
     variable = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

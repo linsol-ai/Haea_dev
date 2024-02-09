@@ -193,7 +193,7 @@ class WeatherDataset:
                 level = futures[future]
                 # shape => (3, time, h * w)
                 data = future.result()
-                wind_result[level] = torch.swapaxes(data, 0, 1)
+                wind_result[level] = data
 
             del result[self.HAS_LEVEL_VARIABLE]
             del result[self.NONE_LEVEL_WIND_VAR]

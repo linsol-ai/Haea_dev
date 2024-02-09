@@ -158,7 +158,6 @@ class WeatherDataset:
                 key = executor.submit(self.load_variable, val)
                 futures[key] = val
 
-
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val, level = futures[future]
                 # shape => (level, time, h, w)

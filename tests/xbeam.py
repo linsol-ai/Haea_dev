@@ -64,7 +64,7 @@ def main(argv):
   )
 
   input_chunks = source_chunks.copy()
-  input_chunks['time'] = 16
+  input_chunks['time'] = 4
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 144

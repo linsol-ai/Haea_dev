@@ -77,7 +77,7 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root:
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, output_chunks)
+        | xbeam.DatasetToChunks(source_dataset, {'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

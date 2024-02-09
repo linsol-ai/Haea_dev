@@ -128,6 +128,7 @@ class WeatherDataset:
 
     def load_variable(self, key, level=None):
         arr = self.ds[key]
+        i
         data = arr.sel(level=level)
         data = data.to_numpy()
         data = remove_missing_values(data)

@@ -37,7 +37,7 @@ TYPE = flags.DEFINE_integer('type', 0, help='type 0 : 1440x721, type 1 : 240x120
 
 flags.mark_flag_as_required("start")
 flags.mark_flag_as_required("end")
-flags.mark_flag_as_required("end")
+flags.mark_flag_as_required("type")
 
 
 def rekey_chunk_on_month_hour(

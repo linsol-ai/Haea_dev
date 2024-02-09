@@ -10,8 +10,6 @@ import xarray_beam as xbeam
 import pandas as pd
 
 
-
-INPUT_PATH = 'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-240x121_equiangular_with_poles_conservative.zarr'
 RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

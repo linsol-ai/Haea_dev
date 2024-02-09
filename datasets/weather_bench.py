@@ -155,7 +155,7 @@ class WeatherDataset:
 
             for val in self.NONE_LEVEL_VARIABLE:
                 key = executor.submit(self.load_variable, val)
-                futures[key] = val
+                futures[key] = (val, -1)
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val, level = futures[future]

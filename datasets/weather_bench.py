@@ -129,7 +129,7 @@ class WeatherDataset:
             self.datasets.append(xr.open_zarr(urls, chunks=None))
 
 
-    def load_variable(self, key, level=None):
+    def load_variable(self, dataset, key, level=None):
         data = self.ds[key]
         if level:
             data = data.sel(level=level)

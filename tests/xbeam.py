@@ -73,8 +73,8 @@ def main(argv):
         region='us-west3'
   )
 
-  source_chunks['time'] = 4
-  
+  source_chunks['time'] = 10
+
   with beam.Pipeline(options=pipeline_options) as root:
     (
         root

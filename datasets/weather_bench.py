@@ -103,7 +103,7 @@ class WeatherDataset:
 
     HAS_LEVEL_WIND_VAR = ['u_component_of_wind', 'v_component_of_wind']
 
-    HA_LEVEL_WIND_VAR
+    NONE_LEVEL_WIND_VAR
 
     def __init__(self, start:int, end:int):
         self.start = pd.to_datetime(f'{start}-01-01')

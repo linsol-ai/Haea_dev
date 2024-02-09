@@ -198,7 +198,7 @@ class WeatherDataset:
                 iter(my_object)
     
             except TypeError:
-            ("이터러블 객체가 아닙니다.")
+            
                  
             for level in levels:
                 data = result[val][level]

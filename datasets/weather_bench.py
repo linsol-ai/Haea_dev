@@ -114,7 +114,7 @@ class WeatherDataset:
 
     
 
-    def load_dataset(datasets):
+    def load_dataset(datasets:list):
         print("데이터셋 불러오는 중...")
         ds, chunks = xr.open_zarr(self.url)
         self.ds = ds

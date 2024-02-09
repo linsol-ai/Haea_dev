@@ -107,7 +107,7 @@ class WeatherDataset:
 
     def __init__(self, start:int, end:int):
         self.start = pd.to_datetime(f'{start}-01-01')
-        self.end = pd.to_datetime(f'{start}-01-01')
+        self.end = pd.to_datetime(f'{end}-01-01')
 
     
 

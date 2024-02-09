@@ -144,7 +144,7 @@ class WeatherDataset:
         start = time.time()
         levels = dataset.level.values
         result = {}
-        
+
         with ThreadPoolExecutor() as executor:
             futures = {}
             for val in variables:
@@ -152,6 +152,9 @@ class WeatherDataset:
                 for level in levels:
                     key = executor.submit(self.load_level_val, val, level, start_date, end_date, val not in wind_keys)
                     futures[key] = (val, level)
+
+
+                    
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val, level = futures[future]

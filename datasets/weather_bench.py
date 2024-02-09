@@ -131,6 +131,7 @@ class WeatherDataset:
         data = torch.from_numpy(data)
         return data
     
+    
     def load_bart(self, variables, start_date, end_date, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
         levels = self.ds.level.values

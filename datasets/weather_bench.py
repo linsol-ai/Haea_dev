@@ -104,7 +104,7 @@ class WeatherDataset:
     HAS_LEVEL_WIND_VAR = ['u_component_of_wind', 'v_component_of_wind']
 
     NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
-    
+
 
     def __init__(self, start:int, end:int):
         self.start = pd.to_datetime(f'{start}-01-01')
@@ -131,6 +131,10 @@ class WeatherDataset:
         data = remove_missing_values(data)
         data = torch.from_numpy(data)
         return data
+
+
+
+        
     
     
     def load_data(self, variables, start_date, end_date, wind_batch, device):

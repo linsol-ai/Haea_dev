@@ -109,7 +109,7 @@ class WeatherDataset:
         self.start = pd.to_datetime(f'{start}-01-01')
         self.end = pd.to_datetime(f'{end}-01-01')
         self.datasets = [
-             'gs://era5_preprocess/64x32/2018-01-01_2023-01-01.zarr'
+             'gs://era5_preprocess/64x32/{}-01-01_2023-01-01.zarr'
         ]
 
     

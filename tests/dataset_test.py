@@ -18,5 +18,4 @@ if __name__ == '__main__':
     data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in HAS_LEVEL_VARIABLE]
     combined_ds = xarray.concat(data_arrays, dim='variable')
     stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
-
     print(ds)

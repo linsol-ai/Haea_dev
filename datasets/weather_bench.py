@@ -138,7 +138,7 @@ class WeatherDataset:
         # data.shape = (time, width * height)
         return data
 
-    def load()
+    def load(self, )
     
     def load_data(self, dataset:xr.Dataset, wind_batch=256):
         start = time.time()

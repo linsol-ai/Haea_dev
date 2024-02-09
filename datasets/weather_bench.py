@@ -65,27 +65,36 @@ def preprocess_wind_data(u, v, device):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-def interpolate_nan(tensor):
-    # tensor.shape = (time, width, height)
-    # 텐서의 복사본을 생성하여 원본 데이터를 보존
-    result = tensor.clone()
-    # 텐서의 모든 요소를 순회
-    for i in range(tensor.size(1)):
-        for j in range(tensor.size(2)):
-            # 현재 위치의 값이 NaN인지 확인
-            if torch.isnan(tensor[i, j]):
-                left = tensor[i, j-1] if j > 0 else torch.tensor(float('nan'))
-                right = tensor[i, j+1] if j < tensor.size(1) - 1 else torch.tensor(float('nan'))
-                
-                # 양쪽 값이 모두 유효한 경우에만 보간 수행
-                if not torch.isnan(left) and not torch.isnan(right):
-                    result[i, j] = (left + right) / 2
-                # 한쪽 값만 유효한 경우는 해당 값을 사용 (선택적)
-                elif not torch.isnan(left):
-                    result[i, j] = left
-                elif not torch.isnan(right):
-                    result[i, j] = right
-    return result
+def interpolate_2d_slices(array):
+    batch, width, height = array.shape
+    # 결과를 저장할 새 배열 생성
+    interpolated_array = np.empty_like(array)
+    
+    for i in range(batch):
+        x = np.arange(0, width)
+        y = np.arange(0, height)
+        # 메시 그리드 생성
+        X, Y = np.meshgrid(x, y, indexing='ij')
+        
+        # 현재 배치 슬라이스에서 NaN이 아닌 값에 대한 마스크 생성
+        mask = ~np.isnan(array[i, :, :])
+        
+        # NaN이 아닌 값의 위치와 해당 값 가져오기
+        x_valid = X[mask]
+        y_valid = Y[mask]
+        z_valid = array[i, mask]
+        
+        if np.sum(mask) > 0:  # 유효한 값이 하나라도 있는 경우
+            # 2D 보간 함수 생성
+            interp_func = interpolate.interp2d(y_valid, x_valid, z_valid, kind='linear')
+            # 전체 그리드에 대해 보간 수행
+            interpolated_array[i, :, :] = interp_func(y, x)
+        else:
+            # 유효한 값이 없는 경우, 해당 배치는 변경 없이 복사
+            interpolated_array[i, :, :] = array[i, :, :]
+    
+    return interpolated_array
+
 
 
 class WeatherDataset:

@@ -103,6 +103,7 @@ class WeatherDataset:
         arr = arr.sel(latitude=slice(lat_max, lat_min), longitude=slice(lon_min, lon_max))
         data = data.to_numpy()
         data = torch.from_numpy(data)
+        
         if normalize:
             data = normalize_tensor(data)
         return data

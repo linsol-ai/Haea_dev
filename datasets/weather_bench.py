@@ -192,7 +192,7 @@ class WeatherDataset:
         # shape => (var*level, time, h, w)
         dataset = []
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
-            if val in (self.):
+            if val in (self.HAS):
                 continue
             for level in levels:
                 data = result[val][level]

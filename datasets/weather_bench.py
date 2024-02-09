@@ -133,7 +133,7 @@ class WeatherDataset:
         return data
     
     
-    def load_bart(self, variables, start_date, end_date, wind_batch, device):
+    def load_data(self, variables, start_date, end_date, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
         levels = self.ds.level.values
         result = {}

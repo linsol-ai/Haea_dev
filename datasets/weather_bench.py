@@ -198,30 +198,6 @@ class WeatherDataset:
         return torch.concat(output, dim=1)
 
 
-    def load_data_wind(self, level, start_date, end_date, batch, device):
-        keys = ['u_component_of_wind', 'v_component_of_wind']
-        result = []
-
-        for i, key in enumerate(keys):
-            arr = self.ds[key]
-
-            if 'time' in arr.dims:
-                arr = arr.sel(time=slice(start_date, end_date))
-                data = arr.sel(level=level)
-                data = data.to_numpy()
-                result.append(torch.from_numpy(data))
-
-        result[0] = torch.chunk(result[0], batch, 0)
-        result[1] = torch.chunk(result[1], batch, 0)
-        output = []
-
-        for b in range(batch):
-            res = preprocess_wind_data(result[0][b], result[1][b], device).cpu()
-            # torch.Size([3, 13, 512, 256])
-            output.append(res)
-
-        return torch.concat(output, dim=1)
-
 
 if __name__ == '__main__':
     weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-wb13-6h-1440x721_with_derived_variables.zarr')

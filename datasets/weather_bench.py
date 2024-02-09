@@ -196,9 +196,9 @@ class WeatherDataset:
                 continue
                 
             if hasattr(my_object, '__iter__'):
-    print("이터러블 객체입니다.")
-else:
-    print("이터러블 객체가 아닙니다.")
+                print("이터러블 객체입니다.")
+            else:
+                print("이터러블 객체가 아닙니다.")
             try:
                 iter(my_object)
                 for level in levels:

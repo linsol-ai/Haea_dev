@@ -200,7 +200,7 @@ class WeatherDataset:
                     data = result[val][level]
                     dataset.append(data) 
             else:
-                print("이터러블 객체가 아닙니다.")
+                dataset.a
             
                  
             for level in levels:

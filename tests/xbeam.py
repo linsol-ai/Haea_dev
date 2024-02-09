@@ -63,19 +63,20 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
+
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='genfit-7ba0d',
         temp_location='gs://era5_preprocess/temp',
         requirements_file='/workspace/Haea/req.txt',
-        region='us-west3'
+        region='us-central1'
   )
 
 
   with beam.Pipeline(options=pipeline_options) as root:
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, chunks={'time': 1} )
+        | xbeam.DatasetToChunks(source_dataset, source_chunks, chunks={'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template)
     )

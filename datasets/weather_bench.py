@@ -108,7 +108,7 @@ class WeatherDataset:
     DATE_OFFSET = [(2023, 2018), (2018, 2013), (2013, 2008), (2008, 2003)]
 
 
-    def __init__(self, date_offset:int, device:torch.device):
+    def __init__(self, year_offset:int, device:torch.device):
         self.start = pd.to_datetime(f'{start}-01-01')
         self.end = pd.to_datetime(f'{end}-01-01')
         self.device = device

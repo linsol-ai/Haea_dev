@@ -202,7 +202,7 @@ class WeatherDataset:
             try:
                 iter(my_object)
                 for level in levels:
-                data = ㅊ[level]
+                data = result[val][level]
                 dataset.append(data) 
             except TypeError:
             

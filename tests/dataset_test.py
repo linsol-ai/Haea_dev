@@ -15,7 +15,6 @@ if __name__ == '__main__':
     start = time.time()
     ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2018-01-01_2023-01-01.zarr', chunks=None)
     ds = ds['10m_u_component_of_wind']
-
-    print(stacked_ds.to_numpy())
+    print(ds)
     end = time.time()
     print(f"{end - start:.5f} sec")

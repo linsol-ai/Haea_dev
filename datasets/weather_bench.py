@@ -140,7 +140,7 @@ class WeatherDataset:
 
 
     
-    def load_dataset(self, variables, start_date, end_date, wind_batch, device):
+    def load_dataset(self, wind_batch, device):
         wind_keys = ['u_component_of_wind', 'v_component_of_wind']
         levels = self.ds.level.values
         result = {}

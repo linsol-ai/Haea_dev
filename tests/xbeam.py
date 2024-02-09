@@ -61,7 +61,7 @@ def main(argv):
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
   lat_min, lat_max = LAT[FLAGS.type]
-  lon_min, lon_max = LAT[FLAGS.type]
+  lon_min, lon_max = LON[FLAGS.type]
 
   # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]

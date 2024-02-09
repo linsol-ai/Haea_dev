@@ -114,10 +114,10 @@ class WeatherDataset:
 
     
 
-    def load_dataset(self, datasets):
+    def load_dataset(self, dataset_urls):
         print("데이터셋 불러오는 중...")
         self.datasets = []
-        
+
 
 
     def load_level_val(self, key, level):

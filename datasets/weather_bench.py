@@ -196,7 +196,7 @@ class WeatherDataset:
                 continue
             try:
                 iter(my_object)
-    print("이터러블 객체입니다.")
+    
 except TypeError:
     print("이터러블 객체가 아닙니다.")
                  

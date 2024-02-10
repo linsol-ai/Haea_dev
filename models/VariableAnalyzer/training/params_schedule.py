@@ -43,6 +43,7 @@ class TransformerScheduler(ParameterScheduler):
         
         self._eta_min = start
         self._eta_max = end
+        self._
 
     def step(self, global_steps) -> None:  # noqa: D102
         if self._start_step <= global_steps <= self._end_step:

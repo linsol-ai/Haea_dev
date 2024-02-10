@@ -41,11 +41,6 @@ class DVAETrainingConfig(BaseModel):
     gradient_clip_val: float | None = None
     """The value to clip the gradients to."""
 
-    save_vis_every_n_step: int = Field(ge=0, default=100)
-    """Save the validation visualizations every n epochs."""
-
-    num_vis: int = Field(ge=0, default=10)
-    """The number of validation visualizations to save every `save_vis_every_n_epochs` steps."""
 
 
 class TrainingRunConfig(BaseModel):

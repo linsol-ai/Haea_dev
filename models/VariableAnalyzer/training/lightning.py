@@ -20,7 +20,6 @@ class TrainModule(pl.LightningModule):
         """
         super().__init__()
         self.model = model
-        self.step = 0
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 

@@ -19,7 +19,7 @@ class CustomDataset(Dataset):
     def make_dataset(self):
         dataset = []
         for t in range(self.dataset.size(0)):
-            src = [{'time': t, 'data': self.dataset[t]}
+            src = [{'time': t, 'data': self.dataset[t]}]
             tgt = []
             for t_n in range(t+1, min(self.dataset.size(0), t + 1 + self.time_len)):
 

@@ -159,7 +159,6 @@ class WeatherDataset:
     
     def load_data(self, dataset:xr.Dataset, wind_batch=256) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
-        levels = dataset.level.values
         result = {}
 
         print(dataset)

@@ -1,5 +1,6 @@
 import abc
 import math
+from torch.optim.lr_scheduler import CosineAnnealingLR, LinearLR, LambdaLR
 
 class ParameterScheduler(abc.ABC):
     """Base class for parameter schedulers."""

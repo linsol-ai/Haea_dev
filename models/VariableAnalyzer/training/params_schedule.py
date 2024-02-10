@@ -18,7 +18,7 @@ class TransformerScheduler(ParameterScheduler):
     """A scheduler that linearly interpolates between two values."""
 
     def __init__(
-        self, start: float, end: float, warmup_steps: int
+        self, start: float, end: float, warmup_steps: int, total_steps
     ) -> None:
         """Init the linear scheduler.
 

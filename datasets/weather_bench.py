@@ -208,7 +208,8 @@ class WeatherDataset:
 
             data = result[val]
             if len(data.shape) == 3:
-                 for lv in data.size(0)
+                 for lv in data.size(0):
+                      
 
 
         dataset = torch.stack(dataset, dim=0)

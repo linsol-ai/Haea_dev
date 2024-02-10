@@ -31,8 +31,6 @@ class LinearScheduler(ParameterScheduler):
                 interpolating from `end` to `start` till `1 - int(cooldown * steps)` step.
         """
         super().__init__()
-        if warmup < 0 or warmup > 1:
-            raise ValueError("`warmup` must be between 0 and 1.")
         if steps < 1:
             raise ValueError("`steps` must be at least 1.")
         
@@ -46,7 +44,7 @@ class LinearScheduler(ParameterScheduler):
         if self._start_step <= global_steps < self._end_step:
             self._value += self._step_size
         else:
-            
+
 
     def get_value(self) -> float:  # noqa: D102
         return self._value

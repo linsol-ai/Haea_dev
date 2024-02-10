@@ -22,8 +22,6 @@ class CustomDataset(Dataset):
         for t in range(self.dataset.size(0)):
             src = [t]
             tgt = [] 
-            for t_n in range(t+1, min(self.dataset.size(0), t + 1 + self.time_len)):
-                tgt.append({'time': t, })
             dataset.append((src, tgt))
         self.dataset = dataset
 

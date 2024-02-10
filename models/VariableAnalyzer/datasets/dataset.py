@@ -36,7 +36,7 @@ class CustomDataset(Dataset):
             tgt = [range(t+1, t+1 + self.time_len)] 
             dataset.append((src, tgt))
 
-        self.dataset_inc = dataset
+        self.dataset_inc = dataset_inc
 
 
     def __getitem__(self, item):

@@ -22,7 +22,7 @@ from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
 
 
-def get_dataset():
+def get_dataset(year_offset):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

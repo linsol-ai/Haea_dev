@@ -179,7 +179,7 @@ class WeatherDataset:
                 has_nan = torch.isnan(data).any()
                 if has_nan:
                     print("has nan: ", val)
-                    print(torch.isnan(data).sha)
+                    print(torch.isnan(data).shape)
 
                 if len(data.shape) == 3:
                     data = data.swapaxes(0, 1)

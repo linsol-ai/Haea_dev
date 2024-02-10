@@ -135,9 +135,9 @@ class WeatherDataset:
         # data.shape = (time, width, height)
         # data.shape = (time, width * height)
         has_nan = torch.isnan(output).any()
-    if has_nan:
-        nan_indices = torch.isnan(output)
-        output[nan_indices] = 0
+        if has_nan:
+            nan_indices = torch.isnan(output)
+            output[nan_indices] = 0
 
         if len(data.shape) == 4:
             data = data.flatten(2)

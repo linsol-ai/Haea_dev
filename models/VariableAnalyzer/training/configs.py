@@ -17,6 +17,9 @@ class DVAETrainingConfig(BaseModel):
 
     learning_rate: float = 2e-4
     """The learning rate."""
+
+    
+
     lr_decay_rate: float = 0.98
 
     batch_size: int = Field(ge=0, default=256)

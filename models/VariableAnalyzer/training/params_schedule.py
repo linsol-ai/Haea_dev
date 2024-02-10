@@ -14,7 +14,7 @@ class ParameterScheduler(abc.ABC):
         """Get the current value of the parameter."""
 
 
-class LinearScheduler(ParameterScheduler):
+class TransformerScheduler(ParameterScheduler):
     """A scheduler that linearly interpolates between two values."""
 
     def __init__(

@@ -11,7 +11,7 @@ class CustomDataset(Dataset):
         self.dataset = dataset
         self.var_len = dataset.size(1)
         self.time_len = time_len
-        self.padding_vec = to
+        self.padding_vec = torch.
         self.make_dataset()
 
     def __len__(self):

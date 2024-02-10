@@ -23,7 +23,7 @@ class CustomDataset(Dataset):
                 dataset.append(torch.zeros_like(self.dataset[0]))
             else:
                 dataset.append(self.dataset[t])
-        
+        # dataset.shape 
 
     def make_dataset(self):
         dataset = []

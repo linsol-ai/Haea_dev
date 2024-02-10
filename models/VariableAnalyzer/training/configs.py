@@ -20,7 +20,7 @@ class DVAETrainingConfig(BaseModel):
 
     warmup_step: float = Field(ge=1, default=4000)
 
-    weight_decay: float = 0.98
+    weight_decay: float = 
 
     batch_size: int = Field(ge=0, default=256)
     """"The batch size."""

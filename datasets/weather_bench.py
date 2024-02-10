@@ -184,6 +184,7 @@ class WeatherDataset:
             u_wind, v_wind = result[self.HAS_LEVEL_WIND_VAR]
             key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, self.device)
             futures[key] = level
+            
             for level in levels:
                 u_wind, v_wind = result[self.HAS_LEVEL_WIND_VAR][level]
                 key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, self.device)

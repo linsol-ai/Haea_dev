@@ -37,17 +37,7 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-        model = DiscreteVAE(
-            num_tokens=config.model.codebook_size,
-            codebook_dim=config.model.codebook_vector_dim,
-            num_layers=config.model.num_layers,
-            num_resnet_blocks=config.model.num_resnet_blocks,
-            hidden_dim=config.model.hidden_dim,
-            channels=1,
-            smooth_l1_loss=True,
-            temperature=config.training.temperature_scheduler.start,
-            straight_through=False
-        )
+        model = 
         model_pl = DVAETrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)

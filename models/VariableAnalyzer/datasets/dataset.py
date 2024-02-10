@@ -42,5 +42,5 @@ class CustomDataset(Dataset):
     def __getitem__(self, item):
         print(item)
         src, tgt = self.dataset_inc[item]
-        return self.get_data(self.dataset_inc[src]), self.get_data(self.dataset_inc[tgt])
+        return self.get_data(src), self.get_data(self.dataset_inc[tgt])
 

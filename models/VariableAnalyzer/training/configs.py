@@ -3,14 +3,17 @@ from pydantic import BaseModel, Field
 class LinearSchedulerConfig(BaseModel):
     """A config specification of the parameter scheduler."""
 
+    start: float = 1.0
+    """The initial value of the parameter."""
+
+    end: float = 1.0
     """The final value of the parameter."""
 
     warmup: float = Field(ge=0, le=1, default=0.0)
+    """Fraction of the total training steps for the warmup phase."""
 
-    warmup_step: int = Field(ge=0, default=4000)
-
-    warmup_decay: float = Field(ge=0, le=1, default=5e-4)
-
+    cooldown: float = Field(ge=0, le=1, default=0.0)
+    """Fraction of the total training steps for the cooldown phase."""
 
 class ModelConfig(BaseModel):
     """A config specification of model."""

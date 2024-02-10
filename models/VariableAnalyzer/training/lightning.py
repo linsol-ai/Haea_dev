@@ -27,7 +27,7 @@ class TrainModule(pl.LightningModule):
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[CosineWarmupScheduler]]:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
-        scheduler = CosineWarmupScheduler(optimizer=optimizer, warmup=self.config.warmup_step, max_iters=)
+        scheduler = CosineWarmupScheduler(optimizer=optimizer, warmup=self.config.warmup_step, max_iters=self.config.max_epochs)
         return [optimizer], [scheduler]
 
 

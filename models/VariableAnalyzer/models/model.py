@@ -74,7 +74,7 @@ class VariableAnalyzer(nn.Module):
         var_seq = torch.tensor([var_seq for _ in range(src.size(0))])
         time_seq = self.get_time_seq(src)
 
-        src = self.src_embedding(var_seq) * math.sqrt(self.dim_model)
+        src = self.src_embedding(src, var_seq) * math.sqrt(self.dim_model)
         tgt = self.tgt_embedding(time_seq, var_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.get_tgt_mask(src)
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

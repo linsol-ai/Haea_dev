@@ -35,7 +35,7 @@ class TrainModule(pl.LightningModule):
         src_b, tgt_b = batch
         output = self.model(src_b, tgt_b)
         loss = F.mse_loss(tgt_b, output)
-        self.log(f"{mode}/loss", loss, prog_bar=mode == "train")
+        self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         
         return loss
 

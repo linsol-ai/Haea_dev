@@ -37,7 +37,7 @@ class LinearScheduler(ParameterScheduler):
             raise ValueError("`steps` must be at least 1.")
         
         self._value = start
-        self._start_step = 1
+        self._start_step = 0
         self._end_step = steps
         self._step_size = (end - start) / (self._end_step - self._start_step)
         self._step = 0

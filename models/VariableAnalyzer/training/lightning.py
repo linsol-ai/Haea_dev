@@ -12,13 +12,6 @@ class TrainModule(pl.LightningModule):
     """A PyTorch Lightning training module for the `DVAE`."""
 
     def __init__(self, *, model: VariableAnalyzer, config: TrainingConfig | None = None):
-        """Init the DVAE training module.
-
-        Args:
-            dvae: An instance of the Discrete Variational Auto-Encoder to be used.
-            config: The DVAE's training configuration. If `None`, default configuration
-                will be used.
-        """
         super().__init__()
         self.model = model
         self.config = TrainingConfig() if config is None else config

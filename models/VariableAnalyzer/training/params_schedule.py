@@ -41,7 +41,7 @@ class TransformerScheduler(ParameterScheduler):
         self._step_size = (end - start) / (self._end_step - self._start_step)
         self._step = 0
         
-        self._eta_min = end
+        self._eta_min = start
         self._eta_max = end
 
     def step(self, global_steps) -> None:  # noqa: D102

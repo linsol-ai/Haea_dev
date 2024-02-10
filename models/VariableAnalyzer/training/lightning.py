@@ -29,7 +29,7 @@ class DVAETrainModule(pl.LightningModule):
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
-        LinearScheduler()
+        LinearLR()
         scheduler = ExponentialLR(
             optimizer,
             gamma= self.config.lr_decay_rate

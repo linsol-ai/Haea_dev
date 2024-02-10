@@ -194,6 +194,8 @@ class WeatherDataset:
                 level = futures[future]
                 # shape => (3, time, h * w) or (3, level, time, h * w)
                 data = future.result()
+                if len(data.shape) == 3:
+                    data = data.swapaxes(0, 1)
                 wind_result[level] = data
 
             del result[self.HAS_LEVEL_VARIABLE]

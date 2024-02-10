@@ -116,7 +116,6 @@ class WeatherDataset:
 
         print("======= RESULT SHAPE =======")
         print("var_dataset.shape: ", var_dataset.shape)
-        print("wind_dataset.shape: ", wind_dataset.shape)
 
         return var_dataset, wind_dataset
 

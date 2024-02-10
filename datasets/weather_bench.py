@@ -21,6 +21,7 @@ def normalize_tensor(data):
 
     has_nan = torch.isnan(output).any()
     if has_nan:
+        print()
         nan_indices = torch.isnan(output)
         output[nan_indices] = 0
     

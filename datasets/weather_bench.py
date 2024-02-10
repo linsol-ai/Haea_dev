@@ -175,6 +175,7 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (time, level, h * w) or (time, h * w)
                 data = future.result()
+                
                 result[val] = data
 
 

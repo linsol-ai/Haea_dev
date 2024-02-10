@@ -234,7 +234,8 @@ class WeatherDataset:
         print(dataset.shape)
         print(wind_dataset.shape)
 
-        
+        has_nan = np.isnan(data[i]).any()
+        if has_nan:
 
         end = time.time()
         print(f"{end - start:.5f} sec")

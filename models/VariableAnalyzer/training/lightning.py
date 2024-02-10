@@ -2,7 +2,6 @@ import pytorch_lightning as pl
 import torch.optim.optimizer
 from torch.optim import AdamW
 from einops import rearrange
-import pytorch_lightning
 from models.model import VariableAnalyzer
 from training.config import DVAETrainingConfig
 from training.params_schedule import LinearScheduler, ExponentialScheduler

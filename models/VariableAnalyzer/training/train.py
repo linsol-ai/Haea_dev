@@ -26,7 +26,7 @@ def get_dataset(year_offset: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-    weather = WeatherDataset(1, device=device)
+    weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     dataset = weather.load()
 

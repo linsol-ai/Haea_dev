@@ -20,7 +20,7 @@ NONE_LEVEL_VARIABLE = [
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 LAT = [(32.2, 39.0), (20, 70), (0, 70)]
-LON = [(124.2, 131), (120, 142), c]
+LON = [(124.2, 131), (120, 142), (90, 180)]
 INPUT_PATHS = [
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-1440x721.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-240x121_equiangular_with_poles_conservative.zarr',
@@ -90,7 +90,6 @@ def main(argv):
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
-        | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )
 

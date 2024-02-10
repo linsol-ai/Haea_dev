@@ -5,13 +5,6 @@ import numpy as np
 
 
 class CustomDataset(Dataset):
-    pad_index = 0
-    unk_index = 1
-    eos_index = 2
-    sos_index = 3
-
-    special_tokens = [0, 1, 2, 3, 4]
-
 
     def __init__(self, dataset: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)

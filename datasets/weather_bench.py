@@ -165,7 +165,7 @@ class WeatherDataset:
         print("======= RESULT SHAPE =======")
         print("var_dataset.shape: ", var_dataset.shape)
         print("wind_dataset.shape: ", wind_dataset.shape)
-        
+
         return var_dataset, wind_dataset
 
     
@@ -245,9 +245,6 @@ class WeatherDataset:
         wind_dataset = torch.stack(wind_dataset, dim=0)
         # shape => (time, level * 3, h * w)
         wind_dataset = torch.swapaxes(wind_dataset, 0, 1)
-
-        print(dataset.shape)
-        print(wind_dataset.shape)
         
         end = time.time()
         print(f"{end - start:.5f} sec")

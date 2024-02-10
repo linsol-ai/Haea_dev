@@ -40,5 +40,5 @@ class CustomDataset(Dataset):
 
 
     def __getitem__(self, item):
-        return 
+        return self.get_data()
 

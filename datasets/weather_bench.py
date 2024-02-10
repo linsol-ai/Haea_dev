@@ -196,7 +196,8 @@ class WeatherDataset:
 
         print(dataset)
 
-        
+        for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
+            
 
         with ThreadPoolExecutor() as executor:
             futures = {}

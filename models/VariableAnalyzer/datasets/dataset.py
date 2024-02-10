@@ -4,7 +4,7 @@ import random
 import numpy as np
 
 
-class CostDataset(Dataset):
+class CostumeDataset(Dataset):
     pad_index = 0
     unk_index = 1
     eos_index = 2

@@ -14,6 +14,7 @@ class CustomDataset(Dataset):
         self.make_dataset()
 
     def __len__(self):
+        
         return self.dataset.size(0)
 
     def get_data(self, indicate):

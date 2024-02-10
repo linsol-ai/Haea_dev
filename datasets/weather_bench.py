@@ -129,8 +129,6 @@ class WeatherDataset:
 
     def load_variable(self, dataset, key):
         data = dataset[key]
-        if level:
-            data = data.sel(level=level)
         data = data.to_numpy()
         data = remove_missing_values(data)
         data = torch.from_numpy(data)

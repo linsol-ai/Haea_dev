@@ -197,22 +197,7 @@ class WeatherDataset:
         for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
             result[val] = self.load_variable_chunk(dataset[val])
 
-        with ThreadPoolExecutor() as executor:
-            futures = {}
-
-            for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
-                print(val)
-                key = executor.submit(self.load_variable, dataset, val)
-                futures[key] = val
-
-            for future in tqdm(as_completed(futures), desc="Processing futures"):
-                val = futures[future]
-                print(val)
-                # shape => (time, level, h * w) or (time, h * w)
-                data = future.result()
-                if len(data.shape) == 3:
-                    data = data.swapaxes(0, 1)
-                result[val] = data
+        
 
 
 

@@ -127,7 +127,7 @@ class WeatherDataset:
             self.datasets.append(ds)
     
 
-    def load_variable_chunk(self, dataset, key):
+    def load_variable_c(self, dataset, key):
         data = dataset[key]
         data = data.to_numpy()
         if len(data.shape) == 4:
@@ -143,9 +143,9 @@ class WeatherDataset:
         # data.shape = (time, width * height)
 
         if len(data.shape) == 4:
-            data = data.reshape(2)
+            data = data.flatten(2)
         else:
-            data = data.reshape(1)
+            data = data.flatten(1)
 
         print(data.shape)
         return data

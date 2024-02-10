@@ -37,8 +37,6 @@ class TrainModule(pl.LightningModule):
         self.log("temperature", self._temperature_scheduler.get_value())
         self.log("kl_div_weight", self._kl_div_weight_scheduler.get_value())
         
-        self.step += 1
-        
         return loss
 
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102

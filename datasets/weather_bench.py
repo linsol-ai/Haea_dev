@@ -200,7 +200,7 @@ class WeatherDataset:
                 # shape => (3, time, h * w) or (level, 3, time, h * w)
                 data = future.result()
                 if len(data.shape) == 4:
-                    data = data.swapaxes(0, 1)
+                    data = data.view()
                 wind_result[level] = data
 
             del result[self.HAS_LEVEL_WIND_VAR[0]]
@@ -235,7 +235,7 @@ class WeatherDataset:
 
         # wind.shape => (level * 3, time, h * w)
         wind_dataset = torch.stack(wind_dataset, dim=0)
-        
+
         print(wind_dataset.shape)
         wind_dataset = wind_dataset.view(-1, wind_dataset.shape[2:])
         

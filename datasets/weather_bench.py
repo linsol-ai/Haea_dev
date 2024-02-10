@@ -233,8 +233,6 @@ class WeatherDataset:
 
         print(dataset.shape)
         print(wind_dataset.shape)
-
-        has_nan = torch.isnan(dataset).any()
         
 
 

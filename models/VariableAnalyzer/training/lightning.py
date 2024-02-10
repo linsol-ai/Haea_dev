@@ -31,7 +31,7 @@ class TrainModule(pl.LightningModule):
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
-        src_b, tgt_b = batch[]
+        src_b, tgt_b = batch
         
 
         self.log(f"{mode}/loss", loss, prog_bar=mode == "train")

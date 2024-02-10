@@ -21,7 +21,7 @@ class TrainModule(pl.LightningModule):
         super().__init__()
         self.dvae = dvae
         self.step = 0
-        self.config = DVAETrainingConfig() if config is None else config
+        self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
 
 

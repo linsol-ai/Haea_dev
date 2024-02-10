@@ -9,7 +9,7 @@ class ModelConfig(BaseModel):
 
     n_decoder_layers: int = Field(ge=0, default=3)
 
-    dropout: float = Field(ge=0, default=3)
+    dropout: float = Field(ge=0, default=0.1)
 
 
 

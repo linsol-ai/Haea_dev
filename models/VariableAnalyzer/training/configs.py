@@ -9,6 +9,8 @@ class LinearSchedulerConfig(BaseModel):
 
     warmup_step: int = Field(ge=0, le=1, default=0.0)
 
+    
+
 
 class ModelConfig(BaseModel):
     """A config specification of model."""

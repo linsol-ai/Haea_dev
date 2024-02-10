@@ -17,7 +17,10 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
-
+from models.dalle import DiscreteVAE
+from training.callbacks import SaveValVisualizationCallback
+from training.config import TrainingRunConfig
+from training.lightning import DVAETrainModule
         
 
 def _main() -> None:
@@ -25,7 +28,7 @@ def _main() -> None:
     try:
         with open(config_path) as f:
             config_dict = yaml.safe_load(f)
-            config: TrainingRunConfig = .parse_obj(config_dict)
+            config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
     except FileNotFoundError:
         logging.error(f"Config file {config_path} does not exist. Exiting.")
     except yaml.YAMLError:

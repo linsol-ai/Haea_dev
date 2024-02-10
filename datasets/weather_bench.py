@@ -208,8 +208,8 @@ class WeatherDataset:
                 continue
 
             data = result[val]
-
             
+
 
         dataset = torch.stack(dataset, dim=0)
         # dataset.shape => (time, var, h * w)

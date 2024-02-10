@@ -238,8 +238,6 @@ class WeatherDataset:
 
 
     def calculate_wind(self, u_wind, v_wind, batch, device):
-        part_size = (len(u_wind) // batch) + 1
-
         res = preprocess_wind_data(u_wind, v_wind, device).cpu()
 
         return res

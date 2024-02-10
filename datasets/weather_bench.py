@@ -200,7 +200,7 @@ class WeatherDataset:
                 # shape => (3, time, h * w) or (level, 3, time, h * w)
                 data = future.result()
                 if len(data.shape) == 4:
-                    data = data.view(-1, data.size())
+                    data = data.view(-1, data.size(2), data.size(3))
                 wind_result[level] = data
 
             del result[self.HAS_LEVEL_WIND_VAR[0]]

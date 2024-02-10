@@ -12,8 +12,6 @@ class ModelConfig(BaseModel):
     dropout: float = Field(ge=0, default=0.1)
 
 
-
-
 class DVAETrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 

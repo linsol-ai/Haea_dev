@@ -82,7 +82,7 @@ def main(argv):
         requirements_file='/workspace/Haea/req.txt',
         region='us-central1',
         worker_zone='us-central1-f',
-        machine_type='n2-standard-4'
+        machine_type='n2-standard-8'
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

@@ -177,7 +177,6 @@ class WeatherDataset:
                 data = future.result()
                 result[val] = data
 
-
         wind_result = {}
         with ThreadPoolExecutor() as executor:
             futures = {}

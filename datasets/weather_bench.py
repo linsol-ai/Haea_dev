@@ -160,7 +160,7 @@ class WeatherDataset:
         
         # var_dataset.shape = (time, var * level, h * w)
         var_dataset = torch.concat(var_dataset, dim=2)
-        wind_dataset = torch.stack(wind_dataset, dim=0)
+        wind_dataset = torch.concat(wind_dataset, dim=2)
 
         print(var_dataset.shape)
         print(wind_dataset.shape)

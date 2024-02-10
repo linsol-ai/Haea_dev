@@ -7,7 +7,6 @@ class ModelConfig(BaseModel):
     """The number of vectors in the codebook."""
 
     n_encoder_layers: int = Field(ge=0, default=256)
-    """The dimension of the codebook vector."""
 
     n_decoder_layers: int = Field(ge=0, default=256)
 

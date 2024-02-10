@@ -1,7 +1,8 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
 from torch.optim import AdamW
-from torch.optim.lr_scheduler import ExponentialLR, LinearLR, Cos
+from torch.optim.lr_scheduler import ExponentialLR, LinearLR
+fr
 from einops import rearrange
 import pytorch_lightning
 from models.dalle import DiscreteVAE

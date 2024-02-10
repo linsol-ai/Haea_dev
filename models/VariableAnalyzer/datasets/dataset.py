@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
             else:
                 dataset.append(self.dataset[t])
 
-        # dataset.shape = 
+        # dataset.shape = (time)
 
     def make_dataset(self):
         dataset = []

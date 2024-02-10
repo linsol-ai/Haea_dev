@@ -15,7 +15,7 @@ from torchvision.datasets import CIFAR10
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
 from models.dalle import DiscreteVAE
 from training.callbacks import SaveValVisualizationCallback

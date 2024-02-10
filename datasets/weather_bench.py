@@ -65,8 +65,6 @@ def preprocess_wind_data(u, v, device):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
         
 
-
-
 class WeatherDataset:
 
     HAS_LEVEL_VARIABLE = [ 'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']

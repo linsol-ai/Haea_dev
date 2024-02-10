@@ -132,7 +132,7 @@ class WeatherDataset:
         data = data.to_numpy()
         if len(data.shape) == 4:
             removed = np.zeros_like(data)
-            for l in range(data.size(0)):
+            for o in range(data.size(0)):
                   
             data = remove_missing_values(data)
         data = torch.from_numpy(data)

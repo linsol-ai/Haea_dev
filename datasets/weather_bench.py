@@ -240,7 +240,7 @@ class WeatherDataset:
 
         has_nan = torch.isnan(wind_dataset).any()
         if has_nan:
-            print("dataset has nan")
+            print("wind dataset has nan")
 
 
         end = time.time()

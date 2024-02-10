@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
 
     def get_data(self, indicate):
         dataset = []
-        for t in indicate"
+        for t in indicate:
             
 
     def make_dataset(self):

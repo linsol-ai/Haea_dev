@@ -55,5 +55,3 @@ class TransformerScheduler(ParameterScheduler):
 
     def get_value(self) -> float:  # noqa: D102
         return self._value
-
-

@@ -2,56 +2,18 @@ import abc
 import math
 import numpy as np
 
-class ParameterScheduler(abc.ABC):
-    """Base class for parameter schedulers."""
+class CosineWarmupScheduler(optim.lr_scheduler._LRScheduler):
+    def __init__(self, optimizer, warmup, max_iters):
+        self.warmup = warmup
+        self.max_num_iters = max_iters
+        super().__init__(optimizer)
 
-    @abc.abstractmethod
-    def step(self) -> None:
-        """Update the parameters of the scheduler."""
+    def get_lr(self):
+        lr_factor = self.get_lr_factor(epoch=self.last_epoch)
+        return [base_lr * lr_factor for base_lr in self.base_lrs]
 
-    @abc.abstractmethod
-    def get_value(self) -> float:
-        """Get the current value of the parameter."""
-
-
-class TransformerScheduler(ParameterScheduler):
-    """A scheduler that linearly interpolates between two values."""
-
-    def __init__(
-        self, start: float, end: float, warmup_steps: int, total_steps: int
-    ) -> None:
-        """Init the linear scheduler.
-
-        Args:
-            start: The start value of the parameter.
-            end: The end value of the parameter.
-            steps: The number of steps to take.
-            warmup: Fraction of steps to warm up. The scheduler will start
-                interpolating from `start` to `end` at `int(warmup * steps)` step.
-            cooldown: Fraction of steps to cool down. The scheduler will be
-                interpolating from `end` to `start` till `1 - int(cooldown * steps)` step.
-        """
-        super().__init__()
-        if warmup_steps < 1:
-            raise ValueError("`steps` must be at least 1.")
-        
-        self._value = start
-        self._start_step = 0
-        self._end_step = warmup_steps
-        self._step_size = (end - start) / (self._end_step - self._start_step)
-        self._step = 0
-        
-        self._eta_min = start
-        self._eta_max = end
-        self._total_steps = total_steps
-
-    def step(self, global_steps) -> None:  # noqa: D102
-        if self._start_step <= global_steps <= self._end_step:
-            self._value += self._step_size
-        else:
-            step = global_steps - self._end_step
-            T_max = self._total_steps - self._end_step
-            self._value = self._eta_min + 0.5 * (self._eta_max - self._eta_min) * (1 + np.cos(np.pi * step / T_max))
-
-    def get_value(self) -> float:  # noqa: D102
-        return self._value
+    def get_lr_factor(self, epoch):
+        lr_factor = 0.5 * (1 + np.cos(np.pi * epoch / self.max_num_iters))
+        if epoch <= self.warmup:
+            lr_factor *= epoch * 1.0 / self.warmup
+        return lr_factor

@@ -123,7 +123,7 @@ class WeatherDataset:
         print("데이터셋 불러오는 중...")
         self.datasets = []
         for urls in dataset_urls:
-            ds, _ = xb.open_zarr(urls)
+            ds, _ = xr.open_zarr(urls)
             self.datasets.append(ds)
     
 

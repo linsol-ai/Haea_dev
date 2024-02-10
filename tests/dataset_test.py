@@ -19,13 +19,13 @@ if __name__ == '__main__':
 
     HAS_LEVEL_VARIABLE = [ 'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
-# 새 차원을 추가하고 데이터 변수를 결합
-data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in HAS_LEVEL_VARIABLE]
-combined_ds = xarray.concat(data_arrays, dim='variable')
-# 결과 확인
-stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
-stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
-print(stacked_ds.values.shape)
+    # 새 차원을 추가하고 데이터 변수를 결합
+    data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in HAS_LEVEL_VARIABLE]
+    combined_ds = xarray.concat(data_arrays, dim='variable')
+    # 결과 확인
+    stacked_ds = combined_ds.stack(variable_level=('variable', 'level'))
+    stacked_ds = stacked_ds.stack(hidden_dim=('latitude', 'longitude'))
+    print(stacked_ds.values.shape)
     print(ds.values)
     end = time.time()
     print(f"{end - start:.5f} sec")

@@ -31,7 +31,22 @@ class TargetEmbedding(nn.Module):
         x = tgt + self.position(position_seq) + self.variable(variable_seq)
         return self.dropout(x)
     
-    
+class TargetEmbedding(nn.Module):
+    def __init__(self, var_len, time_len, embed_size, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.variable = VariableEmbedding(var_len, embed_size)
+        self.position = PositionalEmbedding(time_len, embed_size)
+        self.dropout = nn.Dropout(p=dropout)
+        self.embed_size = embed_size
+
+    def forward(self, tgt, position_seq, variable_seq):
+        x = tgt + self.position(position_seq) + self.variable(variable_seq)
+        return self.dropout(x)
 
 
 

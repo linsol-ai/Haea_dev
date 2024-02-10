@@ -232,7 +232,7 @@ class WeatherDataset:
         # shape => (time, level * 3, h * w)
         wind_dataset = torch.swapaxes(wind_dataset, 0, 1)
 
-        print(wind_dataset.shape)
+        print(dataset.shape)
         print(wind_dataset.shape)
 
         end = time.time()

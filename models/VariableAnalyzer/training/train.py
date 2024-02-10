@@ -18,7 +18,6 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
-from training.callbacks import SaveValVisualizationCallback
 from training.config import TrainingRunConfig
 from training.lightning import DVAETrainModule
         

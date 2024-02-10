@@ -195,7 +195,7 @@ class WeatherDataset:
         print(dataset)
 
         for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
-            result[val] = self.load_variable_chunk(dataset, val)
+            result[val] = self.load_variable_chunk(dataset[val])
 
         with ThreadPoolExecutor() as executor:
             futures = {}

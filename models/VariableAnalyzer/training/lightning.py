@@ -22,7 +22,7 @@ class TrainModule(pl.LightningModule):
         self.dvae = dvae
         self.step = 0
         self.config = TrainingConfig() if config is None else config
-        self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
+        self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102

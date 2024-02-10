@@ -36,7 +36,6 @@ class TrainModule(pl.LightningModule):
         output = self.model(src_b, tgt_b)
         loss = F.mse_loss(tgt_b, output)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
-        
         return loss
 
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102

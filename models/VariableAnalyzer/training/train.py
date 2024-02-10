@@ -28,6 +28,7 @@ def get_dataset():
 
     weather = WeatherDataset(1, device=device)
     weather.load()
+    
         
 
 def _main() -> None:

@@ -6,7 +6,7 @@ class ModelConfig(BaseModel):
     num_heads: int = Field(ge=0, default=256)
     """The number of vectors in the codebook."""
 
-    codebook_vector_dim: int = Field(ge=0, default=256)
+    n_encoder_layers: int = Field(ge=0, default=256)
     """The dimension of the codebook vector."""
 
     hidden_dim: int = Field(ge=0, default=256)

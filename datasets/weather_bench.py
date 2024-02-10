@@ -184,7 +184,63 @@ class WeatherDataset:
                 result[val] = data
             
 
-            
+            wind_result = {}
+        with ThreadPoolExecutor() as executor:
+            futures = {}
+            v1 = result[self.HAS_LEVEL_WIND_VAR]
+            k1 = executor.submit(self.calculate_wind, v1[0], v1[1], wind_batch, self.device)
+            futures[k1] = 1
+
+            v2 = result[self.NONE_LEVEL_WIND_VAR]
+            k2 = executor.submit(self.calculate_wind, v2[0], v2[1], wind_batch, self.device)
+            futures[k2] = 0
+
+            for future in tqdm(as_completed(futures), desc="Processing futures"):
+                level = futures[future]
+                # shape => (3, time, h * w) or (3, level, time, h * w)
+                data = future.result()
+                if len(data.shape) == 4:
+                    data = data.swapaxes(0, 1)
+                wind_result[level] = data
+
+            del result[self.HAS_LEVEL_VARIABLE]
+            del result[self.NONE_LEVEL_WIND_VAR]
+
+
+        # dataset.shape => (var*level, time, h * w)
+        dataset = []
+        for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
+            if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
+                continue
+            data = result[val]
+            if len(data.shape) == 3:
+                for i in range(data.size(0)):
+                    dataset.append(data[i])
+            else:
+                dataset.append(data)
+
+
+        dataset = torch.stack(dataset, dim=0)
+        # dataset.shape => (time, var, h * w)
+        dataset = torch.swapaxes(dataset, 0, 1)
+        print(dataset.shape)
+        
+        # wind.shape => (level, 3, time, h * w)
+        wind_dataset = []
+        wind_dataset.append(wind_result[0])
+        for i in range(wind_result[1].size(0)):
+            wind_dataset.append(wind_result[1][i])
+
+        # wind.shape => (level * 3, time, h * w)
+        wind_dataset = torch.stack(wind_dataset, dim=0)
+        wind_dataset = wind_dataset.view(-1, wind_dataset.shape[2:])
+        
+        # shape => (time, level * 3, h * w)
+        wind_dataset = torch.swapaxes(wind_dataset, 0, 1)
+
+        end = time.time()
+        print(f"{end - start:.5f} sec")
+        return dataset, wind_dataset
 
 
 

@@ -1,34 +1,5 @@
 from pydantic import BaseModel, Field
 
-
-class LinearSchedulerConfig(BaseModel):
-    """A config specification of the parameter scheduler."""
-
-    start: float = 1.0
-    """The initial value of the parameter."""
-
-    end: float = 1.0
-    """The final value of the parameter."""
-
-    warmup: float = Field(ge=0, le=1, default=0.0)
-    """Fraction of the total training steps for the warmup phase."""
-
-    cooldown: float = Field(ge=0, le=1, default=0.0)
-    """Fraction of the total training steps for the cooldown phase."""
-
-
-class ExponentialSchedulerConfig(BaseModel):
-    """A config specification of the parameter scheduler."""
-
-    start: float = 1.0
-    """The initial value of the parameter."""
-
-    min: float = 0.5
-    """The min value of the parameter."""
-
-    anneal_rate: float = 1e-6
-    """The anneal_rate of the parameter."""
-
 class DVAEModelConfig(BaseModel):
     """A config specification of the DVAE model."""
 

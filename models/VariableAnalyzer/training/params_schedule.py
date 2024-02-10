@@ -40,7 +40,7 @@ class TransformerScheduler(ParameterScheduler):
         self._end_step = warmup_steps
         self._step_size = (end - start) / (self._end_step - self._start_step)
         self._step = 0
-        self.
+        self._eta_max = 
 
     def step(self, global_steps) -> None:  # noqa: D102
         if self._start_step <= global_steps <= self._end_step:

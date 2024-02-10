@@ -5,7 +5,7 @@ from torch.optim.lr_scheduler import ExponentialLR, LinearLR
 from torch.optim.ex
 from einops import rearrange
 import pytorch_lightning
-from models.dalle import DiscreteVAE
+from models.V import DiscreteVAE
 from training.config import DVAETrainingConfig
 from training.params_schedule import LinearScheduler, ExponentialScheduler
 

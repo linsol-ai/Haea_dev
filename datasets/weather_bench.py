@@ -140,7 +140,6 @@ class WeatherDataset:
         else:
             data = data.flatten(1)
 
-        print(data.shape)
         return data
     
 

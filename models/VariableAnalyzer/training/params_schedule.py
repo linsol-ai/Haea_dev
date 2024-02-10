@@ -44,7 +44,7 @@ class LinearScheduler(ParameterScheduler):
 
     def step(self, global_steps) -> None:  # noqa: D102
         warmup_percent_done = global_steps / self._end_step
-        warmup_learning_rate = s * warmup_percent_done
+        warmup_learning_rate = st= * warmup_percent_done
 
     is_warmup = tf.cast(global_steps_int < warmup_steps_int, tf.float32)
     learning_rate = (

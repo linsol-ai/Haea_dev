@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 class ModelConfig(BaseModel):
     """A config specification of the DVAE model."""
 
-    codebook_size: int = Field(ge=0, default=256)
+    num_heads: int = Field(ge=0, default=256)
     """The number of vectors in the codebook."""
 
     codebook_vector_dim: int = Field(ge=0, default=256)

@@ -41,9 +41,6 @@ class TrainModule(pl.LightningModule):
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "train")
 
-    def on_train_epoch_end(self) -> None:  # noqa: D102
-    
-
     def validation_step(self, batch: Tuple[torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "val")
 

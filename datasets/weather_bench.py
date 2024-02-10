@@ -131,6 +131,7 @@ class WeatherDataset:
         data = dataset[key]
         data = data.to_numpy()
         if len(data.shape) == 4:
+             
              for l in range(data.size(0)):
                   
             data = remove_missing_values(data)

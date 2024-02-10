@@ -207,7 +207,7 @@ class WeatherDataset:
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
                 continue
 
-            data = re
+            data = result[val]
 
         dataset = torch.stack(dataset, dim=0)
         # dataset.shape => (time, var, h * w)

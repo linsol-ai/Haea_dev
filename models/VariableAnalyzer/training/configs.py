@@ -20,6 +20,8 @@ class DVAETrainingConfig(BaseModel):
 
     warmup_step: float = Field(ge=1, default=4000)
 
+    
+
     lr_decay_rate: float = 0.98
 
     batch_size: int = Field(ge=0, default=256)

@@ -33,7 +33,7 @@ FOLDER_NAME = ['1440x720', '240x120', '60x30']
 FLAGS = flags.FLAGS
 START_YEAR = flags.DEFINE_string('start', None, help='start_year')
 END_YEAR = flags.DEFINE_string('end', None, help='end_year')
-TYPE = flags.DEFINE_integer('type', None, help='type 0 : 1440x721, type 1 : 240x120, type 2 : 60x30')
+TYPE = flags.DEFINE_integer('type', None, help='type 0 : 1440x720, type 1 : 240x120, type 2 : 60x30')
 
 flags.mark_flag_as_required("start")
 flags.mark_flag_as_required("end")

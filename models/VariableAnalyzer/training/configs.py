@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 
-
 class ModelConfig(BaseModel):
     """A config specification of model."""
 

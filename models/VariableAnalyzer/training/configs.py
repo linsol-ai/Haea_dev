@@ -9,7 +9,7 @@ class LinearSchedulerConfig(BaseModel):
 
     warmup_step: int = Field(ge=0, le=1, default=0.0)
 
-    warmup_decay
+    warmup_decay: int = Field()
 
 
 class ModelConfig(BaseModel):

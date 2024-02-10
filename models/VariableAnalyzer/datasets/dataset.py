@@ -17,7 +17,7 @@ class CustomDataset(Dataset):
         return self.dataset.size(0)
 
     def get_data(self, indicate):
-        
+        datae
 
     def make_dataset(self):
         dataset = []

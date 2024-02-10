@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from torch.optim import AdamW
 from einops import rearrange
 from models.model import VariableAnalyzer
-from training.configs import DVAETrainingConfig
+from training.configs import TrainingConfig
 from training.params_schedule import LinearScheduler, ExponentialScheduler
 
 

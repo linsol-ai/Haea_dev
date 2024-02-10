@@ -132,7 +132,6 @@ class WeatherDataset:
         if level:
             data = data.sel(level=level)
         data = data.to_numpy()
-        print(data.shape)
         data = remove_missing_values(data)
         data = torch.from_numpy(data)
         # data.shape = (time, width, height)

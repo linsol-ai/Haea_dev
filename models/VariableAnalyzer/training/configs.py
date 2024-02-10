@@ -36,7 +36,7 @@ class TrainingConfig(BaseModel):
 class TrainingRunConfig(BaseModel):
     """A config specification of the training run."""
 
-    model: DVAEModelConfig
+    model: ModelConfig
     """A config specification of the model."""
 
     training: DVAETrainingConfig

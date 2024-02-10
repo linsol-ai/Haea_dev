@@ -184,7 +184,7 @@ class WeatherDataset:
                 result[val] = data
             
 
-            wind_result = {}
+        wind_result = {}
         with ThreadPoolExecutor() as executor:
             futures = {}
             v1 = result[self.HAS_LEVEL_WIND_VAR]

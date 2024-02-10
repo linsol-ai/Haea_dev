@@ -128,7 +128,7 @@ class WeatherDataset:
     
 
     def load_variable_chunk(self, dataset):
-        data = data.to_numpy()
+        data = dataset.to_numpy()
         if len(data.shape) == 4:
             removed = np.zeros_like(data)
             for i in range(data.shape[0]):

@@ -7,6 +7,7 @@ from training.configs import TrainingConfig
 from training.params_schedule import CosineWarmupScheduler
 from typing import Tuple
 
+
 class TrainModule(pl.LightningModule):
     """A PyTorch Lightning training module for the `DVAE`."""
 

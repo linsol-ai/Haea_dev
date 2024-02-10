@@ -28,14 +28,22 @@ class DVAETrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
 
 
-    def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102
-        optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
-        LinearLR()
-        scheduler = ExponentialLR(
-            optimizer,
-            gamma= self.config.lr_decay_rate
-        )
-        return [optimizer], [scheduler]
+    def configure_optimizers(self):
+        optimizer = Adam(self.parameters(), lr=0.0001)  # 초기 learning rate 설정
+
+        # Warmup을 위한 scheduler 정의
+        warmup_steps = 4000
+        warmup_scheduler = LambdaLR(optimizer, lambda step: min(step/warmup_steps, 1))
+
+        # Cosine decay를 위한 scheduler 정의
+        total_steps = 10000  # 전체 학습 step 예상치
+        decay_scheduler = CosineAnnealingLR(optimizer, T_max=total_steps - warmup_steps)
+
+        # PyTorch Lightning은 scheduler를 'scheduler' 키와 함께 반환할 때, 'interval'과 'frequency' 옵션을 제공합니다.
+        # 'interval'은 'step' 또는 'epoch'일 수 있으며, 'frequency'는 해당 작업을 수행할 빈도입니다.
+        # 여기서는 'step'마다 scheduler를 업데이트합니다.
+        return {'optimizer': optimizer, 'lr_scheduler': {'scheduler': warmup_scheduler, 'interval': 'step', 'frequency': 1},
+                'lr_scheduler': {'scheduler': decay_scheduler, 'interval': 'step', 'frequency': 1, 'start_step': warmup_steps}}
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         temperature = self._temperature_scheduler.get_value()

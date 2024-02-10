@@ -15,11 +15,7 @@ class ModelConfig(BaseModel):
     dropout: int = Field(ge=0)
     """The number of channels in the input image."""
 
-    num_layers: int = 3
-    """The number of layers"""
 
-    num_resnet_blocks: int = 2
-    """The number of resnet blocks"""
 
 
 class DVAETrainingConfig(BaseModel):

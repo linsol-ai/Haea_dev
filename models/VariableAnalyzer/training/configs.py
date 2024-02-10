@@ -12,7 +12,7 @@ class ModelConfig(BaseModel):
     n_decoder_layers: int = Field(ge=0, default=256)
     """The dimension of the hidden vector."""
 
-    channels: int = Field(ge=0)
+    dropout: int = Field(ge=0)
     """The number of channels in the input image."""
 
     num_layers: int = 3

@@ -198,7 +198,7 @@ class WeatherDataset:
         
         end = time.time()
         print(f"{end - start:.5f} sec")
-        return dataset, wind_dataset
+        return torch.stack(wind_dataset, dim=0)dataset, wind_dataset
 
 
     def calculate_wind(self, u_wind, v_wind, device):

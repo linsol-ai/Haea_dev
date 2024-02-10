@@ -45,6 +45,7 @@ class TransformerScheduler(ParameterScheduler):
         if self._start_step <= global_steps <= self._end_step:
             self._value += self._step_size
         else:
+            
 
 
     def get_value(self) -> float:  # noqa: D102

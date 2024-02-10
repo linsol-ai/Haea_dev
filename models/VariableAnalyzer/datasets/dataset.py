@@ -6,7 +6,7 @@ import numpy as np
 
 class CustomDataset(Dataset):
 
-    def __init__(self, dataset: torch.Tensor, time_len: int):
+    def __init__(self, origina: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.var_len = dataset.size(1)

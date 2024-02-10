@@ -18,7 +18,7 @@ class DVAETrainingConfig(BaseModel):
     learning_rate: float = 2e-4
     """The learning rate."""
 
-    
+    lr_r
 
     lr_decay_rate: float = 0.98
 

@@ -205,7 +205,7 @@ class WeatherDataset:
 
             del result[self.HAS_LEVEL_WIND_VAR[0]]
             del result[self.HAS_LEVEL_WIND_VAR[1]]
-            del result[self.NONE_LEVEL_WIND_VAR]
+            del result[self.NONE_LEVEL_WIND_VAR[0]], result[self.NONE_LEVEL_WIND_VAR[1]]
 
 
         # dataset.shape => (var*level, time, h * w)

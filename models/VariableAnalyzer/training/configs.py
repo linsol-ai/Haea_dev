@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-class DVAEModelConfig(BaseModel):
+class ModelConfig(BaseModel):
     """A config specification of the DVAE model."""
 
     codebook_size: int = Field(ge=0, default=256)

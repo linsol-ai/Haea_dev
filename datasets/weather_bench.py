@@ -127,7 +127,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, dataset, key, level=None):
+    def load_variable(self, dataset, key):
         data = dataset[key]
         if level:
             data = data.sel(level=level)

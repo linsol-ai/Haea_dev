@@ -40,7 +40,7 @@ class TrainModule(pl.LightningModule):
         
         return loss
 
-    def training_step(self, batch: List[Tuple[torch.Tensor, torch.Tensor]], _: int) -> torch.Tensor:  # noqa: D102
+    def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "train")
 
     def on_train_epoch_end(self) -> None:  # noqa: D102

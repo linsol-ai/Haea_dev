@@ -33,7 +33,7 @@ class Embedding(nn.Module):
 
 
 class VariableAnalyzer(nn.Module):
-    def __init__(self, var_len, time_len, dim_model, num_heads=12, n_encoder_layers=3, n_decoder_layers=2, dropout=0.1):
+    def __init__(self, var_len, time_len, dim_model, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
         self.var_len = var_len
         self.time_len = time_len

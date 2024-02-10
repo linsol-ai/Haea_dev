@@ -5,9 +5,9 @@ class ModelConfig(BaseModel):
 
     num_heads: int = Field(ge=0, default=10)
 
-    n_encoder_layers: int = Field(ge=0, default=256)
+    n_encoder_layers: int = Field(ge=0, default=3)
 
-    n_decoder_layers: int = Field(ge=0, default=256)
+    n_decoder_layers: int = Field(ge=0, default=3)
 
     dropout: int = Field(ge=0)
 

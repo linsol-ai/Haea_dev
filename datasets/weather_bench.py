@@ -180,7 +180,6 @@ class WeatherDataset:
                     data = data.swapaxes(0, 1)
                 result[val] = data
             
-
         wind_result = {}
         with ThreadPoolExecutor() as executor:
             futures = {}

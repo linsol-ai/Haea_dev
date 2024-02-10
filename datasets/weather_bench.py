@@ -234,7 +234,7 @@ class WeatherDataset:
         print(dataset.shape)
         print(wind_dataset.shape)
 
-        has_nan = np.isnan(data[i]).any()
+        has_nan = torch.isnan(data[i]).any()
         if has_nan:
 
         end = time.time()

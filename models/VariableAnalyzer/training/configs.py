@@ -15,7 +15,7 @@ class ModelConfig(BaseModel):
 class DVAETrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 
-    learning_rate: float = 1e-4
+    learning_rate: float = 2e-4
     """The learning rate."""
     lr_decay_rate: float = 0.98
 

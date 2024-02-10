@@ -20,7 +20,7 @@ class CustomDataset(Dataset):
         dataset = []
         for t in indicate:
             if t >= self.dataset.size(0):
-                dataset.append(torch.zeros_like(self.da))
+                dataset.append(torch.zeros_like(self.dataset[]))
 
     def make_dataset(self):
         dataset = []

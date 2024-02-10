@@ -16,6 +16,8 @@ if __name__ == '__main__':
     ds = xarray.open_zarr('gs://era5_preprocess/1440x720/2016-12-31_2021-12-31.zarr')
     print(ds.nbytes / (10**9))
     print(ds)
+
+    
     print(ds.values)
     end = time.time()
     print(f"{end - start:.5f} sec")

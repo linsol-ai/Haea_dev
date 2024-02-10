@@ -12,7 +12,7 @@ class ModelConfig(BaseModel):
     dropout: float = Field(ge=0, default=0.1)
 
 
-class DVAETrainingConfig(BaseModel):
+class TrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 
     learning_rate: float = 2e-4
@@ -22,7 +22,7 @@ class DVAETrainingConfig(BaseModel):
 
     weight_decay: float = Field(ge=0, default=5e-3)
 
-    
+
 
     batch_size: int = Field(ge=0, default=256)
     """"The batch size."""

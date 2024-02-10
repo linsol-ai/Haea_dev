@@ -46,7 +46,7 @@ class TrainModule(pl.LightningModule):
     def on_train_epoch_end(self) -> None:  # noqa: D102
         self._kl_div_weight_scheduler.step()
 
-    def validation_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102
+    def validation_step(self, batch: List[Tuple[torch.Tensor, torch.Tensor]], _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "val")
 
     def test_step(self, batch: torch.Tensor, _: int) -> None:  # noqa: D102

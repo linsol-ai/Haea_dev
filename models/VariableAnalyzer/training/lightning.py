@@ -5,7 +5,7 @@ from einops import rearrange
 from models.model import VariableAnalyzer
 from training.configs import TrainingConfig
 from training.params_schedule import CosineWarmupScheduler
-from typing import List
+from typing import List, T
 
 class TrainModule(pl.LightningModule):
     """A PyTorch Lightning training module for the `DVAE`."""

@@ -114,7 +114,7 @@ class WeatherDataset:
         dataset_urls = [
             f'gs://era5_preprocess/1440x720/{start}-12-31_{end}-12-31.zarr',
             f'gs://era5_preprocess/240x120/{start}-12-31_{end}-12-31.zarr',
-            f'gs://era5_preprocess/64x30/{start}-12-31_{end}-12-31.zarr'
+            f'gs://era5_preprocess/60x30/{start}-12-31_{end}-12-31.zarr'
         ]
         self.load_dataset(dataset_urls)
 

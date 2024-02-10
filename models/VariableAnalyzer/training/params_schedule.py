@@ -45,7 +45,6 @@ class LinearScheduler(ParameterScheduler):
     def step(self) -> None:  # noqa: D102
         if self._start_step <= self._step < self._end_step:
             self._value += self._step_size
-        self._step += 1
 
     def get_value(self) -> float:  # noqa: D102
         return self._value

@@ -182,7 +182,7 @@ class WeatherDataset:
         with ThreadPoolExecutor() as executor:
             futures = {}
             v1 = result[self.HAS_LEVEL_WIND_VAR]
-            key = executor.submit(self.calculate_wind, u_wind, v_wind, wind_batch, self.device)
+            key = executor.submit(self.calculate_wind, v1[0], v_wind, wind_batch, self.device)
             futures[key] = 0
 
             

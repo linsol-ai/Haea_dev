@@ -42,7 +42,7 @@ class LinearScheduler(ParameterScheduler):
         self._step_size = (end - start) / (self._end_step - self._start_step)
         self._step = 0
 
-    def step(self) -> None:  # noqa: D102
+    def step(self, global_steps) -> None:  # noqa: D102
         if self._start_step <= self._step < self._end_step:
             self._value += self._step_size
 

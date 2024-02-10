@@ -6,7 +6,6 @@ class LinearSchedulerConfig(BaseModel):
     """The final value of the parameter."""
 
     warmup: float = Field(ge=0, le=1, default=0.0)
-    """Fraction of the total training steps for the warmup phase."""
 
     warmup_step: int = Field(ge=0, le=1, default=0.0)
 

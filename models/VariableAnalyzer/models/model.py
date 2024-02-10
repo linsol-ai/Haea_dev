@@ -44,7 +44,7 @@ class SourceEmbedding(nn.Module):
         self.embed_size = embed_size
 
     def forward(self, src, variable_seq):
-        x = tgt + self.position(position_seq) + self.variable(variable_seq)
+        x = src + self.position(position_seq) + self.variable(variable_seq)
         return self.dropout(x)
 
 

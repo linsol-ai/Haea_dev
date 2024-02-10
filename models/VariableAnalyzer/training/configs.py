@@ -39,7 +39,7 @@ class TrainingRunConfig(BaseModel):
     model: ModelConfig
     """A config specification of the model."""
 
-    training: DVAETrainingConfig
+    training: TrainingConfig
     """A config specification of the training."""
 
     seed: int = 123

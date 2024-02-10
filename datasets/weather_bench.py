@@ -112,7 +112,7 @@ class WeatherDataset:
             result_dataset.append(result)
         
         # var_dataset.shape = (time, var * level, h * w)
-        var_dataset = torch.concat(var_dataset, dim=2)
+        result_dataset = torch.concat(result_dataset, dim=2)
         wind_dataset = torch.concat(wind_dataset, dim=2)
 
         print("======= RESULT SHAPE =======")

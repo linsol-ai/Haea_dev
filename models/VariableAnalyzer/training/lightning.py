@@ -24,18 +24,6 @@ class DVAETrainModule(pl.LightningModule):
         self.dvae = dvae
         self.step = 0
         self.config = DVAETrainingConfig() if config is None else config
-        self._temperature_scheduler = ExponentialScheduler(
-            start=self.config.temperature_scheduler.start,
-            min=self.config.temperature_scheduler.min,
-            anneal_rate=config.temperature_scheduler.anneal_rate
-        )
-        self._kl_div_weight_scheduler = LinearScheduler(
-            start=self.config.kl_div_weight_scheduler.start,
-            end=self.config.kl_div_weight_scheduler.end,
-            warmup=self.config.kl_div_weight_scheduler.warmup,
-            cooldown=self.config.kl_div_weight_scheduler.cooldown,
-            steps=self.config.max_epochs,
-        )
         self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
 
 

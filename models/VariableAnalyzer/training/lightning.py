@@ -9,7 +9,6 @@ from typing import Tuple
 import torch.nn.functional as F
 
 class TrainModule(pl.LightningModule):
-    """A PyTorch Lightning training module for the `DVAE`."""
 
     def __init__(self, *, model: VariableAnalyzer, config: TrainingConfig | None = None):
         super().__init__()

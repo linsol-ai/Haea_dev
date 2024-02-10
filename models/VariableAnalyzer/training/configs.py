@@ -9,7 +9,7 @@ class ModelConfig(BaseModel):
     n_encoder_layers: int = Field(ge=0, default=256)
     """The dimension of the codebook vector."""
 
-    hidden_dim: int = Field(ge=0, default=256)
+    n_decoder_layers: int = Field(ge=0, default=256)
     """The dimension of the hidden vector."""
 
     channels: int = Field(ge=0)

@@ -130,7 +130,14 @@ class WeatherDataset:
     def load_variable(self, dataset, key):
         data = dataset[key]
         data = data.to_numpy()
-        data = remove_missing_values(data).flatten(1)
+        if len(data.shape) == 4:
+            removed = np.zeros_like(data)
+            for i in range(data.size(0)):
+                removed[i] = remove_missing_values(data[i])
+            data = removed.flatten(2)
+        else:
+            data = remove_missing_values(data).flatten(1)
+
         data = torch.from_numpy(data)
         # data.shape = (time, width, height)
         # data.shape = (time, width * height)

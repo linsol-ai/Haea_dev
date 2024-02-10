@@ -143,7 +143,7 @@ class WeatherDataset:
         wind_dataset = []
 
         for dataset in self.datasets:
-            result = self.load_data(dataset, wind_batch)
+            result = self.load_data(dataset)
             var_dataset.append(result[0])
             wind_dataset.append(result[1])
         

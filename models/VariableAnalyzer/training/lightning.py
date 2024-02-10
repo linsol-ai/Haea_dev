@@ -1,7 +1,7 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
 from torch.optim import AdamW
-from torch.optim.lr_scheduler import Cos, LinearLR, LambdaLR
+from torch.optim.lr_scheduler import CosineAnnealingLR, LinearLR, LambdaLR
 from torch.optim.ex
 from einops import rearrange
 import pytorch_lightning

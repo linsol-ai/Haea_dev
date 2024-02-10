@@ -211,7 +211,7 @@ class WeatherDataset:
                  for i in range(data.size(0)):
                     dataset.append(data[i])
             else:
-                 dataset.append()
+                 dataset.append(data)
 
 
         dataset = torch.stack(dataset, dim=0)

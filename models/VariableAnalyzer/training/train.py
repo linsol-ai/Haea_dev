@@ -17,6 +17,7 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
+from models.V
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
@@ -29,7 +30,7 @@ def get_dataset(year_offset: int):
     weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     dataset = weather.load()
-    
+
 
         
 

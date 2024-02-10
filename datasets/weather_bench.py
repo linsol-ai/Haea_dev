@@ -146,6 +146,7 @@ class WeatherDataset:
              data = data.flatten(2)
         else:
             data = data.flatten(1)
+            
         return data
     
 

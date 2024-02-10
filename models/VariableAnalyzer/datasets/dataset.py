@@ -21,7 +21,7 @@ class CustomDataset(Dataset):
         dataset = []
         for t in range(self.dataset.size(0)):
             src = [t]
-            tgt = [range(t, )] 
+            tgt = [range(t, t + )] 
             dataset.append((src, tgt))
         self.dataset = dataset
 

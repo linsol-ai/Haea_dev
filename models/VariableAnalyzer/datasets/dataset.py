@@ -30,11 +30,11 @@ class CustomDataset(Dataset):
         return dataset
 
     def make_dataset(self):
-        dataset = []
+        dataset_inc = []
         for t in range(self.dataset.size(0)):
             src = [t]
             tgt = [range(t+1, t+1 + self.time_len)] 
-            dataset.append((src, tgt))
+            dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc
 

@@ -20,8 +20,6 @@ class TrainingConfig(BaseModel):
 
     warmup_step: int = Field(ge=0, default=4000)
 
-    weight_decay: float = Field(ge=0, default=5e-3)
-
     max_iters: int = Field(ge=0, default=256)
 
     batch_size: int = Field(ge=0, default=256)

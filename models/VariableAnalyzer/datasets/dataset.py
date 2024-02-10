@@ -10,7 +10,7 @@ class CustomDataset(Dataset):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.var_len = dataset.size(1)
-        self.time_len = time_len / 6
+        self.time_len = time_len
         self.make_dataset()
 
     def __len__(self):

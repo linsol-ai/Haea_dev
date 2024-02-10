@@ -38,7 +38,7 @@ class LinearScheduler(ParameterScheduler):
         
         self._value = start
         self._start_step = 0
-        self._end_step = steps - int(cooldown * steps)
+        self._end_step = st
         self._step_size = (end - start) / (self._end_step - self._start_step)
         self._step = 0
 

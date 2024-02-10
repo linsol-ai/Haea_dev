@@ -203,7 +203,8 @@ class WeatherDataset:
                     data = data.swapaxes(0, 1)
                 wind_result[level] = data
 
-            del result[self.HAS_LEVEL_WIND_VAR[0]], result[self.HAS_LEVEL_WIND_VAR[1]]
+            del result[self.HAS_LEVEL_WIND_VAR[0]]
+            del result[self.HAS_LEVEL_WIND_VAR[1]]
             del result[self.NONE_LEVEL_WIND_VAR]
 
 

@@ -43,13 +43,6 @@ class LinearScheduler(ParameterScheduler):
         self._step = 0
 
     def step(self, global_steps) -> None:  # noqa: D102
-        warmup_percent_done = global_steps / self._end_step
-        warmup_learning_rate = self. * warmup_percent_done
-
-    is_warmup = tf.cast(global_steps_int < warmup_steps_int, tf.float32)
-    learning_rate = (
-        (1.0 - is_warmup) * learning_rate + is_warmup * warmup_learning_rate)
-    
         if self._start_step <= global_steps < self._end_step:
             self._value += self._step_size
 

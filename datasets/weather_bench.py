@@ -182,6 +182,9 @@ class WeatherDataset:
                 if len(data.shape) == 3:
                     data = data.swapaxes(0, 1)
                 result[val] = data
+            
+
+            
 
 
 

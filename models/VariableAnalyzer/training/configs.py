@@ -9,7 +9,6 @@ class LinearSchedulerConfig(BaseModel):
     """Fraction of the total training steps for the warmup phase."""
 
     warmup_step: int = Field(ge=0, le=1, default=0.0)
-    """Fraction of the total training steps for the cooldown phase."""
 
 
 class ModelConfig(BaseModel):

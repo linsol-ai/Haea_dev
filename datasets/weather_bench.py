@@ -167,13 +167,6 @@ class WeatherDataset:
         with ThreadPoolExecutor() as executor:
             futures = {}
 
-
-            for val in self.HAS_LEVEL_VARIABLE:
-                result[val] = {}
-                for level in levels:
-                    key = executor.submit(self.load_variable, dataset, val, level)
-                    futures[key] = (val, level)
-
             for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
                 key = executor.submit(self.load_variable, dataset, val)
                 futures[key] = val

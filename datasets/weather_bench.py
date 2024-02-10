@@ -63,32 +63,6 @@ def preprocess_wind_data(u, v, device):
         # 2. 풍향 주기 코딩
         sin_encoded, cos_encoded = cyclic_encoding(torch.deg2rad(wind_direction))
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
-
-
-def remove_missing_values(data):
-    batch, width, height = data.shape
-    interpolated_array = np.zeros_like(data)
-    for i in range(batch):
-        has_nan = np.isnan(data[i]).any()
-        if has_nan:
-            x = np.arange(width)
-            y = np.arange(height)
-            #mask invalid values
-            array = np.ma.masked_invalid(data[i])
-            xx, yy = np.meshgrid(x, y)
-            #get only the valid values
-            x1 = xx[~array.mask]
-            y1 = yy[~array.mask]
-            newarr = array[~array.mask]
-
-            GD1 = interpolate.griddata((x1, y1), newarr.ravel(),
-                                    (xx, yy),
-                                        method='cubic')
-            interpolated_array[i] = GD1
-        else:
-            interpolated_array[i] = data[i]
-            
-    return interpolated_array
         
 
 

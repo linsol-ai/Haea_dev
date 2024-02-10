@@ -5,7 +5,7 @@ from einops import rearrange
 from models.model import VariableAnalyzer
 from training.configs import TrainingConfig
 from training.params_schedule import CosineWarmupScheduler
-from typing import List, Tuple
+from typing import Tuple
 
 class TrainModule(pl.LightningModule):
     """A PyTorch Lightning training module for the `DVAE`."""
@@ -33,7 +33,7 @@ class TrainModule(pl.LightningModule):
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src_b, tgt_b = batch
         output = self.model(src_b, tgt_b)
-        
+
         self.log(f"{mode}/loss", loss, prog_bar=mode == "train")
         self.log("temperature", self._temperature_scheduler.get_value())
         self.log("kl_div_weight", self._kl_div_weight_scheduler.get_value())

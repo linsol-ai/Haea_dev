@@ -27,8 +27,9 @@ def get_dataset():
     device = torch.device(device)
 
     weather = WeatherDataset(1, device=device)
+    # dataset.shape:  torch.Size([7309, 100, 1450])
     dataset = weather.load()
-    
+
 
         
 

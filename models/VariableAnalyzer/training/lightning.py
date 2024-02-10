@@ -36,8 +36,6 @@ class TrainModule(pl.LightningModule):
         output = self.model(src_b, tgt_b)
         loss = F.mse_loss(tgt_b, output)
         self.log(f"{mode}/loss", loss, prog_bar=mode == "train")
-        self.log("temperature", self._temperature_scheduler.get_value())
-        self.log("kl_div_weight", self._kl_div_weight_scheduler.get_value())
         
         return loss
 

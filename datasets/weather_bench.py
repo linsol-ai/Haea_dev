@@ -178,7 +178,7 @@ class WeatherDataset:
                 data = future.result()
                 has_nan = torch.isnan(data).any()
                 if has_nan:
-                    print("")
+                    print("has na")
                 if len(data.shape) == 3:
                     data = data.swapaxes(0, 1)
                 result[val] = data

@@ -242,7 +242,7 @@ class WeatherDataset:
 
         res = preprocess_wind_data(u_wind, v_wind, device).cpu()
 
-        return torch.concat(output, dim=1)
+        return torch.concat(res, dim=1)
 
 
 

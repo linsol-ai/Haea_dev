@@ -27,8 +27,8 @@ def get_dataset():
     device = torch.device(device)
 
     weather = WeatherDataset(1, device=device)
-    weather.load()
-    
+    dataset = weather.load()
+
         
 
 def _main() -> None:

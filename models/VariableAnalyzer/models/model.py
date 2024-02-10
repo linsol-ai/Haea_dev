@@ -70,7 +70,7 @@ class VariableAnalyzer(nn.Module):
         for i in range(self.time_len):
             seq = [i for _ in range(src.size(1))]
             time_seq.extend(seq)
-        return torch.tensor([time_seq for _ in range(src.size(0))])
+        return torch.tensor([time_seq for _ in range(self.time_len)])
     
     def get_tgt_mask(self, src:torch.Tensor) -> torch.Tensor:
         mask = []

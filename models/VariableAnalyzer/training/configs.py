@@ -18,7 +18,7 @@ class TrainingConfig(BaseModel):
     learning_rate: float = 2e-4
     """The learning rate."""
 
-    warmup_step: int = Field(ge=1, default=4000)
+    warmup_step: int = Field(ge=0, default=4000)
 
     weight_decay: float = Field(ge=0, default=5e-3)
 

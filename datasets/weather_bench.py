@@ -154,8 +154,6 @@ class WeatherDataset:
         var_dataset = torch.stack(var_dataset, dim=2)
         wind_dataset = torch.stack(wind_dataset, dim=2)
 
-        print('var_dataset.shape: ', var_dataset.shape)
-        print('wind_dataset.shape: ', wind_dataset.shape)
         return var_dataset, wind_dataset
 
     

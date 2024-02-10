@@ -13,7 +13,7 @@ NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_compo
 if __name__ == '__main__':
 
     start = time.time()
-        import xarray_beam as xbeam
+    import xarray_beam as xbeam
     import xarray
     from apache_beam.options.pipeline_options import PipelineOptions
     import apache_beam as beam

@@ -50,7 +50,7 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
 
-        
+        dataset, original.shape
 
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableAnalyzer(

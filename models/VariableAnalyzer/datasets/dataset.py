@@ -42,5 +42,5 @@ class CustomDataset(Dataset):
     def __getitem__(self, item):
         print(item)
         src, tgt = self.dataset_inc[item]
-        return torch.concat([self.get_data(src), self.get_data(tgt))
+        return torch.concat([self.get_data(src), self.get_data(tgt)], d)
 

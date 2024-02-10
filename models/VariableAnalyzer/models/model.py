@@ -31,8 +31,8 @@ class TargetEmbedding(nn.Module):
         x = tgt + self.position(position_seq) + self.variable(variable_seq)
         return self.dropout(x)
     
-
     
+
 
 
 class VariableAnalyzer(nn.Module):

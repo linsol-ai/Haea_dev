@@ -132,7 +132,7 @@ class WeatherDataset:
         data = data.to_numpy()
         if len(data.shape) == 4:
             removed = np.zeros_like(data)
-            for i in range(data.size(0)):
+            for i in range(data.shape[0]):
                 removed[i] = remove_missing_values(data[i])
             data = removed
         else:

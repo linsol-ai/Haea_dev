@@ -237,6 +237,7 @@ class WeatherDataset:
         has_nan = torch.isnan(dataset).any()
         if has_nan:
             print("dataset has nan")
+            
         has_nan = torch.isnan(dataset).any()
         if has_nan:
             print("dataset has nan")

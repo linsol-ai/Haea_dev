@@ -225,8 +225,8 @@ class WeatherDataset:
         wind_dataset = []
         wind_dataset.append(wind_result[0])
         for i in range(data.size(0)):
-                    dataset.append(data[i])
-                    
+                dataset.append(data[i])
+
         for level in levels:
             wind_dataset.append(wind_result[level])
 

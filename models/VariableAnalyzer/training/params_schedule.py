@@ -33,10 +33,6 @@ class LinearScheduler(ParameterScheduler):
         super().__init__()
         if warmup < 0 or warmup > 1:
             raise ValueError("`warmup` must be between 0 and 1.")
-        if cooldown < 0 or cooldown > 1:
-            raise ValueError("`cooldown` must be between 0 and 1.")
-        if warmup + cooldown >= 1:
-            raise ValueError("`warmup` + `cooldown` must be less than 1.")
         if steps < 1:
             raise ValueError("`steps` must be at least 1.")
         self._value = start

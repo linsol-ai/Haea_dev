@@ -17,7 +17,7 @@ class LinearScheduler(ParameterScheduler):
     """A scheduler that linearly interpolates between two values."""
 
     def __init__(
-        self, start: float, steps: int, warmup: float = 0
+        self, start: float, steps: int
     ) -> None:
         """Init the linear scheduler.
 

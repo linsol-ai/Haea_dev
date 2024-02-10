@@ -11,7 +11,6 @@ class LinearSchedulerConfig(BaseModel):
 
     warmup_decay: float = Field(ge=0, le=1, default=5e-4)
 
-    
 
 
 class ModelConfig(BaseModel):

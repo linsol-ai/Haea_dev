@@ -49,6 +49,7 @@ class TransformerScheduler(ParameterScheduler):
         if self._start_step <= global_steps <= self._end_step:
             self._value += self._step_size
         else:
+            epoch = 
             T_max = self._total_steps - self._end_step
             lr = self._eta_min + 0.5 * (self._eta_max - self._eta_min) * (1 + np.cos(np.pi * epoch / T_max))
 

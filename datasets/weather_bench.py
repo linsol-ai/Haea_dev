@@ -175,8 +175,7 @@ class WeatherDataset:
                 data = future.result()
                 if len(data.shape) == 3:
                     data = data.swapaxes(0, 1)
-                
-                print
+                print(data.shape)
                 result[val] = data
 
 

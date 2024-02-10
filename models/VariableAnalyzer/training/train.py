@@ -38,7 +38,7 @@ def _main() -> None:
         pl.seed_everything(config.seed)
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableAnalyzer(
-            
+            var
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)

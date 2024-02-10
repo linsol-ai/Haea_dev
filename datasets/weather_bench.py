@@ -125,6 +125,9 @@ class WeatherDataset:
         for urls in dataset_urls:
             ds, _ = xb.open_zarr(urls)
             self.datasets.append(ds)
+    
+
+    
 
 
     def load_variable(self, dataset, key):

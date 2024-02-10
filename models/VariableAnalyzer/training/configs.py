@@ -9,7 +9,7 @@ class ModelConfig(BaseModel):
     n_encoder_layers: int = Field(ge=0, default=256)
     """The dimension of the codebook vector."""
 
-    n_decoder_layers: int = Field(ge=0, default=256
+    n_decoder_layers: int = Field(ge=0, default=256)
 
     dropout: int = Field(ge=0)
 

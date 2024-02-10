@@ -75,7 +75,7 @@ class VariableAnalyzer(nn.Module):
         time_seq = self.get_time_seq(src)
 
         src = self.src_embedding(src, var_seq) * math.sqrt(self.dim_model)
-        tgt = self.tgt_embedding(time_seq, var_seq) * math.sqrt(self.dim_model)
+        tgt = self.tgt_embedding(src, time_seq, var_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.get_tgt_mask(src)
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)

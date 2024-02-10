@@ -18,7 +18,7 @@ class DVAETrainingConfig(BaseModel):
     learning_rate: float = 2e-4
     """The learning rate."""
 
-    warmup_step: float = Field(ge=1, default=4000)
+    warmup_step: int = Field(ge=1, default=4000)
 
     weight_decay: float = 
 

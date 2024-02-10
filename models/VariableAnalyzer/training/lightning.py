@@ -30,7 +30,7 @@ class DVAETrainModule(pl.LightningModule):
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
-        scheduler = CosineWarmupScheduler
+        scheduler = CosineWarmupScheduler()
         return [optimizer], [scheduler]
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:

@@ -142,7 +142,7 @@ class WeatherDataset:
         # data.shape = (time, width, height)
         # data.shape = (time, width * height)
         return data
-        
+    
 
     def load(self):
         var_dataset = []

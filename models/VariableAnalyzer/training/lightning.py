@@ -30,7 +30,7 @@ class TrainModule(pl.LightningModule):
         return [optimizer], [scheduler]
 
 
-    def _step(self, batch: List[Tuple[torch.Tensor, torch.Tensor]], mode: str) -> torch.Tensor:
+    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor]], mode: str) -> torch.Tensor:
         src_b, tgt_b = batch[]
         
 

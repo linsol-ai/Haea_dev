@@ -176,7 +176,7 @@ class WeatherDataset:
                 # shape => (time, level, h * w) or (time, h * w)
                 data = future.result()
                 if len(data.shape) == 3:
-                    data = data.
+                    data = data.swapaxes(wind_dataset, 0, 1)
                 result[val] = data
 
 

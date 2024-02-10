@@ -35,6 +35,7 @@ class LinearScheduler(ParameterScheduler):
             raise ValueError("`warmup` must be between 0 and 1.")
         if steps < 1:
             raise ValueError("`steps` must be at least 1.")
+        
         self._value = start
         self._start_step = int(warmup * steps)
         self._end_step = steps - int(cooldown * steps)

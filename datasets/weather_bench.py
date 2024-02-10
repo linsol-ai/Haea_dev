@@ -127,7 +127,9 @@ class WeatherDataset:
             self.datasets.append(ds)
     
 
-    def load_variable_chunk(self, data):
+    def load_variable_chunk(self, dataset, key):
+        data = dataset[key]
+        data = data.to_numpy()
         if len(data.shape) == 4:
             removed = np.zeros_like(data)
             for i in range(data.shape[0]):
@@ -142,7 +144,7 @@ class WeatherDataset:
         if len(data.shape) == 4:
             data = data.reshape(data.shape[:2], -1)
         else:
-            data = data.reshape(data.shape[0], -1)
+            data = data.reshape(data.shape[:1])
 
         print(data.shape)
         return data
@@ -193,9 +195,6 @@ class WeatherDataset:
         result = {}
 
         print(dataset)
-
-        for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
-            result[val] = self.load_variable_chunk(dataset[val])
 
         with ThreadPoolExecutor() as executor:
             futures = {}

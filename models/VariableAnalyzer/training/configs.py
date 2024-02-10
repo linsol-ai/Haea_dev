@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 class ModelConfig(BaseModel):
     """A config specification of model."""
 
-    num_heads: int = Field(ge=0, default=10)
+    num_heads: int = Field(ge=5, default=10)
 
     n_encoder_layers: int = Field(ge=1, default=3)
 

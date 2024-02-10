@@ -51,7 +51,8 @@ class TransformerScheduler(ParameterScheduler):
         else:
             step = global_steps - self._end_step
             T_max = self._total_steps - self._end_step
-            lr = self._eta_min + 0.5 * (self._eta_max - self._eta_min) * (1 + np.cos(np.pi * step / T_max))
+            self._value += self._step_size
+        else: = self._eta_min + 0.5 * (self._eta_max - self._eta_min) * (1 + np.cos(np.pi * step / T_max))
 
 
     def get_value(self) -> float:  # noqa: D102

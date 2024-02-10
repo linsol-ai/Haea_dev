@@ -32,7 +32,7 @@ class TransformerScheduler(ParameterScheduler):
                 interpolating from `end` to `start` till `1 - int(cooldown * steps)` step.
         """
         super().__init__()
-        if steps < 1:
+        if warmup_steps < 1:
             raise ValueError("`steps` must be at least 1.")
         
         self._value = start

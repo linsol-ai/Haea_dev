@@ -175,6 +175,8 @@ class WeatherDataset:
                 data = future.result()
                 if len(data.shape) == 3:
                     data = data.swapaxes(0, 1)
+                
+                print()
                 result[val] = data
 
 
@@ -243,7 +245,7 @@ class WeatherDataset:
 
 
 
-if __name__ == '__main__':
+if __name__ == '__maind__':
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

@@ -143,7 +143,8 @@ class WeatherDataset:
         # data.shape = (time, width * height)
 
         if len(data.shape) == 4:
-             data = data.flatten()
+             data = data.flatten(2)
+            
         return data
     
 

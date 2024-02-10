@@ -189,6 +189,7 @@ class WeatherDataset:
             k2 = executor.submit(self.calculate_wind, v2[0], v2[1], wind_batch, self.device)
             futures[k2] = 1
 
+
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 level = futures[future]
                 # shape => (3, time, h * w)

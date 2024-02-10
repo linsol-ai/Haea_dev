@@ -23,6 +23,11 @@ from models.VariableAnalyzer.training.lightning import TrainModule
 
 
 def get_dataset():
+    device = ("cuda" if torch.cuda.is_available() else "cpu" )
+    device = torch.device(device)
+
+    weather = WeatherDataset(1, device=device)
+    weather.load()
         
 
 def _main() -> None:

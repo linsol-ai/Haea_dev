@@ -19,7 +19,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(
 from datasets.weather_bench import WeatherDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
-from models.VariableAnalyzer.training.lightning import DVAETrainModule
+from models.VariableAnalyzer.training. import DVAETrainModule
         
 
 def _main() -> None:

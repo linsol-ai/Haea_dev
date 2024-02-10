@@ -20,6 +20,9 @@ from datasets.weather_bench import WeatherDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
+
+
+def get_dataset():
         
 
 def _main() -> None:

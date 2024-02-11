@@ -28,6 +28,9 @@ class TargetEmbedding(nn.Module):
         self.embed_size = embed_size
 
     def forward(self, tgt, position_seq, variable_seq):
+        print(tgt.shape)
+        print(position_seq.shape)
+        
         x = tgt + self.position(position_seq) + self.variable(variable_seq)
         return self.dropout(x)
     

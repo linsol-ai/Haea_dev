@@ -141,7 +141,10 @@ class WeatherDataset:
                 print()
                 gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
                 ds = xr.open_zarr(gcs_path)
-                zarr.to_zarr(file_path, mode='w', consolidated=True)
+                with tqdm(desc="Downloading", total=len(ds.data_vars) + len(ds.coords)) as pbar:
+    ds.to_zarr(new_file_path, mode='w', consolidated=True, compute=False, progressbar=pbar)
+    pbar.update()
+    ds.close()
 
 
     def load_dataset(self, dataset_path):

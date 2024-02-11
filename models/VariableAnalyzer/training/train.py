@@ -83,7 +83,7 @@ def _main() -> None:
             [0.7, 0.3],
         )
         val_ds, test_ds = torch.utils.data.random_split(
-            val_ds,
+            test_ds,
             [0.5, 0.5],
         )
 

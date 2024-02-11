@@ -58,7 +58,7 @@ def preprocess_wind_data(u, v, device):
         wind_speed = normalize_tensor(wind_speed)
         sin_encoded = normalize_tensor(sin_encoded)
         cos_encoded = normalize_tensor(cos_encoded)
-        
+
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
         
 
@@ -75,7 +75,7 @@ class WeatherDataset:
     DATE_OFFSET = [(2021, 2016), (2016, 2011), (2011, 2006), (2006, 2001)]
 
 
-    def __init__(self, year_offset:int, device:torch.device):
+    def __init__(self, year_offset:int, device:torch.device, ):
         end, start = self.DATE_OFFSET[year_offset]
         self.start = pd.to_datetime(f'{start}-12-31')
         self.end = pd.to_datetime(f'{end}-12-31')

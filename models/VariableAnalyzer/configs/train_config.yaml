@@ -1,7 +1,8 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 model:
-  num_heads:
+  num_heads:10,
+  
 training:
   learning_rate: 1e-3
   lr_decay_rate: 0.98

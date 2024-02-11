@@ -72,7 +72,7 @@ def preprocess_wind_data(u, v, device, normalize):
         sin_encoded, cos_encoded = cyclic_encoding(torch.deg2rad(wind_direction))
 
         if normalize:
-            wind_speed = normalize_tensor(wind_speed).cpu()
+            wind_speed = normalize_tensor(wind_speed)
             sin_encoded = normalize_tensor(sin_encoded).cpu()
             cos_encoded = normalize_tensor(cos_encoded).cpu()
         

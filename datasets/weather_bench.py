@@ -79,7 +79,7 @@ def preprocess_wind_data(u, v, device, normalize):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-def download_zarr(source):
+def download_zarr(source, output_path):
     source_dataset, source_chunks = xb.open_zarr(source)
     template = (
       xb.make_template(source_dataset)

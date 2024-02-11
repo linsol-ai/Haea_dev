@@ -119,6 +119,8 @@ class WeatherDataset:
             file_path = folder / resol / file_name
             if file_path.is_file():
                 dataset_path.append(file_path)
+            else:
+                
 
     
     def load_dataset(self, dataset_urls):

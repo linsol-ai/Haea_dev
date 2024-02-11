@@ -88,6 +88,8 @@ class VariableAnalyzer(nn.Module):
 
         return out
 
+    def get_v
+
 
     def get_time_seq(self, src: torch.Tensor):
         time_seq = []

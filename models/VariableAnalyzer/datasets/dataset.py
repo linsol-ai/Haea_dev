@@ -17,6 +17,7 @@ class CustomDataset(Dataset):
         return self.dataset.size(0)
 
     def get_data(self, indicate):
+        start = time.time()
         dataset = []
         for t in indicate:
             if t >= self.dataset.size(0):

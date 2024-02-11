@@ -23,7 +23,7 @@ class TrainModule(pl.LightningModule):
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
         scheduler = ExponentialLR(
             optimizer,
-            gamma= self.config.lr_decay_rate
+            gamma= 0.98
         )
         return [optimizer], [scheduler]
 

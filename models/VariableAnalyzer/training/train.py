@@ -23,7 +23,7 @@ from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
 
 YEAR_OFFSET = flags.DEFINE_string('train_year', None, help='training year')
-
+TIME_LENGTH = 
 
 
 def get_dataset(year_offset: int, time_len: int):

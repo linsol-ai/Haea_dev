@@ -80,8 +80,6 @@ def preprocess_wind_data(u, v, device, normalize):
 
 
 
-# Initialize tqdm progress bar
-pbar = tqdm(total=100)
 
 # Custom DoFn to update progress bar
 class ProgressUpdater(beam.DoFn):

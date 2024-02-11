@@ -24,8 +24,8 @@ from models.VariableAnalyzer.training.lightning import TrainModule
 
 YEAR_OFFSET = flags.DEFINE_string('train_year', None, help='training year')
 TIME_LENGTH = flags.DEFINE_string('time_len', None, help='TIME_LENGTH')
-flags.mark_flag_as_required("end")
-flags.mark_flag_as_required("type")
+flags.mark_flag_as_required("train_year")
+flags.mark_flag_as_required("time_len")
 
 
 def get_dataset(year_offset: int, time_len: int):

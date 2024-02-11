@@ -109,7 +109,7 @@ class WeatherDataset:
 
     DATE_OFFSET = [(2021, 2016), (2016, 2011), (2011, 2006), (2006, 2001)]
 
-    GCS_ADDESS = 'gs://era5_preprocess'
+    GCS_BUCKET = 'gs://era5_preprocess'
 
 
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')

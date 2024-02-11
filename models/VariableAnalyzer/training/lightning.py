@@ -20,7 +20,7 @@ class TrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
 
-    def on_train_epoch_start(self) -> None:
+    def setup(self) -> None:
         self.model.init_seq(self.device)
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102

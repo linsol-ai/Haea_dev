@@ -21,7 +21,7 @@ class CustomDataset(Dataset):
     def get_data(self, indicate, dataset):
         result = []
         for t in indicate:
-            result.append(self.dataset[t].to(self.device))
+            result.append(dataset[t].to(self.device))
 
         # dataset.shape = (time_len, var, hidden)
         result = torch.stack(result, dim=0)

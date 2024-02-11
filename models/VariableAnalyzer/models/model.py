@@ -70,7 +70,7 @@ class VariableAnalyzer(nn.Module):
         self.src_embedding = SourceEmbedding(var_len, dim_model)
         self.out = nn.Linear(dim_model, predict_dim)
         self.tgt_mask = self.get_tgt_mask()
-        
+        self.
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 99, 1450), tgt.shape = (batch, 99 * time_len, 1450)

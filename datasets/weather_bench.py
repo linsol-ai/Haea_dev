@@ -141,8 +141,7 @@ class WeatherDataset:
             dataset_path.append(file_path)
 
             if not file_path.is_file():
-                download_list
-
+                download_list.append()
 
 
 

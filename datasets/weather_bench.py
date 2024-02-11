@@ -148,7 +148,7 @@ class WeatherDataset:
                     ds.persist()
                 ds.close()
         
-        return 
+        return dataset_path
                 
 
 

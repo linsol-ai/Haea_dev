@@ -9,7 +9,7 @@ training:
   learning_rate: 1e-3
   warmup_step: 4000
   max_iters: 7000
-  batch_size: 64
+  batch_size: 256
   max_epochs: 
   batch_size: 16
   max_epochs: 50

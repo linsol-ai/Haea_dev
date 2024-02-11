@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import torch
 
+
 def calculate_wind_speed(u, v):
         return torch.sqrt(u**2 + v**2)
     

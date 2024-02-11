@@ -89,6 +89,9 @@ class ProgressUpdater(beam.DoFn):
         # Update progress bar for each element processed
         update_progress(1)
         yield element
+    
+    def update_progress(progress):
+    pbar.update(progress)
 
 
 def download_zarr(source, output_path):

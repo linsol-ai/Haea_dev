@@ -280,7 +280,7 @@ class WeatherDataset:
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
                 continue
-            input, ta = result[val]
+            input, target = result[val]
             if len(normalized.shape) == 3:
                 for i in range(normalized.size(0)):
                     normalized_dataset.append(normalized[i])

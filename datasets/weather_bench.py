@@ -90,6 +90,8 @@ class ProgressUpdater(beam.DoFn):
         # Update progress bar for each element processed
         update_progress(1)
         yield element
+
+        
 def download_zarr(source, output_path):
     source_dataset, source_chunks = xb.open_zarr(source)
     template = (

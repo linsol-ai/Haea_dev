@@ -77,24 +77,33 @@ def preprocess_wind_data(u, v, device, normalize):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-def download_many_blobs_with_transfer_manager(
-    bucket_name, blob_names, destination_directory="", workers=8
-):
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    """Downloads a blob from the bucket."""
+    # The ID of your GCS bucket
+    # bucket_name = "your-bucket-name"
 
-    from google.cloud.storage import Client, transfer_manager
+    # The ID of your GCS object
+    # source_blob_name = "storage-object-name"
 
-    storage_client = Client()
+    # The path to which the file should be downloaded
+    # destination_file_name = "local/path/to/file"
+
+    storage_client = storage.Client()
+
     bucket = storage_client.bucket(bucket_name)
 
-    results = transfer_manager.download_many_to_path(
-        bucket, blob_names, destination_directory=destination_directory, max_workers=workers
-    )
+    # Construct a client side representation of a blob.
+    # Note `Bucket.blob` differs from `Bucket.get_blob` as it doesn't retrieve
+    # any content from Google Cloud Storage. As we don't need additional data,
+    # using `Bucket.blob` is preferred here.
+    blob = bucket.blob(source_blob_name)
+    blob.download_to_filename(destination_file_name)
 
-    for name, result in zip(blob_names, results):
-        if isinstance(result, Exception):
-            print("Failed to download {} due to exception: {}".format(name, result))
-        else:
-            print("Downloaded {} to {}.".format(name, destination_directory + name))
+    print(
+        "Downloaded storage object {} from bucket {} to local file {}.".format(
+            source_blob_name, bucket_name, destination_file_name
+        )
+    )
         
 
 class WeatherDataset:

@@ -15,8 +15,6 @@ from absl import flags
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
-current_directory = os.getcwd()
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(current_directory))))
 from datasets.weather_bench import WeatherDataset
 from models.VariableAnalyzer.datasets.dataset import CustomDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer

@@ -18,7 +18,6 @@ class CustomDataset(Dataset):
         return self.dataset.size(0)-self.time_len
 
     def get_data(self, indicate):
-        start = time.time()
         dataset = []
         for t in indicate:
             dataset.append(self.dataset[t].to(self.device))

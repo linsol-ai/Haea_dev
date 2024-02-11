@@ -10,7 +10,7 @@ import time
 import torch
 
 
-def min_max_scale(tensor):
+def normalize_tensor(tensor):
     # tensor는 (time, level, width, height)의 차원을 가진다고 가정
     shape = tensor.shape
     # 최대, 최소 스케일링을 수행하기 위해 (time, level) 기준으로 reshape

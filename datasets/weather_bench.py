@@ -195,7 +195,7 @@ class WeatherDataset:
 
         if len(data.shape) == 4:
             normalized = normalized.flatten(2)
-
+            normalized = normalized.flatten(2)
         else:
             data = data.flatten(1)
 

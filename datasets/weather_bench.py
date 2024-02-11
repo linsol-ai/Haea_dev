@@ -83,7 +83,6 @@ def download_zarr():
     (
         root
         | xb.DatasetToChunks(source_dataset, source_chunks)
-        | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xb.ChunksToZarr(OUTPUT_PATH, template, source_chunks)
     )
         

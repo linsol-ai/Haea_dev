@@ -92,7 +92,6 @@ class WeatherDataset:
     GCS_ADDESS = 'gs://era5_preprocess'
 
 
-
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 

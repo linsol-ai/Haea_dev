@@ -97,7 +97,7 @@ class VariableAnalyzer(nn.Module):
             for _ in range(0, self.time_len):
                 seq.extend(self.var_seq)
         
-            time_seq.append(seq)
+            tgt_seq.append(seq)
         
         return torch.tensor(time_seq, device=src.device)
 

@@ -88,7 +88,7 @@ class WeatherDataset:
 
     DATE_OFFSET = [(2021, 2016), (2016, 2011), (2011, 2006), (2006, 2001)]
 
-    GCS_ADDESS = ''
+    GCS_ADDESS = 'gs://era5_preprocess'
 
 
     def __init__(self, year_offset:int, device:torch.device, normalize=True):

@@ -100,7 +100,7 @@ class VariableAnalyzer(nn.Module):
         return src_seq, tgt_seq
 
 
-    def get_time_seq(self, src: torch.Tensor):
+    def get_time_seq(self, batch_size, device):
         time_seq = []
         for _ in range(src.size(0)):
             seq = []

@@ -95,7 +95,7 @@ class VariableAnalyzer(nn.Module):
         for _ in range(src.size(0)):
             seq = []
             for i in range(0, self.time_len):
-                seq.extend([ i for _ in range(self.var_len)])
+                seq.extend()
         
             time_seq.append(seq)
         

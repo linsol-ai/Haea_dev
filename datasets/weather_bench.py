@@ -75,7 +75,7 @@ class WeatherDataset:
     DATE_OFFSET = [(2021, 2016), (2016, 2011), (2011, 2006), (2006, 2001)]
 
 
-    def __init__(self, year_offset:int, device:torch.device, ):
+    def __init__(self, year_offset:int, device:torch.device, normalize):
         end, start = self.DATE_OFFSET[year_offset]
         self.start = pd.to_datetime(f'{start}-12-31')
         self.end = pd.to_datetime(f'{end}-12-31')

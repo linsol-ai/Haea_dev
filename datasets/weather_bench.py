@@ -141,7 +141,7 @@ class WeatherDataset:
             dataset_path.append(file_path)
 
             if not file_path.is_file():
-                download_list.append((str(resol / file_name), str(folder / resol)))
+                download_list.append((str(  resol / file_name), str(folder / resol)))
 
             if download_list:
                 download_many_blobs_with_transfer_manager(self.GCS_BUCKET, )

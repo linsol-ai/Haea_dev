@@ -25,7 +25,7 @@ class CustomDataset(Dataset):
                 dataset.append(self.dataset[t])
 
         # dataset.shape = (time_len, var, hidden)
-        dataset = torch.stack(dataset, dim=0)
+        dataset = torch.stack(dataset, dim=0, dev)
         dataset = dataset.view(-1, dataset.size(2))
         return dataset
 

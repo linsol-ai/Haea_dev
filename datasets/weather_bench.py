@@ -78,15 +78,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
 
 def download_blob(bucket_name, source_blob_name, destination_file_name):
-    """Downloads a blob from the bucket."""
-    # The ID of your GCS bucket
-    # bucket_name = "your-bucket-name"
-
-    # The ID of your GCS object
-    # source_blob_name = "storage-object-name"
-
-    # The path to which the file should be downloaded
-    # destination_file_name = "local/path/to/file"
+    from google.cloud import storage
 
     storage_client = storage.Client()
 

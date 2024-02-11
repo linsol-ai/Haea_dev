@@ -80,7 +80,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
 
 def download_zarr(source):
-
+    
     with beam.Pipeline() as root :
         (
             root

@@ -68,7 +68,7 @@ def _main(args) -> None:
             time_len=time_len,
             dim_model=shape[2],
             predict_dim=dims[0],
-            batch_size=
+            batch_size=config.training.batch_size,
             num_heads=config.model.num_heads,
             n_encoder_layers=config.model.n_encoder_layers,
             n_decoder_layers=config.model.n_decoder_layers,

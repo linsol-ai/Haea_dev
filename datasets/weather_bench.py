@@ -79,7 +79,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
 
 def download_zarr():
-    with beam.Pipeline(runn) as root :
+    with beam.Pipeline() as root :
     (
         root
         | xb.DatasetToChunks(source_dataset, source_chunks)

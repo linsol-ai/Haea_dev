@@ -85,7 +85,7 @@ class VariableAnalyzer(nn.Module):
 
 
     def get_time_seq(self, src: torch.Tensor):
-        time_seq = torch.zeros(src.size(0),self.time_len*self.var_len)
+        time_seq = torch.zeros(src.size(0), self.time_len*self.var_len)
         for i in range(self.time_len):
             seq = [i for _ in range(self.var_len)]
             time_seq.extend(seq)

@@ -65,8 +65,8 @@ def preprocess_wind_data(u, v, device, normalize):
         v = v.to(device)
 
         # 1. 풍속 및 풍향 계산
-        wind_speed = calculate_wind_speed(u, v)
-        wind_direction = calculate_wind_direction(u, v)
+        wind_speed = calculate_wind_speed(u, v).cpu()
+        wind_direction = calculate_wind_direction(u, v).cpu()
 
         # 2. 풍향 주기 코딩
         sin_encoded, cos_encoded = cyclic_encoding(torch.deg2rad(wind_direction))

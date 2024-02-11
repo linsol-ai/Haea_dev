@@ -67,6 +67,7 @@ def _main(args) -> None:
             var_len=shape[1],
             time_len=time_len,
             dim_model=shape[2],
+            predict_dim=
             num_heads=config.model.num_heads,
             n_encoder_layers=config.model.n_encoder_layers,
             n_decoder_layers=config.model.n_decoder_layers,

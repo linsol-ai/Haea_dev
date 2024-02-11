@@ -192,7 +192,7 @@ class WeatherDataset:
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 
-        unnormalized = data.clone().detach()
+        target = data.clone().detach()
         normalized = normalize_tensor(data)
 
         if len(data.shape) == 4:

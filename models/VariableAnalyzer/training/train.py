@@ -72,7 +72,6 @@ def _main() -> None:
             n_decoder_layers=config.model_config.n_decoder_layers,
             dropout=config.model_config.dropout
         )
-        
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 

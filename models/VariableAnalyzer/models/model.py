@@ -95,7 +95,6 @@ class VariableAnalyzer(nn.Module):
             for j in range(0, min(self.var_len*(i+1), src.size(1))):
                 matrix[i, j] = 1
 
-        mask = torch.tensor([mask for _ in range(src.size(0))])
         mask = mask.float()
         mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
         mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0

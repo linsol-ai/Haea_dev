@@ -292,6 +292,7 @@ class WeatherDataset:
 
     def calculate_wind(self, u_wind, v_wind, device):
         res = preprocess_wind_data(u_wind, v_wind, device, self.normalize)
+        
         return res
 
 

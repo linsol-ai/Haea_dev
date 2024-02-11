@@ -6,7 +6,7 @@ import time
 
 class CustomDataset(Dataset):
 
-    def __init__(self, dataset: torch.Tensor, time_len: int, devic):
+    def __init__(self, dataset: torch.Tensor, time_len: int, device):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.var_len = dataset.size(1)

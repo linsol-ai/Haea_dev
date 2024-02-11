@@ -99,7 +99,7 @@ class VariableAnalyzer(nn.Module):
         
             tgt_seq.append(seq)
         
-        return torch.tensor(time_seq, device=src.device)
+        return torch.tensor(tgt_seq, device=src.device)
 
 
     def get_time_seq(self, src: torch.Tensor):

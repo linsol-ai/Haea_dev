@@ -19,6 +19,7 @@ class TrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
 
+    
     def configure_optimizers(self) -> AdamW:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
         scheduler = ExponentialLR(

@@ -77,7 +77,7 @@ def preprocess_wind_data(u, v, device):
         cos_encoded = cos_encoded.cpu()
 
         wind_speed = normalize_tensor(wind_speed)
-        sin_encoded = normalize_tensor(sin_encoded).cpu()
+        sin_encoded = normalize_tensor(sin_encoded)
         cos_encoded = normalize_tensor(cos_encoded).cpu()
         
         

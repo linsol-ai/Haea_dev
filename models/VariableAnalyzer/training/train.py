@@ -89,7 +89,7 @@ def _main(args) -> None:
             train_ds, batch_size=config.training.batch_size, shuffle=True, num_workers=8
         )
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size)
-        val_loader = DataLoader(val_ds, batch_size=config.training.batch_size)
+        val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, num_workers=2)
 
         print("setting lr rate: ", config.training.learning_rate)
 

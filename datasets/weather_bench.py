@@ -89,7 +89,7 @@ class ProgressUpdater(beam.DoFn):
 
     def process(self, element):
         # Update progress bar for each element processed
-        update_progress(1)
+        self.update_progress(1)
         yield element
     
     def update_progress(self, progress):

@@ -78,7 +78,8 @@ def preprocess_wind_data(u, v, device, normalize):
         
         u = u.cpu()
         v = v.cpu()
-        del UnicodeDecodeErrorde
+        del u
+        del v
 
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 

@@ -144,7 +144,6 @@ class WeatherDataset:
                 ds.to_zarr(file_path, mode='w', consolidated=True, compute=False)
                 with ProgressBar():
                     write_job = ds.persist()
-                distributed.progress(write_job, notebook=True)
                 ds.close()
                 
 

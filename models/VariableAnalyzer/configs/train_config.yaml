@@ -10,8 +10,6 @@ training:
   warmup_step: 4000
   max_iters: 7000
   batch_size: 256
-  max_epochs: 
-  batch_size: 16
   max_epochs: 50
   gradient_clip_val: 0.5
   save_vis_every_n_step: 200

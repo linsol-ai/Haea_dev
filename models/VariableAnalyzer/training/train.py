@@ -91,6 +91,10 @@ def _main() -> None:
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size)
         val_loader = DataLoader(val_ds, batch_size=config.training.batch_size)
 
+        model_pl = TrainModule(model=model, max_iters=config.training.max_epochs*len(), config=config.training)
+        summary = ModelSummary(model_pl, max_depth=-1)
+        print(summary)
+
         trainer = pl.Trainer(
             accelerator="auto",
             max_epochs=config.training.max_epochs,

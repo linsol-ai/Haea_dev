@@ -10,7 +10,7 @@ import time
 import torch
 import sys,os
 from pathlib import Path
-import dask.distributed import Client, progress
+import dask.distributed as 
 
 def normalize_tensor(tensor):
     # tensor는 (time, level, width, height)의 차원을 가진다고 가정

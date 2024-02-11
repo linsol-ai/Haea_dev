@@ -140,10 +140,6 @@ class WeatherDataset:
         return dataset_path
     
 
-
-                
-
-
     def load_dataset(self, dataset_path):
         print("데이터셋 불러오는 중...")
         self.datasets = []

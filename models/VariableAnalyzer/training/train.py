@@ -41,7 +41,7 @@ def get_dataset(year_offset: int, time_len: int):
 
         
 
-def _main() -> None:
+def _main(args) -> None:
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/dvae_weather_config.yaml')
     try:
         with open(config_path) as f:

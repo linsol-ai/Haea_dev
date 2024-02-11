@@ -89,7 +89,7 @@ class VariableAnalyzer(nn.Module):
         return out
     
 
-    def get_var_seq(self, src: torch.Tensor, tgt:):
+    def get_var_seq(self, src: torch.Tensor, tgt: torch.Tensor):
         time_seq = []
         for _ in range(src.size(0)):
             seq = []

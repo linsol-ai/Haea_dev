@@ -279,8 +279,8 @@ class WeatherDataset:
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
                 continue
             normalized, unnormalized = result[val]
-            if len(data.shape) == 3:
-                for i in range(data.size(0)):
+            if len(normalized.shape) == 3:
+                for i in range(normalized.size(0)):
                     dataset.append(data[i])
             else:
                 dataset.append(data)

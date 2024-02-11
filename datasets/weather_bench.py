@@ -123,8 +123,6 @@ class WeatherDataset:
         self.end = pd.to_datetime(f'{end}-12-31')
         self.device = device
         self.normalize = normalize
-
-
         dataset_path = self.check_dataset(self.RESOLUTION, start, end)
         
         self.load_dataset(dataset_urls)

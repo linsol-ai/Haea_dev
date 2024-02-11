@@ -137,7 +137,7 @@ class WeatherDataset:
             dataset_path.append(file_path)
 
             if not file_path.is_file():
-                zarr = xr.op
+                zarr = xr.open_zarr()
 
 
     

@@ -143,9 +143,6 @@ class WeatherDataset:
             if not file_path.is_file():
                 download_blob(self.GCS_BUCKET, resol / file_name, folder / resol)
 
-            if download_list:
-                download_many_blobs_with_transfer_manager(self.GCS_BUCKET, )
-
 
     
     def load_dataset(self, dataset_urls):

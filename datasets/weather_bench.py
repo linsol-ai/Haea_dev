@@ -261,7 +261,7 @@ class WeatherDataset:
                 level = futures[future]
                 # shape => (3, time, h * w) or (level * 3, time, h * w)
                 input, target = future.result()
-                if len(normalized.shape) == 4:
+                if len(input.shape) == 4:
                     input = input.view(-1, input.size(2), input.size(3))
                     target = target.view(-1, target.size(2), target.size(3))
 

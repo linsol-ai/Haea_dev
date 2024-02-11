@@ -29,7 +29,7 @@ class TrainModule(pl.LightningModule):
         src = batch[:self.var_len]
         tgt = batch[self.var_len:]
         output = self.model(src, tgt)
-        loss = F.mse_loss(tgt[, , ], output)
+        loss = F.mse_loss(tgt[, , self.pre], output)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

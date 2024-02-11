@@ -1,7 +1,7 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 model:
-  num_heads:10,
+  num_heads:10
   n_encoder_layers: 3
 training:
   learning_rate: 1e-3

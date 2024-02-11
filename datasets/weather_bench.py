@@ -82,6 +82,8 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
 
     storage_client = storage.Client()
 
+    print()
+
     bucket = storage_client.bucket(bucket_name)
 
     # Construct a client side representation of a blob.

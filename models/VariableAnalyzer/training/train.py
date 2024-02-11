@@ -70,7 +70,7 @@ def _main(args) -> None:
             num_heads=config.model.num_heads,
             n_encoder_layers=config.model.n_encoder_layers,
             n_decoder_layers=config.model.n_decoder_layers,
-            dropout=config.model_config.dropout
+            dropout=config.model.dropout
         )
         
 

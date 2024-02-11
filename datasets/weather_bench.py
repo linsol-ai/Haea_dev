@@ -77,6 +77,8 @@ def preprocess_wind_data(u, v, device, normalize):
             cos_encoded = normalize_tensor(cos_encoded)
         
         u = u.cpu()
+        v = v.cpu()
+        
 
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 

@@ -112,11 +112,12 @@ class WeatherDataset:
     
     def check_dataset(self, resolutions, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'
+        
         for resol in resolutions:
             folder = Path(self.DIR_NAME)
             file_path = folder / resol / file_name
             if file_path.is_file():
-                
+
 
     
     def load_dataset(self, dataset_urls):

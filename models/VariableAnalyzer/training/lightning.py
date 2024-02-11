@@ -10,7 +10,7 @@ import torch.nn.functional as F
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, var_len, model: VariableAnalyzer, config: TrainingConfig | None = None):
+    def __init__(self, *, var_len:int, model: VariableAnalyzer, config: TrainingConfig | None = None):
         super().__init__()
         self.model = model
         self.config = TrainingConfig() if config is None else config

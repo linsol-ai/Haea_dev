@@ -23,7 +23,7 @@ class CustomDataset(Dataset):
             dataset.append(self.dataset[t].to(self.device))
 
         # dataset.shape = (time_len, var, hidden)
-        dataset = torch.stack(dataset, dim=0)
+        dataset = torch.stack(dataset, dim=0).to(self.device)
         dataset = dataset.view(-1, dataset.size(2))
         return dataset
 

@@ -106,7 +106,7 @@ class WeatherDataset:
         self.load_dataset(dataset_urls)
 
     
-    def check_dataset(res):
+    def check_dataset(resolution, ):
          
 
     

@@ -85,7 +85,7 @@ def _main() -> None:
         val_ds, test_ds = torch.utils.data.random_split(
             test_ds,
             [0.3, 0.7],
-        )
+        )   
 
         train_loader = DataLoader(
             train_ds, batch_size=config.training.batch_size, shuffle=True, pin_memory=True

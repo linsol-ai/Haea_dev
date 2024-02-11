@@ -85,6 +85,9 @@ pbar = tqdm(total=100)
 
 # Custom DoFn to update progress bar
 class ProgressUpdater(beam.DoFn):
+
+    
+
     def process(self, element):
         # Update progress bar for each element processed
         update_progress(1)

@@ -199,7 +199,7 @@ class WeatherDataset:
         else:
             normalized = normalized.flatten(1)
             unnormalized = unnormalized.flatten(1)
-        return data
+        return normalized, unnormalized
     
 
     def load(self):

@@ -10,6 +10,21 @@ import time
 import torch
 
 
+def normalize_tensor(data):
+    # 최솟값을 0으로 조정
+    min_value = data.min(dim=-2, keepdim=True)[0]
+    max_value = data.max(dim=-2, keepdim=True)[0]
+    
+    # 정규화
+    output = (data - min_value) / (max_value - min_value)
+
+    has_nan = torch.isnan(output).any()
+    if has_nan:
+        nan_indices = torch.isnan(output)
+        output[nan_indices] = 0
+    
+    return output
+
 def calculate_wind_speed(u, v):
         return torch.sqrt(u**2 + v**2)
     

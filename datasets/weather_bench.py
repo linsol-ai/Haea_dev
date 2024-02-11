@@ -79,9 +79,6 @@ def preprocess_wind_data(u, v, device, normalize):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-
-
-# Custom DoFn to update progress bar
 class ProgressUpdater(beam.DoFn):
 
     def __init__(self):

@@ -90,7 +90,7 @@ class VariableAnalyzer(nn.Module):
     def get_var_seq(self, batch_size):
         src_seq = torch.tensor([self.var_seq for _ in range(batch_size)], device=src.device)
         tgt_seq = []
-        for _ in range(src.size(0)):
+        for _ in range(batch_size):
             seq = []
             for _ in range(0, self.time_len):
                 seq.extend(self.var_seq)

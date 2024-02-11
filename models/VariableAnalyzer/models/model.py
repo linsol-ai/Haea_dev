@@ -30,7 +30,7 @@ class TargetEmbedding(nn.Module):
     def forward(self, tgt, position_seq, variable_seq):
         print(tgt.shape)
         print(position_seq.shape)
-        
+        print(variable_seq.shape)
         x = tgt + self.position(position_seq) + self.variable(variable_seq)
         return self.dropout(x)
     

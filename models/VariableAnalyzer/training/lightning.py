@@ -13,7 +13,7 @@ class TrainModule(pl.LightningModule):
     def __init__(self, *, model: VariableAnalyzer, var_len: int, predict_dim: int, config: TrainingConfig | None = None):
         super().__init__()
         self.var_len = var_len
-        self.
+        self.predict_dim = predict_dim
         self.model = model
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])

@@ -83,7 +83,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
     storage_client = storage.Client()
 
     print(source_blob_name)
-    print()
+    print(destination_file_name)
 
     bucket = storage_client.bucket(bucket_name)
 

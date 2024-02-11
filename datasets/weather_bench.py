@@ -260,10 +260,10 @@ class WeatherDataset:
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 level = futures[future]
                 # shape => (3, time, h * w) or (level * 3, time, h * w)
-                data = future.result()
+                normalized, unnormalized = future.result()
                 if len(data.shape) == 4:
                     data = data.view(-1, data.size(2), data.size(3))
-                    
+
                 wind_result[level] = data
 
             del result[self.HAS_LEVEL_WIND_VAR[0]]

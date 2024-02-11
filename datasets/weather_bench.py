@@ -13,7 +13,7 @@ import torch
 def min_max_scaling(tensor):
     # 각 차원별 최소값과 최대값 계산
     min_vals = np.min(tensor, axis=(2, 3), keepdims=True)
-    max_vals = np.max(tensor, axis=(2, 1), keepdims=True)
+    max_vals = np.max(tensor, axis=(2, 3), keepdims=True)
     
     # 최대-최소 스케일링을 적용하여 정규화
     scaled_tensor = (tensor - min_vals) / (max_vals - min_vals)

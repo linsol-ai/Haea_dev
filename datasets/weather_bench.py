@@ -143,7 +143,7 @@ class WeatherDataset:
         for dataset in self.datasets:
             result = self.load_data(dataset)
             result_dataset.append(result)
-            dims.append(result.shape)
+            dims.append(result.size())
         
         # var_dataset.shape = (time, var * level, h * w)
         result_dataset = torch.concat(result_dataset, dim=2)

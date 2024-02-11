@@ -68,7 +68,7 @@ class VariableAnalyzer(nn.Module):
         )
         self.tgt_embedding = TargetEmbedding(var_len, time_len, dim_model, dropout)
         self.src_embedding = SourceEmbedding(var_len, dim_model)
-        self.out = nn.Linear(dim_model, dim_model)
+        self.out = nn.Linear(dim_model, predict_dim)
         self.tgt_mask = self.get_tgt_mask()
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):

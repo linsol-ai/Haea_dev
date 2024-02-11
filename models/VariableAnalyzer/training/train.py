@@ -78,7 +78,7 @@ def _main() -> None:
 
         # Use a custom dataset class with proper transformations
 
-        train_ds, val_ds = torch.utils.data.random_split(
+        train_ds, test_ds = torch.utils.data.random_split(
             dataset,
             [0.7, 0.3],
         )

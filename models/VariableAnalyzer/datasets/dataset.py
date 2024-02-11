@@ -38,7 +38,7 @@ class CustomDataset(Dataset):
 
 
     def __getitem__(self, item):
-        src_ind, tgt = self.dataset_inc[item]
+        src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src, self.input_dataset)
         tgt = self.get_data(tgt, self.input_dataset)
         label = self.get_data(tgt, self.tar_dataset)

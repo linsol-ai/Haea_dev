@@ -262,7 +262,7 @@ class WeatherDataset:
                 # shape => (3, time, h * w) or (level * 3, time, h * w)
                 input, target = future.result()
                 if len(normalized.shape) == 4:
-                    normalized = normalized.view(-1, normalized.size(2), normalized.size(3))
+                    input = input.view(-1, input.size(2), normalized.size(3))
                     unnormalized = unnormalized.view(-1, unnormalized.size(2), unnormalized.size(3))
 
                 wind_result[level] = (normalized, unnormalized)

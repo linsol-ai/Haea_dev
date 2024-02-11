@@ -67,7 +67,8 @@ def _main() -> None:
             var_len=shape[1],
             time_len=time_len,
             dim_model=shape[2],
-            num_heads=config.model_config.num_heads
+            num_heads=config.model_config.num_heads,
+            
 
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)

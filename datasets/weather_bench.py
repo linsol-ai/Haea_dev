@@ -90,7 +90,7 @@ class WeatherDataset:
 
     GCS_ADDESS = 'gs://era5_preprocess'
 
-    DIR_NAME = 'r'
+    DIR_NAME = 'reso'
 
 
     def __init__(self, year_offset:int, device:torch.device, normalize=True):

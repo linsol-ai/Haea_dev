@@ -137,6 +137,8 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
 
+        wind = 
+
         with ThreadPoolExecutor() as executor:
             futures = {}
 

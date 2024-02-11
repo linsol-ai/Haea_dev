@@ -197,11 +197,11 @@ class WeatherDataset:
 
         if len(data.shape) == 4:
             normalized = normalized.flatten(2)
-            unnormalized = unnormalized.flatten(2)
+            target = target.flatten(2)
         else:
             normalized = normalized.flatten(1)
-            unnormalized = unnormalized.flatten(1)
-        return normalized, unnormalized
+            target = target.flatten(1)
+        return normalized, target
     
 
     def load(self):

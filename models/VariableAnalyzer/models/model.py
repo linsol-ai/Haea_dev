@@ -48,7 +48,6 @@ class SourceEmbedding(nn.Module):
         return self.dropout(x)
 
 
-
 class VariableAnalyzer(nn.Module):
     def __init__(self, var_len, time_len, dim_model, predict_dim, batch_size, device, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
@@ -84,7 +83,7 @@ class VariableAnalyzer(nn.Module):
         out = self.out(transformer_out)
         return out
     
-    
+
     def get_var_seq(self, batch_size, device):
         src_seq = torch.tensor([self.var_seq for _ in range(batch_size)], device=device)
         tgt_seq = []

@@ -89,7 +89,7 @@ class VariableAnalyzer(nn.Module):
             time_seq.extend(seq)
         return torch.tensor([time_seq for _ in range(src.size(0))])
     
-    def get_tgt_mask(size) -> torch.tensor:
+    def get_tgt_mask(self.) -> torch.tensor:
         matrix = torch.zeros(size, size)
         for i in range(0, size):
             matrix[i, min(100*(i+1), size):] = float('-inf')

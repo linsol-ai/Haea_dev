@@ -57,7 +57,7 @@ def _main() -> None:
         pl.seed_everything(config.seed)
 
         train_year = FLAGS.train_year
-        time_len = FLAGS.
+        time_len = FLAGS.time_len
 
         dataset, shape = get_dataset(FLAGS.train_year, 4 * FLAGS.)
 

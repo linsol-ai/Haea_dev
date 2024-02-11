@@ -56,7 +56,7 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
 
-        train_year = FLAGS.train_year
+        train_year = FLAGS.train_offset
         time_len = 4 * FLAGS.time_len
 
         # shape = (time, var, hidden)

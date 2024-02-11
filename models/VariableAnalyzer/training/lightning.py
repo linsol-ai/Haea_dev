@@ -21,7 +21,7 @@ class TrainModule(pl.LightningModule):
         self.model.init_seq(self.device)
 
 
-    def on_train_start(self) -> None:
+    def on_train_epoch_start(self) -> None:
         self.model.init_seq(self.device)
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102

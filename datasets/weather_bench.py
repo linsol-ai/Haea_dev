@@ -105,6 +105,8 @@ class WeatherDataset:
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 
+        
+
         if len(data.shape) == 4:
             data = data.flatten(2)
         else:

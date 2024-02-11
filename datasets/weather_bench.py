@@ -112,7 +112,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, data, normalize):
+    def load_variable(self, keydata, normalize):
         data = data.to_numpy()
 
         data = torch.from_numpy(data)

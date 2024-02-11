@@ -91,7 +91,7 @@ def _main() -> None:
             train_ds, batch_size=config.training.batch_size, shuffle=True
         )
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size)
-        val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, num_workers=4)
+        val_loader = DataLoader(val_ds, batch_size=config.training.batch_size)
 
         trainer = pl.Trainer(
             accelerator="auto",

@@ -144,7 +144,7 @@ class WeatherDataset:
                 download_list.append((resol / file_name, folder / resol))
 
             if download_list:
-                do
+                download_many_blobs_with_transfer_manager()
 
 
     

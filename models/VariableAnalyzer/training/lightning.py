@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from torch.optim import AdamW
 from einops import rearrange
 from models.VariableAnalyzer.models.model import VariableAnalyzer
-from training.configs import TrainingConfig
+from models.VariableAnalyzer.training.configs import TrainingConfig
 from training.params_schedule import CosineWarmupScheduler
 from typing import Tuple
 import torch.nn.functional as F

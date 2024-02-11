@@ -25,6 +25,7 @@ from models.VariableAnalyzer.training.lightning import TrainModule
 YEAR_OFFSET = flags.DEFINE_string('train_year', None, help='training year')
 
 
+
 def get_dataset(year_offset: int, time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)

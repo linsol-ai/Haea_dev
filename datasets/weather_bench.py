@@ -78,7 +78,18 @@ def preprocess_wind_data(u, v, device, normalize):
 
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
+def update_progress(progress):
+    pbar.update(progress)
 
+# Initialize tqdm progress bar
+pbar = tqdm(total=100)
+
+# Custom DoFn to update progress bar
+class ProgressUpdater(beam.DoFn):
+    def process(self, element):
+        # Update progress bar for each element processed
+        update_progress(1)
+        yield element
 def download_zarr(source, output_path):
     source_dataset, source_chunks = xb.open_zarr(source)
     template = (

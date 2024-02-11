@@ -137,7 +137,7 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
 
-        wind = 
+        wind = (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR)
 
         with ThreadPoolExecutor() as executor:
             futures = {}

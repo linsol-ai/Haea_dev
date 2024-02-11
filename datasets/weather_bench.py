@@ -190,8 +190,8 @@ class WeatherDataset:
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 
-        data = normalize_tensor(data)
-        
+        normalized = normalize_tensor(data)
+
         if normalize:
             data = normalize_tensor(data)
 

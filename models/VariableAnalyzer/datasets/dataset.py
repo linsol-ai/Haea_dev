@@ -28,7 +28,7 @@ class CustomDataset(Dataset):
         dataset = dataset.view(-1, dataset.size(2))
         end = time.time()
         print('getdata: ', f"{end - start:.5f} sec")
-        return dataset.cpu()
+        return dataset
 
     def make_dataset(self):
         dataset_inc = []

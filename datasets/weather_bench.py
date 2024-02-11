@@ -10,7 +10,6 @@ import time
 import torch
 import sys,os
 from pathlib import Path
-from dask.diagnostics import ProgressBar
 import apache_beam as beam
 
 def normalize_tensor(tensor):

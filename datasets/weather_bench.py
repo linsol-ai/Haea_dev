@@ -143,7 +143,8 @@ class WeatherDataset:
             if not file_path.is_file():
                 download_list.append((resol / file_name, folder / resol))
 
-            if download_list.
+            if download_list:
+                
 
 
     

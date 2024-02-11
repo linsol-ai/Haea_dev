@@ -67,9 +67,9 @@ def _main(args) -> None:
             var_len=shape[1],
             time_len=time_len,
             dim_model=shape[2],
-            num_heads=config.model_config.num_heads,
+            num_heads=config. v.num_heads,
             n_encoder_layers=config.model.n_encoder_layers,
-            n_decoder_layers=config.model_config.n_decoder_layers,
+            n_decoder_layers=config.model.n_decoder_layers,
             dropout=config.model_config.dropout
         )
         

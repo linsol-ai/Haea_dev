@@ -1,7 +1,6 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
 from torch.optim import AdamW
-
 import torch.nn.functional as F
 
 from models.VariableAnalyzer.models.model import VariableAnalyzer

@@ -90,16 +90,12 @@ class VariableAnalyzer(nn.Module):
         return torch.tensor([time_seq for _ in range(src.size(0))])
     
     def get_tgt_mask(self) -> torch.Tensor:
-        mask = []
-        for k in range(self.time_len):
-            time_mask = []
-            for i in range(self.time_len):
-                if k == i :
-                    seq = [i for _ in range(self.var_len)]
-                else:
-                    seq = [0 for _ in range(self.var_len)]
-                time_mask.extend(seq)
-            mask.append(time_mask)
+        matrix = torch.zeros(size, size)
+    
+    # 대각선을 따라 interval 간격으로 1 채우기
+    for i in range(0, size):
+        for j in range(0, min(interval*(i+1), size)):
+            matrix[i, j] = 1
 
         mask = torch.tensor([mask for _ in range(src.size(0))])
         mask = mask.float()

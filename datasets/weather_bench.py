@@ -91,9 +91,6 @@ def download_many_blobs_with_transfer_manager(
     )
 
     for name, result in zip(blob_names, results):
-        # The results list is either `None` or an exception for each blob in
-        # the input list, in order.
-
         if isinstance(result, Exception):
             print("Failed to download {} due to exception: {}".format(name, result))
         else:

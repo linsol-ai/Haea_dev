@@ -37,7 +37,7 @@ class SourceEmbedding(nn.Module):
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding
         :param dropout: dropout rate
-        """
+        """ 
         super().__init__()
         self.variable = VariableEmbedding(var_len, embed_size)
         self.dropout = nn.Dropout(p=dropout)

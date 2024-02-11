@@ -191,7 +191,6 @@ class WeatherDataset:
             data[nan_indices] = 0
 
         normalized = normalize_tensor(data)
-        unnormalized = 
 
         if normalize:
             data = normalize_tensor(data)

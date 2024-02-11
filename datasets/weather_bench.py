@@ -114,7 +114,6 @@ class WeatherDataset:
         file_name = f'{start}-12-31_{end}-12-31.zarr'
         for resol in resolutions:
             folder = Path(self.DIR_NAME)
-            file_name = f''
             file_path = folder / file_name
 
     

@@ -84,6 +84,7 @@ def download_zarr(source, output_path):
     template = (
       xb.make_template(source_dataset)
     ) 
+    options = PipelineOptions()
     with beam.Pipeline() as root :
         (
             root

@@ -92,7 +92,7 @@ def preprocess_wind_data(u, v, device):
         del v
         del wind_direction
 
-        return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0), 
+        return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0), torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
 class ProgressUpdater(beam.DoFn):

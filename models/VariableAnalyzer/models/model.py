@@ -43,7 +43,7 @@ class SourceEmbedding(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, src, variable_seq)
+    def forward(self, src, variable_seq):
         x = src + self.variable(variable_seq)
         return self.dropout(x)
 

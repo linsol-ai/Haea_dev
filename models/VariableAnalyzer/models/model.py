@@ -73,8 +73,8 @@ class VariableAnalyzer(nn.Module):
         self.time_seq = self.get_time_seq(batch_size, device)
     
 
-    def init_seq():
-        
+    def init_seq(self, device):
+
 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):

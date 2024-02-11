@@ -78,7 +78,7 @@ def preprocess_wind_data(u, v, device, normalize):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-    def download_zarr():
+def download_zarr():
         
 
 class WeatherDataset:

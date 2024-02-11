@@ -1,7 +1,9 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
 from torch.optim import AdamW
-from einops import rearrange
+
+import torch.nn.functional as F
+
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler

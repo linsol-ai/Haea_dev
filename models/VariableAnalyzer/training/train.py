@@ -72,7 +72,7 @@ def _main() -> None:
             n_decoder_layers=config.model_config.n_decoder_layers,
             dropout=config.model_config.dropout
         )
-        model_pl = Train(dvae=model, config=config.training)
+        model_pl = TrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 

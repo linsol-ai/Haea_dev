@@ -244,7 +244,7 @@ class WeatherDataset:
                 if len(unnormalized.shape) == 3:
                     normalized = normalized.swapaxes(0, 1)
                     unnormalized = unnormalized.swapaxes(0, 1)
-                result[val] = normalized, unnormalized
+                result[val] = (normalized, unnormalized
             
         wind_result = {}
         with ThreadPoolExecutor() as executor:

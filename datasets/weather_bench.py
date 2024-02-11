@@ -82,7 +82,7 @@ def preprocess_wind_data(u, v, device, normalize):
 def download_zarr(source):
     source_dataset, source_chunks = xb.open_zarr(source)
     template = (
-      x.make_template(source_dataset)
+      xb.make_template(source_dataset)
       .isel(latitude=lat_indices, longitude=lon_indices)
     ) 
     with beam.Pipeline() as root :

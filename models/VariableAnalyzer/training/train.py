@@ -78,16 +78,6 @@ def _main() -> None:
 
         # Use a custom dataset class with proper transformations
 
-        dataset = ImageDataset(output)
-        train_ds, val_ds = torch.utils.data.random_split(
-            dataset,
-            [0.7, 0.3],
-        )
-        test_ds, val_ds = torch.utils.data.random_split(
-            val_ds,
-            [0.5, 0.5],
-        )
-
         train_loader = DataLoader(
             train_ds, batch_size=config.training.batch_size, num_workers=8, shuffle=True
         )

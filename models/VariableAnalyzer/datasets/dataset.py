@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
             if t >= self.dataset.size(0):
                 dataset.append(torch.zeros_like(self.dataset[0]))
             else:
-                dataset.append(self.dataset[t])
+                dataset.append(self.dataset[t].to(self.device))
 
         # dataset.shape = (time_len, var, hidden)
         dataset = torch.stack(dataset, dim=0).to(self.device)

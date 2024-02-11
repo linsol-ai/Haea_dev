@@ -240,7 +240,7 @@ class WeatherDataset:
                 normalized, unnormalized = future.result()
                 if len(data.shape) == 3:
                     normalized = normalized.swapaxes(0, 1)
-
+                    normalized = normalized.swapaxes(0, 1)
                 result[val] = data
             
         wind_result = {}

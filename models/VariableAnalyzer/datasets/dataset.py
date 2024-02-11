@@ -26,7 +26,7 @@ class CustomDataset(Dataset):
                 dataset.append(self.dataset[t])
 
         # dataset.shape = (time_len, var, hidden)
-        dataset = torch.stack(dataset, dim=0).to(device)
+        dataset = torch.stack(dataset, dim=0).to(s)
         dataset = dataset.view(-1, dataset.size(2))
         end = time.time()
         print('getdata: ', f"{end - start:.5f} sec")

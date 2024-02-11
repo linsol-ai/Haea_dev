@@ -24,7 +24,7 @@ class TrainModule(pl.LightningModule):
 
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
-        src_b, tgt_b = batch
+        src_b = batch
         output = self.model(src_b, tgt_b)
         loss = F.mse_loss(tgt_b, output)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

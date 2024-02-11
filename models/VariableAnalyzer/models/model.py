@@ -79,7 +79,7 @@ class VariableAnalyzer(nn.Module):
         src_var_seq, tgt_var_seq = self.get_var_seq(src)
         time_seq = self.get_time_seq(src)
 
-        src = self.src_embedding(src, var_seq) * math.sqrt(self.dim_model)
+        src = self.src_embedding(src, src_var_seq) * math.sqrt(self.dim_model)
         tgt = self.tgt_embedding(tgt, time_seq, var_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 

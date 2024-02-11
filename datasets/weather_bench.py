@@ -31,7 +31,7 @@ def min_max_scale(tensor):
     scaled_tensor = scaled_tensor.view(shape)
     
     return scaled_tensor
-    
+
 
 def calculate_wind_speed(u, v):
         return torch.sqrt(u**2 + v**2)

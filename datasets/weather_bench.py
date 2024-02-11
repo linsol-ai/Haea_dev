@@ -186,7 +186,6 @@ class WeatherDataset:
         has_nan = torch.isnan(data).any()
 
         if has_nan:
-            print(key)
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 

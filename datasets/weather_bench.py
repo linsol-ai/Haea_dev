@@ -90,7 +90,7 @@ class ProgressUpdater(beam.DoFn):
         update_progress(1)
         yield element
     
-    def update_progress(progress):
+    def update_progress(self, progress):
         pbar.update(progress)
 
 

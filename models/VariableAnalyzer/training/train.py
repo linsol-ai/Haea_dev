@@ -69,7 +69,8 @@ def _main() -> None:
             dim_model=shape[2],
             num_heads=config.model_config.num_heads,
             n_encoder_layers=config.model_config.n_encoder_layers,
-            n_decoder_layers=config.model_config.n_encoder_layers,
+            n_decoder_layers=config.model_config.n_decoder_layers,
+            
 
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)

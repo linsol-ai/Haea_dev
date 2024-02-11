@@ -151,7 +151,7 @@ class WeatherDataset:
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", result_dataset.shape)
 
-        return result_dataset
+        return result_dataset, dims
 
     
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:

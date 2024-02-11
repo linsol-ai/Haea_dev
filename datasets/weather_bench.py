@@ -92,7 +92,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, dataset, key), =:
+    def load_variable(self, dataset, key):
         data = dataset[key]
         data = data.to_numpy()
 

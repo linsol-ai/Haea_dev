@@ -65,7 +65,8 @@ def _main() -> None:
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableAnalyzer(
             var_len=shape[1],
-            time_len=time,
+            time_len=time_len,
+            
 
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)

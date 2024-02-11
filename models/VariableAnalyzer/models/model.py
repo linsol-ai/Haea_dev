@@ -95,7 +95,7 @@ class VariableAnalyzer(nn.Module):
             for i in range(0, self.time_len):
                 seq.extend([ i for _ in range(self.var_len)])
         
-            
+            time_seq.append(seq)
         time_seq[:] = torch.cat([torch.full((self.var_len,), i, dtype=torch.int8) for i in range(0, self.time_len)])
         return time_seq
     

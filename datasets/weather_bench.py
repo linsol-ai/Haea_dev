@@ -251,11 +251,11 @@ class WeatherDataset:
         with ThreadPoolExecutor() as executor:
             futures = {}
             v1 = result[self.HAS_LEVEL_WIND_VAR[0]], result[self.HAS_LEVEL_WIND_VAR[1]]
-            k1 = executor.submit(self.calculate_wind, v1[0][1], v1[1][0], self.device)
+            k1 = executor.submit(self.calculate_wind, v1[0][1], v1[1][1], self.device)
             futures[k1] = 1
 
             v2 = result[self.NONE_LEVEL_WIND_VAR[0]], result[self.NONE_LEVEL_WIND_VAR[1]]
-            k2 = executor.submit(self.calculate_wind, v2[0][1], v2[1][0], self.device)
+            k2 = executor.submit(self.calculate_wind, v2[0][1], v2[1][1], self.device)
             futures[k2] = 0
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

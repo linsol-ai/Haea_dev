@@ -137,11 +137,11 @@ class WeatherDataset:
             file_path = folder / resol / file_name
             dataset_path.append(file_path)
 
-            if not file_path.is_file():
+            if not file_path.is():
                 print("======= DOWNLOAD Zarr FROM GCS ======")
                 gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
                 print("DOWNLOAD: ", gcs_path)
-                
+
                 ds = xr.open_zarr(gcs_path)
                 ds.to_zarr(file_path, mode='w', consolidated=True, compute=False)
                 with ProgressBar():

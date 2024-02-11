@@ -76,17 +76,6 @@ def _main() -> None:
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 
-        levels = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
-        variable_keys = ['geopotential', 'specific_humidity', 'temperature', 'vertical_velocity']
-
-        weather = WeatherDataset(url='gs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr')
-        weather.load_init()
-
-        start_date = pd.to_datetime('2022-01-01')
-        end_date = pd.to_datetime('2022-09-01')
-
-        output = weather.load_unet(variable_keys[0], levels, start_date, end_date, normalize=True)
-
         # Use a custom dataset class with proper transformations
 
         dataset = ImageDataset(output)

@@ -20,7 +20,7 @@ class TrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
     
-    def s
+    def setu
 
     def setup(self) -> None:
         self.model.init_seq(self.device)

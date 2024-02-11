@@ -80,7 +80,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
 
 def download_zarr(source):
-    source_dataset, source_chunks = xb.open_zarr(so)
+    source_dataset, source_chunks = xb.open_zarr(source)
     with beam.Pipeline() as root :
         (
             root

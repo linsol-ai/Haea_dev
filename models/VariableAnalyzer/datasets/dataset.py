@@ -48,5 +48,7 @@ class CustomDataset(Dataset):
         tgt = self.get_data(tgt)
         start = time.time()
         res = torch.concat([src, tgt], dim=0)
+        end = time.time()
+        print('getdata: ', f"{end - start:.5f} sec")
         return res
 

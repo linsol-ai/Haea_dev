@@ -42,6 +42,5 @@ class CustomDataset(Dataset):
         src = self.get_data(src_ind, self.input_dataset)
         tgt = self.get_data(tgt_ind, self.input_dataset)
         label = self.get_data(tgt_ind, self.tar_dataset)
-        res = torch.concat([src, tgt], dim=0)
         return src, tgt, label
 

@@ -143,7 +143,7 @@ class WeatherDataset:
                 ds = xr.open_zarr(gcs_path)
                 ds.to_zarr(file_path, mode='w', consolidated=True, compute=False)
                 write_job = ds.persist()
-                progress(write_job, notebook=False)
+                distributed.progress(write_job, notebook=False)
                 ds.close()
                 
 

@@ -140,7 +140,7 @@ class WeatherDataset:
             file_path = folder / resol / file_name
             dataset_path.append(file_path)
 
-            if file_path.is_file():
+            if not file_path.is_file():
                 dataset_path.append(file_path)
             else:
 

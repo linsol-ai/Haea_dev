@@ -10,8 +10,8 @@ from pydantic import ValidationError
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, Dataset
-from torchvision import transforms
-from torchvision.datasets import CIFAR10
+from absl import app
+from absl import flags
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
@@ -56,7 +56,7 @@ def _main() -> None:
         model = VariableAnalyzer(
             var_len=shape[1],
             time_len=4 * 7,
-            
+
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)

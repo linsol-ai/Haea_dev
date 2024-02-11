@@ -78,7 +78,7 @@ def preprocess_wind_data(u, v, device):
 
         un_wind_speed = wind_speed.clone().detach()
         un_sin_encoded = sin_encoded.clone().detach()
-        cos_encoded = cos_encoded.clone().detach()
+        un_cos_encoded = cos_encoded.clone().detach()
 
         wind_speed = normalize_tensor(wind_speed)
         sin_encoded = normalize_tensor(sin_encoded)

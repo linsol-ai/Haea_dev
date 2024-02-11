@@ -294,6 +294,7 @@ class WeatherDataset:
 
         # dataset.shape => (time, var, h * w)
         input_dataset = torch.swapaxes(input_dataset, 0, 1)
+        input_dataset = torch.swapaxes(input_dataset, 0, 1)
         
         # wind.shape => (level, 3, time, h * w)
         wind_dataset = []

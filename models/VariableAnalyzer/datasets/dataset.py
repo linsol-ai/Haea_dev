@@ -42,7 +42,7 @@ class CustomDataset(Dataset):
         src, tgt = self.dataset_inc[item]
         src = self.get_data(src)
         tgt = self.get_data(tgt)
-        label = 
+        label = self.get_data(tgt)
         res = torch.concat([src, tgt], dim=0)
         return res.cpu()
 

@@ -197,7 +197,7 @@ class WeatherDataset:
             normalized = normalized.flatten(2)
             unnormalized = unnormalized.flatten(2)
         else:
-            data = data.flatten(1)
+            normalized = normalized.flatten(1)
 
         return data
     

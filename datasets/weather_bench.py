@@ -302,8 +302,8 @@ class WeatherDataset:
         input_wind_dataset.extend(wind_result[1][0])
 
         target_wind_dataset = []
-        input_wind_dataset.extend(wind_result[0][0])
-        input_wind_dataset.extend(wind_result[1][0])
+        target_wind_dataset.extend(wind_result[0][0])
+        target_wind_dataset.extend(wind_result[1][0])
 
         # wind.shape => (level * 3, time, h * w)
         wind_dataset = torch.stack(wind_dataset, dim=0)

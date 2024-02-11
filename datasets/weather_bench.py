@@ -211,7 +211,7 @@ class WeatherDataset:
 
         for dataset in self.datasets:
             input, target = self.load_data(dataset)
-            result_dataset.append(input)
+            input_dataset.append(input)
             dims.append(result.size(2))
         
         # var_dataset.shape = (time, var * level, h * w)

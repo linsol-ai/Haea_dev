@@ -76,7 +76,7 @@ class VariableAnalyzer(nn.Module):
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 99, 1450), tgt.shape = (batch, 99 * time_len, 1450)
-        src_var_seq, tgt_var_seq = self.get_var_seq(src, tgt)
+        src_var_seq, tgt_var_seq = self.get_var_seq(src)
         time_seq = self.get_time_seq(src)
 
         src = self.src_embedding(src, var_seq) * math.sqrt(self.dim_model)

@@ -99,7 +99,7 @@ class VariableAnalyzer(nn.Module):
         
             tgt_seq.append(seq)
         
-        tgt_seq = 
+        tgt_seq = torch.tensor(tgt_seq, device=src.device)
         return torch.tensor(tgt_seq, device=src.device)
 
 

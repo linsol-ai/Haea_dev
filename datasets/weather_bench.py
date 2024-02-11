@@ -141,8 +141,6 @@ class WeatherDataset:
                 zarr = xr.open_zarr(gcs_path)
                 zarr.to_zarr(file_path, mode='w', consolidated=True)
 
-
-    
     def load_dataset(self, dataset_path):
         print("데이터셋 불러오는 중...")
         self.datasets = []

@@ -201,7 +201,7 @@ class WeatherDataset:
         else:
             input = input.flatten(1)
             target = target.flatten(1)
-        return normalized, target
+        return input, target
     
 
     def load(self):

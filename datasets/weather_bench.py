@@ -92,7 +92,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, dataset, key, nomal):
+    def load_variable(self, dataset, key, normalize):
         data = dataset[key]
         data = data.to_numpy()
 

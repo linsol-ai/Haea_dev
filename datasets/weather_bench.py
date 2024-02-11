@@ -60,7 +60,7 @@ def cyclic_encoding(angle):
         return sin_val, cos_val
 
 
-def preprocess_wind_data(u, v, device, normalize):
+def preprocess_wind_data(u, v, device):
         u = u.to(device)
         v = v.to(device)
 

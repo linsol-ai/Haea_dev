@@ -87,6 +87,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
         del u
         del v
+        del 
 
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 

@@ -93,7 +93,7 @@ class WeatherDataset:
 
 
 
-    DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), )
+    DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 
     def __init__(self, year_offset:int, device:torch.device, normalize=True):

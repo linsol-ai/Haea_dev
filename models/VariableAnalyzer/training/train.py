@@ -70,7 +70,7 @@ def _main() -> None:
             num_heads=config.model_config.num_heads,
             n_encoder_layers=config.model_config.n_encoder_layers,
             n_decoder_layers=config.model_config.n_decoder_layers,
-            dropout=
+            dropout=config.model_config.n_decoder_layers,
 
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)

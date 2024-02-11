@@ -287,7 +287,7 @@ class WeatherDataset:
 
         normalized_dataset = torch.stack(normalized_dataset, dim=0)
         # dataset.shape => (time, var, h * w)
-        dataset = torch.swapaxes(dataset, 0, 1)
+        normalized_dataset = torch.swapaxes(normalized_dataset, 0, 1)
         
         # wind.shape => (level, 3, time, h * w)
         wind_dataset = []

@@ -306,9 +306,9 @@ class WeatherDataset:
         target_wind_dataset.extend(wind_result[1][1])
 
         # wind.shape => (level * 3, time, h * w)
-        wind_dataset = torch.stack(wind_dataset, dim=0)
+        input_wind_dataset = torch.stack(input_wind_dataset, dim=0)
         # shape => (time, level * 3, h * w)
-        wind_dataset = torch.swapaxes(wind_dataset, 0, 1)
+        input_wind_dataset = torch.swapaxes(input_wind_dataset, 0, 1)
         
         end = time.time()
         print(f"{end - start:.5f} sec")

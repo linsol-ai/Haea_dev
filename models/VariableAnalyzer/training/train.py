@@ -36,7 +36,7 @@ def get_dataset(year_offset: int, time_len: int):
     # dataset.shape:  torch.Size([7309, 100, 1450])
     input, target, dims = weather.load()
     dataset = CustomDataset(input, target, time_len)
-    return dataset, original.shape, dims
+    return dataset, input.shape, dims
 
         
 def _main(args) -> None:

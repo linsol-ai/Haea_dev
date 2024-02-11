@@ -80,7 +80,7 @@ class WeatherDataset:
         self.start = pd.to_datetime(f'{start}-12-31')
         self.end = pd.to_datetime(f'{end}-12-31')
         self.device = device
-        self.noma
+        self.normalize = normalize
 
         dataset_urls = [
             f'gs://era5_preprocess/1440x720/{start}-12-31_{end}-12-31.zarr',

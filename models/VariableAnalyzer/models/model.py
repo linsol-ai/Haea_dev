@@ -97,7 +97,7 @@ class VariableAnalyzer(nn.Module):
                 if k == i :
                     seq = [i for _ in range(self.var_len)]
                 else:
-                    seq = [0 for _ in range(src.size(1))]
+                    seq = [0 for _ in range(self.var_len)]
                 time_mask.extend(seq)
             mask.append(time_mask)
 

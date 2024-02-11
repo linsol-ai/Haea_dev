@@ -20,7 +20,7 @@ class TrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
         self.model.init_seq(self.device)
 
-    def on_train
+
     def on_train_epoch_start(self) -> None:
         self.model.init_seq(self.device)
 

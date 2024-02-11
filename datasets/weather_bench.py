@@ -196,7 +196,7 @@ class WeatherDataset:
         input = normalize_tensor(data)
 
         if len(data.shape) == 4:
-            input = normalized.flatten(2)
+            input = input.flatten(2)
             target = target.flatten(2)
         else:
             input = input.flatten(1)

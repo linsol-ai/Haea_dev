@@ -71,7 +71,7 @@ class VariableAnalyzer(nn.Module):
     
 
     def init_seq(self, device):
-         self.tgt_mask = self.get_tgt_mask()
+        self.tgt_mask = self.get_tgt_mask()
         self.src_var_seq, self.tgt_var_seq = self.get_var_seq(batch_size, device)
         self.time_seq = self.get_time_seq(batch_size, device)
 

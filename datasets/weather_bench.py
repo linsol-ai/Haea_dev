@@ -8,8 +8,6 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import torch
-from scipy import interpolate
-
 
 def calculate_wind_speed(u, v):
         return torch.sqrt(u**2 + v**2)

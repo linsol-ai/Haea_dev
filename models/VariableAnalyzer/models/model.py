@@ -76,6 +76,7 @@ class VariableAnalyzer(nn.Module):
         print(src.shape)
         var_seq = torch.tensor([self.var_seq for _ in range(src.size(0))], device=src.device)
         time_seq = self.get_time_seq(src)
+        print(time_seq)
 
         src = self.src_embedding(src, var_seq) * math.sqrt(self.dim_model)
         tgt = self.tgt_embedding(src, time_seq, var_seq) * math.sqrt(self.dim_model)

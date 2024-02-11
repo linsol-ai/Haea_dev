@@ -109,7 +109,7 @@ class VariableAnalyzer(nn.Module):
         
             time_seq.append(seq)
         
-        return torch.tensor(time_seq, device=de)
+        return torch.tensor(time_seq, device=device)
     
 
     def get_tgt_mask(self) -> torch.tensor:

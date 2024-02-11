@@ -39,7 +39,6 @@ def get_dataset(year_offset: int, time_len: int):
     return dataset, original.shape, dims
 
         
-
 def _main(args) -> None:
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
     try:

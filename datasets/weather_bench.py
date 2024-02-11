@@ -87,7 +87,7 @@ pbar = tqdm(total=100)
 class ProgressUpdater(beam.DoFn):
 
     def __init__(self):
-
+        pbar = tqdm(total=100)
 
     def process(self, element):
         # Update progress bar for each element processed

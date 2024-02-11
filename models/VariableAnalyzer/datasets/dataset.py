@@ -48,5 +48,5 @@ class CustomDataset(Dataset):
         res = torch.concat([src, tgt], dim=0)
         end = time.time()
         print('res: ', f"{end - start:.5f} sec")
-        return rescpu()
+        return res.cpu()
 

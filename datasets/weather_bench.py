@@ -240,7 +240,7 @@ class WeatherDataset:
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val = futures[future]
                 # shape => (level, time, h * w) or (time, h * w)
-                normalized, unnormalized = future.result()
+                input, unnormalized = future.result()
                 if len(normalized.shape) == 3:
                     normalized = normalized.swapaxes(0, 1)
                     unnormalized = unnormalized.swapaxes(0, 1)

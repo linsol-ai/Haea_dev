@@ -20,7 +20,8 @@ class TrainModule(pl.LightningModule):
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
     
-    def setu
+    def setup(self, stage: str) -> None:
+        return super().setup(stage)
 
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102

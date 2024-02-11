@@ -263,7 +263,7 @@ class WeatherDataset:
                 normalized, unnormalized = future.result()
                 if len(normalized.shape) == 4:
                     normalized = normalized.view(-1, normalized.size(2), normalized.size(3))
-                    unnormalized = unnormalized.view(-1, data.size(2), data.size(3))
+                    unnormalized = unnormalized.view(-1, unnormalized.size(2), unnormalized.size(3))
 
                 wind_result[level] = data
 

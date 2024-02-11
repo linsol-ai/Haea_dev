@@ -151,8 +151,7 @@ class WeatherDataset:
         return dataset_path
     
 
-    def download_zarr():
-        
+
                 
 
 

@@ -98,7 +98,6 @@ class ProgressUpdater(beam.DoFn):
 
 def download_zarr(source, output_path):
     source_dataset, source_chunks = xb.open_zarr(source)
-    pbar = tqdm(total=100)
     template = (
       xb.make_template(source_dataset)
     ) 

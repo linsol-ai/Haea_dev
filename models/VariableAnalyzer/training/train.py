@@ -74,7 +74,6 @@ def _main(args) -> None:
             dropout=config.model.dropout
         )
         
-
         # Use a custom dataset class with proper transformations
 
         train_ds, test_ds = torch.utils.data.random_split(

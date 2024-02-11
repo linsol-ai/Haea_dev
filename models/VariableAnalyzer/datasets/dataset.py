@@ -8,7 +8,7 @@ class CustomDataset(Dataset):
 
     def __init__(self, input_dataset: torch.Tensor, tar_dataset: torch.Tensor, time_len: int, device):
         # dataset.shape = (time, var_len, hidden)
-        self.dataset = dataset
+        self.input_dataset = input_dataset
         self.var_len = dataset.size(1)
         self.time_len = time_len
         self.device = device

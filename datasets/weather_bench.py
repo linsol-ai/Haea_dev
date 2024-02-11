@@ -287,7 +287,7 @@ class WeatherDataset:
                     target_dataset.append(target[i])
             else:
                 normalized_dataset.append(normalized)
-                unnormalized_dataset.append(unnormalized)
+                unnormalized_dataset.append(target)
 
         normalized_dataset = torch.stack(normalized_dataset, dim=0)
         # dataset.shape => (time, var, h * w)

@@ -93,7 +93,7 @@ class VariableAnalyzer(nn.Module):
         for _ in range(src.size(0)):
             seq = []
             for i in range(0, self.time_len):
-                seq.
+                seq.extend([ i for _ in range(self.var_len)])
             seq = [ [ i for _ in range(self.var_len)] for i in range(0, self.time_len)]
             
         time_seq[:] = torch.cat([torch.full((self.var_len,), i, dtype=torch.int8) for i in range(0, self.time_len)])

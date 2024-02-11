@@ -22,6 +22,8 @@ from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
 
+START_YEAR = flags.DEFINE_string('start', None, help='start_year')
+
 
 def get_dataset(year_offset: int, time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )

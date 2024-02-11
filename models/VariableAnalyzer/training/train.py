@@ -78,7 +78,6 @@ def _main() -> None:
 
         # Use a custom dataset class with proper transformations
 
-        dataset = ImageDataset(output)
         train_ds, val_ds = torch.utils.data.random_split(
             dataset,
             [0.7, 0.3],

@@ -265,7 +265,7 @@ class WeatherDataset:
                     input = input.view(-1, input.size(2), input.size(3))
                     target = target.view(-1, target.size(2), target.size(3))
 
-                wind_result[level] = (normalized, target)
+                wind_result[level] = (input, target)
 
             del result[self.HAS_LEVEL_WIND_VAR[0]]
             del result[self.HAS_LEVEL_WIND_VAR[1]]

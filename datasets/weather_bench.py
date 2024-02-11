@@ -10,15 +10,15 @@ import time
 import torch
 
 
-def normalize_tensor(data):
-    # 최솟값을 0으로 조정
-    min_value = data.min(dim=-2, keepdim=True)[0]
-    max_value = data.max(dim=-2, keepdim=True)[0]
+def min_max_scaling(tensor):
+    # 각 차원별 최소값과 최대값 계산
+    min_vals = np.min(tensor, axis=(0, 1), keepdims=True)
+    max_vals = np.max(tensor, axis=(0, 1), keepdims=True)
     
-    # 정규화
-    output = (data - min_value) / (max_value - min_value)
-
-    return output
+    # 최대-최소 스케일링을 적용하여 정규화
+    scaled_tensor = (tensor - min_vals) / (max_vals - min_vals)
+    
+    return scaled_tensor
 
 def calculate_wind_speed(u, v):
         return torch.sqrt(u**2 + v**2)

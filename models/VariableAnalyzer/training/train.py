@@ -66,7 +66,7 @@ def _main() -> None:
         model = VariableAnalyzer(
             var_len=shape[1],
             time_len=time_len,
-            
+            dim
 
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)

@@ -112,7 +112,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, keydata, normalize):
+    def load_variable(self, key, data, normalize):
         data = data.to_numpy()
 
         data = torch.from_numpy(data)
@@ -121,6 +121,7 @@ class WeatherDataset:
         has_nan = torch.isnan(data).any()
 
         if has_nan:
+            
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 

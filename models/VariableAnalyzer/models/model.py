@@ -72,8 +72,8 @@ class VariableAnalyzer(nn.Module):
         self.tgt_mask = self.get_tgt_mask()
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
-        # src.shape = (batch, 99, 1450)
-        
+        # src.shape = (batch, 99, 1450), 
+
         var_seq = torch.tensor([var_seq for _ in range(src.size(0))])
         time_seq = self.get_time_seq(src)
 

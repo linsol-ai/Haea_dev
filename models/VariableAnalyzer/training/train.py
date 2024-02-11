@@ -82,7 +82,7 @@ def _main() -> None:
             dataset,
             [0.7, 0.3],
         )
-        test_ds, val_ds = torch.utils.data.random_split(
+        val_ds, val_ds = torch.utils.data.random_split(
             val_ds,
             [0.5, 0.5],
         )

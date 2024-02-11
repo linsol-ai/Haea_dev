@@ -88,7 +88,7 @@ def download_zarr(source, output_path):
         (
             root
             | xb.DatasetToChunks(source_dataset, source_chunks)
-            | xb.ChunksToZarr(OUTPUT_PATH, template, source_chunks)
+            | xb.ChunksToZarr(output_path, template, source_chunks)
         )
         
 

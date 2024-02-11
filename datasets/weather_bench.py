@@ -144,10 +144,6 @@ class WeatherDataset:
                     pbar.update()
                     ds.close()
                 
-                with tqdm(desc=f"Downloading: {file_path}", total=len(ds.data_vars) + len(ds.coords)) as pbar:
-                    ds.to_zarr(file_path, mode='w', consolidated=True, compute=False, progressbar=pbar)
-                    pbar.update()
-                    ds.close()
 
 
     def load_dataset(self, dataset_path):

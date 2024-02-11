@@ -12,7 +12,6 @@ class CustomDataset(Dataset):
         self.tar_dataset = tar_dataset
         self.var_len = input_dataset.size(1)
         self.time_len = time_len
-        self.device = device
         self.make_dataset()
 
     def __len__(self):

@@ -90,6 +90,8 @@ class WeatherDataset:
 
     GCS_ADDESS = 'gs://era5_preprocess'
 
+    FOLDER
+
 
     def __init__(self, year_offset:int, device:torch.device, normalize=True):
         end, start = self.DATE_OFFSET[year_offset]
@@ -108,7 +110,7 @@ class WeatherDataset:
     
     def check_dataset(resolutions, start, end):
         for resol in resolutions:
-            
+
 
     
     def load_dataset(self, dataset_urls):

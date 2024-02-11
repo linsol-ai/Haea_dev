@@ -91,7 +91,7 @@ def _main(args) -> None:
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size)
         val_loader = DataLoader(val_ds, batch_size=config.training.batch_size)
 
-        print("setting lr rate: ", )
+        print("setting lr rate: ", con)
 
         model_pl = TrainModule(model=model, var_len=shape[1], predict_dim=dims[0], max_iters=config.training.max_epochs*len(train_loader), config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)

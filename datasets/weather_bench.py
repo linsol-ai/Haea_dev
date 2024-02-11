@@ -199,7 +199,7 @@ class WeatherDataset:
             normalized = normalized.flatten(2)
             target = target.flatten(2)
         else:
-            normalized = normalized.flatten(1)
+            input = normalized.flatten(1)
             target = target.flatten(1)
         return normalized, target
     

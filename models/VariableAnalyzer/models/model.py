@@ -92,7 +92,7 @@ class VariableAnalyzer(nn.Module):
     def get_tgt_mask(self, src) -> torch.Tensor:
         matrix = torch.zeros(src.size(1), src.size(1))
         for i in range(0, src.size(1)):
-            for j in range(0, min(interval*(i+1), size)):
+            for j in range(0, min(interval*(i+1), src.size(1))):
                 matrix[i, j] = 1
 
         mask = torch.tensor([mask for _ in range(src.size(0))])

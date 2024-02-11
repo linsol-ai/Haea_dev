@@ -18,6 +18,7 @@ class TrainModule(pl.LightningModule):
         self.model = model
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
+        self.model.init_seq(self.device)
 
 
     def on_train_start(self) -> None:

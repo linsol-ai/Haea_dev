@@ -1,6 +1,6 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
-
+from typing import List
 from torch.optim import AdamW
 import torch.nn.functional as F
 from torch.optim.lr_scheduler import ExponentialLR

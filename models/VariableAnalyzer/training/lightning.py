@@ -20,7 +20,7 @@ class TrainModule(pl.LightningModule):
 
 
     def on_test_start(self) -> None:
-        return super().on_test_start()
+        
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)

@@ -65,16 +65,16 @@ def preprocess_wind_data(u, v, device, normalize):
         v = v.to(device)
 
         # 1. 풍속 및 풍향 계산
-        wind_speed = calculate_wind_speed(u, v).cpu()
-        wind_direction = calculate_wind_direction(u, v).cpu()
+        wind_speed = calculate_wind_speed(u, v)
+        wind_direction = calculate_wind_direction(u, v)
 
         # 2. 풍향 주기 코딩
         sin_encoded, cos_encoded = cyclic_encoding(torch.deg2rad(wind_direction))
 
         if normalize:
-            wind_speed = normalize_tensor(wind_speed)
-            sin_encoded = normalize_tensor(sin_encoded)
-            cos_encoded = normalize_tensor(cos_encoded)
+            wind_speed = normalize_tensor(wind_speed).cpu()
+            sin_encoded = normalize_tensor(sin_encoded).cpu()
+            cos_encoded = normalize_tensor(cos_encoded).cpu()
         
         u = u.cpu()
         v = v.cpu()

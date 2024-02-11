@@ -112,7 +112,7 @@ class WeatherDataset:
     
     def check_dataset(resolutions, start, end):
         for resol in resolutions:
-            folder = Path(DIR)
+            folder = Path()
             file_path = folder / file_name
 
     

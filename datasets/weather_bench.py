@@ -139,7 +139,7 @@ class WeatherDataset:
             if not file_path.is_file():
                 gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
                 zarr = xr.open_zarr(gcs_path)
-                zarr
+                ds.to_zarr(new_file_path, mode='w', consolidated=True)
 
 
     

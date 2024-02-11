@@ -284,6 +284,7 @@ class WeatherDataset:
             if len(normalized.shape) == 3:
                 for i in range(normalized.size(0)):
                     normalized_dataset.append(normalized[i])
+                    unnormalized_dataset.append(u)
             else:
                 normalized_dataset.append(normalized)
 

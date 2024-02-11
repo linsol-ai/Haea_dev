@@ -142,6 +142,7 @@ class WeatherDataset:
             dataset_path.append(file_path)
 
             if not file_path.is_file():
+                download_blob()
                 download_list.append(((resol / file_name).abspath(), (folder / resol).abspath()))
 
             if download_list:

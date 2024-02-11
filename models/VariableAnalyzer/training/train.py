@@ -59,7 +59,7 @@ def _main() -> None:
         train_year = FLAGS.train_year
         time_len = 4 * FLAGS.time_len
 
-        # shape = (time, v)
+        # shape = (time, var, hidden)
         dataset, shape = get_dataset(train_year, time_len)
 
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")

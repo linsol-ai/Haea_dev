@@ -78,24 +78,7 @@ def preprocess_wind_data(u, v, device, normalize):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0)
 
 
-def download_blob(bucket_name, source_blob_name, destination_file_name):
-    from google.cloud import storage
-
-    storage_client = storage.Client()
-
-    print(source_blob_name)
-    print(destination_file_name)
-
-    bucket = storage_client.bucket(bucket_name)
-    
-    blob = bucket.blob(source_blob_name)
-    blob.download_to_filename(destination_file_name)
-
-    print(
-        "Downloaded storage object {} from bucket {} to local file {}.".format(
-            source_blob_name, bucket_name, destination_file_name
-        )
-    )
+    def download_zarr():
         
 
 class WeatherDataset:

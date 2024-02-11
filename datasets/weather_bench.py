@@ -73,7 +73,7 @@ def preprocess_wind_data(u, v, device, normalize):
 
         wind_speed = wind_speed.cpu()
         wind_direction = wind_direction.cpu()
-        
+        wind_direction = wind_direction.cpu()
         
 
         if normalize:

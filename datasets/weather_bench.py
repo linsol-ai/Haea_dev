@@ -255,7 +255,7 @@ class WeatherDataset:
             futures[k1] = 1
 
             v2 = result[self.NONE_LEVEL_WIND_VAR[0]], result[self.NONE_LEVEL_WIND_VAR[1]]
-            k2 = executor.submit(self.calculate_wind, v2[0][0], v2[1], self.device)
+            k2 = executor.submit(self.calculate_wind, v2[0][0], v2[1][0], self.device)
             futures[k2] = 0
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

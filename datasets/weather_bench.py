@@ -138,6 +138,7 @@ class WeatherDataset:
 
     def load(self):
         result_dataset = []
+        
 
         for dataset in self.datasets:
             result = self.load_data(dataset)

@@ -40,7 +40,7 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, item):
         src, tgt = self.dataset_inc[item]
-        src = self.get_data(src, self.)
+        src = self.get_data(src, self.input_dataset)
         tgt = self.get_data(tgt)
         label = self.get_data(tgt)
         res = torch.concat([src, tgt], dim=0)

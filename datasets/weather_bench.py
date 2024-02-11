@@ -123,8 +123,8 @@ class WeatherDataset:
         self.device = device
         self.normalize = normalize
 
-        
 
+        dataset_path = 
         
         self.load_dataset(dataset_urls)
 

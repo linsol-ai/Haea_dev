@@ -125,7 +125,7 @@ class WeatherDataset:
         self.normalize = normalize
 
 
-        dataset_path = self.check_dataset(RESOLUTION, )
+        dataset_path = self.check_dataset(self.RESOLUTION, )
         
         self.load_dataset(dataset_urls)
 

@@ -91,9 +91,9 @@ class WeatherDataset:
 
     GCS_ADDESS = 'gs://era5_preprocess'
 
-    
 
-    DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
+    DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), )
 
 
     def __init__(self, year_offset:int, device:torch.device, normalize=True):

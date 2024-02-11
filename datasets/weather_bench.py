@@ -82,7 +82,7 @@ def preprocess_wind_data(u, v, device, normalize):
 class ProgressUpdater(beam.DoFn):
 
     def __init__(self):
-        self.pbar = tqdm(total=100)
+        self.pbar = tqdm(total=100, disable=True)
 
     def process(self, element):
         # Update progress bar for each element processed

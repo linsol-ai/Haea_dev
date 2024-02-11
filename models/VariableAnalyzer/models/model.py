@@ -69,7 +69,7 @@ class VariableAnalyzer(nn.Module):
         self.tgt_embedding = TargetEmbedding(var_len, time_len, dim_model, dropout)
         self.src_embedding = SourceEmbedding(var_len, dim_model)
         self.out = nn.Linear(dim_model, dim_model)
-        self.time_se
+        self.tgt_mask = 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         var_seq = torch.tensor([var_seq for _ in range(src.size(0))])

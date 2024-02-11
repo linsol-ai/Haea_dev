@@ -136,11 +136,7 @@ class WeatherDataset:
                 gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
                 print("DOWNLOAD: ", gcs_path)
 
-                ds = xr.open_zarr(gcs_path)
-                ds.to_zarr(file_path, mode='w', consolidated=True, compute=False)
-                with ProgressBar():
-                    ds.persist()
-                ds.close()
+                download_zarr()
         
         return dataset_path
     

@@ -115,6 +115,7 @@ class WeatherDataset:
         for resol in resolutions:
             folder = Path(self.DIR_NAME)
             file_path = folder / resol / file_name
+            if fi
 
     
     def load_dataset(self, dataset_urls):

@@ -193,9 +193,6 @@ class WeatherDataset:
         unnormalized = data.clone().detach()
         normalized = normalize_tensor(data)
 
-        if normalize:
-            data = normalize_tensor(data)
-
         if len(data.shape) == 4:
             data = data.flatten(2)
         else:

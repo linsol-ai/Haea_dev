@@ -10,7 +10,7 @@ import torch.nn.functional as F
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: VariableAnalyzer, var_len: int, predict_dim: int, config: TrainingConfig | None = None, ):
+    def __init__(self, *, model: VariableAnalyzer, var_len: int, predict_dim: int, config: TrainingConfig | None = None, max_iters):
         super().__init__()
         self.var_len = var_len
         self.predict_dim = predict_dim

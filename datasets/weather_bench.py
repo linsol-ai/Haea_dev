@@ -195,6 +195,7 @@ class WeatherDataset:
 
         if len(data.shape) == 4:
             data = data.flatten(2)
+            
         else:
             data = data.flatten(1)
 

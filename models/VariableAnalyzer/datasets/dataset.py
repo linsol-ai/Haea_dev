@@ -28,6 +28,8 @@ class CustomDataset(Dataset):
         # dataset.shape = (time_len, var, hidden)
         dataset = torch.stack(dataset, dim=0)
         dataset = dataset.view(-1, dataset.size(2))
+        end = time.time()
+        print(f"{end - start:.5f} sec")
         return dataset
 
     def make_dataset(self):

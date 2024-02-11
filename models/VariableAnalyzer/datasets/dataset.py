@@ -32,14 +32,14 @@ class CustomDataset(Dataset):
     def make_dataset(self):
         dataset_inc = []
         for t in range(self.dataset.size(0)):
-            src = self.get_data([t])
-            tgt = self.get_data(range(t+1, t+1 + self.time_len))
+            src = self.get_data([src])
+            tgt = range(t+1, t+1 + self.time_len)
             dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc
 
 
     def __getitem__(self, item):
-        return self.dataset_inc[item]
+        src, tgt = self.dataset_inc[item]
         return torch.concat([self.get_data(src), self.get_data(tgt)], dim=0)
 

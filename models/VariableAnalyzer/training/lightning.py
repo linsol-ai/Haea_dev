@@ -20,10 +20,12 @@ class TrainModule(pl.LightningModule):
 
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102
-        print("lr: ", self.config.learning_rate)
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
-        scheduler = CosineWarmupScheduler(optimizer=optimizer, warmup=self.config.warmup_step, max_iters=self.max_iters)
-        return optimizer
+        scheduler = ExponentialLR(
+            optimizer,
+            gamma= self.config.lr_decay_rate
+        )
+        return [optimizer], [scheduler]
 
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:

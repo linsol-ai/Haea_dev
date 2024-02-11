@@ -217,6 +217,7 @@ class WeatherDataset:
         
         # var_dataset.shape = (time, var * level, h * w)
         input_dataset = torch.concat(input_dataset, dim=2)
+        input_dataset = torch.concat(input_dataset, dim=2)
 
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", result_dataset.shape)

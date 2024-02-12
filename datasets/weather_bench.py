@@ -20,7 +20,7 @@ def normalize_tensor(tensor):
     
     # 최대값과 최소값을 찾음
     min_val = tensor.min(dim=0, keepdim=True)[0]
-    max_val = tensor.max(dim=2, keepdim=True)[0]
+    max_val = tensor.max(dim=0, keepdim=True)[0]
     
     # 분모가 0이 되는 것을 방지
     denom = max_val - min_val

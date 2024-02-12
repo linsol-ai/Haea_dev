@@ -39,9 +39,8 @@ class TrainModule(pl.LightningModule):
 
     def configure_optimizers(self) -> Adam:  # noqa: D102
         optimizer = torch.optim.Adam(self.parameters(), lr=self.config.learning_rate)
-        scheduler = ExponentialLR(
-            optimizer,
-            gamma= 0.98
+        self.lr_scheduler = CosineWarmupScheduler(
+            optimizer, warmup=self.hparams.warmup, max_iters=self.hparams.max_iters
         )
         return [optimizer], [scheduler]
 

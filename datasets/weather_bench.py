@@ -365,32 +365,6 @@ class WeatherDataset:
 
                 result[val] = (input, target, min, max)
             
-        wind_result = {}
-        with ThreadPoolExecutor() as executor:
-            futures = {}
-            v1 = result[self.HAS_LEVEL_WIND_VAR[0]], result[self.HAS_LEVEL_WIND_VAR[1]]
-            k1 = executor.submit(self.calculate_wind, v1[0][1], v1[1][1], self.device)
-            futures[k1] = 1
-
-            v2 = result[self.NONE_LEVEL_WIND_VAR[0]], result[self.NONE_LEVEL_WIND_VAR[1]]
-            k2 = executor.submit(self.calculate_wind, v2[0][1], v2[1][1], self.device)
-            futures[k2] = 0
-
-            for future in tqdm(as_completed(futures), desc="Processing futures"):
-                level = futures[future]
-                # shape => (3, time, h * w) or (level * 3, time, h * w)
-                input, target, min, max = future.result()
-                if len(input.shape) == 4:
-                    input = input.view(-1, input.size(2), input.size(3))
-                    target = target.view(-1, target.size(2), target.size(3))
-
-                wind_result[level] = (input, target, min, max)
-
-            del result[self.HAS_LEVEL_WIND_VAR[0]]
-            del result[self.HAS_LEVEL_WIND_VAR[1]]
-            del result[self.NONE_LEVEL_WIND_VAR[0]]
-            del result[self.NONE_LEVEL_WIND_VAR[1]]
-
 
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []

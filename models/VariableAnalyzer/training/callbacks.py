@@ -62,6 +62,9 @@ class VariableVaildationCallback(Callback):
             )
 
             self._logger.experiment.log({"my_custom_id": custom_plot})
+    
+
+    def 
 
 
         

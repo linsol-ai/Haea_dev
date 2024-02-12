@@ -21,8 +21,6 @@ def normalize_tensor(tensor):
     # 최대값과 최소값을 찾음
     min_val = tensor.min()
     max_val = tensor.max()
-
-    print(min_val, max_val)
     
     # 분모가 0이 되는 것을 방지
     denom = max_val - min_val

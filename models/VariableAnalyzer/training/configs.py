@@ -29,6 +29,8 @@ class TrainingConfig(BaseModel):
     gradient_clip_val: float | None = None
     """The value to clip the gradients to."""
 
+    log_batch: 
+
 
 
 class TrainingRunConfig(BaseModel):

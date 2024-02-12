@@ -379,7 +379,6 @@ class WeatherDataset:
         target_dataset = torch.swapaxes(target_dataset, 0, 1)
         
         end = time.time()
-        print(normalizaion.shape)
         print(f"{end - start:.5f} sec")
         return input_dataset, target_dataset, normalizaion
 

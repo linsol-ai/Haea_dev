@@ -129,7 +129,7 @@ class WeatherDataset:
 
     NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation_24hr', 'total_precipitation_6hr']
 
-    PRESSURE_LEVELS = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
+    PRESSURE_LEVELS = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925,1000]
     
     HAS_LEVEL_WIND_VAR = ['u_component_of_wind', 'v_component_of_wind']
 

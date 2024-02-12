@@ -107,7 +107,7 @@ def _main(args) -> None:
                 VariableVaildationCallback(
                     level_var=dataset_info[0],
                     non_level_var=dataset_info[1],
-                    level_info=
+                    level_info=data
                 ),
             ],
             precision="bf16"

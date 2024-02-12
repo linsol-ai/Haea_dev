@@ -46,7 +46,7 @@ class VariableVaildationCallback(Callback):
         
     
     def validate_loss(self, pl_module: TrainModule):
-        data = torch.stack([self._dataset[i] for i in range(self._n_images)], dim=0).to(
+        val_data = torch.stack([self._dataset[i] for i in range(self._n_images)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
 

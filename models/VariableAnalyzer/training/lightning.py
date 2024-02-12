@@ -14,7 +14,7 @@ def denormalize(inputs, mean_std):
     mean = mean_std[:, 0].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
     std = mean_std[:, 1].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
     # 역정규화 수행
-    denormalized = inputs * std + 
+    denormalized = inputs * std + mean
     return denormalized
 
 

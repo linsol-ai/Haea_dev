@@ -57,7 +57,7 @@ class VariableVaildationCallback(Callback):
                 ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
                 keys=["metric Y", "metric Z"],
                 title="Two Random Metrics",
-                xname="Time - 6H"
+                xname="Time - 6Hour"
             )
 
 

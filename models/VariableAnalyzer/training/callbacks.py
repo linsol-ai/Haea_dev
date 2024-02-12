@@ -56,7 +56,7 @@ class VariableVaildationCallback(Callback):
                 xs=[0, 1, 2, 3, 4], 
                 ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
                 keys=["metric Y", "metric Z"],
-                title=n,
+                title=name,
                 xname="Time - 6Hour per"
             )
 

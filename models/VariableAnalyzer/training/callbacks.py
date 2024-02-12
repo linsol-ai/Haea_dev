@@ -7,7 +7,7 @@ from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import Dataset
 from torchvision.utils import make_grid
 import wandb
-import
+from types import Lis
 
 
 class VariableVaildationCallback(Callback):

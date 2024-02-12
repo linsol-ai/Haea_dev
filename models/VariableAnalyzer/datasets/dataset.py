@@ -1,7 +1,5 @@
 from torch.utils.data import Dataset
 import torch
-import random
-import numpy as np
 import time
 
 class CustomDataset(Dataset):

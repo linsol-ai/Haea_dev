@@ -50,7 +50,7 @@ class VariableVaildationCallback(Callback):
             start = i * 13
             end = start + 12
             name = self.level_var[i]
-            self._logger.l
+            
 
         
     

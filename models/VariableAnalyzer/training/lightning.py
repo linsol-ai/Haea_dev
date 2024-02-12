@@ -53,14 +53,13 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         tgt = batch[1]
         label = batch[2]
-        
+
         predict = self.model(src, tgt)
         loss = self.calculate_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
 
-    
     def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))

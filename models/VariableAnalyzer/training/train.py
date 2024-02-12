@@ -103,6 +103,7 @@ def _main(args) -> None:
             gradient_clip_val=config.training.gradient_clip_val,
             callbacks=[
                 LearningRateMonitor(logging_interval="step"),
+                
             ],
             precision="bf16"
         )

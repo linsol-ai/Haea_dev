@@ -77,6 +77,9 @@ class VariableAnalyzer(nn.Module):
         self.src_var_seq, self.tgt_var_seq = self.get_var_seq(self.batch_size, device)
         self.time_seq = self.get_time_seq(self.batch_size, device)
 
+    def change_seq():
+        
+
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 99, 1450), tgt.shape = (batch, 99 * time_len, 1450)

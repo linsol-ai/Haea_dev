@@ -199,7 +199,7 @@ class WeatherDataset:
         dims = []
 
         for dataset in self.datasets:
-            input, target, normal = self.load_data(dataset)
+            input, target, normaliz = self.load_data(dataset)
             input_dataset.append(input)
             target_dataset.append(target)
             min_max_data.append(min_max)

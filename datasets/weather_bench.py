@@ -381,6 +381,7 @@ class WeatherDataset:
         print(f"{end - start:.5f} sec")
         return input_dataset, target_dataset, normalizaion
 
+
     def calculate_wind(self, u_wind, v_wind, device):
         res = preprocess_wind_data(u_wind, v_wind, device)
         torch.cuda.empty_cache()

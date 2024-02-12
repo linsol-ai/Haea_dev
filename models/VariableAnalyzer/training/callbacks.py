@@ -67,6 +67,6 @@ class VariableVaildationCallback(Callback):
         non_level_loss = loss[:, 13 * len(self.level_var):]
         
         for i in range(len(self.level_var)):
-            
+            start = 
 
         return loss

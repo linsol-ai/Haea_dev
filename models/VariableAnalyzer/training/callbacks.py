@@ -1,7 +1,6 @@
 import numpy as np
 import pytorch_lightning as pl
 import torch
-import torch
 from pytorch_lightning import Callback
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import Dataset

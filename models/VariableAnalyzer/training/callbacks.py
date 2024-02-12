@@ -65,7 +65,7 @@ class VariableVaildationCallback(Callback):
     
 
     def visualization_non_level(self, non_level_loss):
-        for i in range(len(self.level_var)):
+        for i in range(len(self.non_level_var)):
             start = i * 13
             end = start + 13
             name = self.level_var[i]

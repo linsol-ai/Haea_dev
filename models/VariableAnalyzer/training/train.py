@@ -91,7 +91,7 @@ def _main(args) -> None:
 
         print("setting lr rate: ", config.training.learning_rate)
 
-        model_pl = TrainModule(model=model, min_max, var_len=shape[1], predict_dim=dims[0], max_iters=config.training.max_epochs*len(train_loader), config=config.training)
+        model_pl = TrainModule(model=model, minmin_max, var_len=shape[1], predict_dim=dims[0], max_iters=config.training.max_epochs*len(train_loader), config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 

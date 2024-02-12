@@ -110,3 +110,5 @@ class VariableVaildationCallback(Callback):
 
         self.visualization_level(level_loss)
         self.visualization_non_level(non_level_loss)
+
+        pl_module.model.change_seq(self.log_batch, pl_module.device)

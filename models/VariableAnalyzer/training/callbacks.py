@@ -45,18 +45,18 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
         
     
-def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor):
-        # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
-        predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
-        # predict.shape = (batch, var_len, time_len, 1450) -> not nomalized
-        predict = predict.permute(0, 2, 1, 3)
-        min_max = self.min_max_data[0]
-        reversed_predict = denormalize(predict, min_max)
-        reversed_predict = reversed_predict.permute(0, 2, 1, 3)
-        reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
+    def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor):
+            # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
+            predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
+            # predict.shape = (batch, var_len, time_len, 1450) -> not nomalized
+            predict = predict.permute(0, 2, 1, 3)
+            min_max = self.min_max_data[0]
+            reversed_predict = denormalize(predict, min_max)
+            reversed_predict = reversed_predict.permute(0, 2, 1, 3)
+            reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
 
-        loss = F.mse_loss(reversed_predict, label)
-        return loss
+            loss = F.mse_loss(reversed_predict, label)
+            return loss
 
 
     def _plot_predictions(self, pl_module: DVAETrainModule, step) -> None:

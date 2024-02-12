@@ -293,7 +293,7 @@ class WeatherDataset:
                 for i in range(input.size(0)):
                     input_dataset.append(input[i])
                     target_dataset.append(target[i])
-                    min_max_data.append([min, max))
+                    min_max_data.append([min, max])
             else:
                 input_dataset.append(input)
                 target_dataset.append(target)

@@ -54,7 +54,7 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1]
         label = batch[2]
         output = self.model(src, tgt)
-        loss = self.ca(label[:, :, :self.predict_dim], output[:, :, :self.predict_dim])
+        loss = self.calculate_loss(label[:, :, :self.predict_dim], output[:, :, :self.predict_dim])
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

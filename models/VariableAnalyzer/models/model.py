@@ -65,6 +65,7 @@ class VariableAnalyzer(nn.Module):
             dropout=dropout,
             batch_first=True
         )
+        
         self.tgt_embedding = TargetEmbedding(var_len, time_len, dim_model, dropout)
         self.src_embedding = SourceEmbedding(var_len, dim_model)
         self.out = nn.Linear(dim_model, predict_dim)

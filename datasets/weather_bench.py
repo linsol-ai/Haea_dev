@@ -149,7 +149,6 @@ class WeatherDataset:
         self.device = device
         self.normalize = normalize
         dataset_path = self.check_dataset(self.RESOLUTION, start, end)
-        
         self.load_dataset(dataset_path)
 
     

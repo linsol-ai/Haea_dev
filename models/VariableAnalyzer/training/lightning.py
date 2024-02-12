@@ -23,7 +23,7 @@ class TrainModule(pl.LightningModule):
     
     def setup(self, stage: str) -> None:
         print(stage)
-        self.model.init_seq(self.device)
+        self.model.init_seq(self.device) 
         self.min_max_data = self.min_max_data.to(self.device)
 
 

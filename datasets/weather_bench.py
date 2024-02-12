@@ -379,7 +379,7 @@ class WeatherDataset:
         
         end = time.time()
         print(f"{end - start:.5f} sec")
-        return input_dataset, torch.concat([target_dataset, target_wind_dataset], dim=1), min_max_data
+        return input_dataset, target_dataset, min_max_data
 
     def calculate_wind(self, u_wind, v_wind, device):
         res = preprocess_wind_data(u_wind, v_wind, device)

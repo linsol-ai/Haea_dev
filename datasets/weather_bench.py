@@ -378,7 +378,7 @@ class WeatherDataset:
         target_dataset = torch.swapaxes(target_dataset, 0, 1)
 
         print(dataset['geopotential'][23][2].values)
-        print(target_dataset[23][])
+        print(target_dataset[23][2])
         
         end = time.time()
         print(f"{end - start:.5f} sec")

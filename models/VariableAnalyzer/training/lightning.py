@@ -64,7 +64,7 @@ class TrainModule(pl.LightningModule):
         for batch in predict:
             for i in range(min_max.size(0)):
                 min, max = min_max[i]
-
+                
 
 
 

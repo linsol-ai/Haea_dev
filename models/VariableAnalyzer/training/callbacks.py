@@ -66,7 +66,7 @@ class VariableVaildationCallback(Callback):
 
     def visualization_non_level(self, non_level_loss):
         for i in range(len(self.non_level_var)):
-            name = self.level_var[i]
+            name = self.non_level_var[i]
             loss = non_level_loss[i]
 
             data = [[x, y] for (x, y) in zip(range(loss.size(0)), loss)]

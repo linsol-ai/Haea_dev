@@ -69,6 +69,10 @@ class TrainModule(pl.LightningModule):
         # reversed_predict.shape = (batch, time_len * var_len, 1450) -> nomalized
         loss = F.mse_loss(reversed_predict, label, reduction=reduction)
         return loss
+
+    def optimizer_step(self, *args, **kwargs):
+        super().optimizer_step(*args, **kwargs)
+        self.lr_scheduler.step()  # Step per iteration
         
 
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102

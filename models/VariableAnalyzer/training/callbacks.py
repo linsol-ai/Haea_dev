@@ -45,7 +45,7 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
         
     
-    def validate_loss(self):
+    def validate_loss(self, ):
            
 
             return loss

@@ -55,7 +55,7 @@ class VariableVaildationCallback(Callback):
         label = torch.stack([self._dataset[i][2] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
-        predict = pl_module(src, tgt)
+        predict = pl_module.model(src, tgt)
         loss = self.calculate_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
 
         mse_loss = pl_module.

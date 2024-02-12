@@ -43,7 +43,7 @@ class VariableVaildationCallback(Callback):
         if (trainer.global_step + 1) % self.log_every_n_step == 0:
             if pl_module.logger is None:
                 raise ValueError("Logger is not set.")
-            self._plot_predictions(pl_module, trainer.global_step + 1)
+            self.validation(pl_module, trainer.global_step + 1)
     
 
     def visualization_level(self, level_loss):

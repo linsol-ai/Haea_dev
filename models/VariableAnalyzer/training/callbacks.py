@@ -61,7 +61,7 @@ class VariableVaildationCallback(Callback):
                 xname="Time - 6Hour per"
             )
 
-            self._logger.experiment.log({f"val/Atmospheric Loss/{name}": custom_plot})
+            self._logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 
     def visualization_non_level(self, non_level_loss):

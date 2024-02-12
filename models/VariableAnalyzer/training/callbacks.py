@@ -65,6 +65,6 @@ class VariableVaildationCallback(Callback):
 
         level_loss = loss[:, :13 * len(self.level_var)]
         non_level_loss = loss[:, 13 * len(self.level_var):]
-
+        
 
         return loss

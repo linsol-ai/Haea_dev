@@ -49,7 +49,7 @@ class VariableVaildationCallback(Callback):
         src = torch.stack([self._dataset[i][0] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
-        tgt = torch.stack([self._dataset[i][0] for i in range(self.val_batch)], dim=0).to(
+        tgt = torch.stack([self._dataset[i][1] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
 

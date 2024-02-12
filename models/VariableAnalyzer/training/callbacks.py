@@ -83,7 +83,7 @@ class VariableVaildationCallback(Callback):
 
 
     def validation(self, pl_module: TrainModule):
-        pl_module.model.change_seq(self.log_batch, pl.)
+        pl_module.model.change_seq(self.log_batch, pl_module.device)
         src = torch.stack([self._dataset[i][0] for i in range(self.log_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )

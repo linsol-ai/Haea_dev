@@ -80,7 +80,7 @@ class VariableVaildationCallback(Callback):
                 title=name,
             )
 
-            self._logger.experiment.log({"my_custom_id": custom_plot})
+            self._logger.experiment.log({f"val/Atmospheric MSE Loss/{name}": custom_plot})
 
 
         

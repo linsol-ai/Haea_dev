@@ -10,7 +10,7 @@ from models.VariableAnalyzer.training.params_schedule import CosineWarmupSchedul
 
 
 def reverse_normalizaion(source, min, max):
-    original = source * ()
+    original = source * (max-min)
 
 
 

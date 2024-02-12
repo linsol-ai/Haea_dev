@@ -68,7 +68,7 @@ class TrainModule(pl.LightningModule):
         min_max = self.min_max_data[0]
         reversed_predict = reverse_normalization(predict, min_max)
         reversed_predict = reversed_predict.permute(0, 2, 1, 3)
-        reversed_predict = reversed_predict.view(predict.size(0), -1, self.var_len, predict.size(2))
+        reversed_predict = reversed_predict.view(predict.size(0), -1, predict.size(2))
 
         loss = F.mse_loss(reversed_predict, label)
         return loss

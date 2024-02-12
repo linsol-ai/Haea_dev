@@ -8,6 +8,10 @@ from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 
+
+ def reverse_normalizaion(self):
+    
+
 class TrainModule(pl.LightningModule):
 
     def __init__(self, *, model: VariableAnalyzer, min_max_data: torch.Tensor, var_len: int, predict_dim: int, max_iters: int, config: TrainingConfig | None = None):

@@ -82,8 +82,6 @@ class VariableVaildationCallback(Callback):
             self._logger.experiment.log({f"val/Surface Loss/{name}": custom_plot})
 
 
-        
-    
     def validation(self, pl_module: TrainModule):
         src = torch.stack([self._dataset[i][0] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]

@@ -30,8 +30,8 @@ class VariableVaildationCallback(Callback):
             logger: Th  e logger to be used to save the visualizations.
         """
         self.level_var = level_var
-        self.level_var = level_var
-        
+        self.non_level_var = non_level_var
+
         self.log_every_n_step = log_every_n_step
         self._dataset = dataset
         self._logger = logger

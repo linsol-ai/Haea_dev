@@ -98,11 +98,11 @@ class VariableVaildationCallback(Callback):
         print(loss.shape)
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), pl_module.model.time_len, pl_module.model.var_len, loss.size(2))
-        
+
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
 
-        # loss.shape = (var_len, time_len)
+        # loss.shape = (var_len, time_len. 1450)
         loss = torch.sum(loss, dim=0) / self.log_batch
         loss = torch.sum(loss, dim=2)
 

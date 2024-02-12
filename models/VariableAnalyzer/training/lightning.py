@@ -20,13 +20,13 @@ def denormalize(inputs, min_max):
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: VariableAnalyzer, min_max_data: torch.Tensor, var_len: int, predict_dim: int, max_iters: int, config: TrainingConfig | None = None):
+    def __init__(self, *, model: VariableAnalyzer, mean_std: torch.Tensor, var_len: int, predict_dim: int, max_iters: int, config: TrainingConfig | None = None):
         super().__init__()
         self.var_len = var_len
         self.max_iters = max_iters
         self.predict_dim = predict_dim
         self.model = model
-        self.min_max_data = min_max_data
+        self.min_max_data = mean_std
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 

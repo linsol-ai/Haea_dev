@@ -70,6 +70,7 @@ class VariableVaildationCallback(Callback):
             loss = non_level_loss[i]
 
             data = [[x, y] for (x, y) in zip(range(loss.size(1)), loss)]
+            table = wandb.Table(data=data, columns = ["avg loss", "Time - 6Hour per"])
 
 
             custom_plot = wandb.plot.line(

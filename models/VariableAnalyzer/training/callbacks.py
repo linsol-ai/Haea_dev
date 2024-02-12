@@ -64,7 +64,7 @@ class VariableVaildationCallback(Callback):
         loss = loss.permute(0, 2, 1, 3)
 
         level_loss = loss[:, :13 * len(self.level_var)]
-        unlevel_loss = loss[:, :13 * len(self.level_var)]
+        non_level_loss = loss[:, :13 * len(self.level_var)]
 
 
         return loss

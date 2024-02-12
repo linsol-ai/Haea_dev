@@ -11,7 +11,7 @@ from models.VariableAnalyzer.training.params_schedule import CosineWarmupSchedul
 
 def denormalize(inputs, mean_std):
     # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
-    mean_std = mean_std[:, 0].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
+    mean = mean_std[:, 0].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
     max_val = mean_std[:, 1].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
     # 역정규화 수행
     denormalized = inputs * (max_val - min_val) + min_val

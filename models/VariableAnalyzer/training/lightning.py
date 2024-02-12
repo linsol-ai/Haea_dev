@@ -34,7 +34,7 @@ class TrainModule(pl.LightningModule):
     def setup(self, stage: str) -> None:
         print(stage)
         self.model.init_seq(self.device)
-        self.min_max_data = self.min_max_data.to(self.device)
+        self.mean_std = self.mean_std.to(self.device)
 
 
     def configure_optimizers(self) -> AdamW:  # noqa: D102

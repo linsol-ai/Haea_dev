@@ -64,7 +64,22 @@ class VariableVaildationCallback(Callback):
             self._logger.experiment.log({"my_custom_id": custom_plot})
     
 
-    def 
+    def visualization_level(self, level_loss):
+        for i in range(len(self.level_var)):
+            start = i * 13
+            end = start + 13
+            name = self.level_var[i]
+            loss = level_loss[start:end]
+
+            custom_plot = wandb.plot.line_series(
+                xs=range(loss.size(1)), 
+                ys=loss,
+                keys=self.level_info,
+                title=name,
+                xname="Time - 6Hour per"
+            )
+
+            self._logger.experiment.log({"my_custom_id": custom_plot})
 
 
         

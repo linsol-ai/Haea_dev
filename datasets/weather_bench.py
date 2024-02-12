@@ -355,7 +355,7 @@ class WeatherDataset:
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []
         target_dataset = []
-        noma = []
+        norm = []
 
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             input, target, min, max = result[val]

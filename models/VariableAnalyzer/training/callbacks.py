@@ -72,7 +72,7 @@ class VariableVaildationCallback(Callback):
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
 
-        # loss.shape = (batch, var_len, time_len)
+        # loss.shape = (var_len, time_len)
         loss = torch.sum(loss, dim=0)
         loss = torch.sum(loss, dim=2)
 

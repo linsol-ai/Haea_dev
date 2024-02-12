@@ -46,7 +46,9 @@ class VariableVaildationCallback(Callback):
     
 
     def visualization_level(self, level_loss):
-        
+        for i in range(len(self.level_var)):
+            start = i * 13
+            end = start + 12
         
     
     def validation(self, pl_module: TrainModule):

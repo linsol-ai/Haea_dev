@@ -64,7 +64,7 @@ class VariableVaildationCallback(Callback):
             self._logger.experiment.log({"my_custom_id": custom_plot})
     
 
-    def visualization_level(self, level_loss):
+    def visualization_non_level(self, level_loss):
         for i in range(len(self.level_var)):
             start = i * 13
             end = start + 13

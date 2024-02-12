@@ -10,7 +10,7 @@ from models.VariableAnalyzer.training.params_schedule import CosineWarmupSchedul
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: VariableAnalyzer, min_max_data, var_len: int, predict_dim: int, max_iters: int, config: TrainingConfig | None = None):
+    def __init__(self, *, model: VariableAnalyzer, min_max_data: torch.Tensor, var_len: int, predict_dim: int, max_iters: int, config: TrainingConfig | None = None):
         super().__init__()
         self.var_len = var_len
         self.max_iters = max_iters

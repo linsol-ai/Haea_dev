@@ -17,6 +17,7 @@ from models.VariableAnalyzer.datasets.dataset import CustomDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
+from models.VariableAnalyzer.training.lightning import TrainModule
 
 FLAGS = flags.FLAGS
 YEAR_OFFSET = flags.DEFINE_integer('train_offset', None, help='training year')

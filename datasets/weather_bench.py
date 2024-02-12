@@ -311,7 +311,7 @@ class WeatherDataset:
 
         input_wind_dataset.extend(wind_result[1][0])
         for i in range(wind_result[1][0].size(0)):
-
+            
 
         target_wind_dataset = []
         target_wind_dataset.extend(wind_result[0][1])

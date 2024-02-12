@@ -45,7 +45,7 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
     
 
-    def visualization_level(self, ):
+    def visualization_level(self, level_loss):
 
         
     

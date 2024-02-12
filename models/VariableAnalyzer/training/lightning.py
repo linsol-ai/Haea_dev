@@ -52,12 +52,12 @@ class TrainModule(pl.LightningModule):
         label = batch[2]
 
         predict = self.model(src, tgt)
-        loss = F.mse_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
+        loss = self.calculate_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
 
-    def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor, reduction: str | None = 'mean'):
+    def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor, reduction: str | N = 'mean'):
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized

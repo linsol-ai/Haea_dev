@@ -80,7 +80,7 @@ class VariableVaildationCallback(Callback):
                 title=name,
             )
 
-            self._logger.experiment.log({f"val/Surface AcMSE Loss/{name}": custom_plot})
+            self._logger.experiment.log({f"val/Surface Loss/{name}": custom_plot})
 
 
         

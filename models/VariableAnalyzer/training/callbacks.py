@@ -76,7 +76,7 @@ class VariableVaildationCallback(Callback):
             custom_plot = wandb.plot.line(
                 table,
                 "avg loss", "Time - 6Hour per",
-                stroke=None
+                stroke=None,
                 title=name,
             )
 

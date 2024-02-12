@@ -1,7 +1,7 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
 from typing import Tuple
-from torch.optim import AdamW
+from torch.optim import Adam
 import torch.nn.functional as F
 from torch.optim.lr_scheduler import ExponentialLR
 from models.VariableAnalyzer.models.model import VariableAnalyzer

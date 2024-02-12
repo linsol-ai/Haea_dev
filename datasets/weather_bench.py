@@ -392,11 +392,6 @@ class WeatherDataset:
         target_dataset = torch.swapaxes(target_dataset, 0, 1)
        
 
-        # wind.shape => (level, time, h * w)
-        input_wind_dataset = torch.stack(input_wind_dataset, dim=0)
-        target_wind_dataset = torch.stack(target_wind_dataset, dim=0)
-        min_max_data = torch.tensor(min_max_data)
-
         # shape => (time, level, h * w)
         input_wind_dataset = torch.swapaxes(input_wind_dataset, 0, 1)
         target_wind_dataset = torch.swapaxes(target_wind_dataset, 0, 1)

@@ -49,7 +49,7 @@ class VariableVaildationCallback(Callback):
         for i in range(len(self.level_var)):
             start = i * 13
             end = start + 12
-            
+
         
     
     def validation(self, pl_module: TrainModule):
@@ -73,9 +73,7 @@ class VariableVaildationCallback(Callback):
         level_loss = loss[:, :13 * len(self.level_var)]
         non_level_loss = loss[:, 13 * len(self.level_var):]
         
-        for i in range(len(self.level_var)):
-            start = i * 13
-            end = start + 12
+       
 
 
         return loss

@@ -9,7 +9,7 @@ from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 
 
-def reverse_normalizaion():
+def reverse_normalizaion(source, min, max):
 
 
 

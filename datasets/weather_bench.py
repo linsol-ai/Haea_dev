@@ -79,7 +79,7 @@ def preprocess_wind_data(u, v, device):
         un_sin_encoded = sin_encoded.clone().detach()
         un_cos_encoded = cos_encoded.clone().detach()
 
-        wind_speed = normalize_tensor(wind_speed)
+        wind_speed, min, max = normalize_tensor(wind_speed)
         sin_encoded = normalize_tensor(sin_encoded)
         cos_encoded = normalize_tensor(cos_encoded)
         
@@ -246,7 +246,7 @@ class WeatherDataset:
                 if len(input.shape) == 3:
                     input = input.swapaxes(0, 1)
                     target = target.swapaxes(0, 1)
-                    
+
                 result[val] = (input, target, min, max)
             
         wind_result = {}

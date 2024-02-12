@@ -19,7 +19,7 @@ def normalize_tensor(tensor):
     tensor = tensor.view(shape[0], shape[1], -1)
     
     # 최대값과 최소값을 찾음
-    min_val = tensor.min(dim=2, keepdim=True)[0]
+    min_val = tensor.min(dim=0, keepdim=True)[0]
     max_val = tensor.max(dim=2, keepdim=True)[0]
     
     # 분모가 0이 되는 것을 방지

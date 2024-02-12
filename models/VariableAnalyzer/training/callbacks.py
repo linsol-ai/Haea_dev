@@ -62,25 +62,3 @@ class VariableVaildationCallback(Callback):
 
 
         return loss
-
-
-    def _plot_predictions(self, pl_module: TrainModule, step) -> None:
-        img = torch.stack([self._dataset[i] for i in range(self._n_images)], dim=0).to(
-            pl_module.device  # type: ignore[arg-type]
-        )
-        with torch.no_grad():
-            temperature = pl_module._temperature_scheduler.get_value()
-            code, logits = pl_module.dvae.get_codebook_indices(img)
-            hard_recons = pl_module.dvae.decode(code, logits.shape[2:]).detach().cpu()
-            recons = pl_module.dvae(
-                img,
-                return_loss = False,
-                return_recons = True,
-                temp = temperature
-            ).detach().cpu()
-            img = img.detach().cpu()
-            code = code.detach().cpu()
-
-            grid = make_grid(torch.concat([img, recons, hard_recons], dim=0), nrow=self._n_images)
-            self._logger.log_image("val/predictions", [grid], step)
-            self._plot_histogram_codes(code, step)

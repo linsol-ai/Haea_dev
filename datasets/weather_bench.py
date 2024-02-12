@@ -173,11 +173,6 @@ class WeatherDataset:
         data = torch.from_numpy(data)
         # data.shape = (time, width, height)
         # data.shape = (time, width * height)
-        has_nan = torch.isnan(data).any()
-
-        if has_nan:
-            nan_indices = torch.isnan(data)
-            data[nan_indices] = 0
 
         target = data.clone().detach()
         input, mean, std = normalize_tensor(data)

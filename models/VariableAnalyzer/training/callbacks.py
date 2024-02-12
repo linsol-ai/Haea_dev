@@ -61,7 +61,7 @@ class VariableVaildationCallback(Callback):
                 xname="Time - 6Hour per"
             )
 
-            self._logger.experiment.log({"val": custom_plot})
+            self._logger.experiment.log({"validation/": custom_plot})
     
 
     def visualization_non_level(self, non_level_loss):

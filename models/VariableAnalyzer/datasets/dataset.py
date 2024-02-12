@@ -1,6 +1,5 @@
 from torch.utils.data import Dataset
 import torch
-import time
 
 class CustomDataset(Dataset):
 

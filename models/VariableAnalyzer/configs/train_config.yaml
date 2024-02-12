@@ -7,7 +7,7 @@ model:
   dropout: 0.1
 training:
   learning_rate: 1e-4
-  warmup_step: 500
+  warmup_step: 1000
   batch_size: 8
   max_epochs: 20  
   gradient_clip_val: 0.5  

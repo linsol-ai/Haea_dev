@@ -94,7 +94,7 @@ class VariableVaildationCallback(Callback):
             pl_module.device  # type: ignore[arg-type]
         )
         predict = pl_module.model(src, tgt)
-        loss = pl_module.calculate_loss(predict[:, :, :pl_module.predict_dim], label[:, :, :pl_module.predict_dim], reduction=)
+        loss = pl_module.calculate_loss(predict[:, :, :pl_module.predict_dim], label[:, :, :pl_module.predict_dim], reduction='none')
         print(loss)
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, loss.size(3))

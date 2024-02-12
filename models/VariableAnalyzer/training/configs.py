@@ -31,8 +31,6 @@ class TrainingConfig(BaseModel):
 
     log_batch: int = Field(ge=0, default=256)
 
-    log_every_n_step
-
 
 
 class TrainingRunConfig(BaseModel):

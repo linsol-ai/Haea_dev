@@ -9,8 +9,8 @@ from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 
 
-def reverse_normalizaion(self):
-    
+def reverse_normalizaion():
+
 
 
 

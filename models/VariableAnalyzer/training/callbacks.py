@@ -60,6 +60,7 @@ class VariableVaildationCallback(Callback):
                 title=name,
                 xname="Time - 6Hour per"
             )
+            
 
 
         

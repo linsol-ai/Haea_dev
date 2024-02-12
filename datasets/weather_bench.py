@@ -324,11 +324,10 @@ class WeatherDataset:
         input_wind_dataset = torch.stack(input_wind_dataset, dim=0)
         target_wind_dataset = torch.stack(target_wind_dataset, dim=0)
         min_max_data = torch.stack(min_max_data, dim=0)
-        
+
         # shape => (time, level, h * w)
         input_wind_dataset = torch.swapaxes(input_wind_dataset, 0, 1)
         target_wind_dataset = torch.swapaxes(target_wind_dataset, 0, 1)
-
         
         end = time.time()
         print(f"{end - start:.5f} sec")

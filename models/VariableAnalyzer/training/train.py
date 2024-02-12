@@ -107,7 +107,7 @@ def _main(args) -> None:
                 VariableVaildationCallback(
                     
                   
-                    log_every_n_step=config.training.,
+                    log_every_n_step=config.training.log_every_n_step,
                     dataset=train_ds,
                     logger=logger,
                 ),

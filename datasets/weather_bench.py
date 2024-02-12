@@ -355,7 +355,7 @@ class WeatherDataset:
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []
         target_dataset = []
-        c = []
+        normalizaion = []
 
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             input, target, mean, std = result[val]
@@ -379,7 +379,7 @@ class WeatherDataset:
         
         end = time.time()
         print(f"{end - start:.5f} sec")
-        return input_dataset, target_dataset, min_max_data
+        return input_dataset, target_dataset, normalizaion
 
     def calculate_wind(self, u_wind, v_wind, device):
         res = preprocess_wind_data(u_wind, v_wind, device)

@@ -46,8 +46,8 @@ class TrainModule(pl.LightningModule):
         return loss
 
     def reverse_normalizaion(self):
-
         
+
     
     def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized

@@ -349,7 +349,7 @@ class WeatherDataset:
                     input = input.swapaxes(0, 1)
                     target = target.swapaxes(0, 1)
 
-                result[val] = (input, target, min, max)
+                result[val] = (input, target, min, std)
             
 
         # dataset.shape => (var*level, time, h * w)

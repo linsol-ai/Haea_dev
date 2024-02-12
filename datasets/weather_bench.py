@@ -14,7 +14,7 @@ import apache_beam as beam
 
 def normalize_tensor(tensor):
     mean = tensor.mean()
-    td = tensor.std()
+    std = tensor.std()
 
 # 정규화
 normalized_tensor = (tensor - mean) / std

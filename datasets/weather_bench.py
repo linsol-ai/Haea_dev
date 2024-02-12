@@ -210,7 +210,7 @@ class WeatherDataset:
         dims = []
 
         for dataset in self.datasets:
-            input, target = self.load_data(dataset)
+            input, target, min_max = self.load_data(dataset)
             input_dataset.append(input)
             target_dataset.append(target)
             dims.append(input.size(2))

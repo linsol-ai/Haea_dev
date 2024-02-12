@@ -11,7 +11,7 @@ import wandb
 from training.lightning import DVAETrainModule
 
 
-class VariableCallback(Callback):
+class VariableVaildationCallback(Callback):
     """Callback to save visualizations of a dataset throughout training.
 
     The callback will save

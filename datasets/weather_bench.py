@@ -246,6 +246,7 @@ class WeatherDataset:
                 if len(input.shape) == 3:
                     input = input.swapaxes(0, 1)
                     target = target.swapaxes(0, 1)
+                    
                 result[val] = (input, target, min, max)
             
         wind_result = {}

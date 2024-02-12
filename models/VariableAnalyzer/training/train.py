@@ -56,7 +56,7 @@ def _main(args) -> None:
         time_len = 4 * FLAGS.time_len
 
         # shape = (time, var, hidden)
-        dataset, shape, min_max, dims = get_dataset(train_offset, time_len)
+        weather_dataset, shape, min_max, dims = get_dataset(train_offset, time_len)
 
         print("DATASET SHAPE: " , shape)
 

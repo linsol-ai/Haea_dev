@@ -66,7 +66,7 @@ class TrainModule(pl.LightningModule):
         # predict.shape = (batch, var_len, time_len, 1450) -> not nomalized
         predict = predict.permute(0, 2, 1, 3)
         min_max = self.min_max_data[0]
-        reversed_predict = reverse_normalization(predict, min_max_data)
+        reversed_predict = reverse_normalization(predict, min_max)
         
 
             

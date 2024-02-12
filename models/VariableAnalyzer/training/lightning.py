@@ -67,12 +67,7 @@ class TrainModule(pl.LightningModule):
         predict = predict.permute(0, 2, 1, 3)
         min_max = self.min_max_data[0]
 
-        for b in range(predict.size(0)):
-            batch = predict[b]
-            for i in range(min_max.size(0)):
-                min, max = min_max[i]
-                batch[i] = reverse_normalizaion(batch[i], min, max)
-            predict[b] = batch
+        reversed_predict = reverse_normalization(predict, min_max_data)
         
 
             

@@ -19,7 +19,7 @@ class VariableVaildationCallback(Callback):
     """
 
     def __init__(
-        self, level_variables:List, log_every_n_step: int, dataset: Dataset, logger: WandbLogger
+        self, level_variables: List, log_every_n_step: int, dataset: Dataset, logger: WandbLogger
     ) -> None:
         """Init the callback.
 

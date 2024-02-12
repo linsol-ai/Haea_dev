@@ -106,7 +106,8 @@ def _main(args) -> None:
                 LearningRateMonitor(logging_interval="step"),
                 VariableVaildationCallback(
                     level_var=dataset_info[0],
-                    non_level_var=da
+                    non_level_var=dataset_info[1],
+                    level_info=
                 ),
             ],
             precision="bf16"

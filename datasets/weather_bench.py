@@ -200,7 +200,7 @@ class WeatherDataset:
         else:
             input = input.flatten(1)
             target = target.flatten(1)
-        return input, target
+        return input, target, min, max
     
 
     def load(self):

@@ -43,6 +43,9 @@ class VariableVaildationCallback(Callback):
             if pl_module.logger is None:
                 raise ValueError("Logger is not set.")
             self._plot_predictions(pl_module, trainer.global_step + 1)
+    
+
+    def visual
         
     
     def validation(self, pl_module: TrainModule):
@@ -69,6 +72,6 @@ class VariableVaildationCallback(Callback):
         for i in range(len(self.level_var)):
             start = i * 13
             end = start + 12
-            
+
 
         return loss

@@ -45,9 +45,7 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
         
     
-    def _plot_histogram_codes(self, code, step):
-        hist_plot = wandb.Histogram(code)
-        self._logger.experiment.log({"val/codebook_indices": hist_plot}, step)
+
 
 
     def _plot_predictions(self, pl_module: DVAETrainModule, step) -> None:

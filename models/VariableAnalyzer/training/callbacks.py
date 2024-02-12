@@ -109,7 +109,7 @@ class VariableVaildationCallback(Callback):
         level_loss = loss[:, :13 * len(self.level_var)]
         non_level_loss = loss[:, 13 * len(self.level_var):]
 
-        pl_module.log
+        self.val
         
        
 

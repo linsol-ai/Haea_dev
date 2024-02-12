@@ -200,7 +200,7 @@ class WeatherDataset:
         else:
             input = input.flatten(1)
             target = target.flatten(1)
-            
+
         return input, target, min, max
     
 
@@ -241,7 +241,7 @@ class WeatherDataset:
             for future in tqdm(as_completed(futures), desc="Processing futures"):
                 val = futures[future]
                 # shape => (level, time, h * w) or (time, h * w)
-                input, target = future.result()
+                input, target, min, max = future.result()
                 if len(input.shape) == 3:
                     input = input.swapaxes(0, 1)
                     target = target.swapaxes(0, 1)

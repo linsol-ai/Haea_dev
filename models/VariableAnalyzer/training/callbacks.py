@@ -28,7 +28,7 @@ class VariableVaildationCallback(Callback):
             n_images: The number of images to save.
             log_every_n_epochs: Log the visualization every `log_every_n_epochs` epochs.
             dataset: The dataset to visualize.
-            logger: The logger to be used to save the visualizations.
+            logger: Th  e logger to be used to save the visualizations.
         """
         self._n_images = n_images
         self.log_every_n_step = log_every_n_step

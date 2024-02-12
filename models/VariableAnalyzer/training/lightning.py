@@ -61,9 +61,11 @@ class TrainModule(pl.LightningModule):
         predict = predict.permute(0, 2, 1, 3)
         min_max = self.min_max_data[0]
 
+        for batch 
+
         for i in range(min_max.size(0)):
             min, max = min_max[i]
-            
+
 
 
 

@@ -192,7 +192,7 @@ class WeatherDataset:
             data[nan_indices] = 0
 
         target = data.clone().detach()
-        input = normalize_tensor(data)
+        input, min, max = normalize_tensor(data)
 
         if len(data.shape) == 4:
             input = input.flatten(2)

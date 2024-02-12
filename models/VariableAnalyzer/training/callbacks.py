@@ -29,7 +29,7 @@ class VariableVaildationCallback(Callback):
             dataset: The dataset to visualize.
             logger: Th  e logger to be used to save the visualizations.
         """
-        self._n_images = n_images
+        self.level_var = level_var
         self.log_every_n_step = log_every_n_step
         self._dataset = dataset
         self._logger = logger

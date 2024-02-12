@@ -55,8 +55,8 @@ class VariableVaildationCallback(Callback):
         label = torch.stack([self._dataset[i][2] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
-
         
+
 
 
         return loss

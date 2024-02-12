@@ -9,15 +9,15 @@ from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 
 
-def reverse_normalization(predict, min_max):
-    # 예측값을 복사하여 결과 텐서 생성
-    reversed_predict = predict.clone()
-    # 각 변수에 대해 최소-최대값 획득
-    min_values = min_max[:, 0].unsqueeze(1)  # (var_len, 1)
-    max_values = min_max[:, 1].unsqueeze(1)  # (var_len, 1)
-    # 최소-최대 역정규화
-    reversed_predict = reversed_predict * (max_values - min_values) + min_values
-    return reversed_predict
+def denormalize(inputs, min_max):
+    # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
+    min_val = min_max[:, 0].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
+    max_val = min_max[:, 1].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
+
+    # 역정규화 수행
+    denormalized = inputs * (max_val - min_val) + min_val
+
+    return denormalized
 
 
 

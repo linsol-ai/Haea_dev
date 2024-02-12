@@ -97,7 +97,7 @@ class VariableVaildationCallback(Callback):
         loss = pl_module.calculate_loss(predict[:, :, :pl_module.predict_dim], label[:, :, :pl_module.predict_dim], reduction='none')
         print(loss.shape)
         # loss.shape = (batch, time_len, var_len, 1450)
-        loss = loss.view(loss.size(0), -1, pl_module.model.var_len, loss.size(2))
+        loss = loss.view(loss.size(0), pl_module.model.t, pl_module.model.var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
 

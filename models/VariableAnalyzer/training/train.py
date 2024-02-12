@@ -105,11 +105,7 @@ def _main(args) -> None:
             callbacks=[
                 LearningRateMonitor(logging_interval="step"),
                 VariableVaildationCallback(
-                
                     
-                    log_every_n_step=config.training.log_every_n_step,
-                    dataset=train_ds,
-                    logger=logger,
                 ),
             ],
             precision="bf16"

@@ -70,7 +70,7 @@ class VariableVaildationCallback(Callback):
             loss = non_level_loss[i]
 
             data = [[x, y] for (x, y) in zip(range(loss.size(1)), loss)]
-            table = wandb.Table(data=data, columns = ["recall_micro", "precision_micro"])
+            table = wandb.Table(data=data, columns = ["loss", "precision_micro"])
 
 
             custom_plot = wandb.plot.line(

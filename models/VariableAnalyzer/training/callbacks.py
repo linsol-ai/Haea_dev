@@ -74,7 +74,7 @@ class VariableVaildationCallback(Callback):
 
         # loss.shape = (batch, var_len, time_len)
         loss = torch.sum(loss, dim=0)
-        loss = torch.sum(loss, dim=3)
+        loss = torch.sum(loss, dim=2)
 
         level_loss = loss[:, :13 * len(self.level_var)]
         non_level_loss = loss[:, 13 * len(self.level_var):]

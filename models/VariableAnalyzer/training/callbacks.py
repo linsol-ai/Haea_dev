@@ -55,7 +55,7 @@ class VariableVaildationCallback(Callback):
 
             custom_plot = wandb.plot.line_series(
                 xs=range(loss.size(1)), 
-                ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
+                ys=lo,
                 keys=self.level_info,
                 title=name,
                 xname="Time - 6Hour per"

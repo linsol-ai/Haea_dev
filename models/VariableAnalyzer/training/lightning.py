@@ -37,7 +37,7 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
 
 
-    def configure_optimizers(self) -> AdamW:  # noqa: D102
+    def configure_optimizers(self) -> Adam:  # noqa: D102
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.config.learning_rate)
         scheduler = ExponentialLR(
             optimizer,

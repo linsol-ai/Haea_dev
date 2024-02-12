@@ -104,15 +104,7 @@ def _main(args) -> None:
             gradient_clip_val=config.training.gradient_clip_val,
             callbacks=[
                 LearningRateMonitor(logging_interval="step"),
-                VariableVaildationCallback(
-                    level_var=dataset_info[0],
-                    non_level_var=dataset_info[1],
-                    level_info=dataset_info[2],
-                    log_batch=config.training.log_batch,
-                    log_every_n_step=config.training.log_every_n_step,
-                    dataset=test_ds,
-                    logger=logger
-                ),
+            
             ],
             precision="bf16"
         )

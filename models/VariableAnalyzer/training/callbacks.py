@@ -62,7 +62,6 @@ class VariableVaildationCallback(Callback):
             reversed_predict = denormalize(predict, min_max)
             reversed_predict = reversed_predict.permute(0, 2, 1, 3)
             reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
-
             loss = F.mse_loss(reversed_predict, label)
             return loss
 

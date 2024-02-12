@@ -111,7 +111,7 @@ def _main(args) -> None:
                     log_batch=config.training.log_batch,
                     log_every_n_step=config.training.log_every_n_step,
                     dataset=val_ds,
-                    
+                    lo
                 ),
             ],
             precision="bf16"

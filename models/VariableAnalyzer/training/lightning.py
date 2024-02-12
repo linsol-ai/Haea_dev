@@ -47,7 +47,7 @@ class TrainModule(pl.LightningModule):
     
     def calculate_loss(self, predict, label):
         # predict.shape = (batch, val_len, time_len, 1450) -> not nomalized
-        predict = predict.view(predict.size(0), -1, ,predict.size(2))
+        predict = predict.view(predict.size(0), -1, va,predict.size(2))
 
 
 

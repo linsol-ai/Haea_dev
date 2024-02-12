@@ -14,7 +14,7 @@ def denormalize(inputs, mean_std):
     mean = mean_std[:, 0].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
     std = mean_std[:, 1].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
     # 역정규화 수행
-    denormalized = inputs * std + mean
+    denormalized = (inputs * std + mean
     return denormalized
 
 

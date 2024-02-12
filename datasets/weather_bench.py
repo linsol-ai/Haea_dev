@@ -214,7 +214,7 @@ class WeatherDataset:
             input, target, min_max = self.load_data(dataset)
             input_dataset.append(input)
             target_dataset.append(target)
-            
+            min_max_data.append()
             dims.append(input.size(2))
         
         # var_dataset.shape = (time, var * level, h * w)

@@ -62,7 +62,7 @@ class TrainModule(pl.LightningModule):
         min_max = self.min_max_data[0]
 
         for b in range(predict.size(0)):
-            batch = predict
+            batch = predict[b]
             for i in range(min_max.size(0)):
                 min, max = min_max[i]
 

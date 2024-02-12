@@ -66,6 +66,7 @@ class TrainModule(pl.LightningModule):
             for i in range(min_max.size(0)):
                 min, max = min_max[i]
                 batch[i] = reverse_normalizaion(batch[i], min, max)
+            
 
 
 

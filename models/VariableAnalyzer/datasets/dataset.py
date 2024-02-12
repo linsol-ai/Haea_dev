@@ -21,7 +21,6 @@ class CustomDataset(Dataset):
 
         # dataset.shape = (time_len, var, hidden)
         result = torch.stack(result, dim=0)
-        result = result.view(-1, result.size(2))
         return result
 
     def make_dataset(self):

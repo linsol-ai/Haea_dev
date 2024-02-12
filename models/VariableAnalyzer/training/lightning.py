@@ -46,7 +46,7 @@ class TrainModule(pl.LightningModule):
         return loss
     
     def calculate_loss(self, predict, label):
-        # predict.shape = (2800, )
+        # predict.shape = (batch, 2)
 
 
 

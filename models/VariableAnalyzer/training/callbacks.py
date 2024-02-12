@@ -9,6 +9,7 @@ import wandb
 from typing import List
 from models.VariableAnalyzer.training.configs import TrainingConfig
 
+
 class VariableVaildationCallback(Callback):
     """Callback to save visualizations of a dataset throughout training.
 

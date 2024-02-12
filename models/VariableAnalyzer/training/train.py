@@ -106,7 +106,7 @@ def _main(args) -> None:
                 LearningRateMonitor(logging_interval="step"),
                 VariableVaildationCallback(
                     
-                    n_images=config.training.num_vis,
+                  
                     log_every_n_step=config.training.save_vis_every_n_step,
                     dataset=train_ds,
                     logger=logger,

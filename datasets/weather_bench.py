@@ -205,7 +205,7 @@ class WeatherDataset:
 
         return input, target, min, max
     
-    /
+    /** 
     def load(self):
         input_dataset = []
         target_dataset = []

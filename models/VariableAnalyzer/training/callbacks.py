@@ -112,7 +112,5 @@ class VariableVaildationCallback(Callback):
         self.visualization_level(level_loss)
         self.visualization_non_level(non_level_loss)
         
-       
-
-
+    
         return loss

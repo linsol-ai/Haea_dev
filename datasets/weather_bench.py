@@ -308,6 +308,7 @@ class WeatherDataset:
         min_max_data.append((wind_result[0][2][0], wind_result[0][2][1]))
 
         input_wind_dataset.extend(wind_result[1][0])
+        
 
         target_wind_dataset = []
         target_wind_dataset.extend(wind_result[0][1])

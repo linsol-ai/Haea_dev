@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from torchvision.utils import make_grid
 import wandb
 from typing import List
-from models.VariableAnalyzer.training.configs import TrainingConfig
+from models.VariableAnalyzer.training. import TrainingConfig
 
 
 class VariableVaildationCallback(Callback):

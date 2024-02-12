@@ -56,6 +56,8 @@ class VariableVaildationCallback(Callback):
             pl_module.device  # type: ignore[arg-type]
         )
 
+        
+
 
         return loss
 

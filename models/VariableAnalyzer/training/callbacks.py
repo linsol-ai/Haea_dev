@@ -50,6 +50,7 @@ class VariableVaildationCallback(Callback):
         val_data = torch.stack([self._dataset[i] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
+        
 
         return loss
 

@@ -45,7 +45,7 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
         
     
-    def calculate_loss(self, predict: torch.Tensor, label: torch.Tensor):
+    def validate_loss(self, predict: torch.Tensor, label: torch.Tensor):
             # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
             predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
             # predict.shape = (batch, var_len, time_len, 1450) -> not nomalized

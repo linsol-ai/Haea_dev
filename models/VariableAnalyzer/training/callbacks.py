@@ -70,7 +70,7 @@ class VariableVaildationCallback(Callback):
             loss = non_level_loss[i]
 
             custom_plot = wandb.plot.line(
-                xs=range(loss.size(1)), 
+                x=range(loss.size(1)), 
                 ys=loss,
                 keys=self.level_info,
                 title=name,

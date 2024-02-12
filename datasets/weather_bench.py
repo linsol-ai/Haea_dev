@@ -311,7 +311,7 @@ class WeatherDataset:
 
         # wind.shape => (level * 3, time, h * w)
         input_wind_dataset.extend(wind_result[1][0])
-        for i in range(wind_result[1][0].size(0)):
+        for i in range(wind_result[1][0].size(0) / 3):
             
 
         target_wind_dataset = []

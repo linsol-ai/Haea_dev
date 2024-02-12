@@ -108,7 +108,7 @@ def _main(args) -> None:
                     level_var=dataset_info[0],
                     non_level_var=dataset_info[1],
                     level_info=dataset_info[2],
-                    log_batch=
+                    log_batch=config
                 ),
             ],
             precision="bf16"

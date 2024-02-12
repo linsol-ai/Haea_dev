@@ -46,7 +46,7 @@ class VariableVaildationCallback(Callback):
         
     
     def validate_loss(self, pl_module: TrainModule):
-           
+        model = pl_module
 
         return loss
 

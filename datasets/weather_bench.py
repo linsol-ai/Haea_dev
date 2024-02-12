@@ -230,7 +230,7 @@ class WeatherDataset:
 
         return input_dataset, target_dataset, min_max_data, dims
 
-    ''
+    """""
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}

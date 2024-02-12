@@ -189,7 +189,7 @@ class WeatherDataset:
             input = input.flatten(1)
             target = target.flatten(1)
 
-        return input, target, min, max
+        return input, target, mean, std
     
 
     def load(self):

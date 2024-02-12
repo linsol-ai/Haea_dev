@@ -309,6 +309,7 @@ class WeatherDataset:
         min_max_data.append((wind_result[0][2][1], wind_result[0][3][1]))
         min_max_data.append((wind_result[0][2][2], wind_result[0][3][2]))
 
+        # wind.shape => (3, time, h * w)
         input_wind_dataset.extend(wind_result[1][0])
         for i in range(wind_result[1][0].size(0)):
             

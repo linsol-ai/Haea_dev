@@ -45,7 +45,8 @@ class VariableVaildationCallback(Callback):
             self._plot_predictions(pl_module, trainer.global_step + 1)
     
 
-    def visualization_level()
+    def visualization_level():
+        
         
     
     def validation(self, pl_module: TrainModule):

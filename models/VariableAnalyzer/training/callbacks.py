@@ -52,12 +52,13 @@ class VariableVaildationCallback(Callback):
             name = self.level_var[i]
             loss = level_loss[start:end]
 
-            self._logger.lo({"my_custom_id" : wandb.plot.line_series(
-                       xs=[0, 1, 2, 3, 4], 
-                       ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
-                       keys=["metric Y", "metric Z"],
-                       title="Two Random Metrics",
-                       xname="x units")})
+            custom_plot = wandb.plot.line_series(
+                xs=[0, 1, 2, 3, 4], 
+                ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
+                keys=["metric Y", "metric Z"],
+                title="Two Random Metrics",
+                xname="x units"
+            )
 
 
         

@@ -9,9 +9,15 @@ from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 
 
-def reverse_normalizaion(source, min, max):
-    original = (source * (max-min)) + min
-    return original
+def reverse_normalization(predict, min_max):
+    # 예측값을 복사하여 결과 텐서 생성
+    reversed_predict = predict.clone()
+    # 각 변수에 대해 최소-최대값 획득
+    min_values = min_max[:, 0].unsqueeze(1)  # (var_len, 1)
+    max_values = min_max[:, 1].unsqueeze(1)  # (var_len, 1)
+    # 최소-최대 역정규화
+    reversed_predict = reversed_predict * (max_values - min_values) + min_values
+    return reversed_predict
 
 
 
@@ -68,7 +74,7 @@ class TrainModule(pl.LightningModule):
                 batch[i] = reverse_normalizaion(batch[i], min, max)
             predict[b] = batch
         
-        
+
             
 
 

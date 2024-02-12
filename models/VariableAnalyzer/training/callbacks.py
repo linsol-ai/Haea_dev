@@ -10,14 +10,6 @@ import wandb
 from typing import List
 from models.VariableAnalyzer.training.lightning import TrainModule
 
-def denormalize(inputs, min_max):
-    # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
-    min_val = min_max[:, 0].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
-    max_val = min_max[:, 1].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
-    # 역정규화 수행
-    denormalized = inputs * (max_val - min_val) + min_val
-    return denormalized
-
 class VariableVaildationCallback(Callback):
     """Callback to save visualizations of a dataset throughout training.
 
@@ -63,7 +55,7 @@ class VariableVaildationCallback(Callback):
             reversed_predict = reversed_predict.permute(0, 2, 1, 3)
             reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
             loss = F.mse_loss(reversed_predict, label)
-            
+
             return loss
 
 

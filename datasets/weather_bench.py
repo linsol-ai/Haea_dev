@@ -220,7 +220,7 @@ class WeatherDataset:
         # var_dataset.shape = (time, var * level, h * w)
         input_dataset = torch.concat(input_dataset, dim=2)
         target_dataset = torch.concat(target_dataset, dim=2)
-        min_max_data = torch.concat(min_max_data, dim=0)
+        min_max_data = torch.st(min_max_data, dim=0)
 
 
         print("======= RESULT SHAPE =======")

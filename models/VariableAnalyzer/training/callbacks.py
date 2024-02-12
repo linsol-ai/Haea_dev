@@ -74,7 +74,7 @@ class VariableVaildationCallback(Callback):
 
 
             custom_plot = wandb.plot.line(
-                table=table
+                table=table,
                 x=range(loss.size(1)), 
                 y=loss,
                 title=name,

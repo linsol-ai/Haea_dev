@@ -67,6 +67,8 @@ class TrainModule(pl.LightningModule):
                 min, max = min_max[i]
                 batch[i] = reverse_normalizaion(batch[i], min, max)
             predict[b] = batch
+        
+        
             
 
 

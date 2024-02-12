@@ -31,6 +31,7 @@ class VariableVaildationCallback(Callback):
         """
         self.level_var = level_var
         self.non_level_var = non_level_var
+        self.
         self.val_batch = val_batch
         self.log_every_n_step = log_every_n_step
         self._dataset = dataset

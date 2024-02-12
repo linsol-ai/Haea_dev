@@ -13,24 +13,11 @@ from pathlib import Path
 import apache_beam as beam
 
 def normalize_tensor(tensor):
-    # tensor는 (time, level, width, height)의 차원을 가진다고 가정
-    shape = tensor.shape
-    # 최대, 최소 스케일링을 수행하기 위해 (time, level) 기준으로 reshape
-    tensor = tensor.view(shape[0], shape[1], -1)
-    
-    # 최대값과 최소값을 찾음
-    min_val = tensor.min()
-    max_val = tensor.max()
-    
-    # 분모가 0이 되는 것을 방지
-    denom = max_val - min_val
-    denom[denom == 0] = 1
-    
-    # 최대-최소 스케일링 수행
-    scaled_tensor = (tensor - min_val) / denom
-    
-    # 원래 차원으로 되돌림
-    scaled_tensor = scaled_tensor.view(shape)
+    mean = tensor.mean()
+std = tensor.std()
+
+# 정규화
+normalized_tensor = (tensor - mean) / std
     
     return scaled_tensor, min_val, max_val
 

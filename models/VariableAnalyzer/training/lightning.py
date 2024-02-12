@@ -10,7 +10,7 @@ from models.VariableAnalyzer.training.params_schedule import CosineWarmupSchedul
 
 
 def reverse_normalizaion(source, min, max):
-    
+
 
 
 
@@ -58,7 +58,6 @@ class TrainModule(pl.LightningModule):
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, var_len, time_len, 1450) -> not nomalized
         predict = predict.permute(0, 2, 1, 3)
-
 
 
 

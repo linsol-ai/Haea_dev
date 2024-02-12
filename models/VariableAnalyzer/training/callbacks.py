@@ -46,7 +46,7 @@ class VariableVaildationCallback(Callback):
     
 
     def visualization_level(self, level_loss):
-
+        
         
     
     def validation(self, pl_module: TrainModule):

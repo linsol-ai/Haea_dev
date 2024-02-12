@@ -78,7 +78,6 @@ class VariableVaildationCallback(Callback):
                 "avg loss", "Time - 6Hour per",
                 stroke=None
                 title=name,
-                xname="Time - 6Hour per"
             )
 
             self._logger.experiment.log({"my_custom_id": custom_plot})

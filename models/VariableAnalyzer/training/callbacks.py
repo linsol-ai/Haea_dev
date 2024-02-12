@@ -63,7 +63,7 @@ class VariableVaildationCallback(Callback):
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
 
-        level_loss = loss[:, 13 * len(self.level_var):]
+        level_loss = loss[:, 13 * len(self.level_var)]
 
 
 

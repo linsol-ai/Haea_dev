@@ -293,6 +293,7 @@ class WeatherDataset:
             else:
                 input_dataset.append(input)
                 target_dataset.append(target)
+                min_max_data.append((min, max))
 
         input_dataset = torch.stack(input_dataset, dim=0)
         target_dataset = torch.stack(target_dataset, dim=0)

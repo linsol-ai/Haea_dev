@@ -71,13 +71,6 @@ class TrainModule(pl.LightningModule):
         return loss
         
 
-            
-
-
-
-
-
-
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "train")
 

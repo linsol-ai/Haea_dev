@@ -279,7 +279,7 @@ class WeatherDataset:
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []
         target_dataset = []
-        
+        min_
 
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):

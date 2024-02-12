@@ -32,7 +32,7 @@ def normalize_tensor(tensor):
     # 원래 차원으로 되돌림
     scaled_tensor = scaled_tensor.view(shape)
     
-    return scaled_tensor, min_val
+    return scaled_tensor, min_val, max_val
 
 
 def calculate_wind_speed(u, v):

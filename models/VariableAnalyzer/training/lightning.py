@@ -45,7 +45,8 @@ class TrainModule(pl.LightningModule):
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
     
-    def cal
+    def calculate_loss():
+        
 
 
 

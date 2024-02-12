@@ -32,7 +32,7 @@ class VariableVaildationCallback(Callback):
         self.level_var = level_var
         self.non_level_var = non_level_var
         self.val_batch =  val_batch
-        
+
         self.log_every_n_step = log_every_n_step
         self._dataset = dataset
         self._logger = logger
@@ -47,7 +47,7 @@ class VariableVaildationCallback(Callback):
         
     
     def validate_loss(self, pl_module: TrainModule):
-        val_data = torch.stack([self._dataset[i] for i in range(self._n_images)], dim=0).to(
+        val_data = torch.stack([self._dataset[i] for i in range(self.val_batch)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )
 

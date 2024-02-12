@@ -195,7 +195,7 @@ class WeatherDataset:
     def load(self):
         input_dataset = []
         target_dataset = []
-        normalizaiondata = []
+        normalizaion_data = []
         dims = []
 
         for dataset in self.datasets:

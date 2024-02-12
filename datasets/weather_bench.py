@@ -341,6 +341,7 @@ class WeatherDataset:
         return torch.concat([input_dataset, input_wind_dataset], dim=1), torch.concat([target_dataset, target_wind_dataset], dim=1), min_max_data
 
     """""
+    
     def calculate_wind(self, u_wind, v_wind, device):
         res = preprocess_wind_data(u_wind, v_wind, device)
         torch.cuda.empty_cache()

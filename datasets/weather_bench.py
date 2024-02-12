@@ -372,6 +372,7 @@ class WeatherDataset:
 
         input_dataset = torch.stack(input_dataset, dim=0)
         target_dataset = torch.stack(target_dataset, dim=0)
+        
 
         # dataset.shape => (time, var, h * w)
         input_dataset = torch.swapaxes(input_dataset, 0, 1)

@@ -56,7 +56,7 @@ class VariableVaildationCallback(Callback):
             pl_module.device  # type: ignore[arg-type]
         )
         predict = pl_module.model(src, tgt)
-        loss = self.calculate_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
+        loss = pl_module.calculate_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
 
         mse_loss = pl_module.
 

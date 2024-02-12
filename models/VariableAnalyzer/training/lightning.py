@@ -42,7 +42,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler = CosineWarmupScheduler(
             optimizer, warmup=self.config.warmup_step, max_iters=self.max_iters
         )
-        return [optimizer], [scheduler]
+        return optimizer
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:

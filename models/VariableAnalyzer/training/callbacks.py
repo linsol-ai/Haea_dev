@@ -60,9 +60,9 @@ class VariableVaildationCallback(Callback):
 
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, loss.size(3))
-        # loss.shape = (batch, var_len, var_len, 1450)
+        # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
-
+        
 
         level_loss = loss[:, ]
 

@@ -16,7 +16,7 @@ class TrainModule(pl.LightningModule):
         self.max_iters = max_iters
         self.predict_dim = predict_dim
         self.model = model
-        self.
+        self.min_max_data = min_max_data
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 

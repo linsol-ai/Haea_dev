@@ -59,7 +59,7 @@ class VariableVaildationCallback(Callback):
             return loss
 
 
-    def _plot_predictions(self, pl_module: DVAETrainModule, step) -> None:
+    def _plot_predictions(self, pl_module: TrainModule, step) -> None:
         img = torch.stack([self._dataset[i] for i in range(self._n_images)], dim=0).to(
             pl_module.device  # type: ignore[arg-type]
         )

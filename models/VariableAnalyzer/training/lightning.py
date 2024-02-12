@@ -15,7 +15,6 @@ def denormalize(inputs, min_max):
     max_val = min_max[:, 1].view(1, -1, 1, 1)  # (1, var_len, 1, 1)로 변환
     # 역정규화 수행
     denormalized = inputs * (max_val - min_val) + min_val
-
     return denormalized
 
 

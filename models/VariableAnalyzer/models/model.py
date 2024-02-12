@@ -63,7 +63,6 @@ class VariableAnalyzer(nn.Module):
             num_decoder_layers=n_decoder_layers,
             dim_feedforward=dim_model*2,
             dropout=dropout,
-            activation=F.gelu,
             batch_first=True
         )
         self.tgt_embedding = TargetEmbedding(var_len, time_len, dim_model, dropout)

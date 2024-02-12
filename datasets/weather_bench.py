@@ -18,7 +18,7 @@ def normalize_tensor(tensor):
     # 정규화
     normalized_tensor = (tensor - mean) / std
     
-    return normalized_tensor, min_val, max_val
+    return normalized_tensor, mean, max_val
 
 
 def calculate_wind_speed(u, v):

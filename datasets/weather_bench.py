@@ -372,8 +372,6 @@ class WeatherDataset:
         min_max_data = []
 
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
-            if val in (self.HAS_LEVEL_WIND_VAR + self.NONE_LEVEL_WIND_VAR):
-                continue
             input, target, min, max = result[val]
             if len(input.shape) == 3:
                 for i in range(input.size(0)):

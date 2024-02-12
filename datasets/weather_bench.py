@@ -195,7 +195,7 @@ class WeatherDataset:
     def load(self):
         input_dataset = []
         target_dataset = []
-        min_max_data = []
+        normalizaiondata = []
         dims = []
 
         for dataset in self.datasets:

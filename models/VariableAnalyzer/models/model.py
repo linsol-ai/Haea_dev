@@ -53,6 +53,7 @@ class VariableAnalyzer(nn.Module):
         super().__init__()
         self.var_seq = range(var_len)
         self.var_len = var_len
+        
         self.tgt_time_len = tgt_time_len
         self.dim_model = dim_model
         self.batch_size = batch_size

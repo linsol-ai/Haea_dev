@@ -14,7 +14,7 @@ class PositionalEmbedding(nn.Embedding):
         super().__init__(time_len, embed_size)
 
 
-class TargetEmbedding(nn.Module):
+class Embedding(nn.Module):
     def __init__(self, var_len, time_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size

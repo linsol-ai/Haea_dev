@@ -137,7 +137,7 @@ class VariableAnalyzer(nn.Module):
         """
         attention_maps = []
         for layer in self.transformer.encoder.layers:
-            _, attn_map = layer.self_attn(x, mask=mask, return_attention=True)
+            _, attn_map = layer.self_attn()
             attention_maps.append(attn_map)
             x = layer(x)
 

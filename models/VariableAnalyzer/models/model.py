@@ -136,6 +136,7 @@ class VariableAnalyzer(nn.Module):
         Input arguments same as the forward pass.
         """
         x = x.squeeze(1)
+        if 
         x = self.src_embedding(x, self.src_var_seq) * math.sqrt(self.dim_model)
 
         attention_maps = []

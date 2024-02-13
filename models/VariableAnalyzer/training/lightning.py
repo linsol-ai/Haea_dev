@@ -83,7 +83,7 @@ class TrainModule(pl.LightningModule):
 
 
     def visualization_level(self, level_loss):
-        for i in range(len(self.level_var)):
+        for i in range(len(self.var_lv)):
             start = i * 13
             end = start + 13
             name = self.level_var[i]

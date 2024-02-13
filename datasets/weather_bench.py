@@ -99,7 +99,6 @@ def download_zarr(source, output_path):
     template = (
       xb.make_template(source_dataset)
     )
-    pbar = tqdm(total=100)
     with beam.Pipeline() as root :
         (
             root

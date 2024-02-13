@@ -142,7 +142,7 @@ class TrainModule(pl.LightningModule):
 
         level_loss = loss[:, :, :13 * len(self.var_lv)]
         non_level_loss = loss[:, 13 * len(self.var_nlv):]
-
+        
         
     
 

@@ -17,8 +17,8 @@ def denormalize(inputs, mean_std):
     denormalized = (inputs * std) + mean
     return denormalized
 
-def rmse_loss():
-    
+def rmse_loss(x, y):
+
 
 
 class TrainModule(pl.LightningModule):

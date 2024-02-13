@@ -57,7 +57,7 @@ def _main(args) -> None:
         model = VariableAnalyzer(
             var_len=shape[1],
             src_time_len=src_time_len,
-            time_len=tgt_time_len,
+            t=tgt_time_len,
             dim_model=shape[2],
             predict_dim=dims[0],
             batch_size=config.training.batch_size,

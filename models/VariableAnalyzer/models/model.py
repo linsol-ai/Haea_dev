@@ -139,6 +139,7 @@ class VariableAnalyzer(nn.Module):
             _, attn_map = layer.self_attn(x, mask=mask, return_attention=True)
             attention_maps.append(attn_map)
             x = layer(x)
+            
         return attention_maps
 
     

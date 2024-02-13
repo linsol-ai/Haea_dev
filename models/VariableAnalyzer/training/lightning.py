@@ -30,6 +30,7 @@ class TrainModule(pl.LightningModule):
         
         super().__init__()
         self.var_len = var_len
+        self.var_lv = var_lv
         self.
         self.max_iters = max_iters
         self.predict_dim = predict_dim

@@ -33,7 +33,7 @@ class TrainingConfig(BaseModel):
 
     tgt_time_len: int = Field(ge=0, default=7)
 
-    train
+    train_offset
 
 
 class TrainingRunConfig(BaseModel):

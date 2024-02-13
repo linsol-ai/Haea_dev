@@ -13,8 +13,8 @@ from pytorch_lightning.loggers import WandbLogger
 
 def denormalize(inputs, mean_std):
     # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
-    mean = mean_std[:-1, 0].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
-    std = mean_std[:-1, 1].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
+    mean = mean_std[:, 0].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
+    std = mean_std[:, 1].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
     # 역정규화 수행
     denormalized = (inputs * std) + mean
     return denormalized
@@ -30,7 +30,7 @@ class TrainModule(pl.LightningModule):
                  config: TrainingConfig | None = None):
         
         super().__init__()
-        self.time_len = time_len
+        self.time_len = time
         self.var_len = var_len
         self.var_lv = var_lv
         self.var_nlv = var_nlv
@@ -63,15 +63,14 @@ class TrainModule(pl.LightningModule):
         label = batch[2]
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
-        # remove in predict 'toa_incident_solar_radiation'
-        loss = self.calculate_rmse_loss(predict[:, :-self.time_len, :self.predict_dim], label[:, :-self.time_len, :self.predict_dim])
+        loss = self.calculate_rmse_loss(predict[:, :-self., :self.predict_dim], label[:, :-1, :self.predict_dim])
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
 
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized
-        predict = predict.view(predict.size(0), -1, self.var_len-1, predict.size(2))
+        predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
         mean_std = self.mean_std[0]
         reversed_predict = denormalize(predict, mean_std)

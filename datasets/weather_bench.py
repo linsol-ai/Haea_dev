@@ -121,7 +121,7 @@ class WeatherDataset:
 
     NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
 
-    DATE_OFFSET = [(2021, 2016), (2016, 2011), (2011, 2006), (2006, 2001)]
+    DATE_OFFSET = [(2021, 2011), (2016, 2011), (2011, 2006), (2006, 2001)]
 
     GCS_BUCKET = 'gcs://era5_dataset'
 

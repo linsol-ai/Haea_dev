@@ -86,6 +86,7 @@ class TrainModule(pl.LightningModule):
         reversed_predict = denormalize(predict, mean_std)
         
 
+
         
 
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102

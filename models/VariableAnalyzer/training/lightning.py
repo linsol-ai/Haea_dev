@@ -75,7 +75,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
     
 
-    def validation(slef,):
+    def validation(self, ):
 
 
         

@@ -86,7 +86,7 @@ class TrainModule(pl.LightningModule):
         for i in range(len(self.var_lv)):
             start = i * 13
             end = start + 13
-            name = self.level_var[i]
+            name = self.var_lv[i]
             loss = level_loss[start:end]
 
             custom_plot = wandb.plot.line_series(

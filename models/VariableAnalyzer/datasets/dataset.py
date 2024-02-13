@@ -3,18 +3,16 @@ import torch
 
 class CustomDataset(Dataset):
 
-    def __init__(self, input_dataset: torch.Tensor, tar_dataset: torch.Tensor, src_time_len: int, tgt_time_len: int):
+    def __init__(self, input_dataset: torch.Tensor, tar_dataset: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.input_dataset = input_dataset
         self.tar_dataset = tar_dataset
         self.var_len = input_dataset.size(1)
-        self.src_time_len = src_time_len
-        self.tgt_time_len = tgt_time_len
+        self.time_len = time_len
         self.make_dataset()
 
-
     def __len__(self):
-        return self.input_dataset.size(0)-(self.src_time_len+self.tgt_time_len)
+        return self.input_dataset.size(0)-self.time_len
 
     def get_data(self, indicate, dataset):
         result = []
@@ -27,9 +25,9 @@ class CustomDataset(Dataset):
 
     def make_dataset(self):
         dataset_inc = []
-        for t in range(self.src_time_len-1, self.input_dataset.size(0)-self.tgt_time_len):
-            src = range(t-self.src_time_len+1, t+1)
-            tgt = range(t+1, t+1 + self.tgt_time_len)
+        for t in range(self.input_dataset.size(0)-self.time_len):
+            src = [t]
+            tgt = range(t+1, t+1 + self.time_len)
             dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc

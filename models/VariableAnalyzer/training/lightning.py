@@ -99,7 +99,7 @@ class TrainModule(pl.LightningModule):
                 xname="Time - 6Hour per"
             )
 
-            self._logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
+            self.logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 
     def visualization_non_level(self, non_level_loss):

@@ -25,7 +25,7 @@ def get_dataset(year_offset: int, src_time_len: int, tgt_time_len: int):
     weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     input, target, mean_std, dims = weather.load()
-    dataset = CustomDataset(input, target, src_time_len, tgt_time_len)
+    dataset = CustomDataset(input, target, tgt_time_len)
     return (weather.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, dims
 
         

@@ -108,9 +108,10 @@ class VariableAnalyzer(nn.Module):
     def get_time_seq(self, batch_size, device):
         src_time_seq = []
         tgt_time_seq = []
-        
+
         for _ in range(batch_size):
-            src_seq = [], tgt_seq = []
+            src_seq = []
+            tgt_seq = []
 
             for i in range(0, self.src_time_len):
                 src_seq.extend([ i for _ in range(self.var_len)])

@@ -87,10 +87,10 @@ class VariableAnalyzer(nn.Module):
         src_seq = []
         tgt_seq = []
         for _ in range(batch_size):
-            t_seq = []
+            t_seq = [], s_seq = []
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)
-                
+
             tgt_seq.append(t_seq)
         
         tgt_seq = torch.tensor(tgt_seq, device=device)

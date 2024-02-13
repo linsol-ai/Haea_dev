@@ -73,6 +73,42 @@ class TrainModule(pl.LightningModule):
     def optimizer_step(self, *args, **kwargs):
         super().optimizer_step(*args, **kwargs)
         self.lr_scheduler.step()  # Step per iteration
+
+
+     def visualization_level(self, level_loss):
+        for i in range(len(self.level_var)):
+            start = i * 13
+            end = start + 13
+            name = self.level_var[i]
+            loss = level_loss[start:end]
+
+            custom_plot = wandb.plot.line_series(
+                xs=range(loss.size(1)), 
+                ys=loss,
+                keys=self.level_info,
+                title=name,
+                xname="Time - 6Hour per"
+            )
+
+            self._logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
+    
+
+    def visualization_non_level(self, non_level_loss):
+        for i in range(len(self.non_level_var)):
+            name = self.non_level_var[i]
+            loss = non_level_loss[i]
+
+            data = [[x, y] for (x, y) in zip(range(loss.size(0)), loss)]
+            table = wandb.Table(data=data, columns = ["avg loss", "Time - 6Hour per"])
+
+            custom_plot = wandb.plot.line(
+                table,
+                "avg loss", "Time - 6Hour per",
+                stroke=None,
+                title=name,
+            )
+
+            self._logger.experiment.log({f"Surface Loss/{name}": custom_plot})
     
 
     def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):
@@ -86,7 +122,7 @@ class TrainModule(pl.LightningModule):
         loss = loss.view(loss.size(0), -1, self.var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
-        
+
         
     
 

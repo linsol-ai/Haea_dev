@@ -107,8 +107,6 @@ class TrainModule(pl.LightningModule):
             name = self.var_nlv[i]
             loss = non_level_loss[i]
 
-            data = [[x, y] for (x, y) in zip(range(loss.size(0)), loss)]
-
             custom_plot = wandb.plot.line_series(
                 xs=range(loss.size(1)), 
                 ys=loss,

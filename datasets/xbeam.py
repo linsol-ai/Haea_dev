@@ -8,10 +8,7 @@ import numpy as np
 import xarray
 import xarray_beam as xbeam
 import pandas as pd
-import os
-from pathlib import Path
 
-DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
@@ -56,9 +53,7 @@ def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
   END_DATE = f'{FLAGS.end}-12-31'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
-  folder = Path(DIR_NAME)
-  OUTPUT_PATH = folder / FOLDER_NAME[FLAGS.type] / f'{START_DATE}_{END_DATE}.zarr'
-  # OUTPUT_PATH = f'gs://era5_preprocess/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
+  OUTPUT_PATH = f'gs://era5_preprocess/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
   source_dataset = source_dataset[VARIABLE]
@@ -73,7 +68,7 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
   
-  template = (
+   template = (
       xbeam.make_template(source_dataset)
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
@@ -90,12 +85,7 @@ def main(argv):
         machine_type='n2-standard-4'
   )
 
-  pipeline_options = PipelineOptions(
-        runner=RUNNER,
-        numWorkers=16,
-  )
-
-  with beam.Pipeline(options=pipeline_options) as root :
+  with beam.Pipeline(runner=RUNNER) as root :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

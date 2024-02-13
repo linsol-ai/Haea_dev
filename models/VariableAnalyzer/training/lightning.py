@@ -134,7 +134,7 @@ class TrainModule(pl.LightningModule):
         loss = torch.sum(loss, dim=-1) / hidden
 
         level_loss = loss[:, :13 * len(self.var_lv)]
-        non_level_loss = loss[:, 13 * len(self.var_lv):]
+        non_level_loss = loss[:, 13 * len(self.var_nlv):]
 
         
     

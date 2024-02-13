@@ -140,9 +140,9 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (var_len, time_len)
         loss = torch.sum(loss, dim=1) / n_batch
 
-        level_loss = loss[:, :, :13 * len(self.var_lv)]
+        level_loss = loss[:, :13 * len(self.var_lv)]
         non_level_loss = loss[:, 13 * len(self.var_nlv):]
-        
+
         
     
 

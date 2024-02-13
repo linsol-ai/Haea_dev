@@ -110,11 +110,12 @@ class TrainModule(pl.LightningModule):
             data = [[x, y] for (x, y) in zip(range(loss.size(0)), loss)]
             table = wandb.Table(data=data, columns = ["avg loss", "Time - 6Hour per"])
 
-            custom_plot = wandb.plot.line(
-                table,
-                "avg loss", "Time - 6Hour per",
-                stroke=None,
+            custom_plot = wandb.plot.line_series(
+                xs=range(loss.size(1)), 
+                ys=loss,
+                keys=self.levels,
                 title=name,
+                xname="Time - 6Hour per"
             )
 
             self.logger.experiment.log({f"Surface Loss/{name}": custom_plot})

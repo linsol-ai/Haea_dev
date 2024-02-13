@@ -9,7 +9,7 @@ class CustomDataset(Dataset):
         self.tar_dataset = tar_dataset
         self.var_len = input_dataset.size(1)
         self.src_time_len = src_time_len
-        
+        self.src_time_len = src_time_len
         self.make_dataset()
 
     def __len__(self):

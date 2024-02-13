@@ -137,7 +137,7 @@ class VariableAnalyzer(nn.Module):
         x = self.input_net(x)
         if add_positional_encoding:
             x = self.positional_encoding(x)
-        attention_maps = self.transformer..get_attention_maps(x, mask=mask)
+        attention_maps = self.transformer.e.get_attention_maps(x, mask=mask)
         return attention_maps
 
     

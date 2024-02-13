@@ -82,7 +82,7 @@ class TrainModule(pl.LightningModule):
         
     
 
-    def 
+    def calculate_rmse_loss
 
 
 

@@ -108,7 +108,7 @@ class TrainModule(pl.LightningModule):
 
             custom_plot = wandb.plot.line_series(
                 xs=range(loss.size(0)), 
-                ys=loss,
+                ys=[loss,
                 title=name,
                 xname="Time - 6Hour per"
             )

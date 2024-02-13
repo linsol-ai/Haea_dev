@@ -92,7 +92,7 @@ def main(argv):
 
   pipeline_options = PipelineOptions(
         runner=RUNNER,
-        
+        numWorkers=
   )
 
   with beam.Pipeline(runner=RUNNER) as root :

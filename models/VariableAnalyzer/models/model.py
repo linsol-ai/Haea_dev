@@ -29,8 +29,8 @@ class Embedding(nn.Module):
 
     def forward(self, x, position_seq, variable_seq):
         x = x + self.position(position_seq) + self.variable(variable_seq)
-        return self.dropout(x)
-
+        return .dropout(x)
+self
 
 class VariableAnalyzer(nn.Module):
     def __init__(self, var_len, src_time_len, tgt_time_len, dim_model, predict_dim, batch_size, max_len=4*10, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):

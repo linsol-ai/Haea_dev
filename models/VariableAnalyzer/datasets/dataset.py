@@ -10,7 +10,6 @@ class CustomDataset(Dataset):
         self.var_len = input_dataset.size(1)
         self.src_time_len = src_time_len
         self.tgt_time_len = tgt_time_len
-        
         self.make_dataset()
 
     def __len__(self):

@@ -71,7 +71,7 @@ class TrainModule(pl.LightningModule):
         super().optimizer_step(*args, **kwargs)
         self.lr_scheduler.step()  # Step per iteration
     
-    def rmse_loss
+    def rmse_
         
 
     def training_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102

@@ -13,4 +13,4 @@ training:
   gradient_clip_val: 0.5  
   src_time_len: 2
   tgt_time_len: 3
-  
+  train_offset: 0

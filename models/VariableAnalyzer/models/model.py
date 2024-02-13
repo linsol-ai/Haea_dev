@@ -135,6 +135,7 @@ class VariableAnalyzer(nn.Module):
 
         Input arguments same as the forward pass.
         """
+        
         attention_maps = []
         for layer in self.transformer.encoder.layers:
             _, attn_map = layer.self_attn(query=x, key=x, value=x)

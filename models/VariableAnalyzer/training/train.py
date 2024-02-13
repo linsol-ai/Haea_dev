@@ -94,7 +94,7 @@ def _main(args) -> None:
 
         model_pl = TrainModule(model=model, mean_std=mean_std, var_len=shape[1], 
                                predict_dim=dims[0], max_iters=config.training.max_epochs*len(train_loader), 
-                               dataset_info[0], dataset_info[1], dataset_info[2], config=config.training)
+                               ldataset_info[0], dataset_info[1], dataset_info[2], config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 

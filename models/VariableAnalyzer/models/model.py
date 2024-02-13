@@ -128,5 +128,18 @@ class VariableAnalyzer(nn.Module):
         return matrix
 
     
+     @torch.no_grad()
+    def get_attention_maps(self, x, mask=None, add_positional_encoding=True):
+        """Function for extracting the attention matrices of the whole Transformer for a single batch.
+
+        Input arguments same as the forward pass.
+        """
+        x = self.input_net(x)
+        if add_positional_encoding:
+            x = self.positional_encoding(x)
+        attention_maps = self.transformer.get_attention_maps(x, mask=mask)
+        return attention_maps
+
+    
 
 

@@ -11,4 +11,5 @@ training:
   batch_size: 8
   max_epochs: 20  
   gradient_clip_val: 0.5  
-  src_time_len
+  src_time_len: 2
+  

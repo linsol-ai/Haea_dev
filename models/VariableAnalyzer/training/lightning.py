@@ -122,6 +122,7 @@ class TrainModule(pl.LightningModule):
         label = batch[2]
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
+        
         loss = self.calculate_sqare_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, self.var_len, loss.size(2))
@@ -144,7 +145,7 @@ class TrainModule(pl.LightningModule):
         self.visualization_level(level_loss)
         self.visualization_non_level(non_level_loss)
 
-        
+
         
     
 

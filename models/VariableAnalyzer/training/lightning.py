@@ -30,7 +30,7 @@ class TrainModule(pl.LightningModule):
                  config: TrainingConfig | None = None):
         
         super().__init__()
-        self.time_len = time
+        self.time_len = time_len
         self.var_len = var_len
         self.var_lv = var_lv
         self.var_nlv = var_nlv
@@ -63,7 +63,7 @@ class TrainModule(pl.LightningModule):
         label = batch[2]
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
-        loss = self.calculate_rmse_loss(predict[:, :-self., :self.predict_dim], label[:, :-1, :self.predict_dim])
+        loss = self.calculate_rmse_loss(predict[:, :-self.time_len, :self.predict_dim], label[:, :-1, :self.predict_dim])
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

@@ -109,7 +109,7 @@ class VariableAnalyzer(nn.Module):
         time_seq = []
         for _ in range(batch_size):
             seq = []
-            for i in range(0, self.srctime_len):
+            for i in range(0, self.src-time_len):
                 seq.extend([ i for _ in range(self.var_len)])
         
             time_seq.append(seq)

@@ -34,7 +34,6 @@ class TrainModule(pl.LightningModule):
         self.var_lv = var_lv
         self.var_nlv = var_nlv
         self.levels = levels
-        self.logger = logger
         self.max_iters = max_iters
         self.predict_dim = predict_dim
         self.model = model

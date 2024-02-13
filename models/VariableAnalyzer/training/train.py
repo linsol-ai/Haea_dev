@@ -7,7 +7,6 @@ from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader
 from absl import app
-from absl import flags
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
@@ -17,23 +16,16 @@ from models.VariableAnalyzer.datasets.dataset import CustomDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
-from models.VariableAnalyzer.training.callbacks import VariableVaildationCallback
-
-FLAGS = flags.FLAGS
-YEAR_OFFSET = flags.DEFINE_integer('train_offset', None, help='training year')
-TIME_LENGTH = flags.DEFINE_integer('time_len', None, help='TIME_LENGTH')
-flags.mark_flag_as_required("train_offset")
-flags.mark_flag_as_required("time_len")
 
 
-def get_dataset(year_offset: int, time_len: int):
+def get_dataset(year_offset: int, src_time_len: int, tgt_time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
     weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     input, target, mean_std, dims = weather.load()
-    dataset = CustomDataset(input, target, time_len)
+    dataset = CustomDataset(input, target, src_time_len, tgt_time_len)
     return (weather.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, dims
 
         
@@ -52,18 +44,20 @@ def _main(args) -> None:
     else:
         pl.seed_everything(config.seed)
 
-        train_offset = FLAGS.train_offset
-        time_len = 4 * FLAGS.time_len
+        train_offset = config.training.train_offset
+        src_time_len = 1
+        tgt_time_len = 4 * config.training.tgt_time_len
 
         # shape = (time, var, hidden)
-        dataset_info, dataset, shape, mean_std, dims = get_dataset(train_offset, time_len)
+        dataset_info, dataset, shape, mean_std, dims = get_dataset(train_offset, src_time_len, tgt_time_len)
 
         print("DATASET SHAPE: " , shape)
 
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableAnalyzer(
             var_len=shape[1],
-            time_len=time_len,
+            src_time_len=src_time_len,
+            time_len=tgt_time_len,
             dim_model=shape[2],
             predict_dim=dims[0],
             batch_size=config.training.batch_size,
@@ -92,7 +86,7 @@ def _main(args) -> None:
 
         print("setting lr rate: ", config.training.learning_rate)
 
-        model_pl = TrainModule(model=model, mean_std=mean_std, time_len=time_len, var_len=shape[1], 
+        model_pl = TrainModule(model=model, mean_std=mean_std, var_len=shape[1], 
                                predict_dim=dims[0], max_iters=config.training.max_epochs*len(train_loader), 
                                var_lv=dataset_info[0], var_nlv=dataset_info[1], levels=dataset_info[2], config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)

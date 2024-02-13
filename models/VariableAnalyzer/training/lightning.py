@@ -23,11 +23,12 @@ def rmse_loss(x, y):
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: VariableAnalyzer, mean_std: torch.Tensor, var_len: int, 
+    def __init__(self, *, model: VariableAnalyzer, mean_std: torch.Tensor, time_len:int, var_len: int, 
                  predict_dim: int, max_iters: int, var_lv: List, var_nlv: List, levels: List, 
                  config: TrainingConfig | None = None):
         
         super().__init__()
+        self.time_len = time_len
         self.var_len = var_len
         self.var_lv = var_lv
         self.var_nlv = var_nlv
@@ -37,7 +38,7 @@ class TrainModule(pl.LightningModule):
         self.model = model
         self.mean_std = mean_std
         self.config = TrainingConfig() if config is None else config
-        self.save_hyperparameters()
+        self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
     
     def setup(self, stage: str) -> None:

@@ -55,8 +55,7 @@ class VariableAnalyzer(nn.Module):
         self.var_len = var_len
         self.time_len = time_len
         self.dim_model = dim_model
-        self.batch_size = batch_size
-        nn.TransformerEncoderLayer().self_attn
+        self.batch_size = batch_size\
         self.transformer = nn.Transformer(
             d_model=dim_model,
             nhead=num_heads,
@@ -138,7 +137,7 @@ class VariableAnalyzer(nn.Module):
         x = x.squeeze(1)
         if self.src_var_seq is None:
             self.init_seq(x.device)
-            
+
         x = self.src_embedding(x, self.src_var_seq) * math.sqrt(self.dim_model)
 
         attention_maps = []

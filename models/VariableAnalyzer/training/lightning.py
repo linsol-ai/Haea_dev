@@ -171,4 +171,5 @@ class TrainModule(pl.LightningModule):
     def test_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> None:  # noqa: D102
         self._step(batch, "test")
     
-    def onn
+    def on_validation_end(self) -> None:
+        return super().on_validation_end()

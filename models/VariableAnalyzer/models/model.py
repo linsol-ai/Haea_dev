@@ -137,7 +137,7 @@ class VariableAnalyzer(nn.Module):
         """
         x = x.squeeze(1)
         if self.src_var_seq is None:
-            
+            self.init_seq
         x = self.src_embedding(x, self.src_var_seq) * math.sqrt(self.dim_model)
 
         attention_maps = []

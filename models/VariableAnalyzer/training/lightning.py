@@ -30,6 +30,7 @@ class TrainModule(pl.LightningModule):
                  config: TrainingConfig | None = None):
         
         super().__init__()
+        self.time_len = time_len
         self.var_len = var_len
         self.var_lv = var_lv
         self.var_nlv = var_nlv

@@ -84,7 +84,7 @@ class TrainModule(pl.LightningModule):
         mean_std = self.mean_std[0]
         # reversed_predict.shape = (batch, time_len, var_len, hidden)
         reversed_predict = denormalize(predict, mean_std)
-
+        
 
         
 

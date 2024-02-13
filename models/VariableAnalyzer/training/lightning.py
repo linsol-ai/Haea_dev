@@ -79,7 +79,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         tgt = batch[1]
         label = batch[2]
-        
+        predict = self.model(src, tgt)
 
         
 

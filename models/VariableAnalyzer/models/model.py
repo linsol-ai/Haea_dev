@@ -135,7 +135,7 @@ class VariableAnalyzer(nn.Module):
 
         Input arguments same as the forward pass.
         """
-        src = src.view(src.size(0), -1, src.size(3))
+        x = x.view(x.size(0), -1, x.size(3))
         if self.src_var_seq is None:
             self.init_seq(x.device)
 

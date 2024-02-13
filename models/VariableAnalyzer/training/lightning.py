@@ -143,7 +143,7 @@ class TrainModule(pl.LightningModule):
         print(loss.shape)
 
         level_loss = loss[:len(self.levels) * len(self.var_lv), :]
-        non_level_loss = loss[len(self.levels) * len(self.var_nlv):, :]
+        non_level_loss = loss[len(self.levels) * len(self.var_lv):, :]
 
         self.visualization_level(level_loss)
         self.visualization_non_level(non_level_loss)

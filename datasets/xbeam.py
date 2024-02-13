@@ -90,6 +90,8 @@ def main(argv):
         machine_type='n2-standard-4'
   )
 
+  
+
   with beam.Pipeline(runner=RUNNER) as root :
     (
         root

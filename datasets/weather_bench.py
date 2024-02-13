@@ -162,7 +162,7 @@ class WeatherDataset:
 
         if has_nan:
             print('====== nan warning =======')
-            print("key: ", )
+            print("key: ", key)
             nan_indices = torch.isnan(data)
             data[nan_indices] = 0
 

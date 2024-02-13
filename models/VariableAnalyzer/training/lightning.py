@@ -140,7 +140,7 @@ class TrainModule(pl.LightningModule):
         loss = torch.sum(loss, dim=1) / n_batch
         loss = torch.sqrt(loss)
 
-        level_loss = loss[:, :len(self.levels) * len(self.var_lv)]
+        level_loss = loss[:len(self.levels) * len(self.var_lv)]
         non_level_loss = loss[:, len(self.levels) * len(self.var_nlv):]
 
         self.visualization_level(level_loss)

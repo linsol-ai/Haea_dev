@@ -80,19 +80,6 @@ def preprocess_wind_data(u, v, device):
         return torch.stack([wind_speed, sin_encoded, cos_encoded], dim=0), torch.stack([un_wind_speed, un_sin_encoded, un_cos_encoded], dim=0), (wind_min, sin_min, cos_min), (wind_max, sin_max, cos_max)
 
 
-class ProgressUpdater(beam.DoFn):
-
-    def __init__(self, pbar):
-        self.pbar = pbar
-
-    def process(self, element):
-        # Update progress bar for each element processed
-        self.update_progress(1)
-        yield element
-    
-    def update_progress(self, progress):
-        self.pbar.update(progress)
-
 
 def download_zarr(source, output_path):
     source_dataset, source_chunks = xb.open_zarr(source)

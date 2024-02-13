@@ -56,7 +56,6 @@ class VariableAnalyzer(nn.Module):
         self.time_len = time_len
         self.dim_model = dim_model
         self.batch_size = batch_size
-        nn.TransformerEncoderLayer().self_attn
         self.transformer = nn.Transformer(
             d_model=dim_model,
             nhead=num_heads,

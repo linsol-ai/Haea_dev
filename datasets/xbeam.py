@@ -9,6 +9,7 @@ import xarray
 import xarray_beam as xbeam
 import pandas as pd
 import os
+from pathlib import Path
 
 DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 

@@ -68,7 +68,7 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
   
-   template = (
+  template = (
       xbeam.make_template(source_dataset)
       .isel(latitude=lat_indices, longitude=lon_indices)
   )

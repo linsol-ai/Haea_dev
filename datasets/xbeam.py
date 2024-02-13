@@ -91,7 +91,7 @@ def main(argv):
   )
 
   pipeline_options = PipelineOptions(
-        runner='DataflowRunner',
+        runner=RUNNER,
         project='genfit-7ba0d',
         temp_location='gs://era5_preprocess/temp',
         requirements_file='/workspace/Haea/req.txt',

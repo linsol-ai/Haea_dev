@@ -114,7 +114,7 @@ class VariableAnalyzer(nn.Module):
                 src_seq.extend([ i for _ in range(self.var_len)])
 
             for i in range(0, self.tgt_time_len):
-                src_seq.extend([ i for _ in range(self.var_len)])
+                tg.extend([ i for _ in range(self.var_len)])
         
             src_time_seq.append(src_seq)
         

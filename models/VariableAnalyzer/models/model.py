@@ -86,7 +86,7 @@ class VariableAnalyzer(nn.Module):
     def get_var_seq(self, batch_size, device):
         src_seq = []
         tgt_seq = []
-        
+
         for _ in range(batch_size):
             t_seq = [], s_seq = []
 
@@ -101,6 +101,7 @@ class VariableAnalyzer(nn.Module):
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
         src_seq = torch.tensor(src_seq, device=device)
+        
         return src_seq, tgt_seq
 
 

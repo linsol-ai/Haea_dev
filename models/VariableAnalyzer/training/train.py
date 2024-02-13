@@ -19,11 +19,6 @@ from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
 from models.VariableAnalyzer.training.callbacks import VariableVaildationCallback
 
-FLAGS = flags.FLAGS
-YEAR_OFFSET = flags.DEFINE_integer('train_offset', None, help='training year')
-flags.mark_flag_as_required("train_offset")
-flags.mark_flag_as_required("time_len")
-
 
 def get_dataset(year_offset: int, time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )

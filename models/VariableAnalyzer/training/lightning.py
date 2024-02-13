@@ -83,7 +83,7 @@ class TrainModule(pl.LightningModule):
         predict = self.model(src, tgt)
         loss = self.calculate_rmse_loss(predict[:, :, :self.predict_dim], label[:, :, :self.predict_dim])
         # loss.shape = (batch, time_len, var_len, 1450)
-        loss = loss.view(loss.size(0), pl_module.model.time_len, pl_module.model.var_len, loss.size(2))
+        loss = loss.view(loss.size(0), self.model.time_len, pl_module.model.var_len, loss.size(2))
         
     
 

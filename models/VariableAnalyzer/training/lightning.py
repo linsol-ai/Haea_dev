@@ -166,7 +166,7 @@ class TrainModule(pl.LightningModule):
         return self._step(batch, "train")
 
     def validation_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> torch.Tensor:  # noqa: D102
-        return self._step(batch, "val")
+        return self.validation
 
     def test_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> None:  # noqa: D102
         self._step(batch, "test")

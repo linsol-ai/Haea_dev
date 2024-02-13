@@ -142,7 +142,7 @@ class VariableAnalyzer(nn.Module):
         if self.src_var_seq is None:
             self.init_seq(x.device)
 
-        x = self.src_embedding(x, self.src_time_seq, self.src_var_seq) * math.sqrt(self.dim_model)
+        x = self.embedding(x, self.src_time_seq, self.src_var_seq) * math.sqrt(self.dim_model)
 
         attention_maps = []
         for layer in self.transformer.encoder.layers:

@@ -27,7 +27,7 @@ class TrainModule(pl.LightningModule):
 
     def __init__(self, *, model: VariableAnalyzer, mean_std: torch.Tensor, var_len: int, 
                  predict_dim: int, max_iters: int, var_lv: List, var_nlv: List, levels: List, 
-                 config: TrainingConfig | None = None):
+                 logger: WandbLogger, config: TrainingConfig | None = None):
         
         super().__init__()
         self.var_len = var_len

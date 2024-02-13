@@ -95,7 +95,7 @@ def main(argv):
         numWorkers=16,
   )
 
-  with beam.Pipeline(runner=RUNNER) as root :
+  with beam.Pipeline(options=pipeline_options) as root :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

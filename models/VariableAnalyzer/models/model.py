@@ -86,6 +86,7 @@ class VariableAnalyzer(nn.Module):
     def get_var_seq(self, batch_size, device):
         src_seq = []
         tgt_seq = []
+        
         for _ in range(batch_size):
             t_seq = [], s_seq = []
 

@@ -55,7 +55,8 @@ class VariableAnalyzer(nn.Module):
         self.var_len = var_len
         self.time_len = time_len
         self.dim_model = dim_model
-        self.batch_size = batch_size\
+        self.batch_size = batch_size
+        
         self.transformer = nn.Transformer(
             d_model=dim_model,
             nhead=num_heads,

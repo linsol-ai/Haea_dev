@@ -80,6 +80,7 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1]
         label = batch[2]
         
+        
     
 
     def calculate_mse_loss(self, predict: torch.Tensor, label: torch.Tensor):

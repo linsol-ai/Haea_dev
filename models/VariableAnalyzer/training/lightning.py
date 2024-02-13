@@ -12,7 +12,6 @@ import wandb
 from pytorch_lightning.loggers import WandbLogger
 
 def denormalize(inputs, mean_std):
-    # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
     mean = mean_std[:-1, 0].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
     std = mean_std[:-1, 1].unsqueeze(0).unsqueeze(0).unsqueeze(-1)  # (1, 1, var_len, 1)
     # 역정규화 수행

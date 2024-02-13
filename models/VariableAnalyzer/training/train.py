@@ -44,7 +44,7 @@ def _main(args) -> None:
     else:
         pl.seed_everything(config.seed)
 
-        train_offset = config.tra
+        train_offset = config.training.train_offset
         time_len = 4 * FLAGS.time_len
 
         # shape = (time, var, hidden)

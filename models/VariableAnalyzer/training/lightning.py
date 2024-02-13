@@ -79,12 +79,8 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         tgt = batch[1]
         label = batch[2]
-        predict = self.model(src, tgt)
-        predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
-        mean_std = self.mean_std[0]
-        # reversed_predict.shape = (batch, time_len, var_len, hidden)
-        reversed_predict = denormalize(predict, mean_std)
         
+
 
 
         

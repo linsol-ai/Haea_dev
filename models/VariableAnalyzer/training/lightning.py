@@ -90,7 +90,7 @@ class TrainModule(pl.LightningModule):
         reversed_predict = denormalize(predict, mean_std)
         reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
         # reversed_predict.shape = (batch, time_len * var_len, 1450) -> nomalized
-        loss = F.mse_loss(reversed_predict, label, red)
+        loss = F.mse_loss(reversed_predict, label, reduction='none')
         return loss
 
 

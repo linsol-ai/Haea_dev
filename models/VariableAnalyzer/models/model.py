@@ -90,7 +90,7 @@ class VariableAnalyzer(nn.Module):
             t_seq = [], s_seq = []
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)
-            for _ in range(0, self.tgt_time_len):
+            for _ in range(0, self.src):
                 t_seq.extend(self.var_seq)
 
             tgt_seq.append(t_seq)

@@ -29,7 +29,7 @@ class Embedding(nn.Module):
 
     def forward(self, x, position_seq, variable_seq):
         x = x + self.position(position_seq) + self.variable(variable_seq)
-        return x
+        return self.dropout(x)
 
 
 class VariableAnalyzer(nn.Module):

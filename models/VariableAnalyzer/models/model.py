@@ -134,7 +134,7 @@ class VariableAnalyzer(nn.Module):
 
         Input arguments same as the forward pass.
         """
-        
+        torch.Tensor
         return attention_maps
 
     

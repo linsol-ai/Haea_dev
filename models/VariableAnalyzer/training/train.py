@@ -56,7 +56,8 @@ def _main(args) -> None:
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableAnalyzer(
             var_len=shape[1],
-            src_time_len=src,
+            src_time_len=src_time_len,
+            tgt_time_len=tgt_time_len,
             dim_model=shape[2],
             predict_dim=dims[0],
             batch_size=config.training.batch_size,

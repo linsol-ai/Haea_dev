@@ -8,6 +8,7 @@ import numpy as np
 import xarray
 import xarray_beam as xbeam
 import pandas as pd
+import os
 
 DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 

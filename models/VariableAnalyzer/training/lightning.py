@@ -132,6 +132,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
         hidden = loss.size(3)
+        
         loss = torch.sum(loss, dim=-1) / hidden
 
         level_loss = loss[:, :, :13 * len(self.var_lv)]

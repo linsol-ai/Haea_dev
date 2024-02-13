@@ -82,7 +82,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
 
 
-    def visualization_level(self, level_loss: torch.Te):
+    def visualization_level(self, level_loss: torch.Tensor):
         for i in range(len(self.var_lv)):
             start = i * 13
             end = start + 13

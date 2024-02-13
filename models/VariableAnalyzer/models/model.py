@@ -101,11 +101,11 @@ class VariableAnalyzer(nn.Module):
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
         src_seq = torch.tensor(src_seq, device=device)
-        
+
         return src_seq, tgt_seq
 
 
-    def get_time_seq(self, batch_size, device):
+    def get_time_seq(self, time_len, batch_size, device):
         time_seq = []
         for _ in range(batch_size):
             seq = []

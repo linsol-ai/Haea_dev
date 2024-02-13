@@ -135,11 +135,11 @@ class VariableAnalyzer(nn.Module):
         Input arguments same as the forward pass.
         """
         attention_maps = []
-        for layer in self.layers:
+        for layer in self.tr:
             _, attn_map = layer.self_attn(x, mask=mask, return_attention=True)
             attention_maps.append(attn_map)
             x = layer(x)
-            
+
         return attention_maps
 
     

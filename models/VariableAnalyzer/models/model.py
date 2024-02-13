@@ -88,7 +88,8 @@ class VariableAnalyzer(nn.Module):
         tgt_seq = []
 
         for _ in range(batch_size):
-            t_seq = [], s_seq = []
+            t_seq = []
+            s_seq = []
 
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)

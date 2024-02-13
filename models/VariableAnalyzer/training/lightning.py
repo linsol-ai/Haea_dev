@@ -131,6 +131,7 @@ class TrainModule(pl.LightningModule):
         loss = loss.view(loss.size(0), -1, self.var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
+        
 
         
     

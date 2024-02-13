@@ -101,7 +101,8 @@ class TrainModule(pl.LightningModule):
             self.logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 
-    def visualization_non_level(self, non_level_loss):     print(non_level_loss.shape)
+    def visualization_non_level(self, non_level_loss):
+             print(non_level_loss.shape)
         for i in range(len(self.var_nlv)):
             name = self.var_nlv[i]
             loss = non_level_loss[i]

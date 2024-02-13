@@ -85,7 +85,7 @@ def main(argv):
         machine_type='n2-standard-4'
   )
 
-  with beam.Pipeline(ru) as root :
+  with beam.Pipeline(options=pipeline_options) as root :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

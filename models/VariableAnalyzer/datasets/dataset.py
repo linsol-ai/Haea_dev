@@ -14,7 +14,7 @@ class CustomDataset(Dataset):
 
 
     def __len__(self):
-        return self.input_dataset.size(0)-self.src_time_len+self.time_len
+        return self.input_dataset.size(0)-(self.src_time_len+self.time_len
 
     def get_data(self, indicate, dataset):
         result = []

@@ -30,7 +30,7 @@ class TrainingConfig(BaseModel):
     """The value to clip the gradients to."""
 
     src_time_len: int = Field(ge=0, default=2)
-    sr_time_len: int = Field(ge=0, default=2)
+    tg_time_len: int = Field(ge=0, default=2)
 
 
 class TrainingRunConfig(BaseModel):

@@ -8,6 +8,8 @@ from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingConfig
 from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
 from typing import List
+import wandb
+
 
 def denormalize(inputs, mean_std):
     # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤

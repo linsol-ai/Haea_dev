@@ -75,7 +75,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
 
 
-     def visualization_level(self, level_loss):
+    def visualization_level(self, level_loss):
         for i in range(len(self.level_var)):
             start = i * 13
             end = start + 13

@@ -80,7 +80,8 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1]
         label = batch[2]
         predict = self.model(src, tgt)
-        
+         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
+
 
         
 

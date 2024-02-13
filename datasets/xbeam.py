@@ -17,6 +17,7 @@ HAS_LEVEL_VARIABLE = [
 NONE_LEVEL_VARIABLE = [
   'geopotential_at_surface', 'toa_incident_solar_radiation', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation_6hr'
 ]
+
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 LAT = [(32.2, 39.0), (20, 70), (0, 70)]

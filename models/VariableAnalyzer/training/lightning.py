@@ -26,7 +26,8 @@ def rmse_loss(x, y):
 class TrainModule(pl.LightningModule):
 
     def __init__(self, *, model: VariableAnalyzer, mean_std: torch.Tensor, var_len: int, 
-                 predict_dim: int, max_iters: int, var_lv: List, var_nlv: List, levels: List, config: TrainingConfig | None = None):
+                 predict_dim: int, max_iters: int, var_lv: List, var_nlv: List, levels: List, 
+                 config: TrainingConfig | None = None):
         
         super().__init__()
         self.var_len = var_len
@@ -96,7 +97,7 @@ class TrainModule(pl.LightningModule):
                 title=name,
                 xname="Time - 6Hour per"
             )
-            
+
             self._logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 

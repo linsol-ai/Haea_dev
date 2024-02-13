@@ -104,6 +104,7 @@ class TrainModule(pl.LightningModule):
     def visualization_non_level(self, non_level_loss):
         for i in range(len(self.var_nlv)):
             name = self.var_nlv[i]
+            print(non_level_loss.shape)
             loss = non_level_loss[i]
 
             print(loss.shape)

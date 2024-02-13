@@ -96,7 +96,7 @@ class TrainModule(pl.LightningModule):
                 title=name,
                 xname="Time - 6Hour per"
             )
-            self.loggers
+            self.lo
             self._logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 

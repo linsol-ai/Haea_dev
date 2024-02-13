@@ -45,7 +45,7 @@ def _main(args) -> None:
         pl.seed_everything(config.seed)
 
         train_offset = config.training.train_offset
-        time_len = 4 * FLAGS.time_len
+        time_len = 4 * config.training
 
         # shape = (time, var, hidden)
         dataset_info, dataset, shape, mean_std, dims = get_dataset(train_offset, time_len)

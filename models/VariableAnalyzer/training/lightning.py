@@ -87,6 +87,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.permute(0, 2, 1, 3)
         
+        
     
 
     def calculate_mse_loss(self, predict: torch.Tensor, label: torch.Tensor):

@@ -96,6 +96,7 @@ class TrainModule(pl.LightningModule):
                 ys=loss,
                 keys=self.levels,
                 title=name,
+                split_table=True,
                 xname="Time - 6Hour per"
             )
 

@@ -87,8 +87,8 @@ class VariableAnalyzer(nn.Module):
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, src_time_len, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
-        src, tgt = tgt.view(tgt.size(0), -1, tgt.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
-        
+        src, tgt = src.view(src.size(0), -1, tgt.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
+
         src = self.src_embedding(src, self.src_var_seq) * math.sqrt(self.dim_model)
         tgt = self.tgt_embedding(tgt, self.time_seq, self.tgt_var_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)

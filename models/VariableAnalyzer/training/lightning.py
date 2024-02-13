@@ -83,7 +83,7 @@ class TrainModule(pl.LightningModule):
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         mean_std = self.mean_std[0]
         reversed_predict = denormalize(predict, mean_std)
-        
+        reversed_predict = reversed_predict.view(reversed_predict.size(0), -1, reversed_predict.size(3))
 
 
         

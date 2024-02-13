@@ -117,7 +117,7 @@ class TrainModule(pl.LightningModule):
                 title=name,
             )
 
-            self._logger.experiment.log({f"Surface Loss/{name}": custom_plot})
+            self.logger.experiment.log({f"Surface Loss/{name}": custom_plot})
     
 
     def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):

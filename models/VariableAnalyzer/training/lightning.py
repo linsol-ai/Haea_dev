@@ -18,7 +18,7 @@ def denormalize(inputs, mean_std):
     return denormalized
 
 def rmse_loss(x, y):
-    return torch.sqrt(F.m)
+    return torch.sqrt(F.mse_loss)
 
 
 class TrainModule(pl.LightningModule):

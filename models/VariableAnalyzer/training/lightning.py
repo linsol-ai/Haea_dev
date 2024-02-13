@@ -82,7 +82,8 @@ class TrainModule(pl.LightningModule):
         
     
 
-    def calculate_mse_loss
+    def calculate_mse_loss(self, predict: torch.Tensor, label: torch.Tensor):
+        
 
 
 

@@ -16,7 +16,6 @@ from models.VariableAnalyzer.datasets.dataset import CustomDataset
 from models.VariableAnalyzer.models.model import VariableAnalyzer
 from models.VariableAnalyzer.training.configs import TrainingRunConfig
 from models.VariableAnalyzer.training.lightning import TrainModule
-from models.VariableAnalyzer.training.callbacks import VariableVaildationCallback
 
 
 def get_dataset(year_offset: int, time_len: int):

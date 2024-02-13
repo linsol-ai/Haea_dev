@@ -85,6 +85,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, self.var_len, loss.size(2))
         
+        
     
 
     def calculate_mse_loss(self, predict: torch.Tensor, label: torch.Tensor):

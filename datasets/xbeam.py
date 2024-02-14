@@ -53,6 +53,7 @@ def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
   END_DATE = f'{FLAGS.end}-12-31'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
+  OUTPUT_PATH = f'gs://era5_dataset/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
   source_dataset = source_dataset[VARIABLE]

@@ -22,7 +22,7 @@ def get_dataset(year_offset: int, src_time_len: int, tgt_time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-    weather = WeatherDataset(year_offset, mode=device=device)
+    weather = WeatherDataset(year_offset, mode= W,device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     input, target, mean_std, dims = weather.load()
     dataset = CustomDataset(input, target, src_time_len, tgt_time_len)

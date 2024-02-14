@@ -20,7 +20,7 @@ NONE_LEVEL_VARIABLE = [
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
-LAT = [(0 60.0), (20, 70), (0, 70)]
+LAT = [(0, 60.0), (20, 70), (0, 70)]
 LON = [(124.2, 131), (120, 142), (90, 180)]
 INPUT_PATHS = [
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-1440x721.zarr',

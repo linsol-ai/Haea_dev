@@ -114,7 +114,7 @@ class WeatherDataset:
 
     RESOLUTION_MODE_FULL_SET = 2
     RESOLUTION_MODE_LARGE_SET = 1
-    RESOLUTION_MODE_BASIC_SET = 0
+    RESOLUTION_MODE_BASIC_SET = 1
 
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 

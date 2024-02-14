@@ -12,6 +12,7 @@ import sys,os
 from pathlib import Path
 import apache_beam as beam
 
+
 def normalize_tensor(tensor):
     mean = tensor.mean()
     std = tensor.std()

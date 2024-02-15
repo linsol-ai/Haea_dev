@@ -137,7 +137,6 @@ class WeatherDataset:
         for resol in resolutions:
             folder = Path(self.DIR_NAME)
             file_path = folder / resol / file_name
-            
             dataset_path.append(file_path)
 
             if not file_path.exists():

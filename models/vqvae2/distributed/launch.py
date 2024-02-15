@@ -4,7 +4,7 @@ import torch
 from torch import distributed as dist
 from torch import multiprocessing as mp
 
-import models.distributed as dist_fn
+import models.vqdistributed as dist_fn
 
 
 def find_free_port():

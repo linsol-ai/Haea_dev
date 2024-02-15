@@ -140,7 +140,7 @@ class WeatherDataset:
                 file_path = folder / resol / file_name
                 dataset_path.append(file_path)
             else:
-                 gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
+                gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
                 dataset_path.append(file_path)
 
             if not file_path.exists():

@@ -217,6 +217,8 @@ class VQVAE(nn.Module):
         quant_b = quant_b.permute(0, 3, 1, 2)
         diff_b = diff_b.unsqueeze(0)
 
+        
+
         return quant_t, quant_b, diff_t + diff_b, id_t, id_b
 
     def decode(self, quant_t, quant_b):

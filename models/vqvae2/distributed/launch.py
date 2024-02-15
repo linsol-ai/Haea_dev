@@ -3,7 +3,7 @@ import os
 import torch
 from torch import distributed as dist
 from torch import multiprocessing as mp
-from models.vqvae2 import distributed as 
+from models.vqvae2 import distributed as dist_fn
 import models.vqvae2.vdistributed as dist_fn
 
 

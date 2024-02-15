@@ -136,7 +136,7 @@ class VariableAnalyzer(nn.Module):
 
         for i in range(tgt_time_len):
             for j in range(var_len):
-                inf_idx = min(((i)*var_len), self.var_len * self.tgt_time_len)
+                inf_idx = min(((i)*self.var_len), self.var_len * self.tgt_time_len)
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
         return matrix
 

@@ -71,6 +71,7 @@ def main(argv):
   template = (
       xbeam.make_template(source_dataset)
       .isel(latitude=lat_indices, longitude=lon_indices)
+      ds_sorted = source_dataset.sortby('latitude', ascending=True)
   )
 
   output_chunks = source_chunks.copy()

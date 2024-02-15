@@ -173,7 +173,7 @@ class VQVAE(nn.Module):
     ):
         super().__init__()
 
-        self.enc_b = Encoder(in_channel, channel, n_res_block, n_res_channel, stride=4)
+        self.enc_b = Encoder(in_channel, channel, n_res_block, n_res_channel, stride=2)
         self.enc_t = Encoder(channel, channel, n_res_block, n_res_channel, stride=2)
         self.quantize_conv_t = nn.Conv2d(channel, embed_dim, 1)
         self.quantize_t = Quantize(embed_dim, n_embed)

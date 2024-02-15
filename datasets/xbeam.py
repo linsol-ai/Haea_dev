@@ -81,7 +81,7 @@ def main(argv):
         runner='DataflowRunner',
         project='climate-414222',
         temp_location='gs://era5_climate/temp',
-        requirements_file='/workspace/Haea/req.txt',
+        requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
         machine_type='c3-highmem-8'
   )

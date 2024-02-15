@@ -123,6 +123,7 @@ class WeatherDataset:
         end, start = self.DATE_OFFSET[year_offset]
         self.start = pd.to_datetime(f'{start}-12-31')
         self.end = pd.to_datetime(f'{end}-12-31')
+        self.offline = offline
         self.device = device
         self.normalize = normalize
         dataset_path = self.check_dataset(self.RESOLUTION[:mode], start, end)

@@ -139,7 +139,8 @@ class WeatherDataset:
                 folder = Path(self.DIR_NAME)
                 file_path = folder / resol / file_name
                 dataset_path.append(file_path)
-            else
+            else:
+                 
 
             if not file_path.exists():
                 print("======= DOWNLOAD Zarr FROM GCS ======")

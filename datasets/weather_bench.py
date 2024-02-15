@@ -135,6 +135,7 @@ class WeatherDataset:
         dataset_path = []
 
         for resol in resolutions:
+            if self.offline:
             folder = Path(self.DIR_NAME)
             file_path = folder / resol / file_name
             dataset_path.append(file_path)

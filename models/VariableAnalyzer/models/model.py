@@ -131,6 +131,15 @@ class VariableAnalyzer(nn.Module):
             matrix[i, min(self.var_len*(i+1), self.var_len * self.tgt_time_len):] = float('-inf')
         return matrix
 
+    def get_tgt_mask(var_len, tgt_time_len) -> torch.tensor:
+        matrix = torch.zeros(var_len * tgt_time_len, var_len * tgt_time_len)
+
+        for i in range(tgt_time_len):
+            for j in range(var_len):
+                inf_idx = min(((i)*var_len), var_len * tgt_time_len)
+                matrix[:(i*var_len), inf_idx:] = float('-inf')
+        return matrix
+
     
     @torch.no_grad()
     def get_attention_maps(self, x: torch.Tensor):

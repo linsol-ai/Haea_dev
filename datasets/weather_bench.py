@@ -91,7 +91,7 @@ def download_zarr(source, output_path):
         (
             root
             | "Read from Source Dataset" >> xb.DatasetToChunks(source_dataset, source_chunks)
-            | "Write to Zarr" >> xb.ChunksToZarr(output_path, template, source_dataset)
+            | "Write to Zarr" >> xb.ChunksToZarr(output_path, template, source_chunks)
         )
         
 

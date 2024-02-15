@@ -224,7 +224,6 @@ class VQVAE(nn.Module):
 
     def decode(self, quant):
         dec = self.dec(quant)
-
         return dec
 
     def decode_code(self, code_t, code_b):

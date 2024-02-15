@@ -108,7 +108,7 @@ class WeatherDataset:
 
     DATE_OFFSET = [(2021, 2011), (2016, 2011), (2011, 2006), (2006, 2001)]
 
-    GCS_BUCKET = 'gcs://era5_dataset'
+    GCS_BUCKET = 'gcs://era5_climate'
 
     RESOLUTION = ['1440x720', '240x120', '60x30']
 

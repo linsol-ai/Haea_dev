@@ -132,7 +132,7 @@ class VariableAnalyzer(nn.Module):
         return matrix
 
     def get_tgt_mask(self) -> torch.tensor:
-        matrix = torch.zeros(var_len * tgt_time_len, var_len * tgt_time_len)
+        matrix = torch.zeros(self.var_len * tgt_time_len, var_len * tgt_time_len)
 
         for i in range(tgt_time_len):
             for j in range(var_len):

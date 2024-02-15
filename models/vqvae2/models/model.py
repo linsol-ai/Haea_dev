@@ -223,8 +223,6 @@ class VQVAE(nn.Module):
         return quant, diff_t + diff_b, id_t, id_b
 
     def decode(self, quant):
-        upsample_t = self.upsample_t(quant_t)
-        quant = torch.cat([upsample_t, quant_b], 1)
         dec = self.dec(quant)
 
         return dec

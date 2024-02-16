@@ -58,7 +58,7 @@ class DiscreteVAE(nn.Module):
         has_resblocks = num_resnet_blocks > 0
 
         self.channels = channels
-        self.image_size = image_size
+
         self.num_tokens = num_tokens
         self.num_layers = num_layers
         self.temperature = temperature

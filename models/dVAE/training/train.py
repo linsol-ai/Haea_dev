@@ -50,7 +50,7 @@ def _main() -> None:
         pl.seed_everything(config.seed)
 
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
-        if log_path.ex
+        if log_path.exists
 
         logger = WandbLogger(
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 

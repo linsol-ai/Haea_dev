@@ -25,6 +25,7 @@ from datasets.weather_bench import WeatherDataset
 
 class ImageDataset(Dataset):
         def __init__(self, data_array: torch.Tensor):
+            
             self.data_array = data_array
 
         def __len__(self):

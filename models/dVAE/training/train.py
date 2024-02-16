@@ -111,7 +111,7 @@ def _main() -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-                EarlyStopping(monitor="val_loss", mode="min")
+                EarlyStopping(monitor="val/loss", mode="min")
             ],
             precision="bf16-mixed"
         )

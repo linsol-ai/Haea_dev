@@ -78,9 +78,11 @@ def main(argv):
       .sortby('latitude', ascending=True)
   )
 
+  source_chunks['level'] = 13
+
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
-  
+
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

@@ -51,7 +51,7 @@ def _main() -> None:
 
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
         if not os.path.exists(log_path):
-            
+            os.makedirs(directory)
 
         logger = WandbLogger(
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 

@@ -127,7 +127,7 @@ class WeatherDataset:
         self.offline = offline
         self.device = device
         self.normalize = normalize
-        dataset_path = self.check_dataset(self.RESOLUTION[:mode], start, end)
+        dataset_path = self.check_dataset(self.RESOLUTION[1], start, end)
         self.load_dataset(dataset_path)
 
     

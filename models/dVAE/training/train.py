@@ -65,7 +65,7 @@ def _main() -> None:
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 
-        input, target, _
+        input, _, _
 
         # Use a custom dataset class with proper transformations
 

@@ -348,7 +348,8 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (level, time, h, w) or (time, h, w)
                 input, target, mean, std = future.result()
-                if 
+                if len(input.shape) == 4:
+                    
                 result[val] = (input, target, mean, std)
             
 

@@ -49,7 +49,7 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
         logger = WandbLogger(
-            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{}'), 
+            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{t}'), 
             name="vqvae",
             project='vqvae'
             )

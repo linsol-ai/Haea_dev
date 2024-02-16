@@ -332,7 +332,7 @@ class WeatherDataset:
 
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
-        result = {}
+        level_result = {}
 
         print("==== LOAD DATASET ====\n", dataset)
 

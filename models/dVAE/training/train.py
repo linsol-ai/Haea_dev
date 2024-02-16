@@ -101,7 +101,7 @@ def _main() -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-            ]
+            ],
               precision="bf16-mixed"
         )
 

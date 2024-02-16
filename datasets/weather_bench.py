@@ -133,8 +133,8 @@ class WeatherDataset:
     
     def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'
-        dataset_path = []
-
+        dataset_path = None
+        
         if self.offline:
             folder = Path(self.DIR_NAME)
             file_path = folder / self.RESOLUTION[0] / file_name

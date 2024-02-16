@@ -187,6 +187,7 @@ class WeatherDataset:
                 inputs.append(input)
                 means.append(mean)
                 stds.append(std)
+            
 
         return input, target, mean, std
     

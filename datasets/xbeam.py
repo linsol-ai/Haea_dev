@@ -77,7 +77,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date))
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
@@ -96,7 +96,6 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | xbeam.ConsolidateChunks(output_chunks)
         | beam.MapTuple(rekey_chunk_on_month_hour, lat_indices=lat_indices, lon_indices=lon_indices)
         | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)

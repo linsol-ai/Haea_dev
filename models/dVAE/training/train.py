@@ -17,6 +17,7 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 from training.callbacks import SaveValVisualizationCallback
 from training.config import TrainingRunConfig
 from training.lightning import DVAETrainModule
+from models.dVAE.models.model import DiscreteVAE
 
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))

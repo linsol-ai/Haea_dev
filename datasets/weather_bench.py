@@ -191,7 +191,7 @@ class WeatherDataset:
             return torch.stack(inputs, dim=0), target, means, stds
 
         else:
-            input, mean, std = normalize_tensor(data[:, i, : , :])
+            input, mean, std = normalize_tensor(data)
             return input, target, mean, std
     
 

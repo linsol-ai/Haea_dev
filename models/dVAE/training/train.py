@@ -14,7 +14,7 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from datasets.weather_bench import WeatherDataset
 
-from models.dVAEcallbacks import SaveValVisualizationCallback
+from models.dVAE.callbacks import SaveValVisualizationCallback
 from config import TrainingRunConfig
 from lightning import DVAETrainModule
 from models.model import DiscreteVAE

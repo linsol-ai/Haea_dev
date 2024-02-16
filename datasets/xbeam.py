@@ -75,6 +75,7 @@ def main(argv):
   
   template = (
       xbeam.make_template(source_dataset)
+      .
   )
 
   source_chunks['level'] = 13

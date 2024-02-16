@@ -140,15 +140,6 @@ class DiscreteVAE(nn.Module):
 
         one_hot = F.gumbel_softmax(logits, tau = temp, dim = 1, hard = self.straight_through)
 
-        if self.straight_through and self.reinmax:
-            # use reinmax for better second-order accuracy - https://arxiv.org/abs/2304.08612
-            # algorithm 2
-            one_hot = one_hot.detach()
-            π0 = logits.softmax(dim = 1)
-            π1 = (one_hot + (logits / temp).softmax(dim = 1)) / 2
-            π1 = ((log(π1) - logits).detach() + logits).softmax(dim = 1)
-            π2 = 2 * π1 - 0.5 * π0
-            one_hot = π2 - π2.detach() + one_hot
 
         sampled = einsum('b n h w, n d -> b d h w', one_hot, self.codebook.weight)
         out = self.decoder(sampled)

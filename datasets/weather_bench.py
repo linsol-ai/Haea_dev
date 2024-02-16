@@ -359,16 +359,7 @@ class WeatherDataset:
             input, target, mean, std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target
-
-            if len(input.shape) == 4:
-                for i in range(input.size(0)):
-                    input_dataset.append(input[i])
-                    target_dataset.append(target[i])
-                    normalizaion.append([mean[i], std[i]])
-            else:
-                input_dataset.append(input)
-                target_dataset.append(target)
-                normalizaion.append([mean, std])
+            
 
 
         input_dataset = torch.stack(input_dataset, dim=0)

@@ -179,13 +179,6 @@ class WeatherDataset:
         target = data.clone().detach()
         input, mean, std = normalize_tensor(data)
 
-        if len(data.shape) == 4:
-            input = input.flatten(2)
-            target = target.flatten(2)
-        else:
-            input = input.flatten(1)
-            target = target.flatten(1)
-
         return input, target, mean, std
     
 

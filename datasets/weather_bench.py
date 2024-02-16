@@ -134,11 +134,11 @@ class WeatherDataset:
     def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'
         dataset_path = None
-        
+
         if self.offline:
             folder = Path(self.DIR_NAME)
             file_path = folder / self.RESOLUTION[0] / file_name
-            dataset_path.append(file_path)
+            dataset_path = 
             if not file_path.exists():
                 print("======= DOWNLOAD Zarr FROM GCS ======")
                 gcs_path = self.GCS_BUCKET + "/" + self.RESOLUTION[0] + "/" + file_name

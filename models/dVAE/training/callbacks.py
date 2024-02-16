@@ -55,7 +55,7 @@ class SaveValVisualizationCallback(Callback):
         )
         with torch.no_grad():
             temperature = pl_module._temperature_scheduler.get_value()
-            code, logits = pl_module.dvae.get_codebook_indices(img)
+            code = pl_module.dvae.get_codebook_indices(img)
             hard_recons = pl_module.dvae.decode(code, logits.shape[2:]).detach().cpu()
             recons = pl_module.dvae(
                 img,

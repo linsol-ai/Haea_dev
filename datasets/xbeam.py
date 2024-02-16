@@ -73,7 +73,7 @@ def main(argv):
   template = (
       xbeam.make_template(source_dataset)
       .sel(time=slice(start_date, end_date))
-      .sel(l)
+      .sel(le)
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 

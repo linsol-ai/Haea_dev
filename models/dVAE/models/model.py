@@ -53,7 +53,6 @@ class DiscreteVAE(nn.Module):
         smooth_l1_loss = False,
         temperature = 0.9,
         kl_div_loss_weight = 0.,
-        normalization = ((*((0.5,) * 3), 0), (*((0.5,) * 3), 1))
     ):
         super().__init__()
         assert log2(image_size).is_integer(), 'image size must be a power of 2'

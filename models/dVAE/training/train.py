@@ -70,7 +70,7 @@ def _main() -> None:
         weather = WeatherDataset(0, device=device, offline=True)
         input, _, _ = weather.load()
 
-        val
+        val_dataset = 
 
         # Use a custom dataset class with proper transformations
 

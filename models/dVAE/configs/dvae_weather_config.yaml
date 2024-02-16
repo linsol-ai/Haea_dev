@@ -9,7 +9,7 @@ model:
   num_resnet_blocks: 2
 training:
   train_variable: '2m_temperature'
-  learning_rate: 1e-3
+  learning_rate: 1e-4
   lr_decay_rate: 0.98
   kl_div_weight_scheduler:
     start: 0

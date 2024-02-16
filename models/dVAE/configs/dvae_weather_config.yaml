@@ -6,7 +6,7 @@ model:
   hidden_dim: 128
   channels: 1
   num_layers: 1
-  num_resnet_blocks: 2
+  num_resnet_blocks: 1
 training:
   train_variable: '2m_temperature'
   learning_rate: 5e-4
@@ -17,8 +17,8 @@ training:
     warmup: 0.1
     cooldown: 0.2
   temperature_scheduler:
-    start: 1e-3
-    min:  1e-5
+    start: 0.2
+    min:  1e-2
     anneal_rate: 1e-6
   batch_size: 256
   max_epochs: 40

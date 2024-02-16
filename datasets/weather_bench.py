@@ -194,7 +194,7 @@ class WeatherDataset:
     def load(self):
         input, target, normalizaion = self.load_data(self.datasets)
         print("======= RESULT SHAPE =======")
-        print("result_dataset.shape: ", input_dataset.shape)
+        print("result_dataset.shape: ", input.shape)
 
         return input_dataset, target_dataset, normalizaion_data, dims
 

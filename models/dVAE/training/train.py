@@ -10,11 +10,6 @@ from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, Dataset
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
-from callbacks import SaveValVisualizationCallback
-from config import TrainingRunConfig
-from lightning import DVAETrainModule
-from models.model import DiscreteVAE
-
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from datasets.weather_bench import WeatherDataset

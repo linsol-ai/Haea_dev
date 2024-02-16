@@ -178,7 +178,7 @@ class WeatherDataset:
 
         target = data.clone().detach()
 
-        
+        if target.si
 
         input, mean, std = normalize_tensor(data)
 

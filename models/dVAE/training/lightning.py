@@ -49,7 +49,6 @@ class DVAETrainModule(pl.LightningModule):
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         temperature = self._temperature_scheduler.get_value()
-        kl_div_weight = self._kl_div_weight_scheduler.get_value()
 
         loss, recons = self.dvae(
             batch,

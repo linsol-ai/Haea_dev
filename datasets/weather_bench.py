@@ -365,7 +365,7 @@ class WeatherDataset:
         normalizaion = torch.tensor(normalizaion)
 
         # dataset.shape => (time, var, h * w)
-        input_dataset = torch.swapaxes(input_dataset, 0, 1)
+        input_dataset = torch.s(input_dataset, 0, 1)
         target_dataset = torch.swapaxes(target_dataset, 0, 1)
         
         end = time.time()

@@ -62,7 +62,6 @@ def main(argv):
 
   start_date = pd.to_datetime(START_DATE)
   end_date = pd.to_datetime(END_DATE)
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]

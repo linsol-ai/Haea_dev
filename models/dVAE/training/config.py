@@ -86,6 +86,8 @@ class DVAETrainingConfig(BaseModel):
     num_vis: int = Field(ge=0, default=10)
     """The number of validation visualizations to save every `save_vis_every_n_epochs` steps."""
 
+    
+
 
 class TrainingRunConfig(BaseModel):
     """A config specification of the training run."""

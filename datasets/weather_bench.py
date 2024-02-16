@@ -366,7 +366,7 @@ class WeatherDataset:
 
         # dataset.shape => (time, var, h * w)
         input_dataset = input_dataset.unsqueeze(2)
-        target_dataset = torch.swapaxes(target_dataset, 0, 1)
+        target_dataset = input_dataset.unsqueeze(2)
         
         end = time.time()
         print(f"{end - start:.5f} sec")

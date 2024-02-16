@@ -362,7 +362,7 @@ class WeatherDataset:
 
         for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
             input, target, mean, std = result[val]
-            if len(input.shape) == 3:
+            if len(input.shape) == 4:
                 for i in range(input.size(0)):
                     input_dataset.append(input[i])
                     target_dataset.append(target[i])

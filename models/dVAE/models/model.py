@@ -101,7 +101,6 @@ class DiscreteVAE(nn.Module):
         self.kl_div_loss_weight = kl_div_loss_weight
 
         # take care of normalization within class
-        self.normalization = tuple(map(lambda t: t[:channels], normalization))
 
         self._register_external_parameters()
 

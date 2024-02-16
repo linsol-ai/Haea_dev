@@ -70,8 +70,6 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
-  source_dataset = source_dataset.sel(level=LEVEL)
-
   
   template = (
       xbeam.make_template(source_dataset)

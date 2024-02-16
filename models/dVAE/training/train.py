@@ -105,7 +105,7 @@ def _main() -> None:
             filename='dvae-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
             save_top_k=3, # 상위 k개의 모델을 저장
             mode='min', # 'min'은 val_loss를 최소화하는 체크포인트를 저장
-)
+        )
         
 
         trainer = pl.Trainer(

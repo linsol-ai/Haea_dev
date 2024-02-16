@@ -140,7 +140,6 @@ class DiscreteVAE(nn.Module):
 
         one_hot = F.gumbel_softmax(logits, tau = temp, dim = 1, hard = self.straight_through)
 
-
         sampled = einsum('b n h w, n d -> b d h w', one_hot, self.codebook.weight)
         out = self.decoder(sampled)
 

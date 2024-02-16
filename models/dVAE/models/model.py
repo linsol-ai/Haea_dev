@@ -127,7 +127,6 @@ class DiscreteVAE(nn.Module):
         temp = None
     ):
         device, num_tokens, kl_div_loss_weight = img.device, self.num_tokens, self.kl_div_loss_weight
-        assert img.shape[-1] == image_size and img.shape[-2] == image_size, f'input must have the correct image size {image_size}'
 
         logits = self.encoder(img)
 

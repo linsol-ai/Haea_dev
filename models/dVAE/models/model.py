@@ -1,6 +1,6 @@
 import torch
 from math import log2, sqrt
-from torch import nn
+from torch import nn, einsum
 from torch.nn import functional as F
 
 

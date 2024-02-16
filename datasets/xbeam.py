@@ -59,6 +59,8 @@ def main(argv):
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
   source_dataset = source_dataset[VARIABLE]
+
+  
   source_dataset = source_dataset.sel(level=LEVEL).sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
 
 

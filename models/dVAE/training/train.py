@@ -24,7 +24,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from datasets.weather_bench import WeatherDataset
 
 class ImageDataset(Dataset):
-        def __init__(self, data_array):
+        def __init__(self, data_array: torch.Tensor):
             self.data_array = data_array
 
         def __len__(self):

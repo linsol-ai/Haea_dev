@@ -188,7 +188,7 @@ class WeatherDataset:
                 means.append(mean)
                 stds.append(std)
 
-            return torch.stack(inputs, dim=0), target.swapaxes(0, 1), means, stds
+            return torch.stack(inputs, dim=0), target.swapaxes(0,), means, stds
 
         else:
             input, mean, std = normalize_tensor(data)
@@ -332,8 +332,7 @@ class WeatherDataset:
 
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
-        level_result = {}
-        
+        result = {}
 
         print("==== LOAD DATASET ====\n", dataset)
 

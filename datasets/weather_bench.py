@@ -362,9 +362,6 @@ class WeatherDataset:
             normalizaion[val] = (mean, std)
 
 
-        input_dataset = torch.stack(input_dataset, dim=0)
-        target_dataset = torch.stack(target_dataset, dim=0)
-        normalizaion = torch.tensor(normalizaion)
 
         # dataset.shape => (time, var, 1, h, w)
         input_dataset = input_dataset.unsqueeze(2)

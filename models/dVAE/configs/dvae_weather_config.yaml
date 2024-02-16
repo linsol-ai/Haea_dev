@@ -6,7 +6,7 @@ model:
   hidden_dim: 64
   channels: 1
   num_layers: 1
-  num_resnet_blocks: 2
+  num_resnet_blocks: 3
 training:
   train_variable: '2m_temperature'
   learning_rate: 1e-3

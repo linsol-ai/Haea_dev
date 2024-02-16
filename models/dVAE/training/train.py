@@ -106,7 +106,7 @@ def _main() -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-            ],
+            ]
         )
 
         trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)

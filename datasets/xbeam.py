@@ -76,7 +76,8 @@ def main(argv):
   template = (
       xbeam.make_template(source_dataset)
       .sel(level=LEVEL)
-      .sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+      .sel(time=slice(start_date, end_date))
+      .isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
 
   )
 

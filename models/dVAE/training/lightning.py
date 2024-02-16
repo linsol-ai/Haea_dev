@@ -35,7 +35,7 @@ class DVAETrainModule(pl.LightningModule):
             cooldown=self.config.kl_div_weight_scheduler.cooldown,
             steps=self.config.max_epochs,
         )
-        self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
+        self.save_hyperparameters(  )
 
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102

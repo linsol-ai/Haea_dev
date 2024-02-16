@@ -131,7 +131,7 @@ class WeatherDataset:
         self.load_dataset(dataset_path)
 
     
-    def check_dataset(self, resolutions, start, end):
+    def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'
         dataset_path = []
 

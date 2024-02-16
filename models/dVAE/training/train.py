@@ -58,7 +58,6 @@ def _main() -> None:
             channels=1,
             smooth_l1_loss=True,
             temperature=config.training.temperature_scheduler.start,
-            straight_through=False
         )
         model_pl = DVAETrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)

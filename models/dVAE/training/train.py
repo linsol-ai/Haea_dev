@@ -9,7 +9,7 @@ from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, Dataset
 from pytorch_lightning.utilities.model_summary import ModelSummary
-from lightning.pytorch.callbacks.early_stopping import EarlyStopping
+from pytorch_lightning.pytorch.callbacks.early_stopping import EarlyStopping
 
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))

@@ -182,7 +182,7 @@ class WeatherDataset:
             inputs = []
             targets = []
             means = []
-            
+            stds = []
             for i in range(data.size(1)):
                 input, mean, std = normalize_tensor(data[:, i, : , :])
 

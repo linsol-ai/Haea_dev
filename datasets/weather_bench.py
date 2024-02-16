@@ -145,8 +145,8 @@ class WeatherDataset:
                     print("DOWNLOAD: ", gcs_path)
                     download_zarr(gcs_path, file_path)
         else:
-                gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
-                dataset_path.append(gcs_path)
+            gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name
+            dataset_path.append(gcs_path)
         
         return dataset_path
     

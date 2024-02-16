@@ -68,7 +68,7 @@ def _main() -> None:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         device = torch.device(device)
 
-    weather = WeatherDataset(0, device=device, offline=True)
+        weather = WeatherDataset(0, device=device, offline=True)
         input, _, _ = 
 
         # Use a custom dataset class with proper transformations

@@ -64,7 +64,7 @@ def _main() -> None:
         model_pl = DVAETrainModule(dvae=model, config=config.training)
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
-
+        
         input, _, _ = 
 
         # Use a custom dataset class with proper transformations

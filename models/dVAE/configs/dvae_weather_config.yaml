@@ -1,7 +1,7 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 model:
-  codebook_size: 2048
+  codebook_size: 1024
   codebook_vector_dim: 256
   hidden_dim: 256
   channels: 1

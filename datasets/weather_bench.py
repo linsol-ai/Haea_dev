@@ -179,6 +179,9 @@ class WeatherDataset:
         target = data.clone().detach()
 
         if len(data.shape) == 4:
+            inputs = []
+            targets = []
+            means = []
             
             for i in range(data.size(1)):
                 input, mean, std = normalize_tensor(data[:, i, : , :])

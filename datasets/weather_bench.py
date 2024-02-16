@@ -351,7 +351,7 @@ class WeatherDataset:
             
 
         # dataset.shape => (var*level, time, h, w)
-        input_dataset = []
+        input_dataset = {}
         target_dataset = []
         normalizaion = []
 

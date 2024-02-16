@@ -106,16 +106,6 @@ class DiscreteVAE(nn.Module):
         self._register_external_parameters()
 
 
-    def norm(self, images):
-        if not exists(self.normalization):
-            return images
-
-        means, stds = map(lambda t: torch.as_tensor(t).to(images), self.normalization)
-        means, stds = map(lambda t: rearrange(t, 'c -> () c () ()'), (means, stds))
-        images = images.clone()
-        images.sub_(means).div_(stds)
-        return images
-
     @torch.no_grad()
     @eval_decorator
     def get_codebook_indices(self, images):

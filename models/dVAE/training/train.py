@@ -14,6 +14,11 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from datasets.weather_bench import WeatherDataset
 
+from callbacks import SaveValVisualizationCallback
+from config import TrainingRunConfig
+from lightning import DVAETrainModule
+from models.model import DiscreteVAE
+
 class ImageDataset(Dataset):
         def __init__(self, data_array: torch.Tensor):
             if len(data_array.shape) == 5:

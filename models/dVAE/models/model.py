@@ -11,6 +11,7 @@ def exists(val):
 def default(val, d):
     return val if exists(val) else d
 
+
 class ResBlock(nn.Module):
     def __init__(self, chan):
         super().__init__()

@@ -333,7 +333,7 @@ class WeatherDataset:
         target_dataset = {}
         normalizaion = {}
 
-        for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
+        for val in variables:
             input, target, mean, std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target

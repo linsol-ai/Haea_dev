@@ -6,7 +6,7 @@ from einops import rearrange
 import pytorch_lightning
 from models.dVAE.models.model import DiscreteVAE
 from models.dVAE.training.config import DVAETrainingConfig
-from training.params_schedule import LinearScheduler, ExponentialScheduler
+from models.dVAE.training.params_schedule import LinearScheduler, ExponentialScheduler
 
 
 class DVAETrainModule(pl.LightningModule):

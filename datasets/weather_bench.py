@@ -348,7 +348,7 @@ class WeatherDataset:
                 # shape => (level, time, h, w) or (time, h, w)
                 input, target, mean, std = future.result()
 
-                if len(input.shape) == 3:
+                if len(input.shape) == 4:
                     input = input.swapaxes(0, 1)
                     target = target.swapaxes(0, 1)
 

@@ -16,7 +16,7 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 
 from callbacks import SaveValVisualizationCallback
 from config import TrainingRunConfig
-from training.lightning import DVAETrainModule
+from lightning import DVAETrainModule
 from models.model import DiscreteVAE
 
 import sys,os

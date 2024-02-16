@@ -3,7 +3,7 @@
 model:
   codebook_size: 2048
   codebook_vector_dim: 128
-  hidden_dim: 64
+  hidden_dim: 256
   channels: 1
   num_layers: 1
   num_resnet_blocks: 2

@@ -26,6 +26,7 @@ class ResBlock(nn.Module):
     def forward(self, x):
         return self.net(x) + x
 
+
 class DiscreteVAE(nn.Module):
     def __init__(
         self,

@@ -52,8 +52,6 @@ class DiscreteVAE(nn.Module):
         channels = 3,
         smooth_l1_loss = False,
         temperature = 0.9,
-        straight_through = False,
-        reinmax = False,
         kl_div_loss_weight = 0.,
         normalization = ((*((0.5,) * 3), 0), (*((0.5,) * 3), 1))
     ):

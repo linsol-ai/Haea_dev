@@ -16,7 +16,7 @@ from datasets.weather_bench import WeatherDataset
 
 from models.dVAE.training.callbacks import SaveValVisualizationCallback
 from models.dVAE.configs import TrainingRunConfig
-from lightning import DVAETrainModule
+from models.dVAE. import DVAETrainModule
 from models.model import DiscreteVAE
 
 class ImageDataset(Dataset):

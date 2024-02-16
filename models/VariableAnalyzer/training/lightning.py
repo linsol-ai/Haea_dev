@@ -66,7 +66,7 @@ class TrainModule(pl.LightningModule):
     
     def on_save_checkpoint(self, checkpoint):
         # dvae 상태를 checkpoint 딕셔너리에 추가
-        checkpoint['dvae_state'] = self.dvae.state_dict()
+        checkpoint['model_state'] = self.dvae.state_dict()
 
     def on_load_checkpoint(self, checkpoint):
         # checkpoint 딕셔너리에서 dvae 상태를 로드

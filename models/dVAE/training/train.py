@@ -104,7 +104,7 @@ def _main() -> None:
         checkpoint_callback = ModelCheckpoint(
             monitor='val/loss', # 모니터링할 값
             dirpath='my_model/', # 체크포인트 저장 경로
-            filename='-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
+            filename= + '-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
             save_top_k=3, # 상위 k개의 모델을 저장
             mode='min', # 'min'은 val_loss를 최소화하는 체크포인트를 저장
         )

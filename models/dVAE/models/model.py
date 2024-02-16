@@ -43,7 +43,6 @@ def log(t, eps = 1e-20):
 class DiscreteVAE(nn.Module):
     def __init__(
         self,
-        image_size = 256,
         num_tokens = 512,
         codebook_dim = 512,
         num_layers = 3,

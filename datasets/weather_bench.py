@@ -359,7 +359,7 @@ class WeatherDataset:
             input, target, mean, std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target
-            normalizaion[val] = 
+            normalizaion[val] = ()
 
 
         input_dataset = torch.stack(input_dataset, dim=0)

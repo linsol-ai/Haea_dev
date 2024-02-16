@@ -188,7 +188,7 @@ class WeatherDataset:
                 means.append(mean)
                 stds.append(std)
 
-            return torch.stack
+            return torch.stack()
 
         return input, target, mean, std
     

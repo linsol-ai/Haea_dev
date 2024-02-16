@@ -180,7 +180,6 @@ class WeatherDataset:
 
         if len(data.shape) == 4:
             inputs = []
-            targets = []
             means = []
             stds = []
             for i in range(data.size(1)):

@@ -1,5 +1,6 @@
 import torch
 from math import log2, sqrt
+import numpy as np
 from torch import nn, einsum
 from torch.nn import functional as F
 from einops import rearrange

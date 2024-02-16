@@ -44,7 +44,7 @@ flags.mark_flag_as_required("type")
 
 
 def rekey_chunk_on_month_hour(
-    key: xbeam.Key, dataset: xarray.Dataset, start_date=None, end_date, lat_indices=None, lon_indices=None
+    key: xbeam.Key, dataset: xarray.Dataset, start_date=None, end_date=None, lat_indices=None, lon_indices=None
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   """Replace the 'time' dimension with 'month'/'hour'."""
   new_dataset = dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sel(level=LEVEL).sortby('latitude', ascending=True)

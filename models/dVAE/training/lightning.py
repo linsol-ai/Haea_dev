@@ -67,6 +67,12 @@ class DVAETrainModule(pl.LightningModule):
         
         return loss
 
+    def on_save_checkpoint(self, checkpoint):
+    # dvae 상태를 checkpoint 딕셔너리에 추가
+    checkpoint['dvae_state'] = self.dvae.state_dict()
+
+    
+
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102
         return self._step(batch, "train")
 

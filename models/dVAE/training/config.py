@@ -54,7 +54,7 @@ class DVAEModelConfig(BaseModel):
 class DVAETrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 
-    t
+    train_val
 
     learning_rate: float = 5e-4
     """The learning rate."""

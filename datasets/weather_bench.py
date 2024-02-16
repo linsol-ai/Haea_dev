@@ -166,7 +166,7 @@ class WeatherDataset:
 
         data = torch.from_numpy(data)
         # data.shape = (time, width, height)
-        # data.shape = (time, level, width, height)
+        # or data.shape = (time, level, width, height)
 
         has_nan = torch.isnan(data).any()
 

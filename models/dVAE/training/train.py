@@ -98,6 +98,16 @@ def _main() -> None:
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, num_workers=4)
         val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, num_workers=4)
 
+
+        checkpoint_callback = ModelCheckpoint(
+    monitor='val_loss', # 모니터링할 값
+    dirpath='my_model/', # 체크포인트 저장 경로
+    filename='dvae-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
+    save_top_k=3, # 상위 k개의 모델을 저장
+    mode='min', # 'min'은 val_loss를 최소화하는 체크포인트를 저장
+)
+        
+        
         trainer = pl.Trainer(
             accelerator="auto",
             max_epochs=config.training.max_epochs,

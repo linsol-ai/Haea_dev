@@ -136,9 +136,9 @@ class WeatherDataset:
         dataset_path = []
 
         if self.offline:
-                folder = Path(self.DIR_NAME)
-                file_path = folder / resol / file_name
-                dataset_path.append(file_path)
+            folder = Path(self.DIR_NAME)
+            file_path = folder / resol / file_name
+            datset_path.append(file_path)
                 if not file_path.exists():
                     print("======= DOWNLOAD Zarr FROM GCS ======")
                     gcs_path = self.GCS_BUCKET + "/" + resol + "/" + file_name

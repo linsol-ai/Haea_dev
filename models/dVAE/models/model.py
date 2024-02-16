@@ -67,8 +67,6 @@ class DiscreteVAE(nn.Module):
 
         self.codebook = nn.Embedding(num_tokens, codebook_dim)
 
-        hdim = hidden_dim
-
         enc_chans = [hidden_dim] * num_layers
         dec_chans = list(reversed(enc_chans))
 

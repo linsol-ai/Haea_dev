@@ -155,10 +155,6 @@ class WeatherDataset:
         print("데이터셋 불러오는 중...")
         ds, _ = xb.open_zarr(path)
         self.datasets = ds
-        for path in dataset_path:
-            ds, _ = xb.open_zarr(path)
-            print(ds.level)
-            self.datasets.append(ds)
 
 
     def load_variable(self, data, key):

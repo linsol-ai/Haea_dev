@@ -333,7 +333,7 @@ class WeatherDataset:
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
         level_result = {}
-        non_level_result = {}
+        
 
         print("==== LOAD DATASET ====\n", dataset)
 
@@ -348,10 +348,7 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (level, time, h, w) or (time, h, w)
                 input, target, mean, std = future.result()
-                if len(input.shape) == 4:
-                    level_result[val] = (input, target, mean, std)
-                else:
-                    
+                result[val] = (input, target, mean, std)
             
 
         # dataset.shape => (var*level, time, h, w)

@@ -192,7 +192,7 @@ class WeatherDataset:
 
         else:
             input, mean, std = normalize_tensor(data)
-            return input, target, mean, std
+            return input.unsqueeze(1), target, mean, std
     
 
     def load(self):

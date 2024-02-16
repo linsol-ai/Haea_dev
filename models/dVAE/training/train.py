@@ -15,7 +15,7 @@ from torchvision.datasets import CIFAR10
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 from callbacks import SaveValVisualizationCallback
-from training.config import TrainingRunConfig
+from config import TrainingRunConfig
 from training.lightning import DVAETrainModule
 from models.model import DiscreteVAE
 

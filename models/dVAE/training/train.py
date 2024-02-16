@@ -48,7 +48,7 @@ def _main() -> None:
         logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
     else:
         pl.seed_everything(config.seed)
-        logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
+        logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), ''), name="my_model")
         model = DiscreteVAE(
             num_tokens=config.model.codebook_size,
             codebook_dim=config.model.codebook_vector_dim,

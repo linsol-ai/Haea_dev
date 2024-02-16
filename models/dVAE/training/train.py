@@ -100,7 +100,7 @@ def _main() -> None:
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, num_workers=4)
         val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, num_workers=4)
 
-        checkpoint_path = os.path.join(log_path, )
+        checkpoint_path = os.path.join(log_path, 'models')
 
         checkpoint_callback = ModelCheckpoint(
             monitor='val/loss', # 모니터링할 값

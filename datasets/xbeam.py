@@ -23,7 +23,7 @@ VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 LAT = [(27, 42.8), (20, 70), (0, 70)]
 LON = [(119.2, 135), (120, 142), (90, 180)]
 INPUT_PATHS = [
-  'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-1440x721.zarr',
+  'gcs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-0p25deg-chunk-1.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-240x121_equiangular_with_poles_conservative.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-64x32_equiangular_with_poles_conservative.zarr'
 ]

@@ -19,7 +19,7 @@ training:
     start: 0.3
     min:  1e-2
     anneal_rate: 1e-6
-  batch_size: 128
+  batch_size: 256
   max_epochs: 50
   gradient_clip_val: 0.5
   save_vis_every_n_step: 200

@@ -78,7 +78,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  source_dataset = 
+  source_dataset = source_dataset.sel()
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256

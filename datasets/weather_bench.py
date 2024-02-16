@@ -360,12 +360,6 @@ class WeatherDataset:
             input_dataset[val] = input
             target_dataset[val] = target
             normalizaion[val] = (mean, std)
-
-
-
-        # dataset.shape => (time, var, 1, h, w)
-        input_dataset = input_dataset.unsqueeze(2)
-        target_dataset = target_dataset.unsqueeze(2)
         
         end = time.time()
         print(f"{end - start:.5f} sec")

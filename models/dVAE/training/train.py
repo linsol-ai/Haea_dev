@@ -102,7 +102,7 @@ def _main() -> None:
                     logger=logger,
                 ),
             ],
-              precision="bf16-mixed"
+            precision="bf16-mixed"
         )
 
         trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)

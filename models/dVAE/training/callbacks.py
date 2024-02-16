@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 from torchvision.utils import make_grid
 import wandb
 
-from training.lightning import DVAETrainModule
+from models.training.lightning import DVAETrainModule
 
 
 class SaveValVisualizationCallback(Callback):

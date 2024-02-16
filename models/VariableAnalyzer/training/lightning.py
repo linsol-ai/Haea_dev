@@ -37,7 +37,7 @@ class TrainModule(pl.LightningModule):
         self.model = model
         self.mean_std = mean_std
         self.config = TrainingConfig() if config is None else config
-        self.save_hyperparameters(self.config.dict(), ignore=["dvae", "config"])
+        self.save_hyperparameters(self.config.dict(), ignore=["model", "config"])
 
     
     def setup(self, stage: str) -> None:

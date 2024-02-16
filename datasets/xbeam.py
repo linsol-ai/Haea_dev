@@ -25,7 +25,7 @@ LEVEL = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
 LAT = [(27, 42.8), (20, 70), (0, 70)]
 LON = [(119.2, 135), (120, 142), (90, 180)]
 INPUT_PATHS = [
-  'gs://gcp-public-data-arco-era5/ar/1959-2023_01_10-full_37-1h-0p25deg-chunk-1.zarr',
+  'gcp-public-data-arco-era5/ar/1959-2023_01_10-full_37-1h-0p25deg-chunk-1.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-240x121_equiangular_with_poles_conservative.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-64x32_equiangular_with_poles_conservative.zarr'
 ]
@@ -78,7 +78,7 @@ def main(argv):
       .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
-  source_dataset = source_dataset.sel(level=LEVEL).sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+  source_dataset = source_dataset.sel(level=LEVEL).sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True).compute()
 
   source_chunks['level'] = 13
   output_chunks = source_chunks.copy()

@@ -70,6 +70,8 @@ def _main() -> None:
         weather = WeatherDataset(0, device=device, offline=True)
         input, _, _ = weather.load()
 
+        val
+
         # Use a custom dataset class with proper transformations
 
         dataset = ImageDataset(input)

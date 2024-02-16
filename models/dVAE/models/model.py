@@ -64,8 +64,6 @@ class DiscreteVAE(nn.Module):
         self.num_tokens = num_tokens
         self.num_layers = num_layers
         self.temperature = temperature
-        self.straight_through = straight_through
-        self.reinmax = reinmax
 
         self.codebook = nn.Embedding(num_tokens, codebook_dim)
 

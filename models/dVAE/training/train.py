@@ -10,8 +10,6 @@ from pydantic import ValidationError
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, Dataset
-from torchvision import transforms
-from torchvision.datasets import CIFAR10
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 from callbacks import SaveValVisualizationCallback

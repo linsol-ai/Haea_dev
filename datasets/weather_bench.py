@@ -190,6 +190,8 @@ class WeatherDataset:
 
             return torch.stack(inputs, dim=0), target, means, stds
 
+        else:
+
         return input, target, mean, std
     
 

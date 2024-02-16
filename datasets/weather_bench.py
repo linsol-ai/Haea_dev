@@ -192,22 +192,7 @@ class WeatherDataset:
     
 
     def load(self):
-        input_dataset = []
-        target_dataset = []
-        normalizaion_data = []
-        dims = []
-
-        for dataset in self.datasets:
-            input, target, normalizaion = self.load_data(dataset)
-            input_dataset.append(input)
-            target_dataset.append(target)
-            normalizaion_data.append(normalizaion)
-            dims.append(input.size(2))
-        
-        # var_dataset.shape = (time, var * level, h * w)
-        input_dataset = torch.concat(input_dataset, dim=2)
-        target_dataset = torch.concat(target_dataset, dim=2)
-        normalizaion_data = torch.stack(normalizaion_data, dim=0)
+        input, target, normalizaion = self.load_data(dataset)
 
 
         print("======= RESULT SHAPE =======")

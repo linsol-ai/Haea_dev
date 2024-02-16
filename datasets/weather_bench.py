@@ -180,8 +180,7 @@ class WeatherDataset:
 
         if len(data.shape) == 4:
             for i in range(data.size(1)):
-                 
-        input, mean, std = normalize_tensor(data)
+            input, mean, std = normalize_tensor(data)
 
         return input, target, mean, std
     

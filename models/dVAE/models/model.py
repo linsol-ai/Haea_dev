@@ -35,6 +35,11 @@ class ResBlock(nn.Module):
         return self.net(x) + x
 
 
+def log(t, eps = 1e-20):
+    return torch.log(t.clamp(min = eps))
+
+
+
 class DiscreteVAE(nn.Module):
     def __init__(
         self,

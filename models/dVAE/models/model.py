@@ -100,10 +100,6 @@ class DiscreteVAE(nn.Module):
         self.loss_fn = F.smooth_l1_loss if smooth_l1_loss else F.mse_loss
         self.kl_div_loss_weight = kl_div_loss_weight
 
-        # take care of normalization within class
-
-        self._register_external_parameters()
-
 
     @torch.no_grad()
     @eval_decorator

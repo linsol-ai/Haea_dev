@@ -5,7 +5,7 @@ model:
   codebook_vector_dim: 512
   hidden_dim: 256
   channels: 1
-  num_layers: 3
+  num_layers: 31
   num_resnet_blocks: 2
 training:
   learning_rate: 1e-3

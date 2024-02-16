@@ -53,7 +53,7 @@ def rekey_chunk_on_month_hour(
 
 def main(argv):
   START_DATE = f'{FLAGS.start}-01-01'
-  END_DATE = f'{FLAGS.end}-12-31'
+  END_DATE = f'{FLAGS.end}-01-01'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
   OUTPUT_PATH = f'gs://era5_climate/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 

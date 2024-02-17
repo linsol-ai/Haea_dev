@@ -55,7 +55,7 @@ class VariableProprecess:
         for key in variables:
             print(f"====== LOAD MODELS : {key} =======")
             model = DVAETrainModule.load_from_checkpoint(os.path.join(model_path, key + '.ckpt'))
-            models.append(model)
+            models(model)
         return models
 
 

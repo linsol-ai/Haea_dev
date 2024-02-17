@@ -33,7 +33,7 @@ class TrainModule(pl.LightningModule):
         self.var_nlv = var_nlv
         self.levels = levels
         self.max_iters = max_iters
-        self.predict_dim = predict_dim
+        self.predict_dim = out_dim
         self.model = model
         self.mean_std = mean_std
         self.config = TrainingConfig() if config is None else config

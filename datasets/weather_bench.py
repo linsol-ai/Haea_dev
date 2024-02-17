@@ -327,7 +327,7 @@ class WeatherDataset:
             futures = {}
 
             for val in variables:
-                key = executor.submit(self.load_variable, dataset[val], val, lat)
+                key = executor.submit(self.load_variable, dataset[val], val, lat_indices, lon_indices)
                 futures[key] = val
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

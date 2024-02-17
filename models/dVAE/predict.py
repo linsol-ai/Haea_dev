@@ -72,7 +72,7 @@ class VariableProprecess:
         predictions = torch.stack(predictions, dim=0)
 
         if len(shape) == 5:
-            predictions = predictions.view()
+            predictions = predictions.view(shape[0], shape[1])
 
         print(predictions.shape)
         return predictions

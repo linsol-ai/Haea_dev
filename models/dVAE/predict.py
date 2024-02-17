@@ -125,7 +125,7 @@ class VariableProprecessor:
 
 
 if __name__ == '__main__':
-    processor = VariableProprecessor('/workspace/Haea_dev/checkpoints/dVAE', 0)
+    processor = VariableProprecessor('/workspace/Haea_dev/checkpoints/dVAE', 0, )
     source, target, mean_std = processor.predict()
     print(source.shape)
     print(target.shape)

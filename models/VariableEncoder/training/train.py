@@ -21,7 +21,8 @@ from models.VariableEncoder.training.lightning import TrainModule
 
 def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longitude):
     processor = VariableProprecessor(model_path, year_offset)
-    source, target, mean_std = 
+    source, target, mean_std = processor.predict()
+    
     dataset = CustomDataset(input, target, tgt_time_len)
     return (weather.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, target.size(-1)
 

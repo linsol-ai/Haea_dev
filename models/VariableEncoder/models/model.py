@@ -31,7 +31,7 @@ class Embedding(nn.Module):
             x = x + self.position(position_seq) + self.variable(variable_seq)
             return self.dropout(x)
         else:
-            x = x + self.position(position_seq) + self.variable(variable_seq)
+            x = x + self.variable(variable_seq)
             return self.dropout(x)
 
 

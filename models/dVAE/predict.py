@@ -67,7 +67,7 @@ class VariableProprecess:
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
             # shape = (batch, hidden_dim)
-            predict = model(batch.to(self.device))
+            predict = model(batch.to(self.device)).cpu()
             predictions.append(predict)
         
         predictions = torch.cat(predictions, dim=0)

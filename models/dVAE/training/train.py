@@ -37,8 +37,8 @@ class ImageDataset(Dataset):
             return sample
         
 
-def train():
-    
+def train(var):
+
         
 
 def _main() -> None:

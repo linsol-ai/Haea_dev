@@ -162,7 +162,7 @@ class WeatherDataset:
         target = data.isel(latitude=lat_indices, longitude=lon_indices)
         target = target.to_numpy()
 
-        data = torch.from_numpy(source)
+        source = torch.from_numpy(source)
         # data.shape = (time, width, height)
         # or data.shape = (time, level, width, height)
 

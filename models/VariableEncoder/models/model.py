@@ -43,7 +43,9 @@ class LinearDecoder(nn.Module):
         :param dropout: dropout rate
         """
         super().__init__()
-        self.
+        self.seq = nn.Sequential(
+            
+        )
 
     def forward(self, x):
        

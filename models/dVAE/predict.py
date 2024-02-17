@@ -43,5 +43,5 @@ class VariableProprecess:
         input, target, normalizaion = weather.load(variables=variables)
     
 
-    def load_dataset():
+    def load_dataset(self, ):
          

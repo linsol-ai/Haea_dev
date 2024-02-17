@@ -62,7 +62,7 @@ def train(config: TrainingRunConfig, source, var_key:str) -> None:
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 
-        val_dataset = source[config.training.train_variable]
+        val_dataset = source[var_key]
 
         # Use a custom dataset class with proper transformations
 

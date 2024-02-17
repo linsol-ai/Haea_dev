@@ -4,10 +4,6 @@ import logging
 import pytorch_lightning as pl
 import torch
 from typing import Dict
-import yaml
-from pydantic import ValidationError
-from pytorch_lightning.callbacks import LearningRateMonitor
-from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, Dataset
 from pathlib import Path
 

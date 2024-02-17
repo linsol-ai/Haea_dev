@@ -61,4 +61,4 @@ class VariableProprecess:
         data_loader = DataLoader(
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
-        trainer = pl.Trainer( accelerator="auto",)
+        trainer = pl.Trainer(accelerator="auto",)

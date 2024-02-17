@@ -139,8 +139,7 @@ def _main() -> None:
         source, _, _ = weather.load(variables=vars)
 
         for key in vars:
-
-        train(config, source, )
+            train(config, source, )
 
 
 

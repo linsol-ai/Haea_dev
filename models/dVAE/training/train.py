@@ -38,7 +38,84 @@ class ImageDataset(Dataset):
         
 
 def train(var_key:str) -> None:
+    log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
+        if not os.path.exists(log_path):
+            os.makedirs(log_path)
 
+        logger = WandbLogger(
+            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
+            name=config.training.train_variable,
+            project='vqvae',
+            log_model=False
+            )
+        model = DiscreteVAE(
+            num_tokens=config.model.codebook_size,
+            codebook_dim=config.model.codebook_vector_dim,
+            num_layers=config.model.num_layers,
+            num_resnet_blocks=config.model.num_resnet_blocks,
+            hidden_dim=config.model.hidden_dim,
+            channels=1,
+            smooth_l1_loss=True,
+            temperature=config.training.temperature_scheduler.start,
+        )
+        model_pl = DVAETrainModule(dvae=model, config=config.training)
+        summary = ModelSummary(model_pl, max_depth=-1)
+        print(summary)
+
+        
+
+        val_dataset = input[config.training.train_variable]
+
+        # Use a custom dataset class with proper transformations
+
+        dataset = ImageDataset(val_dataset)
+        train_ds, val_ds = torch.utils.data.random_split(
+            dataset,
+            [0.7, 0.3],
+        )
+        test_ds, val_ds = torch.utils.data.random_split(
+            val_ds,
+            [0.5, 0.5],
+        )
+
+        train_loader = DataLoader(
+            train_ds, batch_size=config.training.batch_size, num_workers=8, shuffle=True
+        )
+        test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, num_workers=4)
+        val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, num_workers=4)
+
+        checkpoint_path = os.path.join(log_path, 'models')
+
+        checkpoint_callback = ModelCheckpoint(
+            monitor='val/loss', # 모니터링할 값
+            dirpath=checkpoint_path, # 체크포인트 저장 경로
+            filename= config.training.train_variable + '-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
+            save_top_k=3, # 상위 k개의 모델을 저장
+            mode='min', # 'min'은 val_loss를 최소화하는 체크포인트를 저장
+        )
+        
+
+        trainer = pl.Trainer(
+            accelerator="auto",
+            max_epochs=config.training.max_epochs,
+            logger=logger,
+            gradient_clip_val=config.training.gradient_clip_val,
+            callbacks=[
+                LearningRateMonitor(logging_interval="step"),
+                SaveValVisualizationCallback(
+                    n_images=config.training.num_vis,
+                    log_every_n_step=config.training.save_vis_every_n_step,
+                    dataset=train_ds,
+                    logger=logger,
+                ),
+                EarlyStopping(monitor="val/loss", mode="min"),
+                checkpoint_callback
+            ],
+            precision="bf16-mixed"
+        )
+
+        trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)
+        trainer.test(model_pl, dataloaders=test_loader)
         
 
 def _main() -> None:

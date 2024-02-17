@@ -40,4 +40,4 @@ class VariableProprecess:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         self.device = torch.device(device)
         weather = WeatherDataset(year_offset, device=device, offline=True)
-        input, target,  = weather.load(variables=[config.training.train_variable])
+        input, target, normalizaion = weather.load(variables=[config.training.train_variable])

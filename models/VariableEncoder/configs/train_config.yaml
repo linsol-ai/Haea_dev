@@ -13,4 +13,5 @@ training:
   gradient_clip_val: 0.5  
   tgt_time_len: 24
   train_offset: 0
-  lat_min: 
+  lat_min: 32
+  

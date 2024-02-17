@@ -72,7 +72,7 @@ class DVAETrainModule(pl.LightningModule):
         return loss
 
     def forward(self, batch):
-        
+        code = 
         return self.dvae.get_codebook_indices(batch)
         
 

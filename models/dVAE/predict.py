@@ -3,7 +3,7 @@ import logging
 import tqdm
 import pytorch_lightning as pl
 import torch
-from typing import Dict
+from typing import Tuple
 from torch.utils.data import DataLoader, Dataset
 from pathlib import Path
 

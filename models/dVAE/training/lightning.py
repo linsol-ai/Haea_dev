@@ -81,4 +81,4 @@ class DVAETrainModule(pl.LightningModule):
         self._step(batch, "test")
     
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
-        return elf.dvae.get_codebook_indices(batch)
+        return self.dvae.get_codebook_indices(batch)

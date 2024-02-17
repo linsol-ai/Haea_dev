@@ -71,7 +71,7 @@ class DVAETrainModule(pl.LightningModule):
         
         return loss
 
-    def 
+    def f
         
 
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102

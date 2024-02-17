@@ -348,7 +348,7 @@ class WeatherDataset:
         normalizaion = {}
 
         for val in variables:
-            input, target, mean, std = result[val]
+            input, target, mean_std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target
             normalizaion[val] = (mean, std)

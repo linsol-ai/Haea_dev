@@ -117,4 +117,4 @@ if __name__ == '__main__':
     source, target, mean_std = processor.predict()
     print(source.shape)
     print(target.shape)
-    print(source.shape)
+    print(mean_std.shape)

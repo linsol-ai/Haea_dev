@@ -79,7 +79,7 @@ class VariableProprecess:
 
 
     def predict(self):
-        
+
         for key in self.variables:
             source_data = self.input[key]
             model = self.models[key]
@@ -89,5 +89,6 @@ class VariableProprecess:
 
 
 if __name__ == '__main__':
+    WeatherDataset.
     processor = VariableProprecess(['geopotential', 'specific_humidity', 'temperature'], '/workspace/Haea_dev/checkpoints/dVAE', 0)
     processor.predict()

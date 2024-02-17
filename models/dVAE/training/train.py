@@ -80,7 +80,7 @@ def _main() -> None:
         device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)
 
-        
+        vars = 
         input, _, _ = weather.load(variables= weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE)
 
         val_dataset = input[config.training.train_variable]

@@ -11,7 +11,7 @@ import wandb
 
 def denormalize(inputs, mean_std):
     # min_max 텐서를 적절히 재구성하여 inputs의 차원에 맞춤
-    mean = mean_std[:, 0].view(1, 1, mean_std.size(), 1)
+    mean = mean_std[:, 0].view(1, 1, mean_std.size(0), 1)
     std = mean_std[:, 1].view(1, 1, var_len, 1)
     # 역정규화 수행
     denormalized = (inputs * std) + mean

@@ -59,6 +59,8 @@ def _main() -> None:
         vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
         input, _, _ = weather.load(variables=vars)
 
+        for var in 
+
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
         if not os.path.exists(log_path):
             os.makedirs(log_path)

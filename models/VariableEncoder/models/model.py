@@ -46,12 +46,7 @@ class LinearDecoder(nn.Module):
         self.
 
     def forward(self, x):
-        if position_seq:
-            x = x + self.position(position_seq) + self.variable(variable_seq)
-            return self.dropout(x)
-        else:
-            x = x + self.variable(variable_seq)
-            return self.dropout(x)
+       
 
 
 class VariableEncoder(nn.Module):

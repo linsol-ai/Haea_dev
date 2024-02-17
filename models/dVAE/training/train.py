@@ -138,7 +138,7 @@ def _main() -> None:
         vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
         source, _, _ = weather.load(variables=vars)
 
-        train(config, input, )
+        train(config, source, )
 
 
 

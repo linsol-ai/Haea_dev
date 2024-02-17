@@ -86,7 +86,7 @@ class VariableProprecess:
             predictions = self.predict_vars(key, model, source_data)
             dataset.append(predictions)
         
-        predictions = torch.cat(predictions, dim=0)
+        dataset = torch.cat(dataset, dim=0)
     
 
 

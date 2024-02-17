@@ -23,7 +23,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
     processor = VariableProprecessor(model_path, year_offset, latitude, longitude)
     source, target, mean_std = processor.predict()
     dataset = CustomDataset(source, target, tgt_time_len)
-    return (WeatherDataset.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, target.size(-1)
+    return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, target.size(-1)
 
         
 def _main(args) -> None:

@@ -41,7 +41,7 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}')
         if not os.path.exists(log_path):
             os.makedirs(log_path)
-
+        wandb_run = wandb.init(project='vqvae', name=var_key, config=config_dict, dir=log_path, reinit=True)
         logger = WandbLogger(
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}'), 
             name=var_key,

@@ -126,7 +126,7 @@ def _main() -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-                EarlyStopping(monitor="val/loss", mode="min", patience=2, min_delta=5e-4),
+                EarlyStopping(monitor="val/loss", mode="min", patience=3),
                 checkpoint_callback
             ],
             precision="bf16-mixed"

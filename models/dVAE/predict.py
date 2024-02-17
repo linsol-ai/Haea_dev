@@ -10,8 +10,6 @@ from pathlib import Path
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
-from models.dVAE.training.callbacks import SaveValVisualizationCallback
-from models.dVAE.training.config import TrainingRunConfig
 from models.dVAE.training.lightning import DVAETrainModule
 from models.dVAE.models.model import DiscreteVAE
 

@@ -37,7 +37,7 @@ class ImageDataset(Dataset):
             return sample
         
 
-def train(config: TrainingRunConfig, source, var_key:str) -> None:
+def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}')
         if not os.path.exists(log_path):
             os.makedirs(log_path)

@@ -12,4 +12,6 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.callbacks import ModelCheckpoint
 
+
+
 class VariableProprecess:

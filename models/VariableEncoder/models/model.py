@@ -34,6 +34,7 @@ class Embedding(nn.Module):
             x = x + self.variable(variable_seq)
             return self.dropout(x)
 
+
 class LinearDecoder(nn.Module):
     def __init__(self, var_len, time_len, embed_size, dropout=0.1):
         """

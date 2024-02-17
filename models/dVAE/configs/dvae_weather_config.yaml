@@ -8,7 +8,7 @@ model:
   num_layers: 1
   num_resnet_blocks: 3
 training:
-  train_variable: 'toa_incident_solar_radiation'
+  train_variable: '10m_u_component_of_wind'
   learning_rate: 5e-4
   lr_decay_rate: 0.98
   kl_div_weight_scheduler:

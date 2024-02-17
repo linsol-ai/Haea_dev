@@ -351,7 +351,7 @@ class WeatherDataset:
             input, target, mean_std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target
-            normalizaion[val] = (mean, std)
+            normalizaion[val] = mean_std
         
         end = time.time()
         print(f"{end - start:.5f} sec")

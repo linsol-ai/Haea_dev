@@ -73,6 +73,7 @@ class VariableProprecess:
 
         if len(shape) == 5:
             predictions = predictions.view(shape[0], shape[1], predictions.size(1))
+            
 
         print(predictions.shape)
         return predictions

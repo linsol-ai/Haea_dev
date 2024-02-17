@@ -197,7 +197,7 @@ class WeatherDataset:
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):
-        input, target, mean_std_dataset = self.load_data(self.datasets, variables, latitude=latitude, longitude=longitude)
+        input, target, mean_std = self.load_data(self.datasets, variables, latitude=latitude, longitude=longitude)
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", {val: (input[val].shape, target[val].shape) for val in variables})
         return input, target, mean_std_dataset

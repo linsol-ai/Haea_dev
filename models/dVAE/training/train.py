@@ -104,7 +104,7 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-                EarlyStopping(monitor="val/loss", mode="min"),
+                EarlyStopping(monitor="val/loss", mode="min", min_delta=),
                 checkpoint_callback
             ],
             precision="bf16-mixed"

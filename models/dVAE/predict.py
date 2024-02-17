@@ -39,7 +39,7 @@ class ImageDataset(Dataset):
 class VariableProprecess:
     def __init__(self, variables, model_path: str, year_offset: int ):
         input, target, normalizaion = self.load_dataset(variables, year_offset)
-        models = 
+        models = self.load_models(variables, model)
 
     def load_dataset(self, variables, year_offset):
         device = ("cuda" if torch.cuda.is_available() else "cpu" )

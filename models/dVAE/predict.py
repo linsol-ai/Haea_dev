@@ -1,3 +1,3 @@
 
 
-class VariableProce
+class VariablePro

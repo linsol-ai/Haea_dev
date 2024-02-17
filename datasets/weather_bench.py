@@ -197,10 +197,10 @@ class WeatherDataset:
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):
-        input, target, normalizaion = self.load_data(self.datasets, variables, latitude=latitude, longitude=longitude)
+        input, target, mean_std_dataset = self.load_data(self.datasets, variables, latitude=latitude, longitude=longitude)
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", {val: (input[val].shape, target[val].shape) for val in variables})
-        return input, target, normalizaion
+        return input, target, mean_std_dataset
 
     """""
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:

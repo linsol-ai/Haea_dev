@@ -317,7 +317,7 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
 
-        if 
+        if latitude
 
         lat_min, lat_max = latitude
         lon_min, lon_max = longitude

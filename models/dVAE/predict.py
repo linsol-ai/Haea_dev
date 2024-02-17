@@ -66,7 +66,7 @@ class VariableProprecess:
 
         predictions = []
         for i, batch in enumerate(data_loader):
-
+            predictions.append(model(batch))
         
         return predictions
 

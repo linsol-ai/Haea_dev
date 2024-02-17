@@ -37,4 +37,6 @@ class ImageDataset(Dataset):
 
 class VariableProprecess:
     def __init__(self, variables, model_path:str):
+        device = ("cuda" if torch.cuda.is_available() else "cpu" )
+        device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)

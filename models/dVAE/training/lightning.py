@@ -38,7 +38,7 @@ class DVAETrainModule(pl.LightningModule):
         self.save_hyperparameters()
     
 
-     def setup(self, stage: str) -> None:
+    def setup(self, stage: str) -> None:
         print(stage)
 
 

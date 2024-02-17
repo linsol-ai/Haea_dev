@@ -188,6 +188,7 @@ class WeatherDataset:
             return torch.stack(inputs, dim=0).unsqueeze(2), target.swapaxes(0, 1).unsqueeze(2), means, stds
 
         else:
+            target = target[:, :, lat_indices, :][:, :, :, lon_indices]
             input, mean, std = normalize_tensor(source)
             return input.unsqueeze(1), target.unsqueeze(1), mean, std
     

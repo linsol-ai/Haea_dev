@@ -313,7 +313,7 @@ class WeatherDataset:
         return torch.concat([input_dataset, input_wind_dataset], dim=1), torch.concat([target_dataset, target_wind_dataset], dim=1), min_max_data
     """""
 
-    def load_data(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, normalizaion]:
+    def load_data(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

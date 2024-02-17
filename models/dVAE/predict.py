@@ -48,7 +48,7 @@ class VariableProprecess:
             first_file = next(folder_path.iterdir(), None)
             if first_file:
                 print(f"====== LOAD MODELS : {key} =======")
-                model = DVAETrainModule.load_from_checkpoint(first_file)
+                model =     .load_from_checkpoint(first_file)
                 models[key] = model
             else:
                 print("변수 폴더가 비어있습니다.")

@@ -320,7 +320,6 @@ class WeatherDataset:
         lat_min, lat_max = latitude
         lon_min, lon_max = longitude
 
-
         lat_indices = np.where((ds.latitude >= lat_min) & (ds.latitude <= lat_max))[0]
         lon_indices = np.where((ds.longitude >= lon_min) & (ds.longitude <= lon_max))[0]
 

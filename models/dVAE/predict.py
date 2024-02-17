@@ -93,6 +93,8 @@ class VariableProprecess:
             # predictions.shape = (levels, time, hidden)
             predict = self.predict_vars(key, model, source)
             source_dataset.append(predict)
+
+            
             target_dataset.append(target)
             mean_std_set.append(mean_std)
         

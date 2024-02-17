@@ -73,7 +73,7 @@ class VariableProprecess:
             source_data = self.input[key]
             model = self.models[key]
             predictions = self.predict_vars(key, model, source_data)
-            print(predictions.shape)
+            print(predictions)
     
 
 

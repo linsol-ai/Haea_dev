@@ -46,7 +46,7 @@ class LinearDecoder(nn.Module):
         self.seq = nn.Sequential(
             nn.Linear(in_dim, out_dim),
             nn.ReLU(),
-            
+            nn.Linear(in_dim, out_dim),
         )
 
     def forward(self, x):

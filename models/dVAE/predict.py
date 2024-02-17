@@ -20,5 +20,20 @@ from models.dVAE.training.config import TrainingRunConfig
 from models.dVAE.training.lightning import DVAETrainModule
 from models.dVAE.models.model import DiscreteVAE
 
+
+class ImageDataset(Dataset):
+        def __init__(self, data_array: torch.Tensor):
+            if len(data_array.shape) == 5:
+                self.data_array = data_array.view(-1, 1, data_array.size(3), data_array.size(4))
+            else:
+                self.data_array = data_array
+
+        def __len__(self):
+            return len(self.data_array)
+
+        def __getitem__(self, idx):
+            sample = self.data_array[idx]
+            return sample
+
 class VariableProprecess:
     def __init__(self, ):

@@ -71,4 +71,4 @@ class VariableProprecess:
 
 
     def predict(self):
-        for key in self.var:
+        for key in self.variables:

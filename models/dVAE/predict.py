@@ -76,3 +76,5 @@ class VariableProprecess:
             print(predictions)
     
 
+if __name__ == '__main__':
+    

@@ -128,7 +128,7 @@ if __name__ == '__main__':
     lat = (32, 39.3)
     lon = (124, 131.4)
 
-    processor = VariableProprecessor('/workspace/Haea_dev/checkpoints/dVAE', 0, )
+    processor = VariableProprecessor('/workspace/Haea_dev/checkpoints/dVAE', 0, lat, lon)
     source, target, mean_std = processor.predict()
     print(source.shape)
     print(target.shape)

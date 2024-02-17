@@ -73,4 +73,4 @@ class VariableProprecess:
     def predict(self):
         for key in self.variables:
             source_data = self.input[key]
-            predictions = self.predict_vars()
+            predictions = self.predict_vars(key, )

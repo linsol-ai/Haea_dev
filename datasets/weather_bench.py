@@ -159,7 +159,7 @@ class WeatherDataset:
 
     def load_variable(self, data, key, lat_indices: np.array | None = None, longitude: np.array | None = None):
         source = data.to_numpy()
-        source_dataset = ds.isel(latitude=lat_indices, longitude=lon_indices)
+        target = ds.isel(latitude=lat_indices, longitude=lon_indices)
         target = 
 
         data = torch.from_numpy(data)

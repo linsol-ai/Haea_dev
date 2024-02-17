@@ -67,6 +67,7 @@ class VariableProprecess:
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
             predictions.append(model(batch.to(self.device)))
         
+        predictions = torch.stack()
         return predictions
 
 

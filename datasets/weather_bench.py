@@ -351,11 +351,11 @@ class WeatherDataset:
             input, target, mean_std = result[val]
             input_dataset[val] = input
             target_dataset[val] = target
-            normalizaion[val] = mean_std
+            mean_std_dataset[val] = mean_std
         
         end = time.time()
         print(f"{end - start:.5f} sec")
-        return input_dataset, target_dataset, normalizaion
+        return input_dataset, target_dataset, mean_std_dataset
 
 
     def calculate_wind(self, u_wind, v_wind, device):

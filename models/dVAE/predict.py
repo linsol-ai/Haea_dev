@@ -36,7 +36,7 @@ class ImageDataset(Dataset):
             return sample
 
 class VariableProprecess:
-    def __init__(self, variables, model_path:str, year_offset:i):
+    def __init__(self, variables, model_path:str, year_offset:int):
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         self.device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)

@@ -28,7 +28,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
         
 def _main(args) -> None:
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
-    model_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'checkpoints/dVAE')
+    model_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))))))), 'checkpoints/dVAE')
     try:
         with open(config_path) as f:
             config_dict = yaml.safe_load(f)

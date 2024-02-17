@@ -31,7 +31,8 @@ class VariableProprecessor:
     def __init__(self, model_path: str, year_offset: int, latitude:Tuple, longitude:Tuple, variables=WeatherDataset.HAS_LEVEL_VARIABLE+WeatherDataset.NONE_LEVEL_VARIABLE, batch_size = 512):
         self.variables = variables
         self.model_path = model_path
-        self.batch_size = batch_size    
+        self.batch_size = batch_size
+        self.
         self.input, self.target, self.normalizaion = self.load_dataset(variables, year_offset)
         self.models = self.load_models(variables, model_path)
 

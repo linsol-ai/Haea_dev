@@ -83,7 +83,7 @@ class VariableProprecess:
     def predict(self) -> torch.Tensor:
         source_dataset = []
         target_dataset = []
-        mean_stds = []
+        mean_std_set = []
 
         for key in self.variables:
             source = self.input[key]

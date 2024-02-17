@@ -15,4 +15,4 @@ training:
   train_offset: 0
   lat_min: 32
   lat_max: 39.3
-  
+  lon_min: 

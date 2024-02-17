@@ -51,7 +51,7 @@ class VariableProprecess:
                 model = DVAETrainModule.load_from_checkpoint(first_file)
                 models[key] = model
             else:
-                
+                print("폴더가 비어있습니다.")
 
         return models
 

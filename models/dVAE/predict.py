@@ -1,3 +1,3 @@
 
 
-class Varia
+class Variable

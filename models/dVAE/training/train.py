@@ -83,8 +83,8 @@ def _main() -> None:
         vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
         input, _, _ = weather.load(variables=vars)
 
-
         
+
         val_dataset = input[config.training.train_variable]
 
         # Use a custom dataset class with proper transformations

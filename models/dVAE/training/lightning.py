@@ -36,6 +36,10 @@ class DVAETrainModule(pl.LightningModule):
             steps=self.config.max_epochs,
         )
         self.save_hyperparameters()
+    
+
+     def setup(self, stage: str) -> None:
+        print(stage)
 
 
     def configure_optimizers(self) -> tuple[list[AdamW], list[ExponentialLR]]:  # noqa: D102

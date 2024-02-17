@@ -52,7 +52,7 @@ class LinearDecoder(nn.Module):
         )
 
     def forward(self, x):
-       
+       return self.seq(x)
 
 
 class VariableEncoder(nn.Module):

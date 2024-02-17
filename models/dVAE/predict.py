@@ -11,7 +11,6 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
 from models.dVAE.training.lightning import DVAETrainModule
-from models.dVAE.models.model import DiscreteVAE
 
 
 class ImageDataset(Dataset):

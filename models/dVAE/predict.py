@@ -89,6 +89,6 @@ class VariableProprecess:
 
 
 if __name__ == '__main__':
-    
+    VA
     processor = VariableProprecess(['geopotential', 'specific_humidity', 'temperature'], '/workspace/Haea_dev/checkpoints/dVAE', 0)
     processor.predict()

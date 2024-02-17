@@ -94,7 +94,7 @@ class VariableProprecess:
             predict = self.predict_vars(key, model, source)
             source_dataset.append(predict)
 
-            
+            if len(shape) == 5:
             target_dataset.append(target)
             mean_std_set.append(mean_std)
         

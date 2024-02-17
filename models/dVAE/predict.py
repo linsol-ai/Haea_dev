@@ -105,7 +105,7 @@ class VariableProprecess:
         # dataset.shape = (vars, time, hidden)
         source_dataset = torch.cat(source_dataset, dim=0)
         target_dataset = torch.cat(target_dataset, dim=0)
-        mean_std_set = torch.can_cast(mean_std_set, dim=0)
+        mean_std_set = torch.cat(mean_std_set, dim=0)
 
         return dataset.swapaxes(0, 1)
     

@@ -71,7 +71,8 @@ class DVAETrainModule(pl.LightningModule):
         
         return loss
 
-    def f
+    def forward(self, *args: torch.optim.optimizer.Any, **kwargs: torch.optim.optimizer.Any) -> torch.optim.optimizer.Any:
+        return super().forward(*args, **kwargs)
         
 
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102

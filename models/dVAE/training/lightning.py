@@ -71,7 +71,7 @@ class DVAETrainModule(pl.LightningModule):
         
         return loss
 
-    def forward(self, ):
+    def forward(self, batch):
         return super().forward(*args, **kwargs)
         
 

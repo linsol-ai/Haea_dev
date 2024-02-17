@@ -43,9 +43,7 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
             os.makedirs(log_path)
         wandb_run = wandb.init(project='vqvae', name=var_key, dir=log_path, reinit=True)
         logger = WandbLogger(
-            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}'), 
-            name=var_key,
-            project='vqvae',
+            experiment=wandb_run,
             log_model=False
             )
         model = DiscreteVAE(

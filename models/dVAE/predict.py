@@ -69,4 +69,4 @@ class VariableProprecess:
 
 
     def predict(self):
-        
+        for key in variables:

@@ -57,7 +57,7 @@ class VariableProprecess:
         return models
 
 
-    def predict_vars(self, key: str, model: DVAETrainModule, dataset: torch.Tensor):
+    def predict_vars(self, key: str, model: DVAETrainModule, dataset: torch.Tensor) -> torch.Tensor:
         print(f"====== PREDICT : {key} =======")
         dataset = ImageDataset(dataset)
         data_loader = DataLoader(

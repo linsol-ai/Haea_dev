@@ -44,7 +44,7 @@ class VariableProprecess:
     def load_models(self, variables, model_path) -> Dict[DVAETrainModule]:
         models = {}
         for key in variables:
-               folder_path = Path(os.path.join(model_path, ))
+            folder_path = Path(os.path.join(model_path, ))
         first_file = next(folder_path.iterdir(), None)
             print(f"====== LOAD MODELS : {key} =======")
             model = DVAETrainModule.load_from_checkpoint(os.path.join(model_path, key + '.ckpt'))

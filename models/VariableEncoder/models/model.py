@@ -34,7 +34,7 @@ class Embedding(nn.Module):
             x = x + self.variable(variable_seq)
             return self.dropout(x)
 
-class Decoder
+class Decoder(nn.)
 
 
 class VariableEncoder(nn.Module):

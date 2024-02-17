@@ -80,7 +80,7 @@ class VariableProprecess:
         return predictions
 
 
-    def predict(self):
+    def predict(self) -> torch.Tensor:
         dataset = []
         for key in self.variables:
             source_data = self.input[key]

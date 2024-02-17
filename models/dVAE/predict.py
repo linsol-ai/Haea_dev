@@ -67,7 +67,6 @@ class VariableProprecess:
         for i, batch in enumerate(data_loader):
 
         
-        predictions = trainer.predict(model, data_loader)
         return predictions
 
 

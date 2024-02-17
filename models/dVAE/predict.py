@@ -69,7 +69,7 @@ class VariableProprecess:
             predictions.extend(model(batch.to(self.device)))
         
         predictions = torch.stack(predictions, dim=0)
-        print()
+        print(predictions.shape)
         return predictions
 
 

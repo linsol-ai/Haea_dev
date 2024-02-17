@@ -126,7 +126,8 @@ class VariableProprecessor:
 
 if __name__ == '__main__':
     lat_min, lat_max = (32, 39.3)
-lon_min, lon_max = (124, 131.4)
+    lon_min, lon_max = (124, 131.4)
+    
     processor = VariableProprecessor('/workspace/Haea_dev/checkpoints/dVAE', 0, )
     source, target, mean_std = processor.predict()
     print(source.shape)

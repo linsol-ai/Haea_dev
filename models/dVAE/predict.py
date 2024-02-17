@@ -113,7 +113,7 @@ class VariableProprecess:
 
 
 if __name__ == '__main__':
-    processor = VariableProprecess(WeatherDataset.NONE_LEVEL_VARIABLE, '/workspace/Haea_dev/checkpoints/dVAE', 0)
+    processor = VariableProprecess(WeatherDataset. + WeatherDataset.NONE_LEVEL_VARIABLE, '/workspace/Haea_dev/checkpoints/dVAE', 0)
     source, target, mean_std = processor.predict()
     print(source.shape)
     print(target.shape)

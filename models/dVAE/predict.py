@@ -37,4 +37,4 @@ class ImageDataset(Dataset):
 
 class VariableProprecess:
     def __init__(self, variables, model_path:str):
-        
+        weather = WeatherDataset(0, device=device, offline=True)

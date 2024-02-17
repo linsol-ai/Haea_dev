@@ -90,7 +90,7 @@ class VariableProprecess:
             dataset.append(predictions)
         
         # dataset.shape = (vars, time, hidden)
-        dataset = torch.stack(dataset, dim=0)
+        dataset = torch.ca(dataset, dim=0)
         return dataset.swapaxes(0, 1)
     
 

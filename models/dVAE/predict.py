@@ -50,7 +50,7 @@ class VariableProprecess:
         weather = WeatherDataset(year_offset, device=device, offline=True)
         return weather.load(variables=variables)
 
-    def load_models(self, variables, model_path) -> List[DVAETrainModule]:
+    def load_models(self, variables, model_path) -> Dict[DVAETrainModule]:
         models = {}
         for key in variables:
             print(f"====== LOAD MODELS : {key} =======")

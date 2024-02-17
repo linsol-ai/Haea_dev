@@ -69,7 +69,7 @@ class VariableProprecess:
             # shape = (batch, hidden_dim)
             predictions.extend(model(batch.to(self.device)))
         
-        predictions = torch.stack(predictions, dim=0)
+        predictions = torch.cat(predictions, dim=0)
 
         if len(shape) == 5:
             predictions = predictions.view(shape[0], shape[1], predictions.size(1))

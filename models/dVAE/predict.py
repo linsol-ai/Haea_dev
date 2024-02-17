@@ -78,4 +78,4 @@ class VariableProprecess:
 
 
 if __name__ == '__main__':
-    processor = VariableProprecess()
+    processor = VariableProprecess([])

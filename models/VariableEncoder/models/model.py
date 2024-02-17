@@ -43,10 +43,7 @@ class LinearDecoder(nn.Module):
         :param dropout: dropout rate
         """
         super().__init__()
-        self.variable = VariableEmbedding(var_len, embed_size)
-        self.position = PositionalEmbedding(time_len, embed_size)
-        self.dropout = nn.Dropout(p=dropout)
-        self.embed_size = embed_size
+        self.
 
     def forward(self, x, variable_seq, position_seq=None):
         if position_seq:

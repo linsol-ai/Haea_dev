@@ -39,7 +39,6 @@ class TrainingConfig(BaseModel):
     lon_max : float = Field(ge=119.2, default=131.4, le=135)
 
 
-
 class TrainingRunConfig(BaseModel):
     """A config specification of the training run."""
 

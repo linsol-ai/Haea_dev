@@ -4,8 +4,8 @@ from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.VariableAnalyzer.models.model import VariableAnalyzer
-from models.VariableAnalyzer.training.configs import TrainingConfig
-from models.VariableAnalyzer.training.params_schedule import CosineWarmupScheduler
+from models.VariableEncoder.training.configs import TrainingConfig
+from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
 from typing import List
 import wandb
 

@@ -99,7 +99,8 @@ class VariableProprecess:
             if len(shape) < 5:
                 target = target.unsqueeze(0)
                 mean_std = mean_std.unsqueeze(0)
-
+            
+            print(mean_std.shape)
             target_dataset.append(target)
             mean_std_set.append(mean_std)
         

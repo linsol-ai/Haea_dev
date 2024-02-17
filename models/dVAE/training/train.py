@@ -81,9 +81,7 @@ def _main() -> None:
         weather = WeatherDataset(0, device=device, offline=True)
 
         vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
-        input, _, _ = weather.load(variables=vars)
-
-        
+        input, _, _ = weather.load(variables=)
 
         val_dataset = input[config.training.train_variable]
 

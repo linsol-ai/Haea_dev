@@ -63,7 +63,6 @@ class VariableProprecess:
         data_loader = DataLoader(
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
-
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
             predictions.append(model(batch.to(self.device)))

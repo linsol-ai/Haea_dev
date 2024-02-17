@@ -52,6 +52,7 @@ class VariableProprecess:
                 models[key] = model
             else:
                 print("폴더가 비어있습니다.")
+                break
 
         return models
 

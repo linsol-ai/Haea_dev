@@ -19,7 +19,7 @@ training:
   temperature_scheduler:
     start: 1
     min:  0.5
-    anneal_rate: 1e-
+    anneal_rate: 1e-4
   batch_size: 256
   max_epochs: 40
   gradient_clip_val: 0.5

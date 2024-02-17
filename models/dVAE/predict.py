@@ -13,7 +13,7 @@ from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.callbacks import ModelCheckpoint
 
 import sys,os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath()))))
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 from datasets.weather_bench import WeatherDataset
 
 from models.dVAE.training.callbacks import SaveValVisualizationCallback

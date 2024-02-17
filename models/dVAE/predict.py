@@ -68,3 +68,4 @@ class VariableProprecess:
 
 
     def predict(self):
+        

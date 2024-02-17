@@ -91,7 +91,7 @@ class VariableProprecess:
         
         # dataset.shape = (vars, time, hidden)
         dataset = torch.stack(dataset, dim=0)
-        return 
+        return dataset.swapaxes(0, 1)
     
 
 

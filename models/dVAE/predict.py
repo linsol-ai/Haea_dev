@@ -27,7 +27,7 @@ class ImageDataset(Dataset):
             sample = self.data_array[idx]
             return sample
 
-class VariableProprecess:
+class VariableProprecessor:
     def __init__(self, variables, model_path: str, year_offset: int, batch_size = 512):
         self.variables = variables
         self.model_path = model_path

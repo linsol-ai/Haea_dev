@@ -186,7 +186,7 @@ class WeatherDataset:
                 means.append(mean)
                 stds.append(std)
 
-            return torch.cat(inputs, dim=0).unsqueeze(2), target.swapaxes(0, 1).unsqueeze(2), means, stds
+            return torch.stack(inputs, dim=0).unsqueeze(2), target.swapaxes(0, 1).unsqueeze(2), means, stds
 
         else:
             if lat_indices:
@@ -319,7 +319,7 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
         lat_indices, lon_indices = (None, None)
-
+        
         if latitude:
             lat_min, lat_max = latitude
             lon_min, lon_max = longitude

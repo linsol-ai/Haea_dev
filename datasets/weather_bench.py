@@ -339,7 +339,7 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (level, time, h, w) or (time, h, w)
                 input, target, mean_std = future.result()
-                result[val] = (input, target, mean, std)
+                result[val] = (input, target, mean_std)
             
 
         # dataset.shape => (var*level, time, h, w)

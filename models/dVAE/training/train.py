@@ -58,8 +58,9 @@ def _main() -> None:
 
         logger = WandbLogger(
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
-            name="vqvae",
-            project='vqvae'
+            name=config.training.train_variable,
+            project='vqvae',
+            log_model=False
             )
         model = DiscreteVAE(
             num_tokens=config.model.codebook_size,
@@ -78,7 +79,9 @@ def _main() -> None:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)
-        input, _, _ = weather.load(variables=[config.training.train_variable])
+
+        vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
+        input, _, _ = weather.load(variables= weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE)
 
         val_dataset = input[config.training.train_variable]
 
@@ -104,7 +107,7 @@ def _main() -> None:
 
         checkpoint_callback = ModelCheckpoint(
             monitor='val/loss', # 모니터링할 값
-            dirpath='my_model/', # 체크포인트 저장 경로
+            dirpath=checkpoint_path, # 체크포인트 저장 경로
             filename= config.training.train_variable + '-{epoch:02d}-{val_loss:.2f}', # 파일명 포맷
             save_top_k=3, # 상위 k개의 모델을 저장
             mode='min', # 'min'은 val_loss를 최소화하는 체크포인트를 저장

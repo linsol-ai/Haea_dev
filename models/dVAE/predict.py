@@ -39,7 +39,7 @@ class VariableProprecess:
     def __init__(self, variables, model_path: str, year_offset: int ):
     
 
-    def load_dataset(self, variables):
+    def load_dataset(self, variables, ):
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         self.device = torch.device(device)
         weather = WeatherDataset(year_offset, device=device, offline=True)

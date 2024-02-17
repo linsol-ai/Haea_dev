@@ -190,7 +190,7 @@ class WeatherDataset:
 
         else:
             if lat_indices:
-            target = target[:, lat_indices, :][:, :, lon_indices]
+                target = target[:, lat_indices, :][:, :, lon_indices]
 
             input, mean, std = normalize_tensor(source)
             return input.unsqueeze(1), target.unsqueeze(1), mean, std

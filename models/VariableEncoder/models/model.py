@@ -117,7 +117,6 @@ class VariableEncoder(nn.Module):
             tgt_seq.append(t_seq)
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
-
         return tgt_seq
 
 

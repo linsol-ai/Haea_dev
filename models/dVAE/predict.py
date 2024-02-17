@@ -84,6 +84,8 @@ class VariableProprecess:
         dataset = []
         for key in self.variables:
             source_data = self.input[key]
+            target_data = self.target[key]
+            
             model = self.models[key]
             # predictions.shape = (levels, time, hidden)
             predictions = self.predict_vars(key, model, source_data)

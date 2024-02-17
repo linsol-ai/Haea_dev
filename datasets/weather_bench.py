@@ -364,4 +364,5 @@ if __name__ == '__main__':
     device = torch.device(device)
 
     weather = WeatherDataset(0, device=device, offline=True)
+    
     weather.load(['geopotential'])

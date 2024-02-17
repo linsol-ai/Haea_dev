@@ -88,7 +88,7 @@ class VariableProprecess:
             target_data = self.target[key]
             model = self.models[key]
             # predictions.shape = (levels, time, hidden)
-            predictions = self.predict_vars(key, model, source_data)
+            prediction = self.predict_vars(key, model, source_data)
             source_dataset.append(predictions)
         
         # dataset.shape = (vars, time, hidden)

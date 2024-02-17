@@ -76,7 +76,7 @@ class VariableProprecess:
         else:
             predictions = predictions.unsqueeze(0)
 
-        print(,predictions.shape)
+        print("", predictions.shape)
         return predictions
 
 

@@ -171,7 +171,7 @@ class WeatherDataset:
             nan_indices = torch.isnan(source)
             source[nan_indices] = 0
 
-        target = data.clone().detach()
+        target = source.clone().detach()
 
         if len(data.shape) == 4:
             inputs = []

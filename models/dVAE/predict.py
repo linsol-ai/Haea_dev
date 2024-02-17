@@ -96,7 +96,8 @@ class VariableProprecess:
             source_dataset.append(predict)
 
             if len(shape) == 5:
-                target = target.uns
+                target = target.unsqueeze(0)
+                
             target_dataset.append(target)
             mean_std_set.append(mean_std)
         

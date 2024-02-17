@@ -166,7 +166,7 @@ class WeatherDataset:
         # data.shape = (time, width, height)
         # or data.shape = (time, level, width, height)
 
-        has_nan = torch.isnan(data).any()
+        has_nan = torch.isnan(source).any()
 
         if has_nan:
             print('====== nan warning =======')

@@ -58,8 +58,8 @@ def _main() -> None:
 
         logger = WandbLogger(
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
-            name=config.training.train_variable,
-            project='vqvae',
+            name="vqvae",
+            project='vqvae'
             )
         model = DiscreteVAE(
             num_tokens=config.model.codebook_size,

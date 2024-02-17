@@ -75,4 +75,4 @@ class VariableProprecess:
             predictions = self.predict_vars(key, model, source_data)
             print(predictions)
     
-    
+

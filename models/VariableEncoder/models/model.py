@@ -62,14 +62,14 @@ class VariableEncoder(nn.Module):
     def init_seq(self, device):
         print("init", device)
         self.tgt_mask = self.get_tgt_mask()
-        self.tgt_var_seq = self.get_var_seq(self.batch_size, device)
-        self.tgt_time_seq = self.get_time_seq(self.batch_size, device)
+        self.src_var_seq, self.tgt_var_seq = self.get_var_seq(self.batch_size, device)
+        self.src_time_seq, self.tgt_time_seq = self.get_time_seq(self.batch_size, device)
 
 
     def change_seq(self, batch, device):
         self.tgt_mask = self.get_tgt_mask()
-        self.tgt_var_seq = self.get_var_seq(batch, device)
-        self.tgt_time_seq = self.get_time_seq(batch, device)
+        self.src_var_seq, self.tgt_var_seq = self.get_var_seq(batch, device)
+        self.src_time_seq, self.tgt_time_seq = self.get_time_seq(batch, device)
 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
@@ -77,7 +77,7 @@ class VariableEncoder(nn.Module):
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
 
         src = self.embedding(src, self.src_var_seq) * math.sqrt(self.dim_model)
-        tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_time_seq) * math.sqrt(self.dim_model)
+        tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_time_seq, ) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
@@ -86,33 +86,46 @@ class VariableEncoder(nn.Module):
     
 
     def get_var_seq(self, batch_size, device):
+        src_seq = []
         tgt_seq = []
 
         for _ in range(batch_size):
             t_seq = []
+            s_seq = []
 
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)
 
+            for _ in range(0, self.src_time_len):
+                s_seq.extend(self.var_seq)
+
             tgt_seq.append(t_seq)
+            src_seq.append(s_seq)
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
+        src_seq = torch.tensor(src_seq, device=device)
 
-        return tgt_seq
+        return src_seq, tgt_seq
 
 
     def get_time_seq(self, batch_size, device):
+        src_time_seq = []
         tgt_time_seq = []
 
         for _ in range(batch_size):
+            src_seq = []
             tgt_seq = []
+
+            for i in range(0, self.src_time_len):
+                src_seq.extend([ i for _ in range(self.var_len)])
 
             for i in range(0, self.tgt_time_len):
                 tgt_seq.extend([ i for _ in range(self.var_len)])
-    
+        
+            src_time_seq.append(src_seq)
             tgt_time_seq.append(tgt_seq)
         
-        return torch.tensor(tgt_time_seq, device=device)
+        return torch.tensor(src_time_seq, device=device), torch.tensor(tgt_time_seq, device=device)
     
 
     def get_tgt_mask(self) -> torch.tensor:

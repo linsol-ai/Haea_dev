@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 from torchvision.utils import make_grid
 import wandb
 from typing import List
-from models.VariableAnalyzer.training.lightning import TrainModule
+from models.VariableEncoder.training.lightning import TrainModule
 
 class VariableVaildationCallback(Callback):
     """Callback to save visualizations of a dataset throughout training.

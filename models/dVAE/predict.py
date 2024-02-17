@@ -48,4 +48,4 @@ class VariableProprecess:
         return weather.load(variables=variables)
 
     def load_models(self, variables, model_path) -> List[DVAETrainModule]:
-        for key in self.
+        for key in variables:

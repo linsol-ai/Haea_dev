@@ -26,7 +26,7 @@ def get_dataset(year_offset: int, tgt_time_len: int, latitude, longitude):
     # dataset.shape:  torch.Size([7309, 100, 1450])
     input, target, mean_std = weather.load(weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE, latitude=latitude, longitude=longitude)
     dataset = CustomDataset(input, target, tgt_time_len)
-    return (weather.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, target
+    return (weather.HAS_LEVEL_VARIABLE, weather.NONE_LEVEL_VARIABLE, weather.PRESSURE_LEVELS), dataset, input.shape, mean_std, target.
 
         
 def _main(args) -> None:

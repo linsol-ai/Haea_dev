@@ -22,3 +22,5 @@ from models.dVAE.models.model import DiscreteVAE
 
 class VariableProprecess:
     
+    def __init__():
+        

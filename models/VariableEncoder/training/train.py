@@ -47,7 +47,7 @@ def _main(args) -> None:
         train_offset = config.training.train_offset
         tgt_time_len = 1 * config.training.tgt_time_len
         lat_min, lat_max = config.training.lat_min, config.training.lat_max
-        lon_min, lat_max = config.training.lat_min, config.training.lat_max
+        lon_min, lon_max = config.training.lat_min, config.training.lat_max
 
         # shape = (time, var, hidden)
         dataset_info, dataset, shape, mean_std, out_dim = get_dataset(train_offset, tgt_time_len, )

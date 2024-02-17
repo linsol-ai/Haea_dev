@@ -157,7 +157,7 @@ class WeatherDataset:
         self.datasets = ds
 
 
-    def load_variable(self, data, key):
+    def load_variable(self, data, key, latitude: Tuple | None = None, longitude: Tuple | None = None):
         data = data.to_numpy()
 
         data = torch.from_numpy(data)

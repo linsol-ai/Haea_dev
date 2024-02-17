@@ -177,7 +177,7 @@ class WeatherDataset:
             inputs = []
             means = []
             stds = []
-            for i in range(data.size(1)):
+            for i in range(source.size(1)):
                 input, mean, std = normalize_tensor(data[:, i, : , :])
                 inputs.append(input)
                 means.append(mean)

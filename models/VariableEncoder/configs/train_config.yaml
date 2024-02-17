@@ -16,4 +16,4 @@ training:
   lat_min: 32
   lat_max: 39.3
   lon_min: 124
-  
+  lon_max: 131.4

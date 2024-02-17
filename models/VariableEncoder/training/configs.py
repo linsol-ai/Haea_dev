@@ -33,7 +33,7 @@ class TrainingConfig(BaseModel):
 
     train_offset: int = 0
 
-    lat_min : float
+    lat_min : float = Field(ge=0, default=100)
 
 
 class TrainingRunConfig(BaseModel):

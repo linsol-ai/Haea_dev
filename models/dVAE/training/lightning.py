@@ -11,7 +11,7 @@ from models.dVAE.training.params_schedule import LinearScheduler, ExponentialSch
 class DVAETrainModule(pl.LightningModule):
     """A PyTorch Lightning training module for the `DVAE`."""
 
-    def __init__(self, *, dvae: DiscreteVAE | None = None, config: DVAETrainingConfig | None = None):
+    def __init__(self, *, dvae: DiscreteVAE     , config: DVAETrainingConfig | None = None):
         """Init the DVAE training module.
 
         Args:

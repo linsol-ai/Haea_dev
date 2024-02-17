@@ -46,6 +46,7 @@ def _main(args) -> None:
 
         train_offset = config.training.train_offset
         tgt_time_len = 1 * config.training.tgt_time_len
+        
 
         # shape = (time, var, hidden)
         dataset_info, dataset, shape, mean_std, out_dim = get_dataset(train_offset, tgt_time_len, )

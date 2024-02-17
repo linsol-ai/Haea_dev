@@ -72,7 +72,7 @@ class DVAETrainModule(pl.LightningModule):
         return loss
 
     def forward(self, batch):
-        return 
+        return self.dvae.get_codebook_indices(batch)
         
 
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102

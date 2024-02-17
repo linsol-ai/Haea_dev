@@ -35,6 +35,7 @@ class TrainingConfig(BaseModel):
 
     lat_min : float = Field(ge=27, default=32, le=42.75)
     lat_max : float = Field(ge=27, default=39.3, le=42.75)
+    
 
 
 

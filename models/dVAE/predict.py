@@ -46,4 +46,5 @@ class VariableProprecess:
         weather = WeatherDataset(year_offset, device=device, offline=True)
         return weather.load(variables=variables)
 
-    def load_models()
+    def load_models():
+        

@@ -79,6 +79,12 @@ class VariableProprecessor:
         else:
             predictions = predictions.unsqueeze(0)
 
+        has_nan = torch.isnan(source).any()
+
+        if has_nan:
+            print('====== nan warning =======')
+            print("key: ", key)
+
         print("RESULT SHAPE: ", predictions.shape)
         return predictions
 

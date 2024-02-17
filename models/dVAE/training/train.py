@@ -38,7 +38,7 @@ class ImageDataset(Dataset):
         
 
 def train(var_key:str) -> None:
-
+    
         
 
 def _main() -> None:

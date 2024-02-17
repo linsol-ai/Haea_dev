@@ -62,8 +62,6 @@ def train(config: TrainingRunConfig, var_key:str) -> None:
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 
-        
-
         val_dataset = input[config.training.train_variable]
 
         # Use a custom dataset class with proper transformations

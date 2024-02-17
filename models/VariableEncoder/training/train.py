@@ -18,7 +18,7 @@ from models.VariableEncoder.training.configs import TrainingRunConfig
 from models.VariableEncoder.training.lightning import TrainModule
 
 
-def get_dataset(year_offset: int, tgt_time_len: int, lat):
+def get_dataset(year_offset: int, tgt_time_len: int, lat_indices, ):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

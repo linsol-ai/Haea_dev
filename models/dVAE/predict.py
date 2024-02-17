@@ -55,5 +55,4 @@ class VariableProprecess:
         return models
 
 
-    def predict():
-        
+    def predict(self, ):

@@ -37,6 +37,9 @@ class ImageDataset(Dataset):
             return sample
         
 
+def train()
+        
+
 def _main() -> None:
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/dvae_weather_config.yaml')
     try:

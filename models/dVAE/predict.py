@@ -1,3 +1,4 @@
 
 
-class VariableProprecess
+class VariableProprecess:
+    

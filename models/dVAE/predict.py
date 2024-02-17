@@ -59,7 +59,7 @@ class VariableProprecess:
 
     def predict_vars(self, key: str, model: DVAETrainModule, dataset: torch.Tensor):
         print(f"====== PREDICT : {key} =======")
-        has_level = len(dataset.shape) == 5
+        shape = len(dataset.shape) == 5
         dataset = ImageDataset(dataset)
         data_loader = DataLoader(
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False

@@ -46,7 +46,7 @@ def _main(args) -> None:
 
         train_offset = config.training.train_offset
         tgt_time_len = 1 * config.training.tgt_time_len
-        lat_min, lat_max = (config.training.lat_min, config.training.lat_max)
+        lat = (config.training.lat_min, config.training.lat_max)
         lon_min, lon_max = (config.training.lon_min, config.training.lon_max)
 
         # shape = (time, var, hidden)

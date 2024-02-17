@@ -96,5 +96,5 @@ class VariableProprecess:
 
 
 if __name__ == '__main__':
-    processor = VariableProprecess(W, '/workspace/Haea_dev/checkpoints/dVAE', 0)
+    processor = VariableProprecess(WeatherDataset., '/workspace/Haea_dev/checkpoints/dVAE', 0)
     print(processor.predict().shape)

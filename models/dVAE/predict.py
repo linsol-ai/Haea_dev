@@ -65,7 +65,7 @@ class VariableProprecess:
         )
 
         predictions = []
-        for i, batch in enumerate(data_loader):
+        for i, batch in tqdm(enumerate(data_loader):
             predictions.append(model(batch.to(self.device)))
         return predictions
 

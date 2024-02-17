@@ -56,4 +56,4 @@ class VariableProprecess:
 
 
     def predict(self, key: str, model: DVAETrainModule, dataset: torch.Tensor):
-        
+        dataset = ImageDataset(val_dataset)

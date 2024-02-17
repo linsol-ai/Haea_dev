@@ -55,4 +55,4 @@ class VariableProprecess:
         return models
 
 
-    def predict(self, key: str, model: DVAETrainModule, dataset):
+    def predict(self, key: str, model: DVAETrainModule, dataset: ):

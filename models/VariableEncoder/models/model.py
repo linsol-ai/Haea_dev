@@ -95,8 +95,6 @@ class VariableEncoder(nn.Module):
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)
 
-            for _ in range(0, self.src_time_len):
-                s_seq.extend(self.var_seq)
 
             tgt_seq.append(t_seq)
             src_seq.append(s_seq)

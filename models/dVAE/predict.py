@@ -43,6 +43,7 @@ class VariableProprecess:
 
     def load_models(self, variables, model_path) -> Dict[DVAETrainModule]:
         folder_path = Path(model_path)
+        first_file = next(folder_path.iterdir(), None)
         models = {}
         for key in variables:
             print(f"====== LOAD MODELS : {key} =======")

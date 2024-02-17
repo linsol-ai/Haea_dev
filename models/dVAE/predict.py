@@ -72,6 +72,7 @@ class VariableProprecess:
         predictions = torch.stack(predictions, dim=0)
 
         if has_level:
+            
 
         print(predictions.shape)
         return predictions

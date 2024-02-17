@@ -42,7 +42,7 @@ class VariableProprecess:
         return weather.load(variables=variables)
 
     def load_models(self, variables, model_path) -> Dict[DVAETrainModule]:
-        folder_path = Path(os.path.)
+        folder_path = Path(os.path.join())
         first_file = next(folder_path.iterdir(), None)
         models = {}
         for key in variables:

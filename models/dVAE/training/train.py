@@ -52,7 +52,16 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
 
+        log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
+        if not os.path.exists(log_path):
+            os.makedirs(log_path)
 
+        logger = WandbLogger(
+            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
+            name=config.training.train_variable,
+            project='vqvae',
+            log_model=False
+            )
         model = DiscreteVAE(
             num_tokens=config.model.codebook_size,
             codebook_dim=config.model.codebook_vector_dim,
@@ -74,7 +83,7 @@ def _main() -> None:
         vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
         input, _, _ = weather.load(variables=vars)
 
-
+        
 
         val_dataset = input[config.training.train_variable]
 

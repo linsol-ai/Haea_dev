@@ -64,3 +64,4 @@ class VariableProprecess:
         )
         trainer = pl.Trainer(accelerator="auto",)
         predictions = trainer.predict(model, data_loader)
+        return predictions

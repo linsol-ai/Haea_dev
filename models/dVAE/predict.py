@@ -49,4 +49,4 @@ class VariableProprecess:
 
     def load_models(self, variables, model_path) -> List[DVAETrainModule]:
         for key in variables:
-            model = DVAETrainModule.load_from_checkpoint('/workspace/Haea_dev/models/dVAE/vqvae_logs/2m_temperature/models/2m_temperature-epoch=13-val_loss=0.00.ckpt')
+            model = DVAETrainModule.load_from_checkpoint()

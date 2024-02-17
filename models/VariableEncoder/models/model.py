@@ -45,7 +45,7 @@ class LinearDecoder(nn.Module):
         super().__init__()
         self.seq = nn.Sequential(
             nn.Linear(in_dim, out_dim),
-            nn.LayerNorm(self.hparams.model_dim),
+            nn.LayerNorm(out_dim),
             nn.ReLU(inplace=True),
             nn.Linear(out_dim, out_dim),
         )

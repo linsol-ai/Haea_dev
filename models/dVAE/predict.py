@@ -3,7 +3,7 @@ import logging
 
 import pytorch_lightning as pl
 import torch
-from typing import List
+from typing import Dict
 import yaml
 from pydantic import ValidationError
 from pytorch_lightning.callbacks import LearningRateMonitor

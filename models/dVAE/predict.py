@@ -41,3 +41,4 @@ class VariableProprecess:
         self.device = torch.device(device)
         weather = WeatherDataset(year_offset, device=device, offline=True)
         input, target, normalizaion = weather.load(variables=variables)
+        

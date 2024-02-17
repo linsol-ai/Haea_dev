@@ -48,7 +48,7 @@ class VariableProprecess:
             first_file = next(folder_path.iterdir(), None)
             if first_file:
                 print(f"====== LOAD MODELS : {key} =======")
-                model =     .load_from_checkpoint(first_file)
+                model = DVAETrainModule.load_from_checkpoint(first_file)
                 models[key] = model
             else:
                 print("변수 폴더가 비어있습니다.")
@@ -63,6 +63,8 @@ class VariableProprecess:
         data_loader = DataLoader(
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
+
+        for batch
         trainer = pl.Trainer()
         predictions = trainer.predict(model, data_loader)
         return predictions

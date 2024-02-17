@@ -37,3 +37,4 @@ class ImageDataset(Dataset):
 
 class VariableProprecess:
     def __init__(self, variables, model_path:str):
+        

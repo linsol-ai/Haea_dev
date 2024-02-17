@@ -172,7 +172,7 @@ class WeatherDataset:
             source[nan_indices] = 0
 
         target = source.clone().detach()
-
+        
         if len(source.shape) == 4:
             inputs = []
             means = []

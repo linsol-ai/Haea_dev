@@ -47,7 +47,7 @@ class LinearDecoder(nn.Module):
             nn.Linear(in_dim, out_dim),
             nn.LayerNorm(out_dim),
             nn.ReLU(inplace=True),
-             nn.Dropout(self.hparams.dropout),
+            nn.Dropout(self.hparams.dropout),
             nn.Linear(out_dim, out_dim),
         )
 

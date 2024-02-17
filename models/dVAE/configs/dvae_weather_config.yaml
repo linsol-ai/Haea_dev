@@ -23,4 +23,4 @@ training:
   batch_size: 256
   max_epochs: 40
   gradient_clip_val: 0.5
-  save_vis_every_n_step: 300
+  save_vis_every_n_step: 100

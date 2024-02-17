@@ -52,6 +52,13 @@ def _main() -> None:
     else:
         pl.seed_everything(config.seed)
 
+        device = ("cuda" if torch.cuda.is_available() else "cpu" )
+        device = torch.device(device)
+        weather = WeatherDataset(0, device=device, offline=True)
+
+        vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
+        input, _, _ = weather.load(variables=vars)
+
         log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
         if not os.path.exists(log_path):
             os.makedirs(log_path)

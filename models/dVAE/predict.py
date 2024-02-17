@@ -90,6 +90,7 @@ class VariableProprecess:
             # predictions.shape = (levels, time, hidden)
             predict = self.predict_vars(key, model, source_data)
             source_dataset.append(predict)
+            
         
         # dataset.shape = (vars, time, hidden)
         dataset = torch.cat(dataset, dim=0)

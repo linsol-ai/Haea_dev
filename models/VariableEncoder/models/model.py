@@ -63,7 +63,7 @@ class VariableEncoder(nn.Module):
         print("init", device)
         self.tgt_mask = self.get_tgt_mask()
         self.src_var_seq, self.tgt_var_seq = self.get_var_seq(self.batch_size, device)
-        self.src_time_seq, self.tgt_time_seq = self.get_time_seq(self.batch_size, device)
+        self.tgt_time_seq = self.get_time_seq(self.batch_size, device)
 
 
     def change_seq(self, batch, device):

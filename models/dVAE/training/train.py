@@ -79,7 +79,7 @@ def _main() -> None:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)
-        input, _, _ = weather.load(variables=)
+        input, _, _ = weather.load(variables=weather.)
 
         val_dataset = input[config.training.train_variable]
 

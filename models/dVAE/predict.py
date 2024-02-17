@@ -64,7 +64,7 @@ class VariableProprecess:
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
 
-        for batch
+        for i, batch
         trainer = pl.Trainer()
         predictions = trainer.predict(model, data_loader)
         return predictions

@@ -323,6 +323,7 @@ class WeatherDataset:
 
             lat_indices = np.where((dataset.latitude >= lat_min) & (dataset.latitude <= lat_max))[0]
             lon_indices = np.where((dataset.longitude >= lon_min) & (dataset.longitude <= lon_max))[0]
+            
 
         with ThreadPoolExecutor() as executor:
             futures = {}

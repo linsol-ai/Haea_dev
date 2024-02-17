@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader, Dataset
 from pytorch_lightning.utilities.model_summary import ModelSummary
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.callbacks import ModelCheckpoint
-import wandb
+
 
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
@@ -37,13 +37,29 @@ class ImageDataset(Dataset):
             return sample
         
 
-def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
-        log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}')
+def _main() -> None:
+    config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/dvae_weather_config.yaml')
+    try:
+        with open(config_path) as f:
+            config_dict = yaml.safe_load(f)
+            config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
+    except FileNotFoundError:
+        logging.error(f"Config file {config_path} does not exist. Exiting.")
+    except yaml.YAMLError:
+        logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
+    except ValidationError as e:
+        logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
+    else:
+        pl.seed_everything(config.seed)
+
+        log_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}')
         if not os.path.exists(log_path):
             os.makedirs(log_path)
-        wandb_run = wandb.init(project='vqvae', name=var_key, dir=log_path, reinit=True)
+
         logger = WandbLogger(
-            experiment=wandb_run,
+            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
+            name=config.training.train_variable,
+            project='vqvae',
             log_model=False
             )
         model = DiscreteVAE(
@@ -60,7 +76,10 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 
-        val_dataset = source[var_key]
+
+        
+
+        val_dataset = input[config.training.train_variable]
 
         # Use a custom dataset class with proper transformations
 
@@ -104,7 +123,7 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
                     dataset=train_ds,
                     logger=logger,
                 ),
-                EarlyStopping(monitor="val/loss", mode="min", min_delta=2e-4),
+                EarlyStopping(monitor="val/loss", mode="min"),
                 checkpoint_callback
             ],
             precision="bf16-mixed"
@@ -112,36 +131,6 @@ def train(config: TrainingRunConfig, source: torch.Tensor, var_key:str) -> None:
 
         trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)
         trainer.test(model_pl, dataloaders=test_loader)
-        
-
-def _main() -> None:
-    config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/dvae_weather_config.yaml')
-    try:
-        with open(config_path) as f:
-            config_dict = yaml.safe_load(f)
-            config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
-    except FileNotFoundError:
-        logging.error(f"Config file {config_path} does not exist. Exiting.")
-    except yaml.YAMLError:
-        logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
-    except ValidationError as e:
-        logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
-    else:
-        pl.seed_everything(config.seed)
-
-        device = ("cuda" if torch.cuda.is_available() else "cpu" )
-        device = torch.device(device)
-        weather = WeatherDataset(0, device=device, offline=True)
-
-        vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
-        source, _, _ = weather.load(variables=vars)
-
-        for key in vars:
-            train(config, source, key)
-
-
-
-        
 
 
 if __name__ == "__main__":

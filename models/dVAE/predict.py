@@ -49,3 +49,4 @@ class VariableProprecess:
 
     def load_models(self, variables, model_path) -> List[DVAETrainModule]:
         for key in variables:
+            

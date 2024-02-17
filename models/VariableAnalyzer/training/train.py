@@ -108,6 +108,8 @@ def _main(args) -> None:
         trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)
         trainer.test(model_pl, dataloaders=test_loader)
 
+        tra
+
 
 if __name__ == "__main__":
     app.run(_main)

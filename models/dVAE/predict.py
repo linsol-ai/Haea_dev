@@ -1,6 +1,6 @@
 import argparse
 import logging
-import 
+import tqdm
 import pytorch_lightning as pl
 import torch
 from typing import Dict

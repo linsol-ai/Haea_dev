@@ -62,20 +62,4 @@ class VariableProprecess:
             dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
         trainer = pl.Trainer(
-            accelerator="auto",
-            max_epochs=config.training.max_epochs,
-            logger=logger,
-            gradient_clip_val=config.training.gradient_clip_val,
-            callbacks=[
-                LearningRateMonitor(logging_interval="step"),
-                SaveValVisualizationCallback(
-                    n_images=config.training.num_vis,
-                    log_every_n_step=config.training.save_vis_every_n_step,
-                    dataset=train_ds,
-                    logger=logger,
-                ),
-               
-                checkpoint_callback
-            ],
-            precision="bf16-mixed"
         )

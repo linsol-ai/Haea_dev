@@ -67,4 +67,4 @@ class VariableProprecess:
         return predictions
 
 
-    def predict():
+    def predict(self):

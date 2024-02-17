@@ -94,7 +94,7 @@ class VariableProprecess:
             predict = self.predict_vars(key, model, source)
             source_dataset.append(predict)
             target_dataset.append(target)
-            
+            mean_stds.append(mean_std)
         
         # dataset.shape = (vars, time, hidden)
         dataset = torch.cat(dataset, dim=0)

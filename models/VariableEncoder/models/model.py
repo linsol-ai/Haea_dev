@@ -69,7 +69,7 @@ class VariableEncoder(nn.Module):
     def change_seq(self, batch, device):
         self.tgt_mask = self.get_tgt_mask()
         self.tgt_var_seq = self.get_var_seq(batch, device)
-        self.src_time_seq, self.tgt_time_seq = self.get_time_seq(batch, device)
+        self.tgt_time_seq = self.get_time_seq(batch, device)
 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):

@@ -77,7 +77,7 @@ class VariableEncoder(nn.Module):
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
 
         src = self.embedding(src, self.src_var_seq) * math.sqrt(self.dim_model)
-        tgt = self.embedding(tgt, self.tgt_var_seq) * math.sqrt(self.dim_model)
+        tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_time_seq, ) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

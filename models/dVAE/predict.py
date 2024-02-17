@@ -100,7 +100,7 @@ class VariableProprecess:
                 target = target.unsqueeze(0)
                 mean_std = mean_std.unsqueeze(0)
             else:
-                
+                mean_std
             
             print(mean_std.shape)
             target_dataset.append(target)

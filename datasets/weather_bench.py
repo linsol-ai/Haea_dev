@@ -191,7 +191,7 @@ class WeatherDataset:
             return input.unsqueeze(1), target.unsqueeze(1), mean, std
     
 
-    def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple =| None, longitude=None):
+    def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple = None, longitude=None):
         input, target, normalizaion = self.load_data(self.datasets, variables)
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", {val: input[val].shape for val in variables})

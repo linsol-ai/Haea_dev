@@ -200,7 +200,7 @@ class WeatherDataset:
         input, target, mean_std = self.load_data(self.datasets, variables, latitude=latitude, longitude=longitude)
         print("======= RESULT SHAPE =======")
         print("result_dataset.shape: ", {val: (input[val].shape, target[val].shape) for val in variables})
-        return input, target, mean_std_dataset
+        return input, target, mean_std
 
     """""
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:

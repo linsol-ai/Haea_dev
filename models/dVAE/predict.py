@@ -38,7 +38,7 @@ class ImageDataset(Dataset):
 
 class VariableProprecess:
     def __init__(self, variables, model_path: str, year_offset: int, batch_size = 256):
-        self.var
+        self.variables = variables
         self.batch_size = batch_size
         self.input, self.target, self.normalizaion = self.load_dataset(variables, year_offset)
         self.models = self.load_models(variables, model_path)

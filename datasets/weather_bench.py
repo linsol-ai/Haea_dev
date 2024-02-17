@@ -366,4 +366,4 @@ if __name__ == '__main__':
     weather = WeatherDataset(0, device=device, offline=True)
     lat_min, lat_max = (32, 39.3)
     lon_min, lon_max = (124, 131.4)
-    weather.load(['geopotential'])
+    weather.load(['geopotential']), 

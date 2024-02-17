@@ -30,6 +30,8 @@ class Embedding(nn.Module):
         if position_seq:
             x = x + self.position(position_seq) + self.variable(variable_seq)
             return self.dropout(x)
+        else:
+            
 
 
 class VariableEncoder(nn.Module):

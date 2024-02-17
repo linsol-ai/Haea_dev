@@ -48,7 +48,7 @@ class LinearDecoder(nn.Module):
             nn.ReLU(),
             nn.Linear(out_dim, out_dim),
             nn.ReLU(),
-            
+            nn.Linear(out_dim, out_dim),
         )
 
     def forward(self, x):

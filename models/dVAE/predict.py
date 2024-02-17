@@ -21,5 +21,4 @@ from models.dVAE.training.lightning import DVAETrainModule
 from models.dVAE.models.model import DiscreteVAE
 
 class VariableProprecess:
-    
     def __init__(self, ):

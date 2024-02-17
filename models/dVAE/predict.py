@@ -89,7 +89,6 @@ class VariableProprecess:
             source = self.input[key]
             target = self.target[key]
             mean_std = self.normalizaion[key]
-
             model = self.models[key]
             # predictions.shape = (levels, time, hidden)
             predict = self.predict_vars(key, model, source)

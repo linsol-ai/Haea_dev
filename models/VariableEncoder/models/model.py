@@ -112,7 +112,7 @@ class VariableEncoder(nn.Module):
     
             tgt_time_seq.append(tgt_seq)
         
-        return torch.tensor(src_time_seq, device=device), torch.tensor(tgt_time_seq, device=device)
+        return torch.tensor(tgt_time_seq, device=device)
     
 
     def get_tgt_mask(self) -> torch.tensor:

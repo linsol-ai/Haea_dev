@@ -172,6 +172,7 @@ class WeatherDataset:
             source[nan_indices] = 0
 
         target = source.clone().detach()
+        
         target = target[:, lat_indices, :][:, :, lon_indices]
 
         if len(source.shape) == 4:

@@ -71,7 +71,7 @@ class DVAETrainModule(pl.LightningModule):
         
         return loss
 
-    def forward(self, *args: torch.optim.optimizer.Any, **kwargs: torch.optim.optimizer.Any) -> torch.optim.optimizer.Any:
+    def forward(self, ) -> torch.optim.optimizer.Any:
         return super().forward(*args, **kwargs)
         
 

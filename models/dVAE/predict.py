@@ -83,7 +83,7 @@ class VariableProprecess:
     def predict(self) -> torch.Tensor:
         source_dataset = []
         target_dataset = []
-        
+        normalizaion
 
         for key in self.variables:
             source = self.input[key]

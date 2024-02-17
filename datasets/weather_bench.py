@@ -193,7 +193,7 @@ class WeatherDataset:
                 target = target[:, lat_indices, :][:, :, lon_indices]
 
             input, mean, std = normalize_tensor(source)
-            return input.unsqueeze(1), target.unsqueeze(1), mean, std
+            return input.unsqueeze(1), target.unsqueeze(1), torch.mean, std
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):

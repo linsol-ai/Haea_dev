@@ -33,7 +33,7 @@ class TrainingConfig(BaseModel):
 
     train_offset: int = 0
 
-    
+    lat_min : float
 
 
 class TrainingRunConfig(BaseModel):

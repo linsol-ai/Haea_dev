@@ -60,7 +60,7 @@ def _main() -> None:
             save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
             name=config.training.train_variable,
             project='vqvae',
-            log_model=False
+            log_model=Fa
             )
         model = DiscreteVAE(
             num_tokens=config.model.codebook_size,
@@ -79,9 +79,7 @@ def _main() -> None:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         device = torch.device(device)
         weather = WeatherDataset(0, device=device, offline=True)
-
-        vars = weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE
-        input, _, _ = weather.load(variables= weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE)
+        input, _, _ = weather.load(variables=[config.training.train_variable])
 
         val_dataset = input[config.training.train_variable]
 

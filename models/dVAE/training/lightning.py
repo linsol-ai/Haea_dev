@@ -81,4 +81,5 @@ class DVAETrainModule(pl.LightningModule):
         self._step(batch, "test")
     
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
+        code = pl_module.dvae.get_codebook_indices(img)
         return self.dvae(batch)

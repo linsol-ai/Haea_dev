@@ -48,7 +48,7 @@ class VariableProprecess:
             first_file = next(folder_path.iterdir(), None)
             if first_file:
                 print(f"====== LOAD MODELS : {key} =======")
-                model = DVAETrainModule.load_from_checkpoint()
+                model = DVAETrainModule.load_from_checkpoint(first_file)
                 models[key] = model
 
         return models

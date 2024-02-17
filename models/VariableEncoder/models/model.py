@@ -55,7 +55,7 @@ class VariableEncoder(nn.Module):
         )
         
         self.embedding = Embedding(var_len, max_len, dim_model, dropout)
-        self.out = nn.Linear(dim_model, predict_dim)
+        self.out = nn.Linear(dim_model, out_dim)
     
 
     def init_seq(self, device):

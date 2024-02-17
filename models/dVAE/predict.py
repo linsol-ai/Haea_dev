@@ -50,6 +50,8 @@ class VariableProprecess:
                 print(f"====== LOAD MODELS : {key} =======")
                 model = DVAETrainModule.load_from_checkpoint(first_file)
                 models[key] = model
+            else:
+                
 
         return models
 

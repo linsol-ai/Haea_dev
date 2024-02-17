@@ -48,5 +48,6 @@ class VariableProprecess:
         return weather.load(variables=variables)
 
     def load_models(self, variables, model_path) -> List[DVAETrainModule]:
+        models = []
         for key in variables:
             model = DVAETrainModule.load_from_checkpoint(os.path.join(model_path, key + '.ckpt'))

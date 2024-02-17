@@ -43,7 +43,7 @@ def train(config: TrainingRunConfig, source, var_key:str) -> None:
             os.makedirs(log_path)
 
         logger = WandbLogger(
-            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{config.training.train_variable}'), 
+            save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), f'vqvae_logs/{var_key}'), 
             name=var_key,
             project='vqvae',
             log_model=False

@@ -93,7 +93,7 @@ class VariableEncoder(nn.Module):
 
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.var_seq)
-                
+
             tgt_seq.append(t_seq)
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
@@ -102,7 +102,6 @@ class VariableEncoder(nn.Module):
 
 
     def get_time_seq(self, batch_size, device):
-        src_time_seq = []
         tgt_time_seq = []
 
         for _ in range(batch_size):

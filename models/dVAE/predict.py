@@ -61,7 +61,7 @@ class VariableProprecess:
         print(f"====== PREDICT : {key} =======")
         dataset = ImageDataset(dataset)
         data_loader = DataLoader(
-            dataset, batch_size=self.batch_size, shuffle=False
+            dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )
         trainer = pl.Trainer()
         predictions = trainer.predict(model, data_loader)

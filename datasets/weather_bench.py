@@ -171,7 +171,7 @@ class WeatherDataset:
         if has_nan:
             print('====== nan warning =======')
             print("key: ", key)
-            nan_indices = torch.isnan(data)
+            nan_indices = torch.isnan(source)
             data[nan_indices] = 0
 
         target = data.clone().detach()

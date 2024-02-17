@@ -46,7 +46,8 @@ class VariableProprecess:
         for key in variables:
             folder_path = Path(os.path.join(model_path, key))
             first_file = next(folder_path.iterdir(), None)
-            
+            if first_file:
+                
             print(f"====== LOAD MODELS : {key} =======")
             model = DVAETrainModule.load_from_checkpoint(os.path.join(model_path, key + '.ckpt'))
             models[key] = model

@@ -45,7 +45,7 @@ class LinearDecoder(nn.Module):
         super().__init__()
         self.
 
-    def forward(self, x, variable_seq, position_seq=None):
+    def forward(self, x):
         if position_seq:
             x = x + self.position(position_seq) + self.variable(variable_seq)
             return self.dropout(x)

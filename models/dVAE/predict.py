@@ -59,5 +59,5 @@ class VariableProprecess:
     def predict(self, key: str, model: DVAETrainModule, dataset: torch.Tensor):
         dataset = ImageDataset(dataset)
         data_loader = DataLoader(
-            dataset, batch_size=config.training.batch_size, num_workers=8, shuffle=False
+            dataset, batch_size=self.batch_size, num_workers=8, shuffle=False
         )

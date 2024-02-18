@@ -237,7 +237,7 @@ class WeatherDataset:
         normalizaion_data = []
 
         for dataset in self.datasets:
-            input, target, normalizaion = self.load_data(dataset)
+            input, target, mean_std = self.load_data(dataset)
             source_dataset.append(input)
             target_dataset.append(target)
             normalizaion_data.append(normalizaion)

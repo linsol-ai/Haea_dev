@@ -85,7 +85,7 @@ def main(argv):
 
   template = (
       xbeam.make_template(source_dataset)
-      
+      .sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
   )
 
   pipeline_options = PipelineOptions(

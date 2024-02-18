@@ -2363,3 +2363,446 @@
 2024-02-18 08:03:15,770 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
 2024-02-18 08:03:17,773 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
 2024-02-18 08:03:19,179 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:19,775 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:21,779 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:23,781 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:24,254 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:24,484 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:24,485 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:24,485 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:24,486 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:24,668 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:24,668 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:24,668 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:24,669 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:24,783 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:03:25,784 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:26,356 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:03:26,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:03:26,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:03:26,363 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:03:27,786 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:29,263 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:29,789 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:31,791 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:33,793 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:34,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:35,313 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:35,321 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:35,322 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:35,324 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:35,521 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:35,529 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:35,530 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:35,532 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:35,796 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:03:35,796 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:37,798 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:39,420 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:39,800 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:41,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:03:41,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:03:41,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:03:41,801 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:43,813 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:44,549 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:45,821 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:46,172 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:46,172 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:46,173 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:46,173 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:46,355 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:46,356 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:46,356 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:46,356 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:46,829 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:03:47,833 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:49,574 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:49,841 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:51,850 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:53,854 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:54,674 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:55,856 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:56,357 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:03:56,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:03:56,363 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:03:56,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:03:56,974 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:56,975 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:56,975 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:56,977 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:57,158 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:03:57,158 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:03:57,158 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:03:57,159 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:03:57,859 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:03:57,859 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:03:59,734 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:03:59,861 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:01,863 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:03,865 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:04,841 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:05,867 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:07,778 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:07,778 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:07,778 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:07,779 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:07,869 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:07,869 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:07,961 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:07,962 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:07,962 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:07,962 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:08,870 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:09,871 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:09,892 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:11,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:04:11,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:04:11,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:04:11,873 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:13,875 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:15,049 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:15,879 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:17,881 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:18,591 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:18,592 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:18,592 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:18,593 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:18,774 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:18,775 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:18,775 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:18,775 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:18,882 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:19,883 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:20,077 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:21,886 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:23,887 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:25,183 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:25,889 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:26,359 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:04:26,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:04:26,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:04:26,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:04:27,891 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:29,413 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:29,421 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:29,422 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:29,423 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:29,621 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:29,629 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:29,630 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:29,631 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:29,893 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:29,894 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:30,267 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:31,895 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:33,897 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:35,376 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:35,899 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:37,901 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:39,912 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:40,280 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:40,281 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:40,281 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:40,282 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:40,465 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:40,465 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:40,466 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:40,466 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:40,467 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:40,919 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:41,363 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:04:41,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:04:41,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:04:41,922 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:43,929 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:45,577 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:45,934 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:47,939 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:49,946 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:50,667 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:51,113 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:51,115 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:51,115 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:51,117 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:51,317 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:04:51,319 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:04:51,319 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:04:51,320 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:04:51,952 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:04:51,952 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:53,954 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:55,775 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:04:55,956 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:56,360 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:04:56,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:04:56,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:04:56,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:04:57,958 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:04:59,961 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:00,862 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:01,962 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:01,977 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:01,978 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:01,978 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:01,979 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:02,161 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:02,161 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:02,162 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:02,162 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:02,964 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:03,965 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:05,967 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:05,976 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:07,969 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:09,971 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:11,062 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:11,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:05:11,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:05:11,365 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:05:11,973 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:12,801 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:12,809 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:12,810 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:12,812 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:12,974 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:13,033 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:13,037 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:13,038 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:13,039 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:13,975 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:13,975 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:15,977 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:16,174 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:17,980 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:19,982 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:21,251 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:21,984 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:23,629 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:23,637 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:23,638 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:23,639 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:23,833 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:23,841 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:23,842 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:23,844 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:23,987 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:23,987 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:25,989 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:26,353 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:26,361 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:05:26,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:05:26,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:05:26,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:05:27,991 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:29,993 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:31,425 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:31,995 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:33,998 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:34,486 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:34,486 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:34,487 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:34,488 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:34,669 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:34,670 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:34,670 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:34,671 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:34,999 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:36,000 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:36,546 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:38,005 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:40,021 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:41,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:05:41,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:05:41,365 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:05:41,645 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:42,029 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:44,037 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:45,330 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:45,337 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:45,337 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:45,339 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:45,529 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:45,545 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:45,545 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:45,546 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:46,045 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:46,046 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:46,753 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:48,049 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:50,050 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:51,787 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:52,055 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:54,057 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:56,060 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:05:56,186 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:56,187 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:56,187 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:56,188 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:56,363 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:05:56,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:05:56,364 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:05:56,364 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:05:56,413 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:05:56,627 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:05:56,627 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:05:56,628 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:05:56,789 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:05:57,061 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:05:58,062 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:00,065 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:01,896 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:02,067 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:04,069 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:06,071 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:06,937 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:07,072 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:07,073 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:07,073 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:07,074 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:07,255 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:07,256 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:07,256 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:07,256 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:08,075 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:06:08,075 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:10,077 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:11,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:06:11,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:06:11,365 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:06:11,985 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:12,079 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:14,082 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:16,084 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:17,095 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:17,886 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:17,887 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:17,887 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:17,887 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:18,069 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:18,070 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:18,070 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:18,071 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:18,086 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:06:18,086 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:20,088 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:22,090 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:22,099 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:24,092 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:26,095 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:26,364 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:06:26,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:06:26,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:06:26,366 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:06:27,147 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:28,097 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:28,790 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:28,791 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:28,791 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:28,792 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:28,974 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:28,975 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:28,975 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:28,975 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:29,098 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:06:30,099 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:32,101 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:32,179 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:34,113 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:36,121 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:37,272 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:38,129 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:39,797 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:39,797 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:39,798 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:39,798 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:39,986 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:39,986 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:39,986 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:39,987 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:40,137 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:06:40,138 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:41,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:06:41,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:06:41,366 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:06:42,145 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:42,301 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:44,148 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:46,154 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:47,362 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:48,157 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:50,158 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:50,783 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:50,784 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:50,784 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:50,785 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:50,967 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:06:50,968 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:06:50,968 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:06:50,969 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:06:51,159 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:06:52,160 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:52,385 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:54,163 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:56,165 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:06:56,366 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:06:56,366 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:06:56,366 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:06:56,367 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:06:57,479 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:06:58,167 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:00,169 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:01,789 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:01,790 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:01,790 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:01,791 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:01,973 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:01,974 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:01,974 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:01,976 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:02,171 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:07:02,171 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:02,561 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:04,173 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:06,175 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:07,581 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:08,177 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:10,179 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:11,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:07:11,366 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:07:11,366 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:07:12,181 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:12,663 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:12,781 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:12,781 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:12,782 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:12,782 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:12,964 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:12,965 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:12,965 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:12,965 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:13,183 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:07:14,183 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:16,186 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:17,686 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:18,188 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:20,190 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:22,192 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:22,770 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:23,783 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:23,784 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:23,784 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:23,785 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:23,967 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:07:23,967 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:07:23,967 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:07:23,968 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:07:24,194 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:07:24,194 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:26,196 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:07:26,365 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:07:26,367 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:07:26,367 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:07:26,615 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:07:27,845 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:07:28,198 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log

@@ -157,7 +157,6 @@ class WeatherDataset:
         self.datasets = []
         for path in dataset_path:
             ds, _ = xb.open_zarr(path)
-            print(ds.level)
             self.datasets.append(ds)
 
 

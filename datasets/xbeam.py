@@ -64,7 +64,7 @@ def preprocess_data(dataset: xarray.Dataset):
   lon_indices = np.where((dataset.longitude >= lon_min) & (dataset.longitude <= lon_max))[0]
 
 
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
+  source_dataset = dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
   return dataset
 
 

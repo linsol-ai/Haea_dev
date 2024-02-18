@@ -135,7 +135,7 @@ class WeatherDataset:
         file_name = f'{start}-12-31_{end}-12-31.zarr'
         dataset_path = None
 
-        for resol in self.R:
+        for resol in self.RESOLUTION:
 
 
         if self.offline:

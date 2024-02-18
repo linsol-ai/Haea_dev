@@ -111,6 +111,7 @@ class DiscreteVAE(nn.Module):
         img_seq
     ):
         image_embeds = self.codebook(img_seq)
+        print(im)
         b, n, d = image_embeds.shape
         h = w = int(sqrt(n))
 

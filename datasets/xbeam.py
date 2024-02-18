@@ -98,7 +98,6 @@ def main(argv):
         | 'PreprocessData' >> beam.Map(preprocess_data)
         # 필요한 추가 변환 단계
     )
-
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)

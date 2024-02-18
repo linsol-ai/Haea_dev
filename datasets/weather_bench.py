@@ -217,9 +217,6 @@ class WeatherDataset:
             return torch.stack(inputs, dim=0).flatten(2), target.swapaxes(0, 1).flatten(2), torch.tensor([means, stds])
 
         else:
-            if lat_indices is not None:
-                source = source[:, lat_indices, :][:, :, lon_indices]
-            
             target = source.clone().detach()
 
             input, mean, std = normalize_tensor(source)

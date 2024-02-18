@@ -133,7 +133,7 @@ class WeatherDataset:
     
     def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'
-        dataset_path = None
+        dataset_path = []
 
         for resol in self.RESOLUTION:
             if self.offline:

@@ -8,6 +8,8 @@ class PositionalEmbedding(nn.Embedding):
     def __init__(self, time_len, embed_size=768):
         super().__init__(time_len, embed_size)
 
+    
+
 
 class Embedding(nn.Module):
     def __init__(self, time_len, embed_size, dropout=0.1):

@@ -242,7 +242,6 @@ class WeatherDataset:
             target_dataset.append(target)
             if i == 0:
                 mean_std = 
-            normalizaion_data.append(normalizaion)
         
         # var_dataset.shape = (time, var * level, h * w)
         input_dataset = torch.concat(input_dataset, dim=2)

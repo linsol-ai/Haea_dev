@@ -61,7 +61,7 @@ class TrainModule(pl.LightningModule):
         if has_nan:
             print("nan warn")
 
-                    has_nan = torch.isnan(predict).any()
+        has_nan = torch.isnan(predict).any()
         if has_nan:
             print("nan warn")
         label = label.view(label.size(0), -1, label.size(3))

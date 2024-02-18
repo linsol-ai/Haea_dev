@@ -72,18 +72,14 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
-  source_chunks['time'] = 4
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 
   template = (
       xbeam.make_template(source_dataset)
-      .sel(level=LEVEL)
-      .isel(latitude=lat_indices, longitude=lon_indices)
-      .sortby('latitude', ascending=True)
   )
 
   pipeline_options = PipelineOptions(
@@ -92,14 +88,13 @@ def main(argv):
         temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
-        machine_type='n2d-custom-8-262144-ext'
+        machine_type='c3-highmem-8'
   )
 
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | beam.MapTuple(rekey_chunk_on_month_hour, LEVEL, lat_indices, lon_indices)
         | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

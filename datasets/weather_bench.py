@@ -222,7 +222,8 @@ class WeatherDataset:
         else:
             if lat_indices is not None:
                 source = source[:, lat_indices, :][:, :, lon_indices]
-                target = target[:, lat_indices, :][:, :, lon_indices]
+            
+            target = source.clone().detach()
 
             input, mean, std = normalize_tensor(source)
             return input.flatten(1), target.flatten(1), torch.tensor([mean, std])

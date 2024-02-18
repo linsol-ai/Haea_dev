@@ -461,7 +461,7 @@ class WeatherDataset:
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []
         target_dataset = []
-        normalizaion = []
+        mean_std_dataset = []
 
         for val in variables:
             input, target, mean_std = result[val]

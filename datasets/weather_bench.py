@@ -236,7 +236,7 @@ class WeatherDataset:
         target_dataset = []
         mean_std = None
 
-        for dataset in self.datasets:
+        for dataset in enumerate(self.datasets:
             input, target, mean_std = self.load_data(dataset, variables)
             source_dataset.append(input)
             target_dataset.append(target)

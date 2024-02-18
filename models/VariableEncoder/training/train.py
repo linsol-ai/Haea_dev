@@ -42,7 +42,7 @@ def get_normal_dataset(year_offset: int, tgt_time_len: int, latitude, longitude)
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-    weather = WeatherDataset(year_offset, mode= WeatherDataset.RESOLUTION_MODE_BASIC_SET, device=device)
+    weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     source, target, mean_std = weather.load(weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE, latitude=latitude, longitude=longitude)
 

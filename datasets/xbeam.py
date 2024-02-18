@@ -51,7 +51,6 @@ def rekey_chunk_on_month_hour(
         dataset = dataset.sel(level=level)
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
-    
 
 
 def main(argv):
@@ -96,7 +95,7 @@ def main(argv):
     source_dataset = source_dataset[VARIABLE]
     processed_data = (
         root
-        | beam.Create([source_dataset])
+        | beam.Create([filtered_dataset])
         | 'PreprocessData' >> beam.Map(preprocess_data)
         # 필요한 추가 변환 단계
     )

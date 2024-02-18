@@ -231,8 +231,6 @@ class WeatherDataset:
 
 
 
-   
-
     def load_data_2D(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}

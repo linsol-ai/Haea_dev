@@ -47,7 +47,7 @@ def get_normal_dataset(year_offset: int, tgt_time_len: int, latitude, longitude)
     source, target, mean_std = weather.load(weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE, latitude=latitude, longitude=longitude)
 
     dataset = CustomDataset(source, target, tgt_time_len)
-    return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, target['2m_temperature'].size(-1)
+    return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, target.size(-1)
 
 
         
@@ -74,7 +74,7 @@ def _main(args) -> None:
         lon = (config.training.lon_min, config.training.lon_max)
 
         # shape = (time, var, hidden)
-        dataset_info, dataset, shape, mean_std, out_dim = get_dataset(model_path, train_offset, tgt_time_len, lat, lon)
+        dataset_info, dataset, shape, mean_std, out_dim = get_normal_dataset(train_offset, tgt_time_len, lat, lon)
 
         print("DATASET SHAPE: " , shape)
 

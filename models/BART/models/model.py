@@ -59,11 +59,15 @@ class LinearDecoder(nn.Module):
         """
         super().__init__()
         self.seq = nn.Sequential(
-            nn.Linear(in_dim, out_dim),
-            nn.LayerNorm(out_dim),
+            nn.Linear(in_dim, mid_dim),
+            nn.LayerNorm(mid_dim),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
-            nn.Linear(out_dim, out_dim),
+            nn.Linear(mid_dim, mid_dim),
+            nn.LayerNorm(mid_dim),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+            nn.Linear(mid_dim, 1),
         )
 
     def forward(self, x):

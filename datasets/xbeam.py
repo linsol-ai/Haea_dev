@@ -78,7 +78,8 @@ def main(argv):
 
   template = (
       xbeam.make_template(source_dataset)
-      .sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
+      .sel(level=LEVEL)
+      .isel(latitude=lat_indices, longitude=lon_indices)
 
   )
 

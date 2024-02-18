@@ -422,11 +422,6 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (level, time, h * w) or (time, h * w)
                 input, target, mean_std = future.result()
-
-                if len(input.shape) == 3:
-                    input = input.swapaxes(0, 1)
-                    target = target.swapaxes(0, 1)
-
                 result[val] = (input, target, mean_std)
             
 

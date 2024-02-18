@@ -74,15 +74,14 @@ def main(argv):
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
 
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date))
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 
   template = (
       xbeam.make_template(source_dataset)
-      .sel(level=LEVEL)
-      .isel(latitude=lat_indices, longitude=lon_indices)
+      
   )
 
   pipeline_options = PipelineOptions(
@@ -91,7 +90,7 @@ def main(argv):
         temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
-        machine_type='c3-highmem-8'
+        machine_type='c3-standard-8-lssd'
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

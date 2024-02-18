@@ -85,7 +85,6 @@ def main(argv):
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
         machine_type='c3d-standard-8-lssd',
-        worker_disk_type='pd-ssd'
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

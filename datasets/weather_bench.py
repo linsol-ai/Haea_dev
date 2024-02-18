@@ -226,7 +226,7 @@ class WeatherDataset:
                 target = target[:, lat_indices, :][:, :, lon_indices]
 
             input, mean, std = normalize_tensor(source)
-            return input..flatten(2), target.flatten(1), torch.tensor([mean, std])
+            return input.flatten(2), target.flatten(1), torch.tensor([mean, std])
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):

@@ -486,7 +486,7 @@ class WeatherDataset:
         
         end = time.time()
         print(f"{end - start:.5f} sec")
-        return input_dataset, target_dataset, normalizaion
+        return input_dataset, target_dataset, mean_std_dataset
 
 
     def calculate_wind(self, u_wind, v_wind, device):

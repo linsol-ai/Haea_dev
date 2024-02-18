@@ -74,7 +74,7 @@ def main(argv):
   end_date = pd.to_datetime(END_DATE)
 
   time_indices = np.where((source_dataset.time >= start_date) & (source_dataset.time <= end_date))[0]
-  source_dataset = source_dataset.isel(time=)
+  source_dataset = source_dataset.isel(time=time_indices)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 128

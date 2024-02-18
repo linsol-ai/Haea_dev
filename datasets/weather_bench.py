@@ -157,7 +157,7 @@ class WeatherDataset:
         self.datasets = ds
 
 
-    def load_variable(self, data: xr.DataArray, key, lat_indices = None, lon_indices = None):
+    def load_variable_2d(self, data: xr.DataArray, key, lat_indices = None, lon_indices = None):
         source = data.to_numpy()
         source = torch.from_numpy(source)
         # data.shape = (time, width, height)

@@ -25,8 +25,8 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
     source, target, mean_std = processor.predict()
     has_nan = torch.isnan(predictions).any()
     if has_nan:
-            print('====== nan warning =======')
-            print("key: ", key)
+        print('====== nan warning =======')
+        print("key: ", key)
     dataset = CustomDataset(source, target, tgt_time_len)
     return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, target.size(-1)
 

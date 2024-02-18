@@ -92,7 +92,7 @@ def main(argv):
   )
 
   with beam.Pipeline(options=pipeline_options) as root :
-     processed_data = (
+    processed_data = (
         root
         | beam.Create([filtered_dataset])
         | 'PreprocessData' >> beam.Map(preprocess_data)

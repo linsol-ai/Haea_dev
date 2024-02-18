@@ -812,6 +812,10 @@ _wandb:
       5: 1
       6:
       - 1
+    - 1: test/mse_loss
+      5: 1
+      6:
+      - 1
 learning_rate:
   desc: null
   value: 2.0e-05

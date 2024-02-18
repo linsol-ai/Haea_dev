@@ -135,6 +135,9 @@ class WeatherDataset:
         file_name = f'{start}-12-31_{end}-12-31.zarr'
         dataset_path = None
 
+        for resol in resolutions:
+            
+
         if self.offline:
             folder = Path(self.DIR_NAME)
             file_path = folder / self.RESOLUTION[0] / file_name

@@ -23,6 +23,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
     source_vars = WeatherDataset.HAS_LEVEL_VARIABLE + WeatherDataset.NONE_LEVEL_VARIABLE
     processor = VariableProprecessor(model_path, year_offset, latitude, longitude, variables=source_vars)
     source, target, mean_std = processor.predict()
+    
     has_nan = torch.isnan(target).any()
     if has_nan:
         print('====== nan warning =======')

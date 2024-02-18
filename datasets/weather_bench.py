@@ -225,7 +225,7 @@ class WeatherDataset:
         return input, target, mean_std
     
 
-    def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):
+    def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE):
         input, target, mean_std = self.load_data_1D(self.datasets, variables, latitude=latitude, longitude=longitude)
         return input, target, mean_std
 

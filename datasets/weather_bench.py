@@ -469,4 +469,4 @@ if __name__ == '__main__':
     weather = WeatherDataset(0, device=device, offline=True)
     lat = (32, 39.3)
     lon = (124, 131.4)
-    print(weather.load_1D(weather., lat, lon)[2].shape)
+    print(weather.load_1D(weather.HAS_LEVEL_, lat, lon)[2].shape)

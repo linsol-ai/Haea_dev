@@ -65,6 +65,7 @@ class TrainModule(pl.LightningModule):
         has_nan = torch.isnan(tgt).any()
         if has_nan:
             print("nan warn")
+            
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
         loss = self.calculate_rmse_loss(predict, label)

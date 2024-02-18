@@ -247,7 +247,7 @@ class WeatherDataset:
         input_dataset = torch.concat(input_dataset, dim=2)
         target_dataset = torch.concat(target_dataset, dim=2)
 
-        return input, target, mean_std
+        return input, target, mean_std_dataset
 
 
 

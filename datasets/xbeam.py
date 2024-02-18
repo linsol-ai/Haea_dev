@@ -99,7 +99,7 @@ def main(argv):
         # 필요한 추가 변환 단계
     )
     (
-        root
+        processed_data
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)

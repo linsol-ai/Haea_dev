@@ -43,6 +43,7 @@ class LinearEncoder(nn.Module):
             nn.LayerNorm(mid_dim),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
+            
         )
 
     def forward(self, x):

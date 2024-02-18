@@ -52,7 +52,7 @@ def rekey_chunk_on_month_hour(
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
 
-def preprocess_data(element:xarray.Dataset):
+def preprocess_data(dataset:xarray.Dataset):
     
     return element
 

@@ -73,7 +73,7 @@ def main(argv):
   start_date = pd.to_datetime(START_DATE)
   end_date = pd.to_datetime(END_DATE)
 
-  time_indices = np.where((source_dataset.time >= start_date) & (source_dataset.latitude <= lat_max))[0]
+  time_indices = np.where((source_dataset.time >= start_date) & (source_dataset.time <= lat_max))[0]
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
   output_chunks = source_chunks.copy()

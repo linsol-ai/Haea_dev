@@ -24,7 +24,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
     processor = VariableProprecessor(model_path, year_offset, latitude, longitude, variables=source_vars)
     source, target, mean_std = processor.predict()
     has_nan = torch.isnan(predictions).any()
-        if has_nan:
+    if has_nan:
             print('====== nan warning =======')
             print("key: ", key)
     dataset = CustomDataset(source, target, tgt_time_len)

@@ -79,7 +79,7 @@ def main(argv):
 
   template = (
       xbeam.make_template(source_dataset)
-      .
+      .sel()
   )
 
   pipeline_options = PipelineOptions(

@@ -52,6 +52,10 @@ def rekey_chunk_on_month_hour(
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
 
+def preprocess_data(element):
+    # 데이터 전처리 로직 (예: 결측치 처리, 스케일링 등)
+    return element
+
 
 def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'

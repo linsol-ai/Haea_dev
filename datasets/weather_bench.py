@@ -469,7 +469,7 @@ class WeatherDataset:
                 for i in range(input.size(0)):
                     input_dataset.append(input[i])
                     target_dataset.append(target[i])
-                    normalizaion.append([mean, std])
+                    normalizaion.append(mean_std)
             else:
                 input_dataset.append(input)
                 target_dataset.append(target)

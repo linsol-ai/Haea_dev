@@ -126,6 +126,7 @@ def _main(args) -> None:
                 LearningRateMonitor(logging_interval="step"),
             
             ],
+            precision="bf16-mixed"
         )
 
         trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)

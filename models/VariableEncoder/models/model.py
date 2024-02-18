@@ -120,7 +120,7 @@ class VariableEncoder(nn.Module):
         return tgt_seq
 
 
-    def get_time_seq(self, batch_size, device):
+    def get_pos_seq(self, batch_size, device):
         tgt_time_seq = []
 
         for _ in range(batch_size):

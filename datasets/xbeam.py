@@ -74,7 +74,6 @@ def main(argv):
 
 
   source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-  source_chunks['time'] = 8
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
@@ -89,7 +88,7 @@ def main(argv):
         temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
-        machine_type='n2d-custom-8-262144-ext'
+        machine_type='c3-highmem-8'
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

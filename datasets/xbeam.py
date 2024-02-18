@@ -92,6 +92,7 @@ def main(argv):
   )
 
   with beam.Pipeline(options=pipeline_options) as root :
+    source_dataset = source_dataset[VARIABLE]
     processed_data = (
         root
         | beam.Create([filtered_dataset])

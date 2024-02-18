@@ -202,14 +202,6 @@ class WeatherDataset:
         # data.shape = (time, width, height)
         # or data.shape = (time, level, width, height)
 
-        has_nan = torch.isnan(source).any()
-
-        if has_nan:
-            print('====== nan warning =======')
-            print("key: ", key)
-            nan_indices = torch.isnan(source)
-            source[nan_indices] = 0
-
         target = source.clone().detach()
 
         if len(source.shape) == 4:

@@ -63,6 +63,9 @@ def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
   source_dataset = source_dataset[VARIABLE]
 
+  start_date = pd.to_datetime(START_DATE)
+  end_date = pd.to_datetime(END_DATE)
+
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]
 
@@ -70,14 +73,11 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
-  start_date = pd.to_datetime(START_DATE)
-  end_date = pd.to_datetime(END_DATE)
 
-  time_indices = np.where((source_dataset.time >= start_date) & (source_dataset.time <= end_date))[0]
-  source_dataset = source_dataset.isel(time=time_indices)
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
   output_chunks = source_chunks.copy()
-  output_chunks['time'] = 256
+  output_chunks['time'] = 128
 
   template = (
       xbeam.make_template(source_dataset)

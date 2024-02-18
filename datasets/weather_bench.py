@@ -230,7 +230,7 @@ class WeatherDataset:
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE):
-        input, target, mean_std = self.load_data(self.datasets, variables)
+        input, target, mean_std = self.load_data(self.datasets[0], variables)
         return input, target, mean_std
 
 

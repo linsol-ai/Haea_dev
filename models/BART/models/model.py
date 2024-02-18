@@ -141,26 +141,6 @@ class Haea(nn.Module):
                 matrix[:(i*self.var_len), inf_idx:] = float('-inf')
         return matrix
 
-    
-    @torch.no_grad()
-    def get_attention_maps(self, x: torch.Tensor):
-        """Function for extracting the attention matrices of the whole Transformer for a single batch.
-
-        Input arguments same as the forward pass.
-        """
-        x = x.view(x.size(0), -1, x.size(3))
-        if self.src_var_seq is None:
-            self.init_seq(x.device)
-
-        x = self.embedding(x, self.src_time_seq, self.src_var_seq) * math.sqrt(self.dim_model)
-
-        attention_maps = []
-        for layer in self.transformer.encoder.layers:
-            _, attn_map = layer.self_attn(query=x, key=x, value=x)
-            attention_maps.append(attn_map)
-            x = layer(x)
-
-        return attention_maps
 
     
 

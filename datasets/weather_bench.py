@@ -478,7 +478,7 @@ class WeatherDataset:
 
         input_dataset = torch.stack(input_dataset, dim=0)
         target_dataset = torch.stack(target_dataset, dim=0)
-        normalizaion = torch.cat(normalizaion)
+        mean_std_dataset = torch.cat(mean_std_dataset)
 
         # dataset.shape => (time, var, h * w)
         input_dataset = torch.swapaxes(input_dataset, 0, 1)

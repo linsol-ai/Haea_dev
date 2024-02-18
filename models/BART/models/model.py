@@ -26,7 +26,7 @@ class Embedding(nn.Module):
         return self.dropout(x)
 
 
-class VEncoder(nn.Module):
+class VarEncoder(nn.Module):
     def __init__(self, in_dim, dropout=0.1):
         """
         :param vocab_size: total vocab size

@@ -52,7 +52,7 @@ def rekey_chunk_on_month_hour(
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
 
-def preprocess_data(dataset: xarray.Dataset, start_date=None, end_date=None):
+def preprocess_data(dataset: xarray.Dataset, start_date=None, end_date=None, lat=None, lon=None):
 
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]

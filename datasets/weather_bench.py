@@ -388,6 +388,51 @@ class WeatherDataset:
         return input_dataset, target_dataset, mean_std_dataset
 
 
+    def load_data_2D(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        start = time.time()
+        result = {}
+
+        print("==== LOAD DATASET ====\n", dataset)
+        lat_indices, lon_indices = (None, None)
+        
+        if latitude:
+            lat_min, lat_max = latitude
+            lon_min, lon_max = longitude
+
+            lat_indices = np.where((dataset.latitude >= lat_min) & (dataset.latitude <= lat_max))[0]
+            lon_indices = np.where((dataset.longitude >= lon_min) & (dataset.longitude <= lon_max))[0]
+
+
+        with ThreadPoolExecutor() as executor:
+            futures = {}
+
+            for val in variables:
+                key = executor.submit(self.load_variable_1D, dataset[val], val, lat_indices, lon_indices)
+                futures[key] = val
+
+            for future in tqdm(as_completed(futures), desc="Processing futures"):
+                val = futures[future]
+                # shape => (level, time, h, w) or (time, h, w)
+                input, target, mean_std = future.result()
+                result[val] = (input, target, mean_std)
+            
+
+        # dataset.shape => (var*level, time, h, w)
+        input_dataset = {}
+        target_dataset = {}
+        mean_std_dataset = {}
+
+        for val in variables:
+            input, target, mean_std = result[val]
+            input_dataset[val] = input
+            target_dataset[val] = target
+            mean_std_dataset[val] = mean_std
+        
+        end = time.time()
+        print(f"{end - start:.5f} sec")
+        return input_dataset, target_dataset, mean_std_dataset
+
+
 
 
 

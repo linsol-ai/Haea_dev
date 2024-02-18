@@ -48,7 +48,7 @@ def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset, level=None, lat_indices=None, lon_indices=None) -> Tuple[xbeam.Key, xarray.Dataset]:
   
     if 'level' in dataset.dims:
-        new_dataset = dataset.sel(level=level)
+        dataset = dataset.sel(level=level)
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
 
@@ -73,8 +73,8 @@ def main(argv):
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
-  source_chunks['time'] = 8
-
+  source_dataset['time'] = 8
+  
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 

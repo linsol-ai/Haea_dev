@@ -386,6 +386,7 @@ class WeatherDataset:
         end = time.time()
         print(f"{end - start:.5f} sec")
         return input_dataset, target_dataset, mean_std_dataset
+    
 
     def load_data_1D(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()

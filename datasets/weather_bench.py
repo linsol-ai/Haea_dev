@@ -433,7 +433,7 @@ class WeatherDataset:
         return input_dataset, target_dataset, mean_std_dataset
 
 
-    def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
+    def load_data(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

@@ -44,6 +44,7 @@ class LinearEncoder(nn.Module):
 
     def forward(self, x):
        return self.seq(x)
+    
 
 class LinearDecoder(nn.Module):
     def __init__(self, in_dim, out_dim, dropout=0.1):

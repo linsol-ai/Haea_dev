@@ -95,7 +95,7 @@ def main(argv):
     source_dataset = source_dataset[VARIABLE]
     processed_data = (
         root
-        | beam.Create([filtered_dataset])
+        | beam.Create([source_dataset])
         | 'PreprocessData' >> beam.Map(preprocess_data)
         # 필요한 추가 변환 단계
     )

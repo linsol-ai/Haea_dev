@@ -80,6 +80,7 @@ class TrainModule(pl.LightningModule):
         has_nan = torch.isnan(label).any()
         if has_nan:
             print("lavel nan warn")
+            
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized

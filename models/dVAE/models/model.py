@@ -102,7 +102,7 @@ class DiscreteVAE(nn.Module):
     @eval_decorator
     def get_codebook_indices(self, images) -> torch.Tensor:
         logits = self(images, return_logits = True)
-        print(log)
+        print(logits.shape)
         codebook_indices = logits.argmax(dim = 1).flatten(1)
         return codebook_indices
 

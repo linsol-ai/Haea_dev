@@ -68,10 +68,11 @@ def main(argv):
   # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
-  
+
   if type == 0:
       source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
 
+  
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 

@@ -107,7 +107,7 @@ def main(argv):
     processed_data = (
         root
         | beam.Create([source_dataset])
-        | 'PreprocessData' >> beam.Map(preprocess_data, )
+        | 'PreprocessData' >> beam.Map(preprocess_data, )l
         # 필요한 추가 변환 단계
     )
     (

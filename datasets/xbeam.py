@@ -49,7 +49,7 @@ def rekey_chunk_on_month_hour(
 ) -> Tuple[xbeam.Key, xarray.Dataset]:
   if 'level' in dataset.dims:
       dataset = dataset.sel(level=level)
-  new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+  new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
   return key, new_dataset
 
 

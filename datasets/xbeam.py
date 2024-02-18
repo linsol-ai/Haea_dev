@@ -15,7 +15,7 @@ HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 NONE_LEVEL_VARIABLE = [
-  'toa_incident_solar_radiation', 'land_sea_mask', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation_6hr'
+  'toa_incident_solar_radiation', 'land_sea_mask', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation'
 ]
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
@@ -73,7 +73,7 @@ def main(argv):
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
 
-  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 

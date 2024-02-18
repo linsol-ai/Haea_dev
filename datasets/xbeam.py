@@ -53,7 +53,7 @@ def rekey_chunk_on_month_hour(
     return key, new_dataset
 
 def preprocess_data(element):
-    # 데이터 전처리 로직 (예: 결측치 처리, 스케일링 등)
+    
     return element
 
 

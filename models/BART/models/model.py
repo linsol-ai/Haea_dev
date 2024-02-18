@@ -40,7 +40,7 @@ class LinearEncoder(nn.Module):
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
             nn.Linear(out_dim, out_dim),
-              nn.LayerNorm(mid_dim),
+            nn.LayerNorm(mid_dim),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
         )

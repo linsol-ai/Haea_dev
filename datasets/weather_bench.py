@@ -433,7 +433,60 @@ class WeatherDataset:
         return input_dataset, target_dataset, mean_std_dataset
 
 
+    def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:
+        start = time.time()
+        result = {}
 
+        print("==== LOAD DATASET ====\n", dataset)
+
+        with ThreadPoolExecutor() as executor:
+            futures = {}
+
+            for val in (self.NONE_LEVEL_VARIABLE + self.HAS_LEVEL_VARIABLE):
+                key = executor.submit(self.load_variable, dataset[val], val)
+                futures[key] = val
+
+            for future in tqdm(as_completed(futures), desc="Processing futures"):
+                val = futures[future]
+                # shape => (level, time, h * w) or (time, h * w)
+                input, target, mean, std = future.result()
+
+                if len(input.shape) == 3:
+                    input = input.swapaxes(0, 1)
+                    target = target.swapaxes(0, 1)
+
+                result[val] = (input, target, mean, std)
+            
+
+        # dataset.shape => (var*level, time, h * w)
+        input_dataset = []
+        target_dataset = []
+        normalizaion = []
+
+        for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
+            input, target, mean, std = result[val]
+            if len(input.shape) == 3:
+                for i in range(input.size(0)):
+                    input_dataset.append(input[i])
+                    target_dataset.append(target[i])
+                    normalizaion.append([mean, std])
+            else:
+                input_dataset.append(input)
+                target_dataset.append(target)
+                normalizaion.append([mean, std])
+
+
+        input_dataset = torch.stack(input_dataset, dim=0)
+        target_dataset = torch.stack(target_dataset, dim=0)
+        normalizaion = torch.tensor(normalizaion)
+
+        # dataset.shape => (time, var, h * w)
+        input_dataset = torch.swapaxes(input_dataset, 0, 1)
+        target_dataset = torch.swapaxes(target_dataset, 0, 1)
+        
+        end = time.time()
+        print(f"{end - start:.5f} sec")
+        return input_dataset, target_dataset, normalizaion
 
 
     def calculate_wind(self, u_wind, v_wind, device):

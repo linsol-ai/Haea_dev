@@ -21,7 +21,7 @@ class Embedding(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, x, variable_seq):
+    def forward(self, x, pos_seq):
         x = x + self.position(variable_seq)
         return self.dropout(x)
 

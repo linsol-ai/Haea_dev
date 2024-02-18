@@ -3400,3 +3400,4 @@
 2024-02-18 08:11:44,684 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
 2024-02-18 08:11:46,658 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
 2024-02-18 08:11:46,687 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:11:48,689 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log

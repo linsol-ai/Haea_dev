@@ -72,7 +72,7 @@ def main(argv):
   source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
 
   output_chunks = source_chunks.copy()
-  output_chunks['time'] = 512
+  output_chunks['time'] = 256
 
   template = (
       xbeam.make_template(source_dataset)

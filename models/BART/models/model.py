@@ -6,7 +6,7 @@ import math
 
 class PositionalEmbedding(nn.Embedding):
     def __init__(self, time_len, embed_size=768):
-        super().__init__(time_len, embed_size)
+        super().__init__(time_len, embed_size, padding_idx=0)
 
 
 class Embedding(nn.Module):

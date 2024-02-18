@@ -41,7 +41,7 @@ class VariableProprecessor:
         device = ("cuda" if torch.cuda.is_available() else "cpu" )
         self.device = torch.device(device)
         weather = WeatherDataset(year_offset, device=device, offline=True)
-        return weather.load(variables=variables, latitude=self.latitude, longitude=self.longitude)
+        return weather.load_2D(variables=variables, latitude=self.latitude, longitude=self.longitude)
 
     def load_models(self, variables, model_path):
         models = {}

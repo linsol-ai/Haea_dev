@@ -74,7 +74,7 @@ def _main(args) -> None:
         lon = (config.training.lon_min, config.training.lon_max)
 
         # shape = (time, var, hidden)
-        dataset_info, dataset, shape, mean_std, out_dim = get_normal_dataset(train_offset, tgt_time_len, lat, lon)
+        dataset_info, dataset, shape, mean_std, out_dim = get_normal_dataset(model_path, train_offset, tgt_time_len, lat, lon)
 
         print("DATASET SHAPE: " , shape)
 

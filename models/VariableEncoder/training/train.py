@@ -28,7 +28,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
         print('====== nan warning =======')
         print("key: ", "타겟")
     
-    has_nan = torch.isnan(target).any()
+    has_nan = torch.isnan(mean_std).any()
     if has_nan:
         print('====== nan warning =======')
         print("key: ", "타겟")

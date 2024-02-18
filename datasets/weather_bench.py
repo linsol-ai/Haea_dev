@@ -203,7 +203,7 @@ class WeatherDataset:
         # or data.shape = (time, level, width, height)
         target = source.clone().detach()
         if len(source.shape) == 4:
-            target = source.clone().detach()
+
 
             inputs = []
             means = []

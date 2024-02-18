@@ -235,7 +235,6 @@ class WeatherDataset:
         source_dataset = []
         target_dataset = []
         normalizaion_data = []
-        dims = []
 
         for dataset in self.datasets:
             input, target, normalizaion = self.load_data(dataset)

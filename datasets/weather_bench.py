@@ -232,7 +232,7 @@ class WeatherDataset:
         input, target, mean_std = self.load_data_2D(self.datasets, variables, latitude=latitude, longitude=longitude)
         return input, target, mean_std
 
-    
+
 
     """""
     def load_data(self, dataset:xr.Dataset) -> Tuple[torch.Tensor, torch.Tensor]:

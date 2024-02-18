@@ -84,7 +84,7 @@ def main(argv):
         temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
-        machine_type='c3d-standard-8',
+        machine_type='c3d-highmem-30',
   )
 
   with beam.Pipeline(options=pipeline_options) as root :

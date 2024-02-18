@@ -50,6 +50,7 @@ def rekey_chunk_on_month_hour(
     if 'level' in dataset.dims:
         dataset = dataset.sel(level=level)
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
+    
     return key, new_dataset
 
 

@@ -234,7 +234,7 @@ class WeatherDataset:
 
         source_dataset = []
         target_dataset = []
-        normalizaion_data = []
+        mean_std = None
 
         for dataset in self.datasets:
             input, target, mean_std = self.load_data(dataset, variables)

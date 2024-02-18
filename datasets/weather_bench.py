@@ -222,7 +222,7 @@ class WeatherDataset:
 
         else:
             if lat_indices is not None:
-                source = source[:, lat_indices, :][:, :, :, lon_indices]
+                source = source[:, lat_indices, :][:, :, lon_indices]
                 target = target[:, lat_indices, :][:, :, lon_indices]
 
             input, mean, std = normalize_tensor(source)

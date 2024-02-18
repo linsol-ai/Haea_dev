@@ -58,7 +58,6 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1]
         label = batch[2]
         label = label.view(label.size(0), -1, label.size(3))
-        
         predict = self.model(src, tgt)
         loss = self.calculate_rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
@@ -74,6 +73,10 @@ class TrainModule(pl.LightningModule):
 
 
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
+        has_nan = torch.isnan(predict).any()
+        if has_nan:
+            print("nan warn")
+
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized

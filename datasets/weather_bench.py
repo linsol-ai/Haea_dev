@@ -463,7 +463,7 @@ class WeatherDataset:
         target_dataset = []
         normalizaion = []
 
-        for val in (self.HAS_LEVEL_VARIABLE + self.NONE_LEVEL_VARIABLE):
+        for val in variables:
             input, target, mean_std = result[val]
             if len(input.shape) == 3:
                 for i in range(input.size(0)):

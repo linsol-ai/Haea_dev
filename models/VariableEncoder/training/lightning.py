@@ -58,13 +58,6 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1]
         label = batch[2]
 
-        has_nan = torch.isnan(src).any()
-        if has_nan:
-            print("src warn")
-
-        has_nan = torch.isnan(tgt).any()
-        if has_nan:
-            print("tgt warn")
 
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)

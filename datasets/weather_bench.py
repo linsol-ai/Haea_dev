@@ -195,7 +195,43 @@ class WeatherDataset:
             input, mean, std = normalize_tensor(source)
             return input.unsqueeze(1), target.flatten(1), torch.tensor([mean, std])
 
-    
+    def load_variable(self, data: xr.DataArray, key, lat_indices = None, lon_indices = None):
+        source = data.to_numpy()
+        source = torch.from_numpy(source)
+        # data.shape = (time, width, height)
+        # or data.shape = (time, level, width, height)
+
+        has_nan = torch.isnan(source).any()
+
+        if has_nan:
+            print('====== nan warning =======')
+            print("key: ", key)
+            nan_indices = torch.isnan(source)
+            source[nan_indices] = 0
+
+        target = source.clone().detach()
+
+        if len(source.shape) == 4:
+            if lat_indices is not None:
+                target = target[:, :, lat_indices, :][:, :, :, lon_indices]
+
+            inputs = []
+            means = []
+            stds = []
+            for i in range(source.size(1)):
+                input, mean, std = normalize_tensor(source[:, i, : , :])
+                inputs.append(input)
+                means.append(mean)
+                stds.append(std)
+
+            return torch.stack(inputs, dim=0).unsqueeze(2), target.swapaxes(0, 1).flatten(2), torch.tensor([means, stds])
+
+        else:
+            if lat_indices is not None:
+                target = target[:, lat_indices, :][:, :, lon_indices]
+
+            input, mean, std = normalize_tensor(source)
+            return input.unsqueeze(1), target.flatten(1), torch.tensor([mean, std])
     
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE, latitude: Tuple | None = None, longitude: Tuple | None = None):

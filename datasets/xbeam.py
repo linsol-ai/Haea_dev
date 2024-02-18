@@ -77,7 +77,7 @@ def main(argv):
   source_chunks['time'] = 4
 
   output_chunks = source_chunks.copy()
-  output_chunks['time'] = 128
+  output_chunks['time'] = 64
 
   template = (
       xbeam.make_template(source_dataset)

@@ -80,6 +80,9 @@ def main(argv):
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]
 
+  lat_indices = np.where((dataset.latitude >= lat_min) & (dataset.latitude <= lat_max))[0]
+  lon_indices = np.where((dataset.longitude >= lon_min) & (dataset.longitude <= lon_max))[0]
+
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 

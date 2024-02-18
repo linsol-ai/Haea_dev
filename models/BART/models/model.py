@@ -26,6 +26,9 @@ class Embedding(nn.Module):
         return self.dropout(x)
 
 
+class 
+
+
 class LinearDecoder(nn.Module):
     def __init__(self, in_dim, out_dim, dropout=0.1):
         """

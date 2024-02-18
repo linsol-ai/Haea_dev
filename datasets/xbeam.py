@@ -54,7 +54,7 @@ def rekey_chunk_on_month_hour(
 
 def preprocess_data(dataset:xarray.Dataset):
     
-    return element
+    return dataset
 
 
 def main(argv):

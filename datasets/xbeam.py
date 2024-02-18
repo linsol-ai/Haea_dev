@@ -55,7 +55,7 @@ def rekey_chunk_on_month_hour(
 def preprocess_data(dataset: xarray.Dataset, start_date=None, end_date=None, lat=None, lon=None):
 
   lat_min, lat_max = lat
-  lon_min, lon_max = LON[FLAGS.type]
+  lon_min, lon_max = lon
 
   # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
   lat_indices = np.where((dataset.latitude >= lat_min) & (dataset.latitude <= lat_max))[0]

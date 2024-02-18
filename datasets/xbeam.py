@@ -46,6 +46,7 @@ flags.mark_flag_as_required("type")
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset, level=None, lat_indices=None, lon_indices=None) -> Tuple[xbeam.Key, xarray.Dataset]:
+  
   if 'level' in dataset.dims:
       dataset = dataset.sel(level=level)
   new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)

@@ -81,7 +81,6 @@ def main(argv):
       xbeam.make_template(source_dataset)
   )
 
-
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='climate-414222',

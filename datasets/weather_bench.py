@@ -242,7 +242,7 @@ class WeatherDataset:
                 mean_std_dataset = mean_std
         
         # var_dataset.shape = (time, var * level, h * w)
-        input_dataset = torch.concat(input_dataset, dim=2)
+        source_dataset = torch.concat(source_dataset, dim=2)
         target_dataset = torch.concat(target_dataset, dim=2)
 
         return source_dataset, target, mean_std_dataset

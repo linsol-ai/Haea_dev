@@ -206,8 +206,7 @@ class WeatherDataset:
             if lat_indices is not None:
                 source = source[:, :, lat_indices, :][:, :, :, lon_indices]
                 target = source.clone().detach()
-            else:
-                
+
 
             inputs = []
             means = []

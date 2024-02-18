@@ -77,7 +77,7 @@ def main(argv):
   source_dataset = source_dataset.isel(time=time_indices)
 
   output_chunks = source_chunks.copy()
-  output_chunks['time'] = 128
+  output_chunks['time'] = 256
 
   template = (
       xbeam.make_template(source_dataset)

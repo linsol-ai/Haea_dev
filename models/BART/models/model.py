@@ -95,7 +95,7 @@ class Haea(nn.Module):
         
         self.embedding = Embedding(max_len, dim_model, dropout)
 
-        self.encoder = LinearEncoder(dim_model, out_dim, dropout=dropout)
+        self.encoder = LinearEncoder(var_len, out_dim, dropout=dropout)
     
 
     def init_seq(self, device):

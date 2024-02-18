@@ -64,7 +64,7 @@ class Haea(nn.Module):
             batch_first=True
         )
         
-        self.embedding = Embedding(var_len, max_len, dim_model, dropout)
+        self.embedding = Embedding(max_len, dim_model, dropout)
         self.out = LinearDecoder(dim_model, out_dim, dropout=dropout)
     
 

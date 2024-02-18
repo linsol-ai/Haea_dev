@@ -232,7 +232,7 @@ class WeatherDataset:
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE):
         input, target, mean_std = self.load_data(self.datasets[0], variables)
 
-        input_dataset = []
+        source_dataset = []
         target_dataset = []
         normalizaion_data = []
         dims = []
@@ -249,7 +249,7 @@ class WeatherDataset:
         target_dataset = torch.concat(target_dataset, dim=2)
         normalizaion_data = torch.stack(normalizaion_data, dim=0)
 
-        
+
         return input, target, mean_std
 
 

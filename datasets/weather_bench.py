@@ -240,6 +240,8 @@ class WeatherDataset:
             input, target, mean_std = self.load_data(dataset, variables)
             source_dataset.append(input)
             target_dataset.append(target)
+            if i == 0:
+                mean_std = 
             normalizaion_data.append(normalizaion)
         
         # var_dataset.shape = (time, var * level, h * w)

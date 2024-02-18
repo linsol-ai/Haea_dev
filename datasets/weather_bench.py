@@ -388,7 +388,7 @@ class WeatherDataset:
         return input_dataset, target_dataset, mean_std_dataset
 
 
-    def load_data_2D(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def load_data_1D(self, dataset:xr.Dataset, variables, latitude: Tuple | None = None, longitude: Tuple | None = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

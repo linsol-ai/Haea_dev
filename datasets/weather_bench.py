@@ -202,8 +202,7 @@ class WeatherDataset:
         # data.shape = (time, width, height)
         # or data.shape = (time, level, width, height)
 
-        source = target[:, :, lat_indices, :][:, :, :, lon_indices]
-
+        source = source[:, :, lat_indices, :][:, :, :, lon_indices]
 
         target = source.clone().detach()
 

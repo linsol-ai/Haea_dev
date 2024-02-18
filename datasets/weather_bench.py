@@ -195,6 +195,7 @@ class WeatherDataset:
             input, mean, std = normalize_tensor(source)
             return input.unsqueeze(1), target.flatten(1), torch.tensor([mean, std])
 
+
     def load_variable(self, data: xr.DataArray, key, lat_indices = None, lon_indices = None):
         source = data.to_numpy()
         source = torch.from_numpy(source)

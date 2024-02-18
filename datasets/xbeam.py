@@ -74,7 +74,8 @@ def main(argv):
 
 
   source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-  source_dataset['time'] = 1
+  source_dataset['time'] = 8
+  
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 

@@ -38,7 +38,7 @@ def get_dataset(model_path, year_offset: int, tgt_time_len: int, latitude, longi
     return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, target.size(-1)
 
 
-def get_normal_dataset():
+def get_normal_dataset(year_offset: int, tgt_time_len: int, latitude, longitude):
     
 
 

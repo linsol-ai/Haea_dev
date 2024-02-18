@@ -76,8 +76,8 @@ class TrainModule(pl.LightningModule):
         has_nan = torch.isnan(predict).any()
         if has_nan:
             print("nan warn")
-            
-        has_nan = torch.isnan(predict).any()
+
+        has_nan = torch.isnan(label).any()
         if has_nan:
             print("nan warn")
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized

@@ -111,7 +111,7 @@ class WeatherDataset:
 
     GCS_BUCKET = 'gcs://era5_climate'
 
-    RESOLUTION = ['1440x720', '240x121']
+    RESOLUTION = ['1440x720', '240x120']
 
     RESOLUTION_MODE_FULL_SET = 3
     RESOLUTION_MODE_LARGE_SET = 2

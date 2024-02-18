@@ -53,8 +53,6 @@ def rekey_chunk_on_month_hour(
     return key, new_dataset
 
 def preprocess_data(dataset: xarray.Dataset, start_date=None, end_date=None):
-  start_date = pd.to_datetime(START_DATE)
-  end_date = pd.to_datetime(END_DATE)
 
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]

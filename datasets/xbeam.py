@@ -51,18 +51,7 @@ def rekey_chunk_on_month_hour(
         dataset = dataset.sel(level=level)
     new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
     return key, new_dataset
-
-def preprocess_data(dataset: xarray.Dataset, level=None, start_date=None, end_date=None, lat=None, lon=None):
-
-  lat_min, lat_max = lat
-  lon_min, lon_max = lon
-
-  # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
-  lat_indices = np.where((dataset.latitude >= lat_min) & (dataset.latitude <= lat_max))[0]
-  lon_indices = np.where((dataset.longitude >= lon_min) & (dataset.longitude <= lon_max))[0]
-
-  source_dataset = dataset.sel(time=slice(start_date, end_date)).sel(level=level).isel(latitude=lat_indices, longitude=lon_indices)
-  return source_dataset
+    
 
 
 def main(argv):
@@ -80,17 +69,18 @@ def main(argv):
   lat_min, lat_max = LAT[FLAGS.type]
   lon_min, lon_max = LON[FLAGS.type]
 
+  # 해당 범위에 속하는 위도와 경도의 인덱스 찾기
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
+
+
+  source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256
 
   template = (
       xbeam.make_template(source_dataset)
-      .sel(time=slice(start_date, end_date))
-      .sel(level=LEVEL)
-      .isel(latitude=lat_indices, longitude=lon_indices)
   )
 
   pipeline_options = PipelineOptions(
@@ -107,7 +97,7 @@ def main(argv):
     processed_data = (
         root
         | beam.Create([source_dataset])
-        | 'PreprocessData' >> beam.Map(preprocess_data, level=LEVEL, start_date=start_date, end_date=end_date, lat=LAT[FLAGS.type], lon=LON[FLAGS.type])
+        | 'PreprocessData' >> beam.Map(preprocess_data)
         # 필요한 추가 변환 단계
     )
     (

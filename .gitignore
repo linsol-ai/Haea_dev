@@ -1,4 +1,5 @@
 venv/
 vqvae_logs/
+vqvae_logs/
 resource/
 checkpoints/

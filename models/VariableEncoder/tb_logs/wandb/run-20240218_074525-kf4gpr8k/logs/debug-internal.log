@@ -2896,3 +2896,157 @@
 2024-02-18 08:08:18,867 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
 2024-02-18 08:08:18,867 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
 2024-02-18 08:08:19,292 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:08:20,293 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:08:22,295 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:08:23,370 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:08:24,298 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:08:25,953 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:26,248 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:26,248 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:26,265 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:26,300 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:08:26,300 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/geopotential_table_269_32d344671fb192d29613.table.json
+2024-02-18 08:08:26,300 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss
+2024-02-18 08:08:26,366 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-18 08:08:26,366 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-18 08:08:26,541 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:26,565 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:26,737 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLossgeopotential_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODUy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU2NA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTE0', 'versionIndex': 1}}}
+2024-02-18 08:08:26,738 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:26,738 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/geopotential_table_269_32d344671fb192d29613.table.json with policy now
+2024-02-18 08:08:26,739 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:26,739 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:26,749 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:26,750 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:26,750 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: stop_status
+2024-02-18 08:08:26,796 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:26,825 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:26,873 INFO    wandb-upload_6:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/vbg1yd84-media/table/Custom Chart Tables/Atmospheric Loss/geopotential_table_269_32d344671fb192d29613.table.json
+2024-02-18 08:08:27,036 DEBUG   SenderThread:1283580 [sender.py:send():382] send: stats
+2024-02-18 08:08:27,038 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:27,079 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:27,093 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:27,301 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:08:27,302 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/temperature_table_271_a6b4911aecad006d8cd2.table.json
+2024-02-18 08:08:27,302 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/u_component_of_wind_table_272_a8998380a6fe54f33e46.table.json
+2024-02-18 08:08:27,302 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/specific_humidity_table_270_6260cd69ebf89af6bdd2.table.json
+2024-02-18 08:08:27,302 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss
+2024-02-18 08:08:27,359 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:27,380 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:27,414 INFO    wandb-upload_10:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/rx4cg68d-media/table/Custom Chart Tables/Atmospheric Loss/geopotential_table_269_32d344671fb192d29613.table.json
+2024-02-18 08:08:27,501 INFO    wandb-upload_0:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmpndq67rqz
+2024-02-18 08:08:27,525 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLossspecific_humidity_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODU2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU2NQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTE2', 'versionIndex': 1}}}
+2024-02-18 08:08:27,525 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:27,526 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/specific_humidity_table_270_6260cd69ebf89af6bdd2.table.json with policy now
+2024-02-18 08:08:27,526 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:27,527 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:27,527 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:27,528 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:27,528 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:27,647 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:27,664 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:27,726 INFO    wandb-upload_9:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/zr3yu2o0-media/table/Custom Chart Tables/Atmospheric Loss/u_component_of_wind_table_272_a8998380a6fe54f33e46.table.json
+2024-02-18 08:08:27,846 INFO    wandb-upload_7:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/jtdmscn8-media/table/Custom Chart Tables/Atmospheric Loss/temperature_table_271_a6b4911aecad006d8cd2.table.json
+2024-02-18 08:08:27,882 INFO    wandb-upload_4:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/4ihb1w52-media/table/Custom Chart Tables/Atmospheric Loss/specific_humidity_table_270_6260cd69ebf89af6bdd2.table.json
+2024-02-18 08:08:27,892 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:27,900 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:27,961 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLosstemperature_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODYz', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU2Ng==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTIw', 'versionIndex': 1}}}
+2024-02-18 08:08:27,961 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:27,961 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/temperature_table_271_a6b4911aecad006d8cd2.table.json with policy now
+2024-02-18 08:08:27,961 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:27,961 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:27,962 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:27,962 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:27,962 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:28,149 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:28,157 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:28,304 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:08:28,305 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/output.log
+2024-02-18 08:08:28,305 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/vertical_velocity_table_274_888938d967eb2ab5714d.table.json
+2024-02-18 08:08:28,305 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/2m_temperature_table_275_58c54fccb4e5701f5121.table.json
+2024-02-18 08:08:28,306 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/10m_u_component_of_wind_table_276_d12bd53ad0a7d49cf5e8.table.json
+2024-02-18 08:08:28,306 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss/v_component_of_wind_table_273_a0ea995ee234fc5cc195.table.json
+2024-02-18 08:08:28,307 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Custom Chart Tables/Atmospheric Loss
+2024-02-18 08:08:28,307 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss
+2024-02-18 08:08:28,368 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLossu_component_of_wind_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODY3', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU2Nw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTIz', 'versionIndex': 1}}}
+2024-02-18 08:08:28,368 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:28,369 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/u_component_of_wind_table_272_a8998380a6fe54f33e46.table.json with policy now
+2024-02-18 08:08:28,369 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:28,369 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:28,369 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:28,370 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:28,370 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:28,394 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:28,405 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:28,665 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:28,672 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:28,756 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLossv_component_of_wind_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODcw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU2OQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTI4', 'versionIndex': 1}}}
+2024-02-18 08:08:28,756 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:28,756 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/v_component_of_wind_table_273_a0ea995ee234fc5cc195.table.json with policy now
+2024-02-18 08:08:28,756 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: status_report
+2024-02-18 08:08:28,757 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:28,757 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:28,758 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:28,758 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:28,758 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:28,791 INFO    wandb-upload_6:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/m9mhqj7u-media/table/Custom Chart Tables/Atmospheric Loss/vertical_velocity_table_274_888938d967eb2ab5714d.table.json
+2024-02-18 08:08:28,874 INFO    wandb-upload_11:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/od0fpiq3-media/table/Custom Chart Tables/Atmospheric Loss/temperature_table_271_a6b4911aecad006d8cd2.table.json
+2024-02-18 08:08:28,894 INFO    wandb-upload_3:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/cmywvvf6-media/table/Custom Chart Tables/Atmospheric Loss/specific_humidity_table_270_6260cd69ebf89af6bdd2.table.json
+2024-02-18 08:08:28,925 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:28,941 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:28,974 INFO    wandb-upload_1:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/gt4905y4-media/table/Surface Loss/2m_temperature_table_275_58c54fccb4e5701f5121.table.json
+2024-02-18 08:08:29,088 INFO    wandb-upload_10:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/3gimu4ho-media/table/Custom Chart Tables/Atmospheric Loss/v_component_of_wind_table_273_a0ea995ee234fc5cc195.table.json
+2024-02-18 08:08:29,184 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-18 08:08:29,193 DEBUG   HandlerThread:1283580 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-18 08:08:29,221 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-CustomChartTablesAtmosphericLossvertical_velocity_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODc0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU3MA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTMw', 'versionIndex': 1}}}
+2024-02-18 08:08:29,225 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:29,225 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Custom Chart Tables/Atmospheric Loss/vertical_velocity_table_274_888938d967eb2ab5714d.table.json with policy now
+2024-02-18 08:08:29,241 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:29,269 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:29,270 INFO    wandb-upload_8:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/god6hbsf-media/table/Surface Loss/10m_u_component_of_wind_table_276_d12bd53ad0a7d49cf5e8.table.json
+2024-02-18 08:08:29,275 INFO    wandb-upload_9:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/qcpasdeg-media/table/Custom Chart Tables/Atmospheric Loss/u_component_of_wind_table_272_a8998380a6fe54f33e46.table.json
+2024-02-18 08:08:29,275 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:29,276 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:29,276 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:29,317 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:08:29,318 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/mean_sea_level_pressure_table_278_8498e9874d76736600fe.table.json
+2024-02-18 08:08:29,318 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/10m_v_component_of_wind_table_277_32fb10b0db2d1ceb23ea.table.json
+2024-02-18 08:08:29,319 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/total_precipitation_table_280_0fcba490dbed81694d37.table.json
+2024-02-18 08:08:29,319 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_created():271] file/dir created: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss/total_cloud_cover_table_279_cd4b4a266beae15ee170.table.json
+2024-02-18 08:08:29,319 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/media/table/Surface Loss
+2024-02-18 08:08:29,391 INFO    wandb-upload_2:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmpc461k3l2
+2024-02-18 08:08:29,412 INFO    wandb-upload_5:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmpxs7m9944
+2024-02-18 08:08:29,428 INFO    wandb-upload_0:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmp9dw63j8k
+2024-02-18 08:08:29,557 INFO    wandb-upload_4:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmp6qs9h9pb
+2024-02-18 08:08:29,592 INFO    wandb-upload_7:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/4nf7uyk9-media/table/Custom Chart Tables/Atmospheric Loss/v_component_of_wind_table_273_a0ea995ee234fc5cc195.table.json
+2024-02-18 08:08:29,741 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-SurfaceLoss2m_temperature_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODc4', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU3Mw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTMx', 'versionIndex': 1}}}
+2024-02-18 08:08:29,742 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:29,742 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Surface Loss/2m_temperature_table_275_58c54fccb4e5701f5121.table.json with policy now
+2024-02-18 08:08:29,743 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:29,743 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:29,750 INFO    wandb-upload_10:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/bz5v4iw2-media/table/Surface Loss/mean_sea_level_pressure_table_278_8498e9874d76736600fe.table.json
+2024-02-18 08:08:29,754 INFO    wandb-upload_3:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/u5f0n87h-media/table/Custom Chart Tables/Atmospheric Loss/vertical_velocity_table_274_888938d967eb2ab5714d.table.json
+2024-02-18 08:08:29,754 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:29,755 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:29,755 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:29,776 INFO    wandb-upload_8:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/3df5iu6p-media/table/Surface Loss/total_cloud_cover_table_279_cd4b4a266beae15ee170.table.json
+2024-02-18 08:08:29,789 INFO    wandb-upload_1:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/i595106r-media/table/Surface Loss/total_precipitation_table_280_0fcba490dbed81694d37.table.json
+2024-02-18 08:08:29,796 INFO    wandb-upload_6:1283580 [upload_job.py:push():131] Uploaded file /tmp/tmpjof45z8cwandb/xshgtqgb-media/table/Surface Loss/10m_v_component_of_wind_table_277_32fb10b0db2d1ceb23ea.table.json
+2024-02-18 08:08:30,032 INFO    wandb-upload_11:1283580 [upload_job.py:push():89] Uploaded file /root/.local/share/wandb/artifacts/staging/tmpf3gz3_2u
+2024-02-18 08:08:30,164 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-SurfaceLoss10m_u_component_of_wind_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODgw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU3NA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTM3', 'versionIndex': 1}}}
+2024-02-18 08:08:30,165 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:30,165 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Surface Loss/10m_u_component_of_wind_table_276_d12bd53ad0a7d49cf5e8.table.json with policy now
+2024-02-18 08:08:30,165 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:30,165 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:30,166 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:30,166 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:30,166 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact
+2024-02-18 08:08:30,321 INFO    Thread-12 :1283580 [dir_watcher.py:_on_file_modified():288] file/dir modified: /workspace/Haea_dev/models/VariableEncoder/tb_logs/wandb/run-20240218_074525-kf4gpr8k/files/wandb-summary.json
+2024-02-18 08:08:30,595 INFO    SenderThread:1283580 [sender.py:send_request_log_artifact():1470] logged artifact run-kf4gpr8k-SurfaceLoss10m_v_component_of_wind_table - {'id': 'QXJ0aWZhY3Q6NzI0OTU1ODgy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MDcyMTU3NQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI0OTUxNTM5', 'versionIndex': 1}}}
+2024-02-18 08:08:30,595 DEBUG   SenderThread:1283580 [sender.py:send():382] send: files
+2024-02-18 08:08:30,595 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file media/table/Surface Loss/10m_v_component_of_wind_table_277_32fb10b0db2d1ceb23ea.table.json with policy now
+2024-02-18 08:08:30,596 DEBUG   SenderThread:1283580 [sender.py:send():382] send: history
+2024-02-18 08:08:30,596 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: summary_record
+2024-02-18 08:08:30,597 INFO    SenderThread:1283580 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-18 08:08:30,597 DEBUG   SenderThread:1283580 [sender.py:send():382] send: config
+2024-02-18 08:08:30,597 DEBUG   SenderThread:1283580 [sender.py:send_request():409] send_request: log_artifact

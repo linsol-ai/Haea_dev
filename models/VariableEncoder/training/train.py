@@ -36,7 +36,6 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
         
 def _main(args) -> None:
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
-    model_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))), 'checkpoints/dVAE')
     
     try:
         with open(config_path) as f:

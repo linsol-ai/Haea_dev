@@ -149,7 +149,7 @@ class TrainModule(pl.LightningModule):
         air_loss = loss[:self.levels * len(self.config.air_variable), :]
         surface_loss = loss[self.levels * len(self.config.air_variable):, :]
 
-        self.visualization_air(level_loss)
+        self.visualization_air(air_loss)
         self.visualization_surface(non_level_loss)
 
 

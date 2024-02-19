@@ -85,7 +85,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
 
 
-    def visualization_level(self, level_loss: torch.Tensor):
+    def visualization_atmospheric(self, level_loss: torch.Tensor):
         for i, name in enumerate(self.config.atmospheric_variable):
             start = i * len(self.levels)
             end = start + len(self.levels)

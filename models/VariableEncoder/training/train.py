@@ -78,7 +78,7 @@ def _main(args) -> None:
         )
         val_ds, test_ds = torch.utils.data.random_split(
             test_ds,
-            [0.5, 0.5],
+            [0.3, 0.5],
         )   
 
         train_loader = DataLoader(

@@ -28,8 +28,6 @@ class TrainModule(pl.LightningModule):
                  config: TrainingConfig | None = None):
         
         super().__init__()
-        self.var_lv = var_lv
-        self.var_nlv = var_nlv
         self.levels = levels
         self.max_iters = max_iters
         self.model = model

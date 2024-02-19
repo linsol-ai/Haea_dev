@@ -21,4 +21,5 @@ training:
     - v_component_of_wind
     - vertical_velocity
     - 2m_temperature
+    - 10m_u_component_of_wind
     - 

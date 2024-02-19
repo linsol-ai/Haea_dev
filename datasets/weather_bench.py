@@ -101,7 +101,7 @@ class WeatherDataset:
 
     NONE_LEVEL_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation']
 
-    
+    VARIABLES = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
     
     PRESSURE_LEVELS = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
     

@@ -149,8 +149,8 @@ class TrainModule(pl.LightningModule):
         level_loss = loss[:self.levels * len(self.config.air_variable), :]
         non_level_loss = loss[self.levels * len(self.config.air_variable):, :]
 
-        self.vis(level_loss)
-        self.visualization_non_level(non_level_loss)
+        self.visualization_air(level_loss)
+        self.v(non_level_loss)
 
 
     def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor, var_len: int):

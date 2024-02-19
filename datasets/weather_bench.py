@@ -104,10 +104,6 @@ class WeatherDataset:
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
     
     PRESSURE_LEVELS = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
-    
-    HAS_LEVEL_WIND_VAR = ['u_component_of_wind', 'v_component_of_wind']
-
-    NONE_LEVEL_WIND_VAR = ['10m_u_component_of_wind', '10m_v_component_of_wind']
 
     DATE_OFFSET = [(2021, 2016), (2019, 2017), (2011, 2006), (2006, 2001)]
 

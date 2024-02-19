@@ -83,7 +83,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
 
 
-    def visualization_air(self, level_loss: torch.Tensor):
+    def visualization_air(self, air_loss: torch.Tensor):
         for i, name in enumerate(self.config.air_variable):
             start = i * self.config.pressure_level
             end = start + self.config.pressure_level

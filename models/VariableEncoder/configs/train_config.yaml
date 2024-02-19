@@ -15,4 +15,5 @@ training:
   train_offset: 0
   train_variable:
     - geopotential
+    - specific_humidity
     - 

@@ -144,6 +144,7 @@ class VariableEncoder(nn.Module):
         Input arguments same as the forward pass.
         """
         x = x.view(x.size(0), -1, x.size(3))
+        
         if self.src_var_seq is None:
             self.init_seq(x.device)
 

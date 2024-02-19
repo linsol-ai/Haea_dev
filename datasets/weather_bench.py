@@ -235,7 +235,6 @@ class WeatherDataset:
         return source, label, mean_std
 
 
-
     def load_data(self, dataset:xr.Dataset, variables) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}

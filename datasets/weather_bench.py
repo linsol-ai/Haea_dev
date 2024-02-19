@@ -160,7 +160,6 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-
     def load_variable(self, data: xr.DataArray, key):
         source = data.to_numpy()
         source = torch.from_numpy(source)

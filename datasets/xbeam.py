@@ -68,7 +68,7 @@ def main(argv):
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
   if FLAGS.type == 0:
-    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
   elif FLAGS.type == 1:
     source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 

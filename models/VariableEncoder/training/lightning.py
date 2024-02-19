@@ -151,7 +151,7 @@ class TrainModule(pl.LightningModule):
         self.visualization_non_level(non_level_loss)
 
 
-    def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor, ):
+    def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor, var_len: int):
         # predict.shape = (batch, time_len * var_len, 1450) -> not nomalized
         predict = predict.view(predict.size(0), -1, self.var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized

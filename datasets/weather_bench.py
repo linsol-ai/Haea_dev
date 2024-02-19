@@ -239,7 +239,7 @@ class WeatherDataset:
             source_dataset.append(input)
             target_dataset.append(target)
             if i == 0:
-                target_dataset = 
+                target_dataset = target
                 mean_std_dataset = mean_std
         
         # var_dataset.shape = (time, var * level, h * w)

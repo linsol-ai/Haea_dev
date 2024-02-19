@@ -35,6 +35,28 @@ class SourceEmbedding(nn.Module):
             return self.dropout(x)
 
 
+class SourceEmbedding(nn.Module):
+    def __init__(self, var_len, time_len, embed_size, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.variable = VariableEmbedding(var_len, embed_size)
+        self.position = PositionalEmbedding(time_len, embed_size)
+        self.dropout = nn.Dropout(p=dropout)
+        self.embed_size = embed_size
+
+    def forward(self, x, variable_seq, position_seq=None):
+        if position_seq is not None:
+            x = x + self.position(position_seq) + self.variable(variable_seq)
+            return self.dropout(x)
+        else:
+            x = x + self.variable(variable_seq)
+            return self.dropout(x)
+
+
 class LinearDecoder(nn.Module):
     def __init__(self, in_dim, out_dim, dropout=0.1):
         """

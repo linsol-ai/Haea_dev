@@ -59,7 +59,7 @@ class TrainModule(pl.LightningModule):
         var_len = label.size(2)
         label = label.view(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
-        loss = self.calculate_rmse_loss(predict, label, )
+        loss = self.calculate_rmse_loss(predict, label, var_len)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
     

@@ -16,4 +16,5 @@ training:
   train_variable:
     - geopotential
     - specific_humidity
+    - temperature
     - 

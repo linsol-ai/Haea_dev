@@ -35,7 +35,7 @@ class SourceEmbedding(nn.Module):
             return self.dropout(x)
 
 
-class SourceEmbedding(nn.Module):
+class TargetEmbedding(nn.Module):
     def __init__(self, var_len, time_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size

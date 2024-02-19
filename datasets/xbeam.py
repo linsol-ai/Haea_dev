@@ -70,7 +70,7 @@ def main(argv):
   if FLAGS.type == 0:
     source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
   elif FLAGS.type == 1:
-    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).sel(level=LEVEL).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 256

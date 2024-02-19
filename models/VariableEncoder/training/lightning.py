@@ -28,7 +28,6 @@ class TrainModule(pl.LightningModule):
                  config: TrainingConfig | None = None):
         
         super().__init__()
-        self.levels = levels
         self.max_iters = max_iters
         self.model = model
         self.mean_std = mean_std

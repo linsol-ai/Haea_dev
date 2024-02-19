@@ -19,7 +19,7 @@ from models.VariableEncoder.training.configs import TrainingRunConfig
 from models.VariableEncoder.training.lightning import TrainModule
 
 
-def get_normal_dataset(variables:List[str], year_offset: int, tgt_time_len: int):
+def get_normal_dataset(air_variable:List[str], year_offset: int, tgt_time_len: int):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

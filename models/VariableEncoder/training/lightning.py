@@ -24,7 +24,7 @@ def rmse_loss(x, y):
 class TrainModule(pl.LightningModule):
 
     def __init__(self, *, model: VariableEncoder, mean_std: torch.Tensor,
-                 max_iters: int, levels: int, 
+                 max_iters: int,
                  config: TrainingConfig | None = None):
         
         super().__init__()

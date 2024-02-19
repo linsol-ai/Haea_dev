@@ -24,7 +24,7 @@ def rmse_loss(x, y):
 class TrainModule(pl.LightningModule):
 
     def __init__(self, *, model: VariableEncoder, mean_std: torch.Tensor,
-                 max_iters: int, var_lv: List, var_nlv: List, levels: List, 
+                 max_iters: int, levels: List, 
                  config: TrainingConfig | None = None):
         
         super().__init__()
@@ -138,7 +138,7 @@ class TrainModule(pl.LightningModule):
         hidden = loss.size(3)
         # loss.shape = (batch, var_len, time_len)
         loss = torch.sum(loss, dim=-1) / hidden
-        
+
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
         n_batch = loss.size(1)

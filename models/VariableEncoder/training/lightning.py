@@ -86,7 +86,7 @@ class TrainModule(pl.LightningModule):
 
 
     def visualization_level(self, level_loss: torch.Tensor):
-        for i in range(lenself.config.atmospheric_variable):
+        for i in range(len(self.config.atmospheric_variable):
             start = i * len(self.levels)
             end = start + len(self.levels)
             name = self.var_lv[i]

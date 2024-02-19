@@ -3,7 +3,7 @@ import torch
 
 class CustomDataset(Dataset):
 
-    def __init__(self, input_dataset: torch.Tensor, tar_dataset: torch.Tensor, tgt_time_len: int):
+    def __init__(self, source_dataset: torch.Tensor, tar_dataset: torch.Tensor, tgt_time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.input_dataset = input_dataset
         self.tar_dataset = tar_dataset

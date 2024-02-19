@@ -45,7 +45,7 @@ class TargetEmbedding(nn.Module):
 
     def forward(self, x, variable_seq, position_seq=None):
         x = x + self.position(position_seq) + self.variable(variable_seq)
-            return self.dropout(x)
+        return self.dropout(x)
 
 
 class LinearDecoder(nn.Module):

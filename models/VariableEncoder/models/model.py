@@ -13,24 +13,7 @@ class PositionalEmbedding(nn.Embedding):
         super().__init__(time_len, embed_size)
 
 
-class SourceEmbedding(nn.Module):
-    def __init__(self, var_len, embed_size, dropout=0.1):
-        """
-        :param vocab_size: total vocab size
-        :param embed_size: embedding size of token embedding
-        :param dropout: dropout rate
-        """
-        super().__init__()
-        self.variable = VariableEmbedding(var_len, embed_size)
-        self.dropout = nn.Dropout(p=dropout)
-        self.embed_size = embed_size
-
-    def forward(self, x, variable_seq):
-        x = x + self.variable(variable_seq)
-        return self.dropout(x)
-
-
-class TargetEmbedding(nn.Module):
+class Embedding(nn.Module):
     def __init__(self, var_len, time_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size
@@ -43,9 +26,13 @@ class TargetEmbedding(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, x, variable_seq, position_seq):
-        x = x +  self.variable(variable_seq) + self.position(position_seq)
-        return self.dropout(x)
+    def forward(self, x, variable_seq, position_seq=None):
+        if position_seq is not None:
+            x = x + self.position(position_seq) + self.variable(variable_seq)
+            return self.dropout(x)
+        else:
+            x = x + self.variable(variable_seq)
+            return self.dropout(x)
 
 
 class LinearDecoder(nn.Module):
@@ -87,9 +74,7 @@ class VariableEncoder(nn.Module):
             batch_first=True
         )
         
-        self.src_embedding = SourceEmbedding(var_len, dim_model, dropout)
-        self.tgt_embedding = TargetEmbedding(var_len, max_len, dim_model, dropout)
-
+        self.embedding = Embedding(var_len, max_len, dim_model, dropout)
         self.out = LinearDecoder(dim_model, out_dim, dropout=dropout)
     
 
@@ -100,13 +85,14 @@ class VariableEncoder(nn.Module):
         self.tgt_pos_seq = self.get_pos_seq(self.batch_size, device)
 
 
+
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
         src_var_seq = torch.tensor([self.var_seq for _ in range(self.batch_size)], device=src.device)
 
-        src = self.src_embedding(src, src_var_seq) * math.sqrt(self.dim_model)
-        tgt = self.tgt_embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.dim_model)
+        src = self.embedding(src, src_var_seq) * math.sqrt(self.dim_model)
+        tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_time_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

@@ -86,7 +86,7 @@ class TrainModule(pl.LightningModule):
     def visualization_air(self, level_loss: torch.Tensor):
         for i, name in enumerate(self.config.air_variable):
             start = i * self.config.pressure_level
-            end = start + len(self.levels)
+            end = start + self.config.pressure_level
             loss = level_loss[start:end]
 
             custom_plot = wandb.plot.line_series(

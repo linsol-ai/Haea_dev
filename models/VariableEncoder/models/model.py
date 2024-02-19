@@ -144,9 +144,7 @@ class VariableEncoder(nn.Module):
         Input arguments same as the forward pass.
         """
         x = x.view(x.size(0), -1, x.size(3))
-        
-        if self.src_var_seq is None:
-            self.init_seq(x.device)
+        src_var_seq = torch.tensor([self.var_seq for _ in range(self.batch_size)], device=src.device)
 
         x = self.embedding(x, self.src_time_seq, self.src_var_seq) * math.sqrt(self.dim_model)
 

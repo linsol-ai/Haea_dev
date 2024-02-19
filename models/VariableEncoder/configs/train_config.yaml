@@ -14,4 +14,4 @@ training:
   tgt_time_len: 24
   train_offset: 0
   train_variable:
-    
+    - 

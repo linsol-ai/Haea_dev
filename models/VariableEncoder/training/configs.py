@@ -38,7 +38,7 @@ class TrainingConfig(BaseModel):
 
     surface_variable: List[str]
 
-    pressure level
+    pressure_level
 
     
 

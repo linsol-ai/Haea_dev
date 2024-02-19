@@ -74,7 +74,7 @@ def _main(args) -> None:
 
         train_ds, test_ds = torch.utils.data.random_split(
             dataset,
-            [0.7, 0.2],
+            [0.8, 0.2],
         )
         val_ds, test_ds = torch.utils.data.random_split(
             test_ds,

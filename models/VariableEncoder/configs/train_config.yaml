@@ -18,4 +18,5 @@ training:
     - specific_humidity
     - temperature
     - u_component_of_wind
+    - v_component_of_wind
     - 

@@ -89,7 +89,6 @@ class TrainModule(pl.LightningModule):
         for i, name in enumerate(self.config.air_variable):
             start = i * len(self.levels)
             end = start + len(self.levels)
-            name = self.var_lv[i]
             loss = level_loss[start:end]
 
             custom_plot = wandb.plot.line_series(

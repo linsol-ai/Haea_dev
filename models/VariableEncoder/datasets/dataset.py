@@ -7,7 +7,6 @@ class CustomDataset(Dataset):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset
         self.label_dataset = label_dataset
-        self.var_len = source_dataset.size(1)
         self.tgt_time_len = tgt_time_len
         self.make_dataset()
 

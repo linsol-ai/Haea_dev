@@ -134,7 +134,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
-        loss = loss.swapaxes
+        loss = loss.swapaxes()
         hidden = loss.size(3)
         # loss.shape = (batch, var_len, time_len)
         loss = torch.sum(loss, dim=-1) / hidden

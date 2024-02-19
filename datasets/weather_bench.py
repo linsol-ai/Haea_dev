@@ -231,7 +231,7 @@ class WeatherDataset:
 
     def load(self, variables = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE):
         source_dataset = []
-        target_dataset = []
+        target_dataset = None
         mean_std_dataset = None
 
         for i, dataset in enumerate(self.datasets):

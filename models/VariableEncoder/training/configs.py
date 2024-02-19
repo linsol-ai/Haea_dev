@@ -35,8 +35,9 @@ class TrainingConfig(BaseModel):
     train_offset: int = 0
 
     atmospheric_variable: List[str]
-    
+
     surface_variable: List[str]
+    
 
 
 

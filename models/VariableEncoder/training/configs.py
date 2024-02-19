@@ -37,7 +37,8 @@ class TrainingConfig(BaseModel):
     atmospheric_variable: List[str]
 
     surface_variable: List[str]
-    
+
+    level
 
 
 

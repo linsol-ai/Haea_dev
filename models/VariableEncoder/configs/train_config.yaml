@@ -13,7 +13,7 @@ training:
   gradient_clip_val: 0.5  
   tgt_time_len: 24
   train_offset: 0
-  train_variable:
+  Atmospheric_variable:
     - geopotential
     - specific_humidity
     - temperature

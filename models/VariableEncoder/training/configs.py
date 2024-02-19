@@ -34,7 +34,7 @@ class TrainingConfig(BaseModel):
 
     train_offset: int = 0
 
-    train_variable
+    train_variable: 
 
 
 

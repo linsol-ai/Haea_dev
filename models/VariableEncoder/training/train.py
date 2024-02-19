@@ -93,6 +93,7 @@ def _main(args) -> None:
 
         model_pl = TrainModule(model=model, mean_std=mean_std, var_len=shape[1], 
                                max_iters=config.training.max_epochs*len(train_loader), config=config.training)
+        
         summary = ModelSummary(model_pl, max_depth=-1)
         print(summary)
 

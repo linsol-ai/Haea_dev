@@ -106,7 +106,7 @@ class VariableEncoder(nn.Module):
         src_var_seq = torch.tensor([self.var_seq for _ in range(self.batch_size)], device=src.device)
 
         src = self.src_embedding(src, src_var_seq) * math.sqrt(self.dim_model)
-        tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.dim_model)
+        tgt = self.tgt_embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

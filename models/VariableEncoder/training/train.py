@@ -28,7 +28,7 @@ def get_normal_dataset(year_offset: int, tgt_time_len: int):
     source, label, mean_std = weather.load(weather.HAS_LEVEL_VARIABLE + weather.NONE_LEVEL_VARIABLE)
 
     dataset = CustomDataset(source, label, tgt_time_len)
-    return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, target.size(-1)
+    return (WeatherDataset.HAS_LEVEL_VARIABLE, WeatherDataset.NONE_LEVEL_VARIABLE, WeatherDataset.PRESSURE_LEVELS), dataset, source.shape, mean_std, label.size(-1)
 
 
         

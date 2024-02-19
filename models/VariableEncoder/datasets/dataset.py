@@ -32,7 +32,6 @@ class CustomDataset(Dataset):
 
         self.dataset_inc = dataset_inc
 
-
     def __getitem__(self, item):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind, self.source_dataset)

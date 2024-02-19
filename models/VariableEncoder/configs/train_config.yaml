@@ -17,4 +17,5 @@ training:
     - geopotential
     - specific_humidity
     - temperature
+    - u_component_of_wind
     - 

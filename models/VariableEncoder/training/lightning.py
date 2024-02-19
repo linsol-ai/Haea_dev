@@ -95,7 +95,7 @@ class TrainModule(pl.LightningModule):
                 keys=self.config.pressure_level,
                 title=name,
                 split_table=True,
-                xname="Time - 6Hour per"
+                xname="Time - 1Hour per"
             )
 
             self.logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})

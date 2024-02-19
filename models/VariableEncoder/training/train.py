@@ -16,7 +16,7 @@ from datasets.weather_bench import WeatherDataset
 from models.VariableEncoder.datasets.dataset import CustomDataset
 from models.VariableEncoder.models.model import VariableEncoder
 
-from models.VariableEncoder.training.configs import TrainingRunConfig
+from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.configs import TrainingRunConfig
 from models.VariableEncoder.training.lightning import TrainModule
 

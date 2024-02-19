@@ -103,7 +103,6 @@ class TrainModule(pl.LightningModule):
 
     def visualization_surface(self, non_level_loss):
         for i, name in enumerate(self.config.surface_variable):
-            name = self.var_nlv[i]
             loss = non_level_loss[i]
 
             custom_plot = wandb.plot.line_series(

@@ -111,10 +111,6 @@ class WeatherDataset:
 
     RESOLUTION = ['1440x720', '240x120']
 
-    RESOLUTION_MODE_FULL_SET = 3
-    RESOLUTION_MODE_LARGE_SET = 2
-    RESOLUTION_MODE_BASIC_SET = 1
-
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 

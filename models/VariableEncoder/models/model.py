@@ -85,6 +85,11 @@ class VariableEncoder(nn.Module):
         self.tgt_pos_seq = self.get_pos_seq(self.batch_size, device)
 
 
+    def change_seq(self, batch, device):
+        self.tgt_mask = self.get_tgt_mask()
+        self.tgt_var_seq = self.get_var_seq(batch, device)
+        self.tgt_time_seq = self.get_pos_seq(batch, device)
+
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)

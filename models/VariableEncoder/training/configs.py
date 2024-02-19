@@ -33,11 +33,6 @@ class TrainingConfig(BaseModel):
 
     train_offset: int = 0
 
-    lat_min : float = Field(ge=27, default=32, le=42.75)
-    lat_max : float = Field(ge=27, default=39.3, le=42.75)
-    lon_min : float = Field(ge=119.2, default=124, le=135)
-    lon_max : float = Field(ge=119.2, default=131.4, le=135)
-
 
 class TrainingRunConfig(BaseModel):
     """A config specification of the training run."""

@@ -101,7 +101,7 @@ class TrainModule(pl.LightningModule):
             self.logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
 
-    def visualization_surface(self, non_level_loss: torch.Tensor):
+    def visualization_surface(self, surface_loss: torch.Tensor):
         for i, name in enumerate(self.config.surface_variable):
             loss = non_level_loss[i]
 

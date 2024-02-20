@@ -92,7 +92,6 @@ def main(argv):
   out_chunks['time'] = 128
 
 
-
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='climate-414222',

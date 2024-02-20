@@ -102,8 +102,6 @@ class WeatherDataset:
     SURFACE_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation']
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
-    
-    PRESSURE_LEVELS = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000]
 
     DATE_OFFSET = [(2021, 2018), (2018, 2017), (2011, 2006), (2006, 2001)]
 

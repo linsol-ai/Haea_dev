@@ -109,7 +109,7 @@ class WeatherDataset:
 
     GCS_BUCKET = 'gcs://era5_climate'
 
-    RESOLUTION = ['1440x720', '240x']
+    RESOLUTION = ['1440x720', '240x120']
 
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 

@@ -107,7 +107,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | xbeam.SplitChunks
+        | xbeam.SplitChunks({})
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, out_chunks)
     )
 

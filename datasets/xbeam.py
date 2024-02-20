@@ -73,7 +73,6 @@ def main(argv):
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
-  print(source_chunks)
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 128
@@ -101,9 +100,8 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
+        | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.SplitChunks({'time': 1})
-        | beam.MapTuple(rekey_chunk_on_month_hour, FLAGS.type, lat_indices, lon_indices)
         | xbeam.ConsolidateChunks({'time':128})
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, { 'time':128 })
     )

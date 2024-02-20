@@ -84,7 +84,7 @@ def main(argv):
   else:
       template = (
           xbeam.make_template(source_dataset)
-          .isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+          .isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
       )
 
   pipeline_options = PipelineOptions(

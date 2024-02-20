@@ -50,7 +50,7 @@ def rekey_chunk_on_month_hour(
         dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
     new_key = key.with_offsets(time=128)
-    return key, dataset
+    return new_key, dataset
 
 
 def main(argv):

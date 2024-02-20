@@ -67,10 +67,7 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
-  if FLAGS.type == 0:
-    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-  elif FLAGS.type == 1:
-    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
+  c
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 128
@@ -92,7 +89,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        
+
         | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

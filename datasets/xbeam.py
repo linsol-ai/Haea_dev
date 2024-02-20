@@ -62,6 +62,7 @@ def main(argv):
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
 
   print(source_chunks)
+  print(ds)
   source_dataset = source_dataset[VARIABLE]
 
   start_date = pd.to_datetime(START_DATE)

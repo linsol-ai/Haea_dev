@@ -80,9 +80,9 @@ def main(argv):
   template = None
 
   if FLAGS.type == 0:
-      dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+      source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
   elif FLAGS.type == 1:
-      dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
+      source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
   template = (
       xbeam.make_template(source_dataset)

@@ -101,6 +101,7 @@ def main(argv):
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
         | xbeam.ConsolidateChunks(output_chunks)
+        | beam.MapTuple(rekey_chunk_on_month_hour, FLAGS.type, lat_indices, lon_indices)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )
 

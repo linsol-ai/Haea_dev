@@ -77,11 +77,10 @@ def main(argv):
 
   if FLAGS.type == 0:
      
-
-  template = (
-      xbeam.make_template(source_dataset)
-      .isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-  )
+    template = (
+        xbeam.make_template(source_dataset)
+        .isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+    )
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

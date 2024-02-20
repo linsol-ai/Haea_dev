@@ -101,7 +101,7 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks)
+        | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
         | xbeam.SplitChunks({'time': 1})
         | beam.MapTuple(rekey_chunk_on_month_hour, FLAGS.type, lat_indices, lon_indices)
         | xbeam.ConsolidateChunks({'time':128})

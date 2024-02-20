@@ -78,6 +78,13 @@ def main(argv):
   output_chunks['time'] = 128
 
   template = None
+
+  if type == 0:
+        dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+    elif type == 1:
+        dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
+
+        
   if FLAGS.type == 0:
       template = (
           xbeam.make_template(source_dataset)

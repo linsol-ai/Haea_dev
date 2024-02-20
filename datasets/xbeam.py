@@ -86,7 +86,7 @@ def main(argv):
   )
 
 
-source_chunks
+  source_chunks = 
   source_chunks['time'] = 128
 
 

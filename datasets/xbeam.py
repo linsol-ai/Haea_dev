@@ -86,7 +86,7 @@ def main(argv):
   )
 
 
-  output_chunks = source_chunks.copy()
+
   source_chunks['time'] = 128
 
   pipeline_options = PipelineOptions(

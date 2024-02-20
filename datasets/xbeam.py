@@ -101,8 +101,6 @@ def main(argv):
         machine_type='c3d-standard-90',
   )
 
-  itemsize = max(variable.dtype.itemsize for variable in template.values())
-
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root

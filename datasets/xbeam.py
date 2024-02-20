@@ -86,7 +86,7 @@ def main(argv):
   )
 
 
-  source_chunks = template.c
+  source_chunks = template.chunk
   source_chunks['time'] = 128
 
 

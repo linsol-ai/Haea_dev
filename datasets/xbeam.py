@@ -101,8 +101,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-        | xbeam.SplitChunks({'time': 1})
-        | xbeam.ConsolidateChunks({'time':128})
+        
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, { 'time':128 })
     )
 

@@ -74,9 +74,6 @@ def main(argv):
 
   source_dataset = source_dataset.sel(time=slice(start_date, end_date))
 
-  output_chunks = source_chunks.copy()
-  output_chunks['time'] = 128
-
   template = None
 
   if FLAGS.type == 0:

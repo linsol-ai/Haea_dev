@@ -89,7 +89,7 @@ def main(argv):
   source_chunks['latitude'] = 20
   source_chunks['longitude'] = 20
   out_chunks = source_chunks.copy()
-  
+  out_chunks['time'] = 128
 
 
 

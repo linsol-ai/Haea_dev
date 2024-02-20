@@ -60,6 +60,8 @@ def main(argv):
   OUTPUT_PATH = f'gs://era5_climate/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
+
+  print(source_chunks)
   source_dataset = source_dataset[VARIABLE]
 
   start_date = pd.to_datetime(START_DATE)

@@ -87,7 +87,7 @@ def main(argv):
 
 
   source_chunks['latitude'] = 20
-  
+  source_chunks['latitude'] = 20
   source_chunks['time'] = 128
 
 

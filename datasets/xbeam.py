@@ -88,7 +88,7 @@ def main(argv):
 
   source_chunks['latitude'] = 20
   source_chunks['longitude'] = 20
-  out
+  out_chunks = so
 
 
 

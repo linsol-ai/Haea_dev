@@ -44,7 +44,10 @@ flags.mark_flag_as_required("type")
 
 def rekey_chunk_on_month_hour(
     key: xbeam.Key, dataset: xarray.Dataset, lat_indices=None, lon_indices=None) -> Tuple[xbeam.Key, xarray.Dataset]:
-    new_dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices)
+    if FLAGS.type == 0:
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+  elif FLAGS.type == 1:
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
     return key, new_dataset
 
 
@@ -67,7 +70,10 @@ def main(argv):
   lat_indices = np.where((source_dataset.latitude >= lat_min) & (source_dataset.latitude <= lat_max))[0]
   lon_indices = np.where((source_dataset.longitude >= lon_min) & (source_dataset.longitude <= lon_max))[0]
 
-  c
+  if FLAGS.type == 0:
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
+  elif FLAGS.type == 1:
+    source_dataset = source_dataset.sel(time=slice(start_date, end_date)).isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
   output_chunks = source_chunks.copy()
   output_chunks['time'] = 128
@@ -89,7 +95,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks)
-
+        
         | xbeam.ConsolidateChunks(output_chunks)
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, output_chunks)
     )

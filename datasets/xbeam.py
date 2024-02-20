@@ -24,7 +24,7 @@ LAT = [(32, 39.3), (20, 50), (0, 70)]
 LON = [(124, 131.4), (115, 145), (90, 180)]
 
 INPUT_PATHS = [
-  'gcs://gcp-public-data-arco-era5/ar/1959-2022-6h-1440x721.zarr',
+  'gcs://gcp-public-data-arco-era5/ar/1959-2022-full_37-1h-0p25deg-chunk-1.zarr-v2',
   'gcs://gcp-public-data-arco-era5/ar/1959-2022-1h-240x121_equiangular_with_poles_conservative.zarr',
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-64x32_equiangular_with_poles_conservative.zarr'
 ]

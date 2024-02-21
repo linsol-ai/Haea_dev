@@ -89,7 +89,7 @@ def main(argv):
 
   variables_with_level = [var for var in ds_stacked.data_vars if 'level' in ds_stacked[var].dims]
 
-level_vars = [var for var in ds_stacked.variables if 'level' in ds_stacked[var].dims]
+  level_vars = [var for var in source_dataset.variables if 'level' in ds_stacked[var].dims]
 
 # 각 level 차원마다 새 변수 생성
 for var_name in level_vars:

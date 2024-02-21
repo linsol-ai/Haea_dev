@@ -72,8 +72,8 @@ def main(argv):
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
 
-
   
+
   template = (
       xbeam.make_template(source_dataset)
   )

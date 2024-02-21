@@ -157,7 +157,6 @@ class WeatherDataset:
         source = torch.from_numpy(source)
         # data.shape = (time, width, height)
         # or data.shape = (time, level, width, height)
-        target = source.clone().detach()
 
         if len(source.shape) == 4:
             inputs = []

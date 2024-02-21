@@ -180,8 +180,12 @@ class WeatherDataset:
     def load(self, air_variable, surface_variable):
         variables = air_variable + surface_variable
         source_t, label, mean_std = self.load_data(self.datasets[0], variables)
-    
-        return source_t, label, mean_std
+        source_b, _, _ = self.load_data(self.datasets[1], variables)
+        
+        # var_dataset.shape = (time, var * level, h * w)
+        source = torch.cat([source_t, source_b], dim=2)
+
+        return source, label, mean_std
 
 
 
@@ -233,6 +237,8 @@ class WeatherDataset:
                 val = futures[future]
                 # shape => (level, time, h * w) or (time, h * w)
                 input, target, mean_std = future.result()
+                if val == 'geopotential':
+                    print(mean_std[0])
                 result[val] = (input, target, mean_std)
             
 

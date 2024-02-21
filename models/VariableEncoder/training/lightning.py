@@ -122,6 +122,7 @@ class TrainModule(pl.LightningModule):
         label = batch[2]
         
         label = label[:, :, :-1, :]
+        var_len = label.size(2)
         label = label.reshape(label.size(0), -1, label.size(3))
         predict = self.model(src, tgt)
         loss = self.calculate_sqare_loss(predict, label, var_len)

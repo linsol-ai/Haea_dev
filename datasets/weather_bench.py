@@ -244,7 +244,6 @@ class WeatherDataset:
 
         # dataset.shape => (time, var, h * w)
         input_dataset = torch.swapaxes(input_dataset, 0, 1)
-        target_dataset = torch.swapaxes(target_dataset, 0, 1)
         
         end = time.time()
         print(f"{end - start:.5f} sec")

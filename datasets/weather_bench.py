@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from typing import Tuple, List
+from typing import Tuple,
 import numpy as np
 import xarray_beam as xb
 import xarray as xr
@@ -214,7 +214,7 @@ class WeatherDataset:
 
 
 
-    def load_data(self, dataset:xr.Dataset, variables=List[str], only_input_variable=List[str]) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def load_data(self, dataset:xr.Dataset, variables=List, ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 
@@ -224,7 +224,7 @@ class WeatherDataset:
             futures = {}
 
             for val in variables:
-                key = executor.submit(self.load_variable_optimized, dataset[val], val in only_input_variable)
+                key = executor.submit(self.load_variable_optimized, dataset[val])
                 futures[key] = val
 
             for future in tqdm(as_completed(futures), desc="Processing futures"):

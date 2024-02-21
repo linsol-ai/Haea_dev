@@ -231,7 +231,7 @@ class WeatherDataset:
         start = time.time()
         result = {} 
         air_dataset = dataset[air_variable]
-        air_dataset = dataset[surface_variable]
+        surface_dataset = dataset[surface_variable]
 
 
 

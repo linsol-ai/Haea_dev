@@ -91,7 +91,7 @@ def main(argv):
   out_chunks = source_chunks.copy()
 
   out_chunks['time'] = 128
-  out_chunks['latitude'] = 20
+  out_chunks['latitude'] = source_dataset.latitude.size
   out_chunks['longitude'] = 20
 
   pipeline_options = PipelineOptions(

@@ -227,8 +227,8 @@ class WeatherDataset:
 
 
 
-    def load_data_chunk():
-        
+    def load_data_chunk(self, dataset:xr.Dataset, variables):
+
 
 
 

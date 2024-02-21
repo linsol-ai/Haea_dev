@@ -23,6 +23,7 @@ class CustomDataset(Dataset):
         result = torch.stack(result, dim=0)
         return result
 
+
     def make_dataset(self):
         dataset_inc = []
         for t in range(self.source_dataset.size(0)-self.tgt_time_len):

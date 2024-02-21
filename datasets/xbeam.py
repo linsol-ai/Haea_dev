@@ -78,7 +78,7 @@ def main(argv):
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
 
-  for val in VARIABLES:
+  for val in VARIABLE:
     standardized_data, mean, std = standardize(ds[val])
     ds[val] = standardized_data
     ds[val + "_mean"] = mean

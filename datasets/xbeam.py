@@ -42,17 +42,6 @@ flags.mark_flag_as_required("end")
 flags.mark_flag_as_required("type")
 
 
-def rekey_chunk_on_month_hour(
-    key: xbeam.Key, dataset: xarray.Dataset, type=0, lat_indices=None, lon_indices=None) -> Tuple[xbeam.Key, xarray.Dataset]:
-    if type == 0:
-        dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-    elif type == 1:
-        dataset = dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
-
-    new_key = key.with_offsets(time=128)
-    return new_key, dataset
-
-
 def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
   END_DATE = f'{FLAGS.end}-12-31'

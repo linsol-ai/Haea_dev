@@ -30,4 +30,4 @@ training:
     - toa_incident_solar_radiation
   
   only_input_variable:
-  
+    - toa_incident_solar_radiation

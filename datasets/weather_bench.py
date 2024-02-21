@@ -226,7 +226,7 @@ class WeatherDataset:
                 input, target, mean_std = future.result()
                 result[val] = (input, target, mean_std)
             
-
+        
         
 
 

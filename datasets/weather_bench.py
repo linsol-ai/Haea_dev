@@ -182,7 +182,6 @@ class WeatherDataset:
         source_t, label, mean_std = self.load_data(self.datasets[0], variables)
         gc.collect()
         source_b, _, _ = self.load_data(self.datasets[1], variables)
-        gc.collect()
         
         # var_dataset.shape = (time, var * level, h * w)
         source = torch.cat([source_t, source_b], dim=2)

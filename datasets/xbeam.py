@@ -111,7 +111,7 @@ def main(argv):
   out_chunks = {}
 
   out_chunks['time'] = 64
-  out_chunks['spatial'] = source_dataset.spatial.size
+  out_chunks['spatial'] = ds_stacked.spatial.size
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

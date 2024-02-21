@@ -191,7 +191,26 @@ class WeatherDataset:
 
 
     def load_variable_optimized(self, data: xr.DataArray):
-        source = torch.from_numpy(data.to_)  # `to_numpy()` 대신 `values` 사용
+        source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용
+        if len(source.shape) == 4:
+            inputs = []
+            stats = torch.empty((2, source.shape[1]), dtype=torch.float32)  # means와 stds를 담을 텐서 생성
+
+            for i in range(source.size(1)):
+                input, mean, std = normalize_tensor(source[:, i, :, :])
+                inputs.append(input.unsqueeze(0))
+                stats[:, i] = torch.tensor([mean.item(), std.item()])
+
+            inputs = torch.cat(inputs, dim=0)  # dim=0 대신 dim=1을 사용하여 stack
+            return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(2), stats
+
+        else:
+            input, mean, std = normalize_tensor(source)
+            return input.flatten(1), source.flatten(1), torch.tensor([mean, std])
+
+    
+    def load_variable_optimized(self, data: xr.DataArray):
+        source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용
         if len(source.shape) == 4:
             inputs = []
             stats = torch.empty((2, source.shape[1]), dtype=torch.float32)  # means와 stds를 담을 텐서 생성

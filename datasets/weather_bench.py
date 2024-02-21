@@ -250,4 +250,4 @@ if __name__ == '__main__':
     device = torch.device(device)
 
     weather = WeatherDataset(0, device=device, offline=True)
-    print(weather.load(weather.VARIABLES)[0].shape)
+    print(weather.load(weather.)[0].shape)

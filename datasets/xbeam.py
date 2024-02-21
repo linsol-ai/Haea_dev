@@ -108,6 +108,8 @@ def main(argv):
       xbeam.make_template(ds_stacked)
   )
 
+  source_ch
+
   out_chunks = {}
 
   out_chunks['time'] = 64
@@ -129,7 +131,7 @@ def main(argv):
         | xbeam.DatasetToChunks(ds_stacked, {'time':1 , 'spatial': ds_stacked.spatial.size}, split_vars=True)
         | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
             source_dataset.sizes,
-            {'time':1 , 'spatial': ds_stacked.spatial.size},
+            source_chunks,
             out_chunks,
             itemsize=itemsize,
         )

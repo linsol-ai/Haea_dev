@@ -85,7 +85,7 @@ def main(argv):
     source_dataset[val + "_std"] = std
 
 
-  ds_stacked = ds.stack(spatial=('latitude', 'longitude'))
+  ds_stacked = source_dataset.stack(spatial=('latitude', 'longitude'))
 
 variables_with_level = [var for var in ds_stacked.data_vars if 'level' in ds_stacked[var].dims]
 

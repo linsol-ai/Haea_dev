@@ -108,7 +108,7 @@ def main(argv):
       xbeam.make_template(ds_stacked)
   )
 
-  out_chunks = source_chunks.copy()
+  out_chunks = {}
 
   out_chunks['time'] = 64
   out_chunks['spatial'] = source_dataset.spatial.size

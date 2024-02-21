@@ -106,8 +106,12 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
-        | xbeam.SplitChunks( {'time': 128} )
-        | xbeam.ConsolidateChunks( {'time': 128} )
+        | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
+            source_dataset.sizes,
+            source_chunks,
+            target_chunks,
+            itemsize=itemsize,
+        )
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, {'time': 128})
     )
 

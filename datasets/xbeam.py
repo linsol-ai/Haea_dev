@@ -79,8 +79,8 @@ def main(argv):
 
 
   for val in VARIABLE:
-    standardized_data, mean, std = standardize(ds[val])
-    ds[val] = standardized_data
+    standardized_data, mean, std = standardize(source_dataset[val])
+    source_dataset[val] = standardized_data
     ds[val + "_mean"] = mean
     ds[val + "_std"] = std
 

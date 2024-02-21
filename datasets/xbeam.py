@@ -110,7 +110,7 @@ def main(argv):
 
   source_chunks = {'time':1 , 'spatial': ds_stacked.spatial.size}
 
-  out_chunks = {'time': 64, }
+  out_chunks = {'time': 64, 'spatial': ds_stacked.spatial.size}
 
   out_chunks['time'] = 64
   out_chunks['spatial'] = ds_stacked.spatial.size

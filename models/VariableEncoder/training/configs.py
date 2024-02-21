@@ -2,10 +2,6 @@ from pydantic import BaseModel, Field
 from typing import List
 
 
-class TrainVariable(BaseModel):
-    variable: List[str]
-
-
 class ModelConfig(BaseModel):
     """A config specification of model."""
 

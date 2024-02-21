@@ -135,7 +135,7 @@ class TrainModule(pl.LightningModule):
     def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):
         src = batch[0]
         tgt = batch[1]
-        
+        var_len = tgt.size()
         predict = self.model(src, tgt)
         loss = self.calculate_sqare_loss(predict, tgt)
 

@@ -152,7 +152,7 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, data: xr.DataArray):
+    def load_variable(self, data: xr.DataArray, key):
         source = data.to_numpy()
         source = torch.from_numpy(source)
         # data.shape = (time, width, height)
@@ -188,8 +188,8 @@ class WeatherDataset:
         return source, label, mean_std
 
 
-    def load_variable_optimized(self, data: xr.DataArray, source_only: bool):
-        source = torch.from_numpy(data.values)
+    def load_variable_optimized(self, data: xr.DataArray):
+        source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용
         if len(source.shape) == 4:
             inputs = []
             stats = torch.empty((2, source.shape[1]), dtype=torch.float32)  # means와 stds를 담을 텐서 생성
@@ -200,22 +200,14 @@ class WeatherDataset:
                 stats[:, i] = torch.tensor([mean.item(), std.item()])
 
             inputs = torch.cat(inputs, dim=0)  # dim=0 대신 dim=1을 사용하여 stack
-            
-            if source_only:
-                return inputs.flatten(2)
-            else:
-                return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(2), stats
+            return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(2), stats
 
         else:
             input, mean, std = normalize_tensor(source)
-            if source_only:
-                return input.flatten(1)
-            else:
-                return input.flatten(1), source.flatten(1), torch.tensor([mean, std])
+            return input.flatten(1), source.flatten(1), torch.tensor([mean, std])
 
 
-
-    def load_data(self, dataset:xr.Dataset, variables=, ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def load_data(self, dataset:xr.Dataset, variables) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

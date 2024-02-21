@@ -28,6 +28,5 @@ training:
     - total_cloud_cover
     - total_precipitation
     - toa_incident_solar_radiation
-  
   only_input_variable:
     - toa_incident_solar_radiation

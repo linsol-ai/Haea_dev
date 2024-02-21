@@ -41,6 +41,12 @@ flags.mark_flag_as_required("start")
 flags.mark_flag_as_required("end")
 flags.mark_flag_as_required("type")
 
+def standardize(data):
+    mean = data.mean(dim=['time', 'latitude', 'longitude'], keep_attrs=True)
+    std = data.std(dim=['time', 'latitude', 'longitude'], keep_attrs=True)
+    standardized_data = (data - mean) / std
+    return standardized_data, mean, std
+
 
 def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
@@ -72,7 +78,7 @@ def main(argv):
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
 
-  
+
 
   template = (
       xbeam.make_template(source_dataset)

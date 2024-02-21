@@ -214,7 +214,7 @@ class WeatherDataset:
 
 
 
-    def load_data(self, dataset:xr.Dataset, variables=List[, ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def load_data(self, dataset:xr.Dataset, variables=List[str], ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

@@ -125,12 +125,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(ds_stacked, split_vars=True)
-        | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
-            source_dataset.sizes,
-            source_chunks,
-            out_chunks,
-            itemsize=itemsize,
-        )
+        | xbeam.C
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, out_chunks)
     )
 

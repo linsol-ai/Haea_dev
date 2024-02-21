@@ -82,7 +82,7 @@ class TrainModule(pl.LightningModule):
         loss = rmse_loss(reversed_predict, label)
         return loss
 
-    def calculate_sqare_loss(self, predict: torch.Tensor, target: torch.Tensor):
+    def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, time_len, var_len, hidden)
         var_len = target.size(2)
         label = denormalize(target, self.mean_std)

@@ -129,7 +129,7 @@ def main(argv):
         | xbeam.DatasetToChunks(ds_stacked, {'time':1 , 'spatial': ds_stacked.spatial.size}, split_vars=True)
         | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
             source_dataset.sizes,
-            source_chunks,
+            {'time':1 , 'spatial': ds_stacked.spatial.size},
             out_chunks,
             itemsize=itemsize,
         )

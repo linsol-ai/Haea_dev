@@ -195,7 +195,6 @@ class WeatherDataset:
             for i in range(source.size(1)):
                 input, mean, std = normalize_tensor(source[:, i, :, :])
                 source[:, i, :, :] = input
-                inputs.append(input.unsqueeze(0))
                 stats[:, i] = torch.tensor([mean.item(), std.item()])
 
             inputs = torch.cat(inputs, dim=0)  # dim=0 대신 dim=1을 사용하여 stack

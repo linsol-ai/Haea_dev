@@ -233,7 +233,7 @@ class WeatherDataset:
         air_dataset = dataset[air_variable]
         surface_dataset = dataset[surface_variable]
 
-        input, mean, std = normalize_tensor(surface_dataset[:, i, : , :])
+        input, mean, std = normalize_tensor(air_dataset[:, i, : , :])
 
 
 

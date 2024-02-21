@@ -114,7 +114,7 @@ def main(argv):
             out_chunks,
             itemsize=itemsize,
         )
-        | xbeam.ChunksToZarr(OUTPUT_PATH, template, {'time': 128})
+        | xbeam.ChunksToZarr(OUTPUT_PATH, template, out_chunks)
     )
 
 

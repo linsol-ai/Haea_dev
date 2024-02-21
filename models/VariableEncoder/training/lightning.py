@@ -67,7 +67,7 @@ class TrainModule(pl.LightningModule):
         self.model.load_state_dict(checkpoint['model_state'])
 
 
-    def calculate_rmse_loss(self, predict: torch.Tensor, target: torch.Tensor):
+    def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, time_len, var_len, hidden)
         var_len = target.size(2)
         label = denormalize(target, self.mean_std)

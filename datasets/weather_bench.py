@@ -209,6 +209,7 @@ class WeatherDataset:
         else:
             input, mean, std = normalize_tensor(source)
             if source_only:
+            else:
             return input.flatten(1), source.flatten(1), torch.tensor([mean, std])
 
 

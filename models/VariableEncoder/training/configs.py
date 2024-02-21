@@ -2,7 +2,8 @@ from pydantic import BaseModel, Field
 from typing import List
 
 
-class TrainVariable()
+class TrainVariable(BaseModel)
+
 
 
 class ModelConfig(BaseModel):

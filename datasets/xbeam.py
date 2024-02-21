@@ -91,7 +91,8 @@ def main(argv):
   out_chunks = source_chunks.copy()
 
   out_chunks['time'] = 128
-  out_chunks['latitude'] = 128
+  out_chunks['latitude'] = 20
+  
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

@@ -105,7 +105,7 @@ def main(argv):
   ds_stacked = ds_stacked.drop_vars(level_vars)
 
   template = (
-      xbeam.make_template(source_dataset)
+      xbeam.make_template(ds_stacked)
   )
 
   out_chunks = source_chunks.copy()

@@ -227,6 +227,11 @@ class WeatherDataset:
 
 
 
+    def load_data_chunk():
+        
+
+
+
     def load_data(self, dataset:xr.Dataset, variables) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}

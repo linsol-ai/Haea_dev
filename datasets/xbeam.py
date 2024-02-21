@@ -91,17 +91,17 @@ def main(argv):
 
   level_vars = [var for var in source_dataset.variables if 'level' in ds_stacked[var].dims]
 
-# 각 level 차원마다 새 변수 생성
-for var_name in level_vars:
-    for level in ds_stacked.level:
-        # 새 변수 이름 형식: 원본변수명_level값
-        new_var_name = f"{var_name}_level_{level.values}"
-        
-        # 선택한 level에 대한 데이터를 새 변수로 할당
-        ds_stacked[new_var_name] = ds_stacked[var_name].sel(level=level)
-        
-        # 필요하다면, 새로운 변수에서 level 차원을 제거
-        ds_stacked[new_var_name] = ds_stacked[new_var_name].drop_vars('level', errors='ignore')
+  # 각 level 차원마다 새 변수 생성
+  for var_name in level_vars:
+      for level in ds_stacked.level:
+          # 새 변수 이름 형식: 원본변수명_level값
+          new_var_name = f"{var_name}_level_{level.values}"
+          
+          # 선택한 level에 대한 데이터를 새 변수로 할당
+          ds_stacked[new_var_name] = ds_stacked[var_name].sel(level=level)
+          
+          # 필요하다면, 새로운 변수에서 level 차원을 제거
+          ds_stacked[new_var_name] = ds_stacked[new_var_name].drop_vars('level', errors='ignore')
     
 
 ds_stacked = ds_stacked.drop_vars(level_vars)

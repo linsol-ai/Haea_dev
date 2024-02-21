@@ -108,7 +108,7 @@ def main(argv):
       xbeam.make_template(ds_stacked)
   )
 
-  source_ch
+  source_chunks = {'time':1 , 'spatial': ds_stacked.spatial.size}
 
   out_chunks = {}
 

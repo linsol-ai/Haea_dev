@@ -3,7 +3,7 @@ from typing import List
 
 
 class TrainVariable(BaseModel)
-
+    
 
 
 class ModelConfig(BaseModel):

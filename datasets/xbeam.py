@@ -71,6 +71,9 @@ def main(argv):
   elif FLAGS.type == 1:
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
+
+
+  
   template = (
       xbeam.make_template(source_dataset)
   )

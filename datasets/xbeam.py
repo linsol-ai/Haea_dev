@@ -105,7 +105,7 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks)
+        | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
         | xbeam.SplitChunks( {'time': 128} )
         | xbeam.ConsolidateChunks( {'time': 128} )
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, {'time': 128})

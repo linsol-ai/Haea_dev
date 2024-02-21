@@ -81,8 +81,8 @@ def main(argv):
   for val in VARIABLE:
     standardized_data, mean, std = standardize(source_dataset[val])
     source_dataset[val] = standardized_data
-    ds[val + "_mean"] = mean
-    ds[val + "_std"] = std
+    source_dataset[val + "_mean"] = mean
+    source_dataset[val + "_std"] = std
 
 
 ds_stacked = ds.stack(spatial=('latitude', 'longitude'))

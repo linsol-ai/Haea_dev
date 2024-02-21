@@ -227,35 +227,7 @@ class WeatherDataset:
                 result[val] = (input, target, mean_std)
             
 
-        # dataset.shape => (var*level, time, h * w)
-        input_dataset = []
-        target_dataset = []
-        mean_std_dataset = []
-
-        for val in variables:
-            input, target, mean_std = result[val]
-            if len(input.shape) == 3:
-                for i in range(input.size(0)):
-                    input_dataset.append(input[i])
-                    target_dataset.append(target[i])
-                mean_std_dataset.append(mean_std.swapaxes(0, 1))
-            else:
-                input_dataset.append(input)
-                target_dataset.append(target)
-                mean_std_dataset.append(mean_std.unsqueeze(0))
-
-
-        input_dataset = torch.stack(input_dataset, dim=0)
-        target_dataset = torch.stack(target_dataset, dim=0)
-        mean_std_dataset = torch.cat(mean_std_dataset, dim=0)
-
-        # dataset.shape => (time, var, h * w)
-        input_dataset = torch.swapaxes(input_dataset, 0, 1)
-        target_dataset = torch.swapaxes(target_dataset, 0, 1)
         
-        end = time.time()
-        print(f"{end - start:.5f} sec")
-        return input_dataset, target_dataset, mean_std_dataset
 
 
     def calculate_wind(self, u_wind, v_wind, device):

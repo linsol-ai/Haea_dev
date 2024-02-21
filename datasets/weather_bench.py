@@ -177,22 +177,22 @@ class WeatherDataset:
 
     
     def load_variable_optimized_with_cat(data: xr.DataArray):
-    source = torch.from_numpy(data.values)
-    if len(source.shape) == 4:
-        inputs = []
-        stats = torch.empty((2, source.shape[1]), dtype=torch.float32)
+        source = torch.from_numpy(data.values)
+        if len(source.shape) == 4:
+            inputs = []
+            stats = torch.empty((2, source.shape[1]), dtype=torch.float32)
 
-        for i in range(source.size(1)):
-            input, mean, std = normalize_tensor(source[:, i, :, :])
-            inputs.append(input.unsqueeze(1))  # `level` 차원을 위한 차원 추가
-            stats[:, i] = torch.tensor([mean.item(), std.item()])
+            for i in range(source.size(1)):
+                input, mean, std = normalize_tensor(source[:, i, :, :])
+                inputs.append(input.unsqueeze(1))  # `level` 차원을 위한 차원 추가
+                stats[:, i] = torch.tensor([mean.item(), std.item()])
 
-        inputs = torch.cat(inputs, dim=1)  # `unsqueeze`로 추가된 차원을 따라 결합
-        return inputs.view(inputs.size(0), -1), source.permute(1, 0, 2, 3).reshape(source.size(1), -1), stats
+            inputs = torch.cat(inputs, dim=1)  # `unsqueeze`로 추가된 차원을 따라 결합
+            return inputs.view(inputs.size(0), -1), source.permute(1, 0, 2, 3).reshape(source.size(1), -1), stats
 
-    else:
-        input, mean, std = normalize_tensor(source)
-        return input.view(-1), source.view(-1), torch.tensor([mean, std])
+        else:
+            input, mean, std = normalize_tensor(source)
+            return input.view(-1), source.view(-1), torch.tensor([mean, std])
     
 
 

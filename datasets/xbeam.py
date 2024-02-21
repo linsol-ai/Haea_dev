@@ -104,7 +104,7 @@ def main(argv):
           ds_stacked[new_var_name] = ds_stacked[new_var_name].drop_vars('level', errors='ignore')
     
 
-ds_stacked = ds_stacked.drop_vars(level_vars)
+  ds_stacked = ds_stacked.drop_vars(level_vars)
 
   template = (
       xbeam.make_template(source_dataset)

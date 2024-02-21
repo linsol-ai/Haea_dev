@@ -188,7 +188,7 @@ class WeatherDataset:
                 stats[:, i] = torch.tensor([mean.item(), std.item()])
 
             inputs = torch.stack(inputs, dim=0)  # dim=0 대신 dim=1을 사용하여 stack
-            return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(), stats
+            return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(2), stats
 
         else:
             input, mean, std = normalize_tensor(source)

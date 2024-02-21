@@ -14,7 +14,6 @@ class CustomDataset(Dataset):
     def __len__(self):
         return self.source_dataset.size(0)-(self.tgt_time_len)
 
-
     def get_data(self, indicate, dataset):
         result = []
         for t in indicate:
@@ -23,7 +22,6 @@ class CustomDataset(Dataset):
         # dataset.shape = (time_len, var, hidden)
         result = torch.stack(result, dim=0)
         return result
-
 
     def make_dataset(self):
         dataset_inc = []

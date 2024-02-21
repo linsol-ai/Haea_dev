@@ -238,7 +238,7 @@ class WeatherDataset:
                 # shape => (level, time, h * w) or (time, h * w)
                 input, target, mean_std = future.result()
                 if val == 'geopotential':
-                    print()
+                    print(mean_std[])
                 result[val] = (input, target, mean_std)
             
 

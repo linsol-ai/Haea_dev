@@ -11,7 +11,7 @@ import torch
 import sys,os
 from pathlib import Path
 import apache_beam as beam
-import gc
+import
 
 def normalize_tensor(tensor):
     mean = tensor.mean()

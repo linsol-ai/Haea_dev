@@ -125,7 +125,7 @@ def main(argv):
     (
         root
         | xbeam.DatasetToChunks(ds_stacked, split_vars=True)
-        | xbeam.C
+        | xbeam.ConsolidateChunks()
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, out_chunks)
     )
 

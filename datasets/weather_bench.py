@@ -240,8 +240,8 @@ class WeatherDataset:
                     target_dataset.append(target[i].unsqueeze(0))
                 mean_std_dataset.append(mean_std.swapaxes(0, 1))
             else:
-                input_dataset.append(input)
-                target_dataset.append(target)
+                input_dataset.append(input.unsqueeze(0))
+                target_dataset.append(target.unsqueeze(0))
                 mean_std_dataset.append(mean_std.unsqueeze(0))
 
 

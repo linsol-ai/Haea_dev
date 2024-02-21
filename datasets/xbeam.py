@@ -92,7 +92,7 @@ def main(argv):
 
   out_chunks['time'] = 128
   out_chunks['latitude'] = 20
-  
+  out_chunks['latitude'] = 20
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

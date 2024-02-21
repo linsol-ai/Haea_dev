@@ -38,5 +38,5 @@ class CustomDataset(Dataset):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind, self.source_dataset)
         tgt = self.get_data(tgt_ind, self.source_dataset)
-        return src, tgt, label
+        return src, tgt
 

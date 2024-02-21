@@ -250,6 +250,4 @@ if __name__ == '__main__':
     device = torch.device(device)
 
     weather = WeatherDataset(0, device=device, offline=True)
-    lat = (32, 39.3)
-    lon = (124, 131.4)
     print(weather.load(weather.VARIABLES)[0].shape)

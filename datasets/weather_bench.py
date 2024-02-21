@@ -182,7 +182,7 @@ class WeatherDataset:
         source_t, label, mean_std = self.load_data(self.datasets[0], variables)
         
 
-        return source, label, mean_std
+        return source_t, label, mean_std
 
 
 

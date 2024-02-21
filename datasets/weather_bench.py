@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from typing import Tuple,
+from typing import Tuple
 import numpy as np
 import xarray_beam as xb
 import xarray as xr
@@ -11,6 +11,7 @@ import torch
 import sys,os
 from pathlib import Path
 import apache_beam as beam
+import gc
 
 def normalize_tensor(tensor):
     mean = tensor.mean()
@@ -214,7 +215,7 @@ class WeatherDataset:
 
 
 
-    def load_data(self, dataset:xr.Dataset, variables=List, ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def load_data(self, dataset:xr.Dataset, variables=, ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         start = time.time()
         result = {}
 

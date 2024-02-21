@@ -201,7 +201,8 @@ class WeatherDataset:
 
             inputs = torch.cat(inputs, dim=0)  # dim=0 대신 dim=1을 사용하여 stack
             
-            if 
+            if source_only:
+                
             return inputs.flatten(2), source.permute(1, 0, 2, 3).flatten(2), stats
 
         else:

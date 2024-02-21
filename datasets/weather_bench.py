@@ -184,7 +184,7 @@ class WeatherDataset:
         # var_dataset.shape = (time, var * level, h * w)
         source = torch.cat([source_t, source_b], dim=2)
 
-        return source, label, mean_std
+        return source, source_t, mean_std
 
 
     def load_variable_optimized(self, data: xr.DataArray):

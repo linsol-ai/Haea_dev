@@ -176,7 +176,7 @@ class WeatherDataset:
             return input.flatten(1), target.flatten(1), torch.tensor([mean, std])
 
     
-    def load_variable_optimized(data: xr.DataArray):
+    def load_variable_optimized(self, data: xr.DataArray):
         source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용
         if len(source.shape) == 4:
             inputs = []

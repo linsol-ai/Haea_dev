@@ -192,7 +192,7 @@ class WeatherDataset:
 
         else:
             input, mean, std = normalize_tensor(source)
-            return input.view(-1), source.view(-1), torch.tensor([mean, std])
+            return input.fl, source.view(-1), torch.tensor([mean, std])
     
 
 

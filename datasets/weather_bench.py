@@ -200,7 +200,7 @@ class WeatherDataset:
             return source.permute(1, 0, 2, 3).flatten(2), stats
 
         else:
-            input, mean, std = normalize_tensor(source)
+            source, mean, std = normalize_tensor(source)
             return input.flatten(1), source.flatten(1), torch.tensor([mean, std])
 
 

@@ -208,6 +208,7 @@ class WeatherDataset:
 
         else:
             input, mean, std = normalize_tensor(source)
+            
             if source_only:
                 return input.flatten(1)
             else:

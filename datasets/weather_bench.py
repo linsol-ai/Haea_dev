@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from typing import Tuple
+from typing import Tuple, List
 import numpy as np
 import xarray_beam as xb
 import xarray as xr

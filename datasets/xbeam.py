@@ -92,7 +92,7 @@ def main(argv):
 
   out_chunks['time'] = 128
   out_chunks['latitude'] = source_dataset.latitude.size
-  out_chunks['longitude'] = source_dataset.latitude.size
+  out_chunks['longitude'] = source_dataset.longitude.size
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',

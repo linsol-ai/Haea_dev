@@ -114,7 +114,7 @@ class VariableEncoder(nn.Module):
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
         src_seq = torch.tensor([self.src_var_list for _ in range(self.batch_size)], device=device)
-        return tgt_seq
+        return src_seq, tgt_seq
 
 
     def get_pos_seq(self, batch_size, device):

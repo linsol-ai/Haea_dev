@@ -149,7 +149,7 @@ class VariableEncoder(nn.Module):
         x = x.view(x.size(0), -1, x.size(3))
         src_var_seq = torch.tensor([len(self.src_var_list) for _ in range(self.batch_size)], device=x.device)
 
-        x = self.embedding(x, src_var_seq) * math.sqrt(self.dim_model)
+        x = self.embedding(x, src_var_seq) * math.sqrt(self.in_dim)
 
         attention_maps = []
         for layer in self.transformer.encoder.layers:

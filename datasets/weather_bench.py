@@ -215,7 +215,7 @@ class WeatherDataset:
 
             return source.permute(1, 0, 2, 3).flatten(2), stats
 
-        if len(source.shape) == 4:
+        if len(source.shape) == 2:
 
         else:
             source, mean, std = normalize_tensor(source)

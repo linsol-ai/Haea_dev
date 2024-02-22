@@ -99,7 +99,7 @@ class WeatherDataset:
 
     AIR_VARIABLE = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
-    SURFACE_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation', '']
+    SURFACE_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation', 'toa_incident_solar_radiation']
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
 

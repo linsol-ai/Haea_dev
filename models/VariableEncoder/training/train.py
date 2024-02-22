@@ -99,7 +99,7 @@ def _main(args) -> None:
         trainer = pl.Trainer(
             accelerator="auto",
             devices=3,
-            strategy="ddp"
+            strategy="ddp",
             max_epochs=config.training.max_epochs,
             logger=logger,
             gradient_clip_val=config.training.gradient_clip_val,

@@ -39,7 +39,7 @@ class TrainingConfig(BaseModel):
 
     surface_variable: List[str]
 
-    only_input_variable: List[str]
+    only_input_variable: List[str] = []
 
     pressure_level: int = 37
 

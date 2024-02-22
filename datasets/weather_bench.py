@@ -109,7 +109,7 @@ class WeatherDataset:
 
     RESOLUTION = ['1440x720', '240x120']
 
-    PRESSURE_level
+    PRESSURE_LEVEL = 37
 
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 

@@ -105,7 +105,6 @@ class VariableEncoder(nn.Module):
 
         for _ in range(batch_size):
             t_seq = []
-
             for _ in range(0, self.tgt_time_len):
                 t_seq.extend(self.tgt_var_list)
 

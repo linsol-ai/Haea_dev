@@ -131,7 +131,7 @@ class VariableEncoder(nn.Module):
 
     def get_tgt_mask(self) -> torch.tensor:
         var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(var_len * self.tgt_time_len, self.var_len * self.tgt_time_len)
+        matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
 
         for i in range(self.tgt_time_len):
             for j in range(self.var_len):

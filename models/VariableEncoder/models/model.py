@@ -84,7 +84,7 @@ class VariableEncoder(nn.Module):
     def init_seq(self, device):
         print("init", device)
         self.tgt_mask = self.get_tgt_mask()
-
+         src_var_seq = torch.tensor([self.src_var_list for _ in range(self.batch_size)], device=src.device)
         self.tgt_var_seq = self.get_var_seq(self.batch_size, device)
         self.tgt_pos_seq = self.get_pos_seq(self.batch_size, device)
 

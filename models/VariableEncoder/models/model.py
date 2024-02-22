@@ -123,7 +123,7 @@ class VariableEncoder(nn.Module):
             tgt_seq = []
 
             for i in range(0, self.tgt_time_len):
-                tgt_seq.extend([ i for _ in range(len(self.tg))])
+                tgt_seq.extend([ i for _ in range(len(self.tgt_var_list))])
         
             tgt_pos_seq.append(tgt_seq)
         return torch.tensor(tgt_pos_seq, device=device)

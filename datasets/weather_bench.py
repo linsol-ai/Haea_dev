@@ -123,7 +123,7 @@ class WeatherDataset:
         self.load_dataset(dataset_path)
     
     def get_var_code(self, var_list):
-        return [     for var in var_list]
+        return [  self.V   for var in var_list]
     
     def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'

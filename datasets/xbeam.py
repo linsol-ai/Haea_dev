@@ -15,7 +15,7 @@ HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 NONE_LEVEL_VARIABLE = [
-  'toa_incident_solar_radiation', 'geopotential_at_surface', 'land_sea_mask', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation'
+  'toa_incident_solar_radiation', 'geopotential_at_surface', '', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation'
 ]
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
@@ -46,7 +46,7 @@ def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
   END_DATE = f'{FLAGS.end}-12-31'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
-  OUTPUT_PATH = f'gs://era5_dataset/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
+  OUTPUT_PATH = f'gs://era5_climate/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
 
@@ -83,8 +83,8 @@ def main(argv):
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
-        project='climate-prediction-415114',
-        temp_location='gs://era5_dataset/temp',
+        project='climate-414222',
+        temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
         machine_type='c3d-standard-90',

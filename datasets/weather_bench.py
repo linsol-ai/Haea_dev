@@ -260,7 +260,7 @@ class WeatherDataset:
         if len(constant_variables) > 0:
             constant_dataset = []
             for val in constant_variables:
-                input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
+                input, mean_std = self.load_variable_optimized(dataset[val])
                 constant_dataset.append(input)
 
             constant_dataset = torch.cat(constant_dataset, dim=0)

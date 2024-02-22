@@ -263,7 +263,7 @@ class WeatherDataset:
                 input, mean_std = self.load_variable_optimized(dataset[val])
                 constant_dataset.append(input.unsqueeze(0))
 
-            # shape = (var, )
+            # shape = (var, hidden)
             constant_dataset = torch.cat(constant_dataset, dim=0)
             constant_dataset = constant_dataset.unsqueeze(1)
             constant_dataset = constant_dataset.repeat(1, input_dataset.size(1))

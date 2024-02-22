@@ -19,7 +19,7 @@ class CustomDataset(Dataset):
             result.append(dataset[t])
 
         # dataset.shape = (time_len, var, hidden)
-        result = torch.stack(result, dim=0)
+        result = torch.concat(result, dim=0)
         return result
 
     def make_dataset(self):

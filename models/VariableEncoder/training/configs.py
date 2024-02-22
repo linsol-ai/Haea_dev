@@ -43,8 +43,6 @@ class TrainingConfig(BaseModel):
 
     constant_variable: List[str] = []
 
-    pressure_level: int = 37
-
     
 
 class TrainingRunConfig(BaseModel):

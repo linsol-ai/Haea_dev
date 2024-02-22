@@ -254,7 +254,7 @@ class WeatherDataset:
 
         static_dataset = []
         for val in static_variables:
-            input, mean_std = self.load_variable_optimized(dataset[val])
+            input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
             static_dataset.append(input)
 
 

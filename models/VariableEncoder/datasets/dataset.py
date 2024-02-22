@@ -17,6 +17,7 @@ class CustomDataset(Dataset):
     def get_data(self, indicate, dataset, source: bool = True):
         result = []
         for t in indicate:
+            
             result.append(dataset[t])
 
         # dataset.shape = (time_len, var, hidden)

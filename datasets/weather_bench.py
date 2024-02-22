@@ -131,7 +131,7 @@ class WeatherDataset:
             code.extend(air_list)
 
         for sur in surface_var:
-            idx = self.SURFACE_VARIABLE.index(air) + 1
+            idx = self.SURFACE_VARIABLE.index(air)
             code.append()
 
     

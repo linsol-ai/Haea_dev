@@ -15,7 +15,7 @@ HAS_LEVEL_VARIABLE = [
   'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 NONE_LEVEL_VARIABLE = [
-  'toa_incident_solar_radiation', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation'
+  'toa_incident_solar_radiation', 'land_sea_mask', '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'sea_surface_temperature', 'total_cloud_cover', 'total_precipitation'
 ]
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
@@ -41,12 +41,6 @@ flags.mark_flag_as_required("start")
 flags.mark_flag_as_required("end")
 flags.mark_flag_as_required("type")
 
-def standardize(data):
-    mean = data.mean(dim=['time', 'latitude', 'longitude'], keep_attrs=True)
-    std = data.std(dim=['time', 'latitude', 'longitude'], keep_attrs=True)
-    standardized_data = (data - mean) / std
-    return standardized_data, mean, std
-
 
 def main(argv):
   START_DATE = f'{FLAGS.start}-12-31'
@@ -54,7 +48,7 @@ def main(argv):
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
   OUTPUT_PATH = f'gs://era5_climate/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
-  source_dataset = xarray.open_zarr(INPUT_PATHS[FLAGS.type])
+  source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
 
   source_dataset = source_dataset[VARIABLE]
 
@@ -77,39 +71,15 @@ def main(argv):
   elif FLAGS.type == 1:
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
-
-  for val in VARIABLE:
-    standardized_data, mean, std = standardize(source_dataset[val])
-    source_dataset[val] = standardized_data
-    source_dataset[val + "_mean"] = mean
-    source_dataset[val + "_std"] = std
-
-
-  ds_stacked = source_dataset.stack(spatial=('latitude', 'longitude'))
-
-  level_vars = [var for var in source_dataset.variables if 'level' in ds_stacked[var].dims]
-
-  # 각 level 차원마다 새 변수 생성
-  for var_name in level_vars:
-      for level in ds_stacked.level:
-          # 새 변수 이름 형식: 원본변수명_level값
-          new_var_name = f"{var_name}_level_{level.values}"
-          
-          # 선택한 level에 대한 데이터를 새 변수로 할당
-          ds_stacked[new_var_name] = ds_stacked[var_name].sel(level=level)
-          
-          # 필요하다면, 새로운 변수에서 level 차원을 제거
-          ds_stacked[new_var_name] = ds_stacked[new_var_name].drop_vars('level', errors='ignore')
-    
-
-  ds_stacked = ds_stacked.drop_vars(level_vars)
-
   template = (
-      xbeam.make_template(ds_stacked)
+      xbeam.make_template(source_dataset)
   )
 
-  source_chunks = {'time':1 , 'spatial': ds_stacked.spatial.size}
-  out_chunks = {'time': 64, 'spatial': ds_stacked.spatial.size}
+  out_chunks = source_chunks.copy()
+
+  out_chunks['time'] = 64
+  out_chunks['latitude'] = source_dataset.latitude.size
+  out_chunks['longitude'] = source_dataset.longitude.size
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
@@ -124,8 +94,13 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
-        | xbeam.DatasetToChunks(ds_stacked, split_vars=True)
-        | xbeam.ConsolidateChunks(out_chunks)
+        | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
+        | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
+            source_dataset.sizes,
+            source_chunks,
+            out_chunks,
+            itemsize=itemsize,
+        )
         | xbeam.ChunksToZarr(OUTPUT_PATH, template, out_chunks)
     )
 

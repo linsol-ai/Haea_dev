@@ -30,5 +30,5 @@ training:
   only_input_variable:
     - toa_incident_solar_radiation
   constant_variable:
-    -geopotential_at_surface
+    - geopotential_at_surface
     - 

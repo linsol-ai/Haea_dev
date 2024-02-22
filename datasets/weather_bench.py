@@ -263,7 +263,7 @@ class WeatherDataset:
             mean_std_dataset.append(mean_std.swapaxes(0, 1))
 
         static_dataset = torch.cat(static_dataset, dim=0)
-        static_dataset = static_dataset.repeat()
+        static_dataset = static_dataset.repeat(1, )
 
 
         # dataset.shape => (time, var, h * w)

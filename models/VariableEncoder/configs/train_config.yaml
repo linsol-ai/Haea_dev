@@ -29,4 +29,5 @@ training:
     - total_precipitation
   only_input_variable:
     - toa_incident_solar_radiation
-  
+  constant_variable:
+    -

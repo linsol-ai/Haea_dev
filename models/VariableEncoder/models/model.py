@@ -135,7 +135,7 @@ class VariableEncoder(nn.Module):
 
         for i in range(self.tgt_time_len):
             for j in range(var_len):
-                inf_idx = min(((i)*var_len), self.var_len * self.tgt_time_len)
+                inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
                 matrix[:(i*self.var_len), inf_idx:] = float('-inf')
         return matrix
 

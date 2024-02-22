@@ -259,10 +259,10 @@ class WeatherDataset:
             constant_dataset = []
             for val in constant_variables:
                 input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
-                static_dataset.append(input)
+                constant_dataset.append(input)
 
-            static_dataset = torch.cat(static_dataset, dim=0)
-            static_dataset = static_dataset.repeat(1, input_dataset.size(1))
+            constant_dataset = torch.cat(constant_dataset, dim=0)
+            constant_dataset = constant_dataset.repeat(1, input_dataset.size(1))
             input_dataset = torch.cat([input_dataset, static_dataset], dim=0)
 
         # dataset.shape => (time, var, h * w)

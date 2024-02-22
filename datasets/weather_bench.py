@@ -264,7 +264,7 @@ class WeatherDataset:
 
         static_dataset = torch.cat(static_dataset, dim=0)
         static_dataset = static_dataset.repeat(1, input_dataset.size(1))
-        input_dataset = torch.cat()
+        input_dataset = torch.cat(input_dataset, )
 
         # dataset.shape => (time, var, h * w)
         input_dataset = torch.swapaxes(input_dataset, 0, 1)

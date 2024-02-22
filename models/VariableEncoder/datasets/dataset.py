@@ -6,7 +6,7 @@ class CustomDataset(Dataset):
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, tgt_time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)
-        self.label_dataset = label_dataset
+        self.label_dataset = label_dataset.unsqueeze(1)
         self.tgt_time_len = tgt_time_len
         self.make_dataset()
 

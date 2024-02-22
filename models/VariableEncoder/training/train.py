@@ -57,7 +57,7 @@ def _main(args) -> None:
         # shape = (time, var, hidden)
         dataset, mean_std, var_list = get_normal_dataset(config.training, train_offset, tgt_time_len)
 
-        print("DATASET SHAPE: " , shape)
+        print("DATASET SHAPE: " , dataset.source_dataset.shape)
 
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableEncoder(

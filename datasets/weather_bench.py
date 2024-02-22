@@ -265,6 +265,7 @@ class WeatherDataset:
 
             # shape = (var, hidden)
             constant_dataset = torch.cat(constant_dataset, dim=0)
+            # shape = (var, hidden)
             constant_dataset = constant_dataset.unsqueeze(1)
             constant_dataset = constant_dataset.repeat(1, input_dataset.size(1))
             input_dataset = torch.cat([input_dataset, constant_dataset], dim=0)

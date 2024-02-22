@@ -72,13 +72,13 @@ class VariableEncoder(nn.Module):
             nhead=num_heads,
             num_encoder_layers=n_encoder_layers,
             num_decoder_layers=n_decoder_layers,
-            dim_feedforward=dim_model*2,
+            dim_feedforward=in_dim*2,
             dropout=dropout,
             batch_first=True
         )
         
-        self.embedding = Embedding(max_var_len, max_time_len, dim_model, dropout)
-        self.out = LinearDecoder(dim_model, out_dim, dropout=dropout)
+        self.embedding = Embedding(max_var_len, max_time_len, in_dim, dropout)
+        self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
     def init_seq(self, device):

@@ -64,7 +64,7 @@ def _main(args) -> None:
             var_len=shape[1],
             tgt_time_len=tgt_time_len,
             dim_model=shape[2],
-            out_dim=out_dim,
+            out_dim=dataset.,
             batch_size=config.training.batch_size,
             num_heads=config.model.num_heads,
             n_encoder_layers=config.model.n_encoder_layers,

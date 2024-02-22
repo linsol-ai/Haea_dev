@@ -196,7 +196,7 @@ class WeatherDataset:
         
         # var_dataset.shape = (time, var * level, h * w)
         source = torch.cat([source_t, source_b], dim=2)
-         mean_std = mean_std[:-len(config.only_input_variable), :]
+        mean_std = mean_std[:-len(config.only_input_variable), :]
 
         return source, source_t, mean_std
 

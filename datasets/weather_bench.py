@@ -132,7 +132,7 @@ class WeatherDataset:
 
         for sur in surface_var:
             idx = len(self.AIR_VARIABLE) * level + self.SURFACE_VARIABLE.index(air)
-            code.append()
+            code.append(idx)
 
     
 

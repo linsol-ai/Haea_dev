@@ -134,7 +134,7 @@ class WeatherDataset:
             idx = len(self.AIR_VARIABLE) * level + self.SURFACE_VARIABLE.index(air)
             code.append(idx)
 
-    
+        return code
 
     def check_dataset(self, start, end):
         file_name = f'{start}-12-31_{end}-12-31.zarr'

@@ -27,7 +27,7 @@ class Embedding(nn.Module):
 
 
 class LinearEncoder(nn.Module):
-    def __init__(self, in_dim, mid_dim=32, dropout=0.1):
+    def __init__(self, in_dim,  dropout=0.1):
         """
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding

@@ -83,7 +83,7 @@ def _main(args) -> None:
         )   
 
         train_loader = DataLoader(
-            train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=3
+            train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=4
         )
         test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=8)
         val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=8)

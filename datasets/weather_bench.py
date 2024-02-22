@@ -255,6 +255,7 @@ class WeatherDataset:
         input_dataset = torch.cat(input_dataset, dim=0)
         mean_std_dataset = torch.cat(mean_std_dataset, dim=0)
 
+
         static_dataset = []
         for val in static_variables:
             input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
@@ -262,7 +263,7 @@ class WeatherDataset:
             mean_std_dataset.append(mean_std.swapaxes(0, 1))
 
         static_dataset = torch.cat(static_dataset, dim=0)
-        
+
 
 
         # dataset.shape => (time, var, h * w)

@@ -41,7 +41,7 @@ class TrainingConfig(BaseModel):
 
     only_input_variable: List[str] = []
 
-    cons_variable: List[str] = []
+    constant_variable: List[str] = []
 
     pressure_level: int = 37
 

@@ -217,7 +217,7 @@ class WeatherDataset:
 
         if len(source.shape) == 2:
             source, mean, std = normalize_tensor(source)
-            return source.flatten(1), torch.tensor([mean, std])
+            return source.flatten(0), torch.tensor([mean, std])
 
         else:
             source, mean, std = normalize_tensor(source)

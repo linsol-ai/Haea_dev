@@ -124,8 +124,7 @@ class WeatherDataset:
     
 
     def get_var_code(self, air_var, surface_var):
-        
-        return [ self.VARIABLES.index(var) for var in var_list]
+        for 
     
 
     def check_dataset(self, start, end):

@@ -122,7 +122,7 @@ class WeatherDataset:
         dataset_path = self.check_dataset(start, end)
         self.load_dataset(dataset_path)
     
-    def get_var_code
+    def get_var_code()
 
     
     def check_dataset(self, start, end):

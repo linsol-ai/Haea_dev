@@ -31,7 +31,7 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     dataset = CustomDataset(source, label, tgt_time_len, n_only_input=len(config.only_input_variable))
     src_var_list = weather.get_var_code(config.air_variable + config.surface_variable + config.only_input_variable)
     tgt_var_list = weather.get_var_code(config.air_variable + config.surface_variable)
-    return dataset, source.shape, mean_std, (src_var_list, tgt_var_list)
+    return dataset, mean_std, (src_var_list, tgt_var_list)
 
 
         

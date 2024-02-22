@@ -68,7 +68,7 @@ class VariableEncoder(nn.Module):
         self.batch_size = batch_size
 
         self.transformer = nn.Transformer(
-            d_model=dim_model,
+            d_model=in_dim,
             nhead=num_heads,
             num_encoder_layers=n_encoder_layers,
             num_decoder_layers=n_decoder_layers,

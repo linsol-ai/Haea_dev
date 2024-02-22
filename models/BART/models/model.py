@@ -67,7 +67,7 @@ class LinearDecoder(nn.Module):
             nn.LayerNorm(out_dim // 2),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
-            nn.Linear(mid_dim, out_dim),
+            nn.Linear(out_dim // 2, out_dim),
         )
 
     def forward(self, x):

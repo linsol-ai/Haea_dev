@@ -8,7 +8,7 @@ model:
 training:
   learning_rate: 4e-4
   warmup_step: 3000
-  batch_size: 4q
+  batch_size: 42
   max_epochs: 20
   gradient_clip_val: 0.5  
   tgt_time_len: 6

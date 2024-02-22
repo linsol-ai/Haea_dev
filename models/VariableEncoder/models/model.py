@@ -64,7 +64,7 @@ class VariableEncoder(nn.Module):
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
         self.tgt_time_len = tgt_time_len
-        self.dim_model = in_dim
+        self.in_dim = in_dim
         self.batch_size = batch_size
 
         self.transformer = nn.Transformer(

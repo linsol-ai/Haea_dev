@@ -11,7 +11,7 @@ training:
   batch_size: 48
   max_epochs: 20
   gradient_clip_val: 0.5  
-  tgt_time_len: 4
+  tgt_time_len: 6
   train_offset: 0
   air_variable:
     - geopotential

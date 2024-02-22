@@ -18,6 +18,7 @@ class CustomDataset(Dataset):
         result = []
         for t in indicate:
             data = dataset[t]
+            if 
             result.append(data)
 
         # dataset.shape = (time_len, var, hidden)

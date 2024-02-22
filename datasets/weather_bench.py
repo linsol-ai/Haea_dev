@@ -129,6 +129,8 @@ class WeatherDataset:
             idx = self.AIR_VARIABLE.index(air) + 1
             air_list = [ ((idx-1)*level) + i for i in range(level)]
             code.extend(air_list)
+
+        for sur in s
         
 
     

@@ -6,7 +6,6 @@ import torch.nn.functional as F
 from models.VariableEncoder.models.model import VariableEncoder
 from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
-from typing import List
 import wandb
 
 def denormalize(inputs, mean_std):

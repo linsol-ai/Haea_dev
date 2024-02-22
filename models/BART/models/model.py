@@ -60,7 +60,7 @@ class LinearDecoder(nn.Module):
         super().__init__()
         self.seq = nn.Sequential(
             nn.Linear(1, out_dim // 4),
-            nn.LayerNorm(out_dim),
+            nn.LayerNorm(out_dim // 4),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
             nn.Linear(mid_dim, mid_dim),

@@ -256,15 +256,15 @@ class WeatherDataset:
         mean_std_dataset = torch.cat(mean_std_dataset, dim=0)
 
         if len(static_variables) > 0:
-        static_dataset = []
-        for val in static_variables:
-            input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
-            static_dataset.append(input)
-            mean_std_dataset.append(mean_std.swapaxes(0, 1))
+            static_dataset = []
+            for val in static_variables:
+                input, mean_std = self.load_variable_optimized(dataset[val].unsqueeze(0))
+                static_dataset.append(input)
+                mean_std_dataset.append(mean_std.swapaxes(0, 1))
 
-        static_dataset = torch.cat(static_dataset, dim=0)
-        static_dataset = static_dataset.repeat(1, input_dataset.size(1))
-        input_dataset = torch.cat([input_dataset, static_dataset], dim=0)
+            static_dataset = torch.cat(static_dataset, dim=0)
+            static_dataset = static_dataset.repeat(1, input_dataset.size(1))
+            input_dataset = torch.cat([input_dataset, static_dataset], dim=0)
 
 
         # dataset.shape => (time, var, h * w)

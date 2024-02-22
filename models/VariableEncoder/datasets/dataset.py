@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
         result = []
         for t in indicate:
             data = dataset[t]
-            result.append(dataset[t])
+            result.append(data)
 
         # dataset.shape = (time_len, var, hidden)
         result = torch.concat(result, dim=0)

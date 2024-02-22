@@ -61,7 +61,7 @@ def _main(args) -> None:
 
         logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
         model = VariableEncoder(
-            src_var_list=
+            src_var_list=var_list[0]
             tgt_time_len=tgt_time_len,
             in_dim=dataset.source_dataset.size(-1),
             out_dim=dataset.label_dataset.size(-1),

@@ -176,7 +176,7 @@ class WeatherDataset:
     
 
     def load(self, air_variable, surface_variable, only_input_variable):
-        variables = air_variable + surface_variable + 
+        variables = air_variable + surface_variable + only_input_variable
         source_t, mean_std = self.load_data(self.datasets[0], variables)
         source_b, _ = self.load_data(self.datasets[1], variables)
         

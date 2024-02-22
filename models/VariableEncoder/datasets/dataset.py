@@ -19,7 +19,7 @@ class CustomDataset(Dataset):
         for t in indicate:
             data = dataset[t]
             if not source:
-                data = data[:, :-self.n_only_input, ]
+                data = data[:, :-self.n_only_input, :]
             result.append(data)
 
         # dataset.shape = (time_len, var, hidden)

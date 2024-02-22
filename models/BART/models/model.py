@@ -36,7 +36,7 @@ class LinearEncoder(nn.Module):
         super().__init__()
         self.seq = nn.Sequential(
             nn.Linear(in_dim, in_dim // 2),
-            nn.LayerNorm(mid_dim),
+            nn.LayerNorm(in_dim // 2),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
             nn.Linear(mid_dim, mid_dim),

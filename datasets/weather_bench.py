@@ -189,7 +189,7 @@ class WeatherDataset:
             return input.flatten(1), torch.tensor([mean, std])
     
 
-    def load(self, air_variable, surface_variable, only_input_variable=[], static_variables=[]):
+    def load(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[]):
         variables = air_variable + surface_variable + only_input_variable
         source_t, mean_std = self.load_data(self.datasets[0], variables, static_variables)
         source_b, _ = self.load_data(self.datasets[1], variables, static_variables)

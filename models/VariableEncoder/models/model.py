@@ -109,7 +109,7 @@ class VariableEncoder(nn.Module):
             t_seq = []
 
             for _ in range(0, self.tgt_time_len):
-                t_seq.extend(self.var_seq)
+                t_seq.extend(self.tr)
 
             tgt_seq.append(t_seq)
         

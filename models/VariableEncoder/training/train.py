@@ -63,7 +63,7 @@ def _main(args) -> None:
         model = VariableEncoder(
             var_len=shape[1],
             tgt_time_len=tgt_time_len,
-            in_dim=dataset.source_dataset.,
+            in_dim=dataset.source_dataset.size(-1),
             out_dim=dataset.label_dataset.size(-1),
             batch_size=config.training.batch_size,
             num_heads=config.model.num_heads,

@@ -28,6 +28,7 @@ class TrainModule(pl.LightningModule):
         super().__init__()
         self.max_iters = max_iters
         self.model = model
+        self.pressure_level = pressure_level
         self.mean_std = mean_std
         self.config = TrainingConfig() if config is None else config
         self.save_hyperparameters()

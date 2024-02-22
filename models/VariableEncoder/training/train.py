@@ -55,7 +55,7 @@ def _main(args) -> None:
         tgt_time_len = 1 * config.training.tgt_time_len
 
         # shape = (time, var, hidden)
-        dataset, shape, mean_std, out_dim = get_normal_dataset(config.training, train_offset, tgt_time_len)
+        dataset, shape, mean_std, var_list = get_normal_dataset(config.training, train_offset, tgt_time_len)
 
         print("DATASET SHAPE: " , shape)
 

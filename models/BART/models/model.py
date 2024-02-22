@@ -40,10 +40,10 @@ class LinearEncoder(nn.Module):
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
             nn.Linear(in_dim // 2, in_dim // 4),
-            nn.LayerNorm(mid_dim),
+            nn.LayerNorm(in_dim // 4),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
-            nn.Linear(mid_dim, 1),
+            nn.Linear(in_dim // 4, 1),
         )
 
     def forward(self, x):

@@ -127,7 +127,7 @@ class WeatherDataset:
         code = []
         for air in air_var:
             idx = self.VARIABLES.index(air) + 1
-            air_list = 
+            air_list = [for i in range()]
     
 
     def check_dataset(self, start, end):

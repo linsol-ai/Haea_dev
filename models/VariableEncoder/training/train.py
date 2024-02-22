@@ -28,7 +28,6 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     weather = WeatherDataset(year_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     source, label, mean_std = weather.load(config.air_variable, config.surface_variable, config.only_input_variable)
-    
     dataset = CustomDataset(source, label, tgt_time_len, n_only_input=len(config.only_input_variable))
     return dataset, source.shape, mean_std, 
 

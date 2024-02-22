@@ -62,7 +62,7 @@ class VariableEncoder(nn.Module):
                  max_len=4*10, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
         self.src_var_seq = src_var_seq
-        self.var_len = var_len
+        self.tgt_var_seq = tgt_var_seq
         self.tgt_time_len = tgt_time_len
         self.dim_model = dim_model
         self.batch_size = batch_size

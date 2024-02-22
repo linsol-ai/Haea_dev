@@ -254,7 +254,7 @@ class WeatherDataset:
 
         static_dataset = []
         for val in static_variables:
-            
+            input, mean_std = 
 
 
         input_dataset = torch.cat(input_dataset, dim=0)

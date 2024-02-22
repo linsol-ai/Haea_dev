@@ -31,4 +31,4 @@ training:
     - toa_incident_solar_radiation
   constant_variable:
     - geopotential_at_surface
-    - 
+    - land_sea_mask

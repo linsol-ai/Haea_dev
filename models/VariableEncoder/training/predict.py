@@ -34,4 +34,4 @@ class VariablePredictor:
             raise Exception("Not exists VariableEncoder model")
     
     def predict(self, dataset: torch.Tensor) -> torch.Tensor:
-        dataset = 
+        dataset = EncoderDataset(da)

@@ -10,7 +10,6 @@ import math
 
 
 class BARTDenoisingDataset(Dataset):
-
     def __init__(
         self,
         dataset,

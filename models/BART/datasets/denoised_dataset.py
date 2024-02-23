@@ -34,12 +34,6 @@ class BARTDenoisingDataset(Dataset):
         self.random_ratio = args.mask_random
         self.insert_ratio = args.insert
 
-        if args.bpe != 'gpt2':
-            self.full_stop_index = self.vocab.index(".")
-        else:
-            assert args.bpe == 'gpt2'
-            self.full_stop_index = self.vocab.index('13')
-
         self.tab_sep_index = self.vocab.index('\t')
         self.replace_length = args.replace_length
         if not self.replace_length in [-1, 0, 1]:

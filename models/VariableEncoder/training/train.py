@@ -40,7 +40,6 @@ class DataModule(pl.LightningDataModule):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)
-        self.prepare_data_per_node = True
 
     def setup(self, stage: str):
         train_ds, test_ds = torch.utils.data.random_split(

@@ -219,7 +219,7 @@ class WeatherDataset:
 
         else:
             source, mean, std = normalize_tensor(source)
-            return source.view(source.size(0),), torch.tensor([mean, std])
+            return source.view(source.size(0), -1), torch.tensor([mean, std])
 
 
     def load_data(self, dataset:xr.Dataset, variables, constant_variables) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:

@@ -10,22 +10,6 @@ import math
 
 
 class BARTDenoisingDataset(Dataset):
-    """
-    A wrapper around TokenBlockDataset for BART dataset.
-
-    Args:
-        dataset (TokenBlockDataset): dataset to wrap
-        sizes (List[int]): sentence lengths
-        vocab (~fairseq.data.Dictionary): vocabulary
-        mask_idx (int): dictionary index used for masked token
-        mask_whole_words: only mask whole words. This should be a byte mask
-            over vocab indices, indicating whether it is the beginning of a
-            word. We will extend any mask to encompass the whole word.
-        shuffle (bool, optional): shuffle the elements before batching.
-          Default: ``True``
-        seed: Seed for random number generator for reproducibility.
-        args: argparse arguments.
-    """
 
     def __init__(
         self,

@@ -35,7 +35,7 @@ def get_normal_dataset(config: TrainingConfig):
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
 
-class MNISTDataModule(pl.LightningDataModule):
+class DataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig, batch_size: int = 32):
         super().__init__()
         self.config = config

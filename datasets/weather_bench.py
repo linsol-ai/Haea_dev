@@ -226,7 +226,7 @@ class WeatherDataset:
         if len(constant_variables) > 0:
             constant_dataset = []
             for val in constant_variables:
-                input, mean_std = self.load_variable_optimized(dataset[val])
+                input, _ = self.load_variable_optimized(dataset[val])
                 constant_dataset.append(input.unsqueeze(0))
 
             # shape = (var, hidden)

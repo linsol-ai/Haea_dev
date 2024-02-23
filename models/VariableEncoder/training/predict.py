@@ -23,5 +23,5 @@ class VariablePredictor:
                 self.model = model
         else:
             raise Exception("Not exists VariableEncoder model")
-
-=
+    
+    

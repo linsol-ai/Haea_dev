@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 import math
 
 
-class BARTDenoisingDataset(FairseqDataset):
+class BARTDenoisingDataset(Dataset):
     """
     A wrapper around TokenBlockDataset for BART dataset.
 

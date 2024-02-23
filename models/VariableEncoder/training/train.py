@@ -91,7 +91,7 @@ logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.pa
 model = VariableEncoder(
     src_var_list=var_list[0],
     tgt_var_list=var_list[1],
-    tgt_time_len=tgt_time_len,
+    tgt_time_len=,
     in_dim=dataset.source_dataset.size(-1),
     out_dim=dataset.label_dataset.size(-1),
     batch_size=config.training.batch_size,

@@ -47,6 +47,7 @@ class LinearEncoder(nn.Module):
         )
 
     def forward(self, x):
+       # x.shape = (batch,)
        return self.seq(x)
     
 

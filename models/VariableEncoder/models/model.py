@@ -138,7 +138,7 @@ class VariableEncoder(nn.Module):
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
         return matrix
     
-    def encode
+    def encode(self, ):
 
     
     @torch.no_grad()

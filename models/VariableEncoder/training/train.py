@@ -126,4 +126,4 @@ if __name__=='__main__':
         precision="bf16-mixed"
     )
 
-    trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)
+    trainer.fit(model_pl, da)

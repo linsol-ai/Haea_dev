@@ -33,10 +33,6 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     tgt_var_list = weather.get_var_code(config.air_variable, config.surface_variable)
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
-
-def _main(args) -> None:
     
-
-
 if __name__ == "__main__":
     app.run(_main)

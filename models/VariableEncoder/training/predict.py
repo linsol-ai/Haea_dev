@@ -11,10 +11,7 @@ from training.lightning import TrainModule
 
 class EncoderDataset(Dataset):
         def __init__(self, data_array: torch.Tensor):
-            if len(data_array.shape) == 5:
-                self.data_array = data_array.view(-1, 1, data_array.size(3), data_array.size(4))
-            else:
-                self.data_array = data_array
+            self.
 
         def __len__(self):
             return len(self.data_array)

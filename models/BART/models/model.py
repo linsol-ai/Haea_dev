@@ -23,7 +23,7 @@ class PositionalEmbedding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        return self.pe[:, :x.size(1)]
+        return self.dropout(self.pe[:, :x.size(1)]
 
 
 class LinearEncoder(nn.Module):

@@ -9,7 +9,19 @@ from pathlib import Path
 import os
 from training.lightning import TrainModule
 
+class ImageDataset(Dataset):
+        def __init__(self, data_array: torch.Tensor):
+            if len(data_array.shape) == 5:
+                self.data_array = data_array.view(-1, 1, data_array.size(3), data_array.size(4))
+            else:
+                self.data_array = data_array
 
+        def __len__(self):
+            return len(self.data_array)
+
+        def __getitem__(self, idx):
+            sample = self.data_array[idx]
+            return sample
 
 class VariablePredictor:
     def __init__(self, model_path: str, batch_size: int):

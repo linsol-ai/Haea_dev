@@ -46,3 +46,4 @@ class VariablePredictor:
             predictions.append(predict)
         
         predictions = torch.cat(predictions, dim=0)
+        

@@ -102,8 +102,6 @@ model = VariableEncoder(
     dropout=config.model.dropout
 )
 
-# Use a custom dataset class with proper transformations
-
 print("setting lr rate: ", config.training.learning_rate)
 
 model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=config.training.max_epochs*len(train_loader), 

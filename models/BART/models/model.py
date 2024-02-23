@@ -101,7 +101,6 @@ class Haea(nn.Module):
     def init_seq(self, device):
         print("init", device)
         self.tgt_mask = self.get_tgt_mask()
-        self.tgt_pos_seq = self.get_pos_seq(self.batch_size, device)
 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):

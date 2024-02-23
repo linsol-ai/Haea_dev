@@ -34,7 +34,6 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
     
-if __name__ == "__main__":
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
     
     try:

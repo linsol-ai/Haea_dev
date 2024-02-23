@@ -5,7 +5,7 @@ import math
 
 
 class PositionalEncoding(nn.Module):
-    def __init__(self, dim_model, dropout_p, max_len):
+    def __init__(self, dim_model, max_len):
         super().__init__()
         
         self.dropout = nn.Dropout(dropout_p)

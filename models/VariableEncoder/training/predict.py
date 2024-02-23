@@ -23,4 +23,4 @@ class VariablePredictor:
         else:
             raise Exception("Not exists VariableEncoder model")
 
-        return models
+=

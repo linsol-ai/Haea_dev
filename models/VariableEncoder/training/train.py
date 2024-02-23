@@ -41,6 +41,7 @@ class MNISTDataModule(pl.LightningDataModule):
         self.config = config
         self.batch_size = batch_size
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)
+        self.prepare_data_per_node = True
 
     def setup(self, stage: str):
         dataset, mean_std, var_list = get_normal_dataset(self.config)

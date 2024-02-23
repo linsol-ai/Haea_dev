@@ -50,7 +50,8 @@ class MNISTDataModule(pl.LightningDataModule):
         val_ds, test_ds = torch.utils.data.random_split(
             test_ds,
             [0.3, 0.7],
-        )  
+        )
+        self.
 
     def train_dataloader(self):
         return DataLoader(self.mnist_train, batch_size=self.batch_size)

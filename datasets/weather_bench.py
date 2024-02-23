@@ -226,6 +226,8 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
 
+        result = [self.load_variable_optimized(dataset[val]) for val in tqdm(variables)]
+
         with ThreadPoolExecutor() as executor:
             futures = {}
 

@@ -8,6 +8,8 @@ import torch
 from torch.utils.data import Dataset
 import math
 
+class Vocab
+
 
 class BARTDenoisingDataset(Dataset):
     def __init__(

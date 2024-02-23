@@ -45,5 +45,6 @@ class VariablePredictor:
             predict = encoder(batch.to(self.device)).cpu()
             predictions.append(predict)
         
+        # 
         predictions = torch.cat(predictions, dim=0)
-        
+

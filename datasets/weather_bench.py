@@ -198,7 +198,7 @@ class WeatherDataset:
         source = torch.cat([source_t, source_b], dim=2)
         mean_std = mean_std[:-len(only_input_variable), :]
 
-        return source, mean_std
+        return source, source_t, mean_std
 
 
     def load_variable_optimized(self, data: xr.DataArray):

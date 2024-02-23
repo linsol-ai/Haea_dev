@@ -98,7 +98,6 @@ class VariableEncoder(nn.Module):
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
         return out
-    
 
     def get_var_seq(self, batch_size, device):
         tgt_seq = []

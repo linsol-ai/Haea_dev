@@ -14,7 +14,6 @@ class EncoderDataset(Dataset):
             self.data_array = data_array
         def __len__(self):
             return len(self.data_array)
-
         def __getitem__(self, idx):
             sample = self.data_array[idx]
             return sample

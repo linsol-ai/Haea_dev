@@ -82,7 +82,7 @@ class Haea(nn.Module):
         self.dim_model = dim_model
         self.batch_size = batch_size
 
-        self.transformer = nn.Transformer(
+        self.bart = nn.Transformer(
             d_model=dim_model,
             nhead=num_heads,
             num_encoder_layers=n_encoder_layers,

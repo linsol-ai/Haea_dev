@@ -3,7 +3,7 @@
 model:
   num_heads: 20
   n_encoder_layers: 6
-  n_decoder_layers: 3
+  n_decoder_layers: 6
   dropout: 0.1
 training:
   learning_rate: 1e-5

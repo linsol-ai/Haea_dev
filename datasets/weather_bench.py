@@ -223,7 +223,7 @@ class WeatherDataset:
         
     def load_data_single(self, dataset: xr.Dataset, variables, constant_variables):
         start = time.time()
-        result = {}
+        result = []
 
         print("==== LOAD DATASET ====\n", dataset)
 

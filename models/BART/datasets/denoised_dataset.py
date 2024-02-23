@@ -316,15 +316,6 @@ class BARTDenoisingDataset(FairseqDataset):
         source = source[to_keep]
         return source
 
-    def collater(self, samples):
-        """Merge a list of samples to form a mini-batch.
-        Args:
-            samples (List[dict]): samples to collate
-        Returns:
-            dict: a mini-batch of data
-        """
-        return collate(samples, self.vocab.pad(), self.vocab.eos(), self.vocab)
-
     def num_tokens(self, index):
         """Return the number of tokens in a sample. This value is used to
         enforce ``--max-tokens`` during batching."""

@@ -168,27 +168,6 @@ class WeatherDataset:
             self.datasets.append(ds)
 
 
-    def load_variable(self, data: xr.DataArray):
-        source = data.to_numpy()
-        source = torch.from_numpy(source)
-        # data.shape = (time, width, height)
-        # or data.shape = (time, level, width, height)
-
-        if len(source.shape) == 4:
-            stats = torch.empty((source.shape[1], 2), dtype=torch.float32)  # Efficient allocation for means and stds
-
-            for i in range(source.size(1)):
-                input, mean, std = normalize_tensor(source[:, i, :, :])
-                source[:, i, :, :] = input
-                stats[i] = torch.tensor([mean.item(), std.item()])
-
-            return source.permute(1, 0, 2, 3).reshape(source.shape[1], -1), stats
-
-        else:
-            input, mean, std = normalize_tensor(source)
-            return input.flatten(1), torch.tensor([mean, std])
-    
-
     def load(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[]):
         variables = air_variable + surface_variable + only_input_variable
         source_t, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)

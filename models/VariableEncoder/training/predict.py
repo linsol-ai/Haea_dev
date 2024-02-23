@@ -16,7 +16,7 @@ class VariablePredictor:
     
     def load_models(self, model_path):
         folder_path = Path(os.path.join(model_path, key))
-            first_file = next(folder_path.iterdir(), None)
+        first_file = next(folder_path.iterdir(), None)
             if first_file:
                 print(f"====== LOAD MODELS : {key} =======")
                 model = TrainModule.load_from_checkpoint(first_file)

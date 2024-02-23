@@ -75,6 +75,7 @@ class LinearDecoder(nn.Module):
 
     def forward(self, x):
        # x.shape = (batch, time_len, hidden)
+       x = x
        return self.seq(x)
 
 

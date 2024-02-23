@@ -45,7 +45,7 @@ except FileNotFoundError:
 except yaml.YAMLError:
     logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
 except ValidationError as e:
-logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
+    logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
 else:
 pl.seed_everything(config.seed)
 

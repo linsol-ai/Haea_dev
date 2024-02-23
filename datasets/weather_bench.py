@@ -183,7 +183,7 @@ class WeatherDataset:
     def load_variable_optimized(self, data: xr.DataArray):
         source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용
         if len(source.shape) == 4:
-            stats = torch.empty((source.shape[1], source.shape[1]), dtype=torch.float32)  # means와 stds를 담을 텐서 생성
+            stats = torch.empty((source.shape[1], 2), dtype=torch.float32)  # means와 stds를 담을 텐서 생성
 
             for i in range(source.size(1)):
                 input, mean, std = normalize_tensor(source[:, i, :, :])

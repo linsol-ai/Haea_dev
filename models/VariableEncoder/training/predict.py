@@ -14,7 +14,7 @@ class VariablePredictor:
         self.model_path = model_path
         self.batch_size
     
-    def load_models(self, variables, model_path):
+    def load_models(self, model_path):
         models = {}
         for key in variables:
             folder_path = Path(os.path.join(model_path, key))

@@ -9,7 +9,7 @@ from pathlib import Path
 import os
 from training.lightning import TrainModule
 
-class ImageDataset(Dataset):
+class Dataset(Dataset):
         def __init__(self, data_array: torch.Tensor):
             if len(data_array.shape) == 5:
                 self.data_array = data_array.view(-1, 1, data_array.size(3), data_array.size(4))

@@ -36,8 +36,8 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     
 config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
     
-    try:
-        with open(config_path) as f:
+try:
+with open(config_path) as f:
             config_dict = yaml.safe_load(f)
             config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
     except FileNotFoundError:

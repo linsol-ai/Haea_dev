@@ -78,8 +78,8 @@ train_ds, test_ds = torch.utils.data.random_split(
     [0.8, 0.2],
 )
 val_ds, test_ds = torch.utils.data.random_split(
-test_ds,
-[0.3, 0.7],
+    test_ds,
+    [0.3, 0.7],
 )   
 
 train_loader = DataLoader(

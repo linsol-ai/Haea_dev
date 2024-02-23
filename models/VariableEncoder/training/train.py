@@ -36,7 +36,7 @@ def get_normal_dataset(config: TrainingConfig):
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: TrainingConfig, batch_size: int = 32):
+    def __init__(self, config: TrainingConfig):
         super().__init__()
         self.config = config
         self.batch_size = batch_size

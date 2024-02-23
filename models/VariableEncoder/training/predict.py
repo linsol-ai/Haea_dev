@@ -40,7 +40,7 @@ class VariablePredictor:
         data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False, num_workers=8)
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
-            # shape = (batch, hidden_dim)
+            # shape = (batch, var_len, hidden)
             predict = self.model.encode(batch.to(self.device))
             predict = predict
             predictions.append(predict)

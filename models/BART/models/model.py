@@ -50,7 +50,7 @@ class LinearEncoder(nn.Module):
        # x.shape = (batch, time_len, var_len, hidden)
        x = x.swapaxes(2, 3)
        # x.shape = (batch, time_len, hidden)
-       return self.seq(x).unsqueeze(-1)
+       return self.seq(x).sq(-1)
     
 
 class LinearDecoder(nn.Module):

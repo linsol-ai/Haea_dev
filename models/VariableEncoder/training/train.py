@@ -45,7 +45,7 @@ class MNISTDataModule(pl.LightningDataModule):
 
     def setup(self, stage: str):
         train_ds, test_ds = torch.utils.data.random_split(
-            dataset,
+            self.dataset,
             [0.8, 0.2],
         )
         val_ds, test_ds = torch.utils.data.random_split(

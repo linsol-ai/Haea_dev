@@ -36,4 +36,4 @@ class VariablePredictor:
     def predict(self, dataset: torch.Tensor) -> torch.Tensor:
         dataset = EncoderDataset(dataset)
         encoder = self.model.model.transformer.encoder
-        data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True, drop_last=True, num_workers=8)
+        data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False, drop_last=True, num_workers=8)

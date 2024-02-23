@@ -42,7 +42,8 @@ class VariablePredictor:
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
             # shape = (batch, hidden_dim)
-            predict = encoder(batch.to(self.device)).cpu()
+            predict = encoder(batch.to(self.device))
+            
             predictions.append(predict)
         
         # predictions.shape = (time, )

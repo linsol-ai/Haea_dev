@@ -37,7 +37,7 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
 class MNISTDataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig, batch_size: int = 32):
         super().__init__()
-        self.data_dir = data_dir
+        self.config = config
         self.batch_size = batch_size
 
     def setup(self, stage: str):

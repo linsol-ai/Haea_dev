@@ -36,7 +36,7 @@ class Embedding(nn.Module):
         :param dropout: dropout rate
         """
         super().__init__()
-        self.position = PositionalEmbedding(time_len, embed_size)
+        self.position = PositionalEncoding(time_len, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 

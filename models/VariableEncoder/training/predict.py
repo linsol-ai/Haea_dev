@@ -22,6 +22,5 @@ class VariablePredictor:
                 self.model = model
         else:
             assert "Not exists VariableEncoder model"
-            print("Not exists VariableEncoder model")
 
         return models

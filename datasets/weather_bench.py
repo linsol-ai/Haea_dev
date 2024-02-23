@@ -225,7 +225,7 @@ class WeatherDataset:
         start = time.time()
         print("==== LOAD DATASET ====\n", dataset)
 
-        results = {val: self.load_variable_optimized(dataset[val]) for val in variables + constant_variables}
+        results = {val: self.load_variable_optimized(dataset[val]) for val in tqdm(variables + constant_variables}
 
         # Efficiently combine all tensors without unnecessary unsqueeze and cat operations
         input_dataset = torch.stack([results[val][0] for val in variables])

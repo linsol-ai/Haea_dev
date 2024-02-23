@@ -112,4 +112,3 @@ if __name__=='__main__':
     )
 
     trainer.fit(model_pl, train_dataloaders=train_loader, val_dataloaders=val_loader)
-    trainer.test(model_pl, dataloaders=test_loader)

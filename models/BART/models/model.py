@@ -115,9 +115,6 @@ class Haea(nn.Module):
         # stage 1. src.shape = (batch, time_len, var_len, hidden), tgt.shape = (batch, time_len, var_len, hidden)
         # stage 2. src.shape = (batch, time_len, hidden), tgt.shape = (batch, time_len, hidden)
         src, tgt = self.encoder(src), self.encoder(tgt)
-
-        src_var_seq = torch.tensor([self.var_seq for _ in range(self.batch_size)], device=src.device)
-
         src = self.embedding(src, src_var_seq) * math.sqrt(self.dim_model)
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)

@@ -35,3 +35,4 @@ class VariablePredictor:
     
     def predict(self, dataset: torch.Tensor) -> torch.Tensor:
         dataset = EncoderDataset(dataset)
+        

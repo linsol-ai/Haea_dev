@@ -140,7 +140,8 @@ class VariableEncoder(nn.Module):
     
 
     def encode(self, x : torch.Tensor) -> torch.Tensor:
-        
+        src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
+        src = self.embedding(src, self.src_var_seq) * math.sqrt(self.in_dim)
     
     @torch.no_grad()
     def get_attention_maps(self, x: torch.Tensor):

@@ -48,7 +48,7 @@ class LinearEncoder(nn.Module):
 
     def forward(self, x: torch.Tensor):
        # x.shape = (batch, time_len, var_len, hidden)
-       x = x.swapaxes()
+       x = x.swapaxes(2, 3)
        return self.seq(x)
     
 

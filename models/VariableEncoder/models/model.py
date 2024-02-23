@@ -144,7 +144,7 @@ class VariableEncoder(nn.Module):
         return self.transformer.encoder(x)
     
     @torch.no_grad()
-    def get_attention_maps(self, x: torch.Tensor):
+    def get_attention_maps(self, x: torch.Tensor) -> torch.Tensor:
         """Function for extracting the attention matrices of the whole Transformer for a single batch.
 
         Input arguments same as the forward pass.

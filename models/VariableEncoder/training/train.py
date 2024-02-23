@@ -44,7 +44,6 @@ class MNISTDataModule(pl.LightningDataModule):
         self.prepare_data_per_node = True
 
     def setup(self, stage: str):
-        dataset, mean_std, var_list = get_normal_dataset(self.config)
         train_ds, test_ds = torch.utils.data.random_split(
             dataset,
             [0.8, 0.2],

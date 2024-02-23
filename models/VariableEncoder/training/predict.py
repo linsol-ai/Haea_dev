@@ -9,6 +9,8 @@ from pathlib import Path
 import os
 from training.lightning import TrainModule
 
+
+
 class VariablePredictor:
     def __init__(self, model_path: str, batch_size: int):
         self.model_path = model_path

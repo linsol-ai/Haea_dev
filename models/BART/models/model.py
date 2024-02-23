@@ -119,7 +119,7 @@ class Haea(nn.Module):
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.dim_model)
         tgt_mask = self.tgt_mask.to(src.device)
 
-        transformer_out = self.b(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
+        transformer_out = self.bart(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
         return out
     

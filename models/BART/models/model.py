@@ -22,7 +22,7 @@ class PositionalEmbedding(nn.Module):
         pe = pe.unsqueeze(0)
         self.register_buffer('pe', pe)
 
-    def forward(self, x):
+    def forward(self, x) -> torch.Tensor:
         return self.dropout(x + self.pe[:, :x.size(1)])
 
 

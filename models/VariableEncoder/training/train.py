@@ -104,21 +104,6 @@ model = VariableEncoder(
 
 # Use a custom dataset class with proper transformations
 
-train_ds, test_ds = torch.utils.data.random_split(
-    dataset,
-    [0.8, 0.2],
-)
-val_ds, test_ds = torch.utils.data.random_split(
-    test_ds,
-    [0.3, 0.7],
-)   
-
-train_loader = DataLoader(
-    train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=1
-)
-test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=1)
-val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=1)
-
 print("setting lr rate: ", config.training.learning_rate)
 
 model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=config.training.max_epochs*len(train_loader), 

@@ -42,7 +42,7 @@ class MNISTDataModule(pl.LightningDataModule):
         self.batch_size = batch_size
 
     def setup(self, stage: str):
-        dataset, mean_std, var_list = get_normal_dataset(self.training)
+        dataset, mean_std, var_list = get_normal_dataset(self.config)
         self.mnist_test = MNIST(self.data_dir, train=False)
         self.mnist_predict = MNIST(self.data_dir, train=False)
         mnist_full = MNIST(self.data_dir, train=True)

@@ -188,7 +188,7 @@ class WeatherDataset:
             for i in range(source.size(1)):
                 input, mean, std = normalize_tensor(source[:, i, :, :])
                 source[:, i, :, :] = input
-                stats[:, i] = torch.tensor([mean.item(), std.item()])
+                stats[i, :] = torch.tensor([mean.item(), std.item()])
 
             return source.permute(1, 0, 2, 3).flatten(2), stats
 

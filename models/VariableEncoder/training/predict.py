@@ -30,7 +30,7 @@ class VariablePredictor:
         folder_path = Path(model_path)
         first_file = next(folder_path.iterdir(), None)
         if first_file:
-                model = TrainModule.load_from_checkpoint(first_file)
+                model = TrainModule.load_from_checkpoint(first_file).model
                 self.model = model
         else:
             raise Exception("Not exists VariableEncoder model")

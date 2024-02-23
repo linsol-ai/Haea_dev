@@ -42,7 +42,7 @@ class VariablePredictor:
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):
             # shape = (batch, hidden_dim)
-            predict = encoder(batch.to(self.device))
+            predict = self.model.encode(batch.to(self.device))
             predict = predict
             predictions.append(predict)
         

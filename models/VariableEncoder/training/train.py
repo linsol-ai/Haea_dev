@@ -81,8 +81,6 @@ except ValidationError as e:
 else:
     pl.seed_everything(config.seed)
 
-
-
 data_module = DataModule(config.training)
 var_list = data_module.var_list
 dataset = data_module.dataset

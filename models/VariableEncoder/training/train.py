@@ -94,7 +94,7 @@ model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=config.training
 pressure_level=WeatherDataset.PRESSURE_LEVEL, config=config.training)
 
 summary = ModelSummary(model_pl, max_depth=-1)
-    print(summary)
+print(summary)
 
 if __name__=='__main__':
     trainer = pl.Trainer(

@@ -140,7 +140,7 @@ class VariableEncoder(nn.Module):
     
 
     def encode(self, x : torch.Tensor) -> torch.Tensor:
-
+        
     
     @torch.no_grad()
     def get_attention_maps(self, x: torch.Tensor):

@@ -21,6 +21,6 @@ class VariablePredictor:
                 model = TrainModule.load_from_checkpoint(first_file)
                 self.model = model
         else:
-            print("not exists variableencoder model")
+            print("not exists variable encoder model")
 
         return models

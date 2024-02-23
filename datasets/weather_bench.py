@@ -175,14 +175,16 @@ class WeatherDataset:
         # or data.shape = (time, level, width, height)
 
         if len(source.shape) == 4:
-            stats = torch.empty((source.shape[1], 2), dtype=torch.float32)  # Efficient allocation for means and stds
+            inputs = []
+            means = []
+            stds = []
+            for i in range(source.size(1)):
+                input, mean, std = normalize_tensor(source[:, i, : , :])
+                inputs.append(input)
+                means.append(mean)
+                stds.append(std)
 
-        for i in range(source.size(1)):
-            input, mean, std = normalize_tensor(source[:, i, :, :])
-            source[:, i, :, :] = input
-            stats[i] = torch.tensor([mean.item(), std.item()])
-
-        return source.permute(1, 0, 2, 3).reshape(source.shape[1], -1), stats
+            return torch.stack(inputs, dim=0).flatten(2), torch.tensor([means, stds])
 
         else:
             input, mean, std = normalize_tensor(source)

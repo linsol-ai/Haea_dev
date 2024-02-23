@@ -46,7 +46,7 @@ class LinearEncoder(nn.Module):
             nn.Linear(in_dim // 4, 1),
         )
 
-    def forward(self, x: torch.Tensor)-> torch.Tensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
        # x.shape = (batch, time_len, var_len, hidden)
        x = x.swapaxes(2, 3)
        # x.shape = (batch, time_len, hidden)

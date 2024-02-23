@@ -11,7 +11,7 @@ from training.lightning import TrainModule
 
 class EncoderDataset(Dataset):
         def __init__(self, data_array: torch.Tensor):
-            self.
+            self.data_array = data_array
 
         def __len__(self):
             return len(self.data_array)

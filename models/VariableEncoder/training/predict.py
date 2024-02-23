@@ -37,4 +37,10 @@ class VariablePredictor:
         dataset = EncoderDataset(dataset)
         encoder = self.model.model.transformer.encoder
         data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False, num_workers=8)
+        predictions = []
+        for i, batch in enumerate(tqdm.tqdm(data_loader)):
+            # shape = (batch, hidden_dim)
+            predict = model(batch.to(self.device)).cpu()
+            predictions.append(predict)
         
+        predictions = torch.cat(predictions, dim=0)

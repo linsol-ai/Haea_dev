@@ -115,7 +115,6 @@ if __name__=='__main__':
         accelerator="auto",
         devices=-1,
         strategy="ddp",
-        prepare_data_per_node=False,
         max_epochs=config.training.max_epochs,
         logger=logger,
         gradient_clip_val=config.training.gradient_clip_val,

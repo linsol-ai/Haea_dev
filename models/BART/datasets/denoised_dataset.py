@@ -8,67 +8,6 @@ import torch
 import math
 
 
-def collate(
-    samples,
-    pad_idx,
-    eos_idx,
-    vocab,
-    left_pad_source=False,
-    left_pad_target=False,
-    input_feeding=True,
-):
-    assert input_feeding
-    if len(samples) == 0:
-        return {}
-
-    def merge(key, left_pad, move_eos_to_beginning=False):
-        return data_utils.collate_tokens(
-            [s[key] for s in samples],
-            pad_idx, eos_idx, left_pad, move_eos_to_beginning,
-        )
-
-    id = torch.LongTensor([s['id'] for s in samples])
-    src_tokens = merge('source', left_pad=left_pad_source)
-    # sort by descending source length
-    src_lengths = torch.LongTensor([s['source'].numel() for s in samples])
-    src_lengths, sort_order = src_lengths.sort(descending=True)
-    id = id.index_select(0, sort_order)
-    src_tokens = src_tokens.index_select(0, sort_order)
-
-    prev_output_tokens = None
-    target = None
-    if samples[0].get('target', None) is not None:
-        target = merge('target', left_pad=left_pad_target)
-        target = target.index_select(0, sort_order)
-        ntokens = sum(len(s['target']) for s in samples)
-
-        if input_feeding:
-            # we create a shifted version of targets for feeding the
-            # previous output token(s) into the next decoder step
-            prev_output_tokens = merge(
-                'target',
-                left_pad=left_pad_target,
-                move_eos_to_beginning=True,
-            )
-            prev_output_tokens = prev_output_tokens.index_select(0, sort_order)
-    else:
-        ntokens = sum(len(s['source']) for s in samples)
-
-    batch = {
-        'id': id,
-        'ntokens': ntokens,
-        'net_input': {
-            'src_tokens': src_tokens,
-            'src_lengths': src_lengths,
-        },
-        'target': target,
-        'nsentences': samples[0]['source'].size(0),
-    }
-    if prev_output_tokens is not None:
-        batch['net_input']['prev_output_tokens'] = prev_output_tokens
-    return batch
-
-
 class BARTDenoisingDataset(FairseqDataset):
     """
     A wrapper around TokenBlockDataset for BART dataset.

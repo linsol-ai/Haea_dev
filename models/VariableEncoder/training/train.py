@@ -106,7 +106,7 @@ trainer = pl.Trainer(
     callbacks=[
     LearningRateMonitor(logging_interval="step"),
 
-],
+    ],
     precision="bf16-mixed"
 )
 

@@ -37,3 +37,4 @@ class VariablePredictor:
         dataset = EncoderDataset(dataset)
         encoder = self.model.model.transformer.encoder
         data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False, num_workers=8)
+        

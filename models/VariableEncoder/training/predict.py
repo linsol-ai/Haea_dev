@@ -6,6 +6,7 @@ import torch
 from typing import Tuple
 from torch.utils.data import DataLoader, Dataset
 from pathlib import Path
+import os
 from training.lightning import TrainModule
 
 class VariablePredictor:

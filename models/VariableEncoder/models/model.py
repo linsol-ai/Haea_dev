@@ -72,7 +72,7 @@ class VariableEncoder(nn.Module):
             nhead=num_heads,
             num_encoder_layers=n_encoder_layers,
             num_decoder_layers=n_decoder_layers,
-            dim_feedforward=in_dim*2,
+            dim_feedforward=in_dim*4,
             dropout=dropout,
             batch_first=True
         )

@@ -139,7 +139,7 @@ class VariableEncoder(nn.Module):
         return matrix
     
 
-    def encode(self, x: torch.Tensor) -> torch.Tensor:
+    def encode(self, x : torch.Tensor) -> torch.Tensor:
 
     
     @torch.no_grad()

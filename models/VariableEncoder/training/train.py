@@ -25,7 +25,7 @@ def get_normal_dataset(config: TrainingConfig, year_offset: int, tgt_time_len: i
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-    weather = WeatherDataset(year_offset, device=device)
+    weather = WeatherDataset(config., device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     source, label, mean_std = weather.load(config.air_variable, config.surface_variable, config.only_input_variable, config.constant_variable)
     dataset = CustomDataset(source, label, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
@@ -41,7 +41,7 @@ class MNISTDataModule(pl.LightningDataModule):
         self.batch_size = batch_size
 
     def setup(self, stage: str):
-        
+
         self.mnist_test = MNIST(self.data_dir, train=False)
         self.mnist_predict = MNIST(self.data_dir, train=False)
         mnist_full = MNIST(self.data_dir, train=True)

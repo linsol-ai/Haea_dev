@@ -46,5 +46,5 @@ class VariablePredictor:
         
         # predictions.shape = (time, var_len, hidden)
         predictions = torch.cat(predictions, dim=0)
-        return 
+        return predictions
 

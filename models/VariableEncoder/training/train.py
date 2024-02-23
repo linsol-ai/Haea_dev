@@ -86,6 +86,7 @@ else:
 data_module = DataModule(config.training)
 var_list = data_module.var_list
 
+
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
 model = VariableEncoder(
     src_var_list=var_list[0],

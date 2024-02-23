@@ -27,24 +27,6 @@ class PositionalEncoding(nn.Module):
         return self.dropout(token_embedding + self.pos_encoding[:token_embedding.size(0), :])
 
 
-
-class Embedding(nn.Module):
-    def __init__(self, max_len, dim_model, dropout=0.1):
-        """
-        :param vocab_size: total vocab size
-        :param embed_size: embedding size of token embedding
-        :param dropout: dropout rate
-        """
-        super().__init__()
-        self.position = PositionalEncoding(dim_model, max_len)
-        self.dropout = nn.Dropout(p=dropout)
-        self.dim_model = dim_model
-
-    def forward(self, x, pos_seq):
-        x = x + self.position(pos_seq)
-        return self.dropout(x)
-
-
 class LinearEncoder(nn.Module):
     def __init__(self, in_dim, dropout=0.1):
         """

@@ -38,7 +38,7 @@ class Embedding(nn.Module):
         super().__init__()
         self.position = PositionalEncoding(dim_model, max_len)
         self.dropout = nn.Dropout(p=dropout)
-        self.embed_size = embed_size
+        self.dim_model = dim_model
 
     def forward(self, x, pos_seq):
         x = x + self.position(pos_seq)

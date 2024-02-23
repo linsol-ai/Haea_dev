@@ -15,7 +15,7 @@ class VariablePredictor:
         self.batch_size
     
     def load_models(self, model_path):
-        folder_path = Path(os.path.join(model_path, key))
+        folder_path = Path(os.path.join(model_path))
         first_file = next(folder_path.iterdir(), None)
         if first_file:
                 print(f"====== LOAD MODELS : {key} =======")

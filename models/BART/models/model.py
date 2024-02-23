@@ -120,7 +120,7 @@ class Haea(nn.Module):
         tgt_mask = self.tgt_mask.to(src.device)
 
         transformer_out = self.bart(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
-        out = self.out(transformer_out)
+        out = self.decoder()
         return out
     
 

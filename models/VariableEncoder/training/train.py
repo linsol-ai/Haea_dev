@@ -82,8 +82,8 @@ except ValidationError as e:
 else:
     pl.seed_everything(config.seed)
 
-train_offset = config.training.train_offset
-tgt_time_len = 1 * config.training.tgt_time_len
+
+
 
 
 

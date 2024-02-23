@@ -52,6 +52,7 @@ class MNISTDataModule(pl.LightningDataModule):
             [0.3, 0.7],
         )
         self.train_ds = train_ds
+        self.val_ds = val_ds
         self.
 
     def train_dataloader(self):

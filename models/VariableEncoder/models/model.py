@@ -138,8 +138,8 @@ class VariableEncoder(nn.Module):
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
         return matrix
     
-    
-    def encode(self, ):
+
+    def encode(self, x: torch.Tensor) -> torch.Tensor:
 
     
     @torch.no_grad()

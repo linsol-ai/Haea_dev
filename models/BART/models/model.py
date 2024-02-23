@@ -6,7 +6,7 @@ import math
 
 class PositionalEmbedding(nn.Module):
 
-    def __init__(self, d_model, max_len=512,  dropout=0.1):
+    def __init__(self, d_model, max_len=512, dropout=0.1):
         super().__init__()
         self.dropout = nn.Dropout(dropout_p)
         # Compute the positional encodings once in log space.

@@ -39,7 +39,6 @@ class DataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig):
         super().__init__()
         self.config = config
-        self.batch_size = batch_size
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)
         self.prepare_data_per_node = True
 

@@ -157,6 +157,8 @@ class TrainModule(pl.LightningModule):
         loss = torch.sum(loss, dim=1) / n_batch
         loss = torch.sqrt(loss)
 
+        print(loss.shape)
+
         air_loss = loss[:self.pressure_level * len(self.config.air_variable), :]
         surface_loss = loss[self.pressure_level * len(self.config.air_variable):, :]
 

@@ -37,7 +37,7 @@ class VariablePredictor:
     
     def predict(self, dataset: torch.Tensor) -> torch.Tensor:
         dataset = EncoderDataset(dataset)
-        encoder = self.model.model.transformer.encoder
+        encoder = self.model.e
         data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False, num_workers=8)
         predictions = []
         for i, batch in enumerate(tqdm.tqdm(data_loader)):

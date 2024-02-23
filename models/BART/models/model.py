@@ -113,7 +113,7 @@ class Haea(nn.Module):
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # stage 1. src.shape = (batch, time_len, var_len, hidden), tgt.shape = (batch, time_len, var_len, hidden)
-        # stage 2. src.shape = (batch, time_len, var_len, hidden), tgt.shape = (batch, time_len, var_len, hidden)
+        # stage 2. src.shape = (batch, time_len, hidden), tgt.shape = (batch, time_len, var_len, hidden)
         src, tgt = self.encoder(src), self.encoder(tgt)
 
         src_var_seq = torch.tensor([self.var_seq for _ in range(self.batch_size)], device=src.device)

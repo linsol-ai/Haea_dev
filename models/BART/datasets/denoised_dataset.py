@@ -33,7 +33,6 @@ class BARTDenoisingDataset(Dataset):
         self.mask_ratio = args.mask
         self.random_ratio = args.mask_random
         self.insert_ratio = args.insert
-        self.tokens_to_keep = args.tokens_to_keep
 
         if args.bpe != 'gpt2':
             self.full_stop_index = self.vocab.index(".")

@@ -83,7 +83,7 @@ val_ds, test_ds = torch.utils.data.random_split(
 )   
 
 train_loader = DataLoader(
-    train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=1
+    train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=1, persistent_workers=True
 )
 test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=1)
 val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=1)

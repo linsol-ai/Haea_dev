@@ -19,7 +19,7 @@ class VariablePredictor:
         first_file = next(folder_path.iterdir(), None)
         if first_file:
                 model = TrainModule.load_from_checkpoint(first_file)
-                models[key] = model
+                self.model = model
         else:
             
 

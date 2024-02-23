@@ -75,7 +75,7 @@ class LinearDecoder(nn.Module):
 
     def forward(self, x: torch.Tensor):
        # x.shape = (batch, time_len, hidden)
-       x = x.sq
+       x = x.unsqueeze(-1)
        return self.seq(x)
 
 

@@ -65,8 +65,6 @@ class MNISTDataModule(pl.LightningDataModule):
     def test_dataloader(self):
         return DataLoader(self.mnist_test,batch_size=config.training.batch_size, drop_last=True, num_workers=1)
 
-    def predict_dataloader(self):
-        return DataLoader(self.mnist_predict, batch_size=self.batch_size)
 
 
 config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')

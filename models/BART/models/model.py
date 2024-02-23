@@ -135,7 +135,6 @@ class Haea(nn.Module):
         mask = mask.float()
         mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
         mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
- 
         return mask
 
 

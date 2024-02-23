@@ -22,7 +22,7 @@ from models.VariableEncoder.training.lightning import TrainModule
 
 
 def get_normal_dataset(config: TrainingConfig):
-    tgt_time_len = 1 * config.training.tgt_time_len
+    tgt_time_len = 1 * config.tgt_time_len
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

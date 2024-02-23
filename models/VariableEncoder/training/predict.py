@@ -20,5 +20,7 @@ class VariablePredictor:
         if first_file:
                 model = TrainModule.load_from_checkpoint(first_file)
                 models[key] = model
+        else:
+            
 
         return models

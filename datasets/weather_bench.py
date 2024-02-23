@@ -226,21 +226,7 @@ class WeatherDataset:
 
         print("==== LOAD DATASET ====\n", dataset)
 
-        result = [self.load_variable_optimized(dataset[val]) for val in tqdm(variables)]
-
-        with ThreadPoolExecutor() as executor:
-            futures = {}
-
-            for val in variables:
-                key = executor.submit(self.load_variable_optimized, dataset[val])
-                futures[key] = val
-
-            for future in tqdm(as_completed(futures), desc="Processing futures"):
-                val = futures[future]
-                # shape => (level, time, h * w) or (time, h * w)
-                input, mean_std = future.result()
-                result[val] = (input, mean_std)
-            
+        result = [self.load_variable_optimized(dataset[val]) for val in tqdm(variables)]            
 
         # dataset.shape => (var*level, time, h * w)
         input_dataset = []

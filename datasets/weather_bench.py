@@ -223,20 +223,58 @@ class WeatherDataset:
         
     def load_data_single(self, dataset: xr.Dataset, variables, constant_variables):
         start = time.time()
+        result = {}
+
         print("==== LOAD DATASET ====\n", dataset)
 
-        results = {val: self.load_variable_optimized(dataset[val]) for val in tqdm(variables + constant_variables)}
+        with ThreadPoolExecutor() as executor:
+            futures = {}
 
-        # Efficiently combine all tensors without unnecessary unsqueeze and cat operations
-        input_dataset = torch.stack([results[val][0] for val in variables])
-        mean_std_dataset = torch.stack([results[val][1] for val in variables])
+            for val in variables:
+                key = executor.submit(self.load_variable_optimized, dataset[val])
+                futures[key] = val
 
-        if constant_variables:
-            constant_dataset = torch.stack([results[val][0].unsqueeze(1).repeat(1, input_dataset.size(1), 1) for val in constant_variables])
+            for future in tqdm(as_completed(futures), desc="Processing futures"):
+                val = futures[future]
+                # shape => (level, time, h * w) or (time, h * w)
+                input, mean_std = future.result()
+                result[val] = (input, mean_std)
+            
+
+        # dataset.shape => (var*level, time, h * w)
+        input_dataset = []
+        mean_std_dataset = []
+
+        for val in variables:
+            input, mean_std = result[val]
+            if len(input.shape) == 3:
+                for i in range(input.size(0)):
+                    input_dataset.append(input[i].unsqueeze(0))
+                mean_std_dataset.append(mean_std.swapaxes(0, 1))
+            else:
+                input_dataset.append(input.unsqueeze(0))
+                mean_std_dataset.append(mean_std.unsqueeze(0))
+
+        input_dataset = torch.cat(input_dataset, dim=0)
+        mean_std_dataset = torch.cat(mean_std_dataset, dim=0)
+
+        if len(constant_variables) > 0:
+            constant_dataset = []
+            for val in constant_variables:
+                input, mean_std = self.load_variable_optimized(dataset[val])
+                constant_dataset.append(input.unsqueeze(0))
+
+            # shape = (var, hidden)
+            constant_dataset = torch.cat(constant_dataset, dim=0)
+            # shape = (var, 1, hidden)
+            constant_dataset = constant_dataset.unsqueeze(1)
+            print(constant_dataset.shape)
+            constant_dataset = constant_dataset.repeat(1, input_dataset.size(1), 1)
             input_dataset = torch.cat([input_dataset, constant_dataset], dim=0)
 
-        input_dataset = input_dataset.swapaxes(0, 1)  # Efficient shape adjustment
-
+        # dataset.shape => (time, var, h * w)
+        input_dataset = torch.swapaxes(input_dataset, 0, 1)
+        
         end = time.time()
         print(f"{end - start:.5f} sec")
         return input_dataset, mean_std_dataset

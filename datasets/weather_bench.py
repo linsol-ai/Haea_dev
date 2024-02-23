@@ -222,24 +222,24 @@ class WeatherDataset:
             return source.view(source.size(0), -1), torch.tensor([mean, std])
         
     def load_data(self, dataset: xr.Dataset, variables, constant_variables):
-    start = time.time()
-    print("==== LOAD DATASET ====\n", dataset)
+        start = time.time()
+        print("==== LOAD DATASET ====\n", dataset)
 
-    results = {val: self.load_variable_optimized(dataset[val]) for val in variables + constant_variables}
+        results = {val: self.load_variable_optimized(dataset[val]) for val in variables + constant_variables}
 
-    # Efficiently combine all tensors without unnecessary unsqueeze and cat operations
-    input_dataset = torch.stack([results[val][0] for val in variables])
-    mean_std_dataset = torch.stack([results[val][1] for val in variables])
+        # Efficiently combine all tensors without unnecessary unsqueeze and cat operations
+        input_dataset = torch.stack([results[val][0] for val in variables])
+        mean_std_dataset = torch.stack([results[val][1] for val in variables])
 
-    if constant_variables:
-        constant_dataset = torch.stack([results[val][0].unsqueeze(1).repeat(1, input_dataset.size(1), 1) for val in constant_variables])
-        input_dataset = torch.cat([input_dataset, constant_dataset], dim=0)
+        if constant_variables:
+            constant_dataset = torch.stack([results[val][0].unsqueeze(1).repeat(1, input_dataset.size(1), 1) for val in constant_variables])
+            input_dataset = torch.cat([input_dataset, constant_dataset], dim=0)
 
-    input_dataset = input_dataset.swapaxes(0, 1)  # Efficient shape adjustment
+        input_dataset = input_dataset.swapaxes(0, 1)  # Efficient shape adjustment
 
-    end = time.time()
-    print(f"{end - start:.5f} sec")
-    return input_dataset, mean_std_dataset
+        end = time.time()
+        print(f"{end - start:.5f} sec")
+        return input_dataset, mean_std_dataset
 
 
     def load_data(self, dataset:xr.Dataset, variables, constant_variables) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:

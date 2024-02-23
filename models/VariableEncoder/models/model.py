@@ -138,6 +138,7 @@ class VariableEncoder(nn.Module):
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
         return matrix
     
+    
     def encode(self, ):
 
     

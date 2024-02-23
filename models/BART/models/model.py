@@ -89,7 +89,7 @@ class Haea(nn.Module):
         self.dim_model = dim_model
         self.batch_size = batch_size
 
-        self.positional_encoder = PositionalEmbedding(dim_model=dim_model, dropout=dropout, max_len=max_len)
+        self.positional_encoder = PositionalEmbedding(d_model=dim_model, dropout=dropout, max_len=max_len)
 
         self.bart = nn.Transformer(
             d_model=dim_model,

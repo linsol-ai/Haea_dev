@@ -43,7 +43,7 @@ try:
 except FileNotFoundError:
     logging.error(f"Config file {config_path} does not exist. Exiting.")
 except yaml.YAMLError:
-logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
+    logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
 except ValidationError as e:
 logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
 else:

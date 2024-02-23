@@ -88,6 +88,14 @@ train_loader = DataLoader(
 test_loader = DataLoader(test_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=2)
 val_loader = DataLoader(val_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=2)
 
+print("setting lr rate: ", config.training.learning_rate)
+
+    model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=config.training.max_epochs*len(train_loader), 
+    pressure_level=WeatherDataset.PRESSURE_LEVEL, config=config.training)
+
+    summary = ModelSummary(model_pl, max_depth=-1)
+    print(summary)
+
 if __name__=='__main__':
     trainer = pl.Trainer(
         accelerator="auto",

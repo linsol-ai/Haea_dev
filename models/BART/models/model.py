@@ -73,7 +73,7 @@ class LinearDecoder(nn.Module):
             nn.Linear(out_dim // 2, out_dim),
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor):
        # x.shape = (batch, time_len, hidden)
        x = x
        return self.seq(x)

@@ -6,10 +6,6 @@ import torch
 from typing import Tuple
 from torch.utils.data import DataLoader, Dataset
 from pathlib import Path
-
-import sys,os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
-from datasets.weather_bench import WeatherDataset
 from models.dVAE.training.lightning import DVAETrainModule
 
 class VariablePredictor:

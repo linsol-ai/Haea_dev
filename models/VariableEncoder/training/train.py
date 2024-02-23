@@ -41,7 +41,7 @@ try:
         config_dict = yaml.safe_load(f)
     config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
 except FileNotFoundError:
-logging.error(f"Config file {config_path} does not exist. Exiting.")
+    logging.error(f"Config file {config_path} does not exist. Exiting.")
 except yaml.YAMLError:
 logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
 except ValidationError as e:

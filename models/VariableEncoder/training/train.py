@@ -104,7 +104,7 @@ model = VariableEncoder(
 print("setting lr rate: ", config.training.learning_rate)
 
 model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=max_iters, 
-pressure_level=WeatherDataset.PRESSURE_LEVEL, config=config.training)
+    pressure_level=WeatherDataset.PRESSURE_LEVEL, config=config.training)
 
 summary = ModelSummary(model_pl, max_depth=-1)
 print(summary)

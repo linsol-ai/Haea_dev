@@ -1,2 +1,3 @@
 
-class VariablePredictor
+class VariablePredictor:
+    

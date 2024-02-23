@@ -7,8 +7,6 @@ import numpy as np
 import torch
 import math
 
-from fairseq.data import data_utils, FairseqDataset
-
 
 def collate(
     samples,

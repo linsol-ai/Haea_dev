@@ -29,7 +29,7 @@ class PositionalEncoding(nn.Module):
 
 
 class Embedding(nn.Module):
-    def __init__(self, time_len, embed_size, dropout=0.1):
+    def __init__(self, max_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding

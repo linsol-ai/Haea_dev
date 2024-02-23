@@ -160,7 +160,7 @@ class VariableEncoder(nn.Module):
             attention_maps.append(attn_map)
             x = layer(x)
 
-        return torch.stack(attention_maps
+        return torch.stack(attention_maps, dim=0)
 
     
 

@@ -86,7 +86,7 @@ else:
 data_module = DataModule(config.training)
 var_list = data_module.var_list
 dataset = data_module.dataset
-mean_std = dataset.mea
+mean_std = dataset.
 
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
 model = VariableEncoder(

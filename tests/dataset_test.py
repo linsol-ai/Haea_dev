@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print(ds.nbytes / (10**9))
     print(ds)
 
-    HAS_LEVEL_VARIABLE = [ 'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
+    HAS_LEVEL_VARIABLE = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
     # 새 차원을 추가하고 데이터 변수를 결합
     data_arrays = [ds[var].expand_dims('variable').assign_coords(variable=[var]) for var in HAS_LEVEL_VARIABLE]

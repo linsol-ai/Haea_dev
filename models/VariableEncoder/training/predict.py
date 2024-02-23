@@ -23,6 +23,8 @@ class VariablePredictor:
         self.model_path = model_path
         self.batch_size = batch_size
         self.load_models(model_path)
+        device = ("cuda" if torch.cuda.is_available() else "cpu" )
+        self.device = torch.device(device)
     
     def load_models(self, model_path):
         folder_path = Path(model_path)

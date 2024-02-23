@@ -172,9 +172,9 @@ class TrainModule(pl.LightningModule):
 
     def validation_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], batch_idx: int) -> torch.Tensor:  # noqa: D102
         if self.global_rank == 0:
-        if batch_idx == 0:
-            self.validation(batch)
-            return
+            if batch_idx == 0:
+                self.validation(batch)
+                return
         return self._step(batch, "val")
 
     def test_step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], _: int) -> None:  # noqa: D102

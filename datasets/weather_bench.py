@@ -215,7 +215,7 @@ class WeatherDataset:
             if len(input.shape) == 3:
                 for i in range(input.size(0)):
                     input_dataset.append(input[i].unsqueeze(0))
-                    mean_std_dataset.append(mean_std.swapaxes(0, 1))
+                    mean_std_dataset.append(mean_std.unsqueeze(0))
             else:
                 input_dataset.append(input.unsqueeze(0))
                 mean_std_dataset.append(mean_std.unsqueeze(0))

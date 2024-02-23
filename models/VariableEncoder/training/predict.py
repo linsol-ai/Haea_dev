@@ -24,4 +24,5 @@ class VariablePredictor:
         else:
             raise Exception("Not exists VariableEncoder model")
     
-    def predict(self, dataset: torch.Tensor) -> torch.
+    def predict(self, dataset: torch.Tensor) -> torch.Tensor:
+         

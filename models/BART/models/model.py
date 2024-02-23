@@ -130,14 +130,13 @@ class Haea(nn.Module):
         return torch.tensor(tgt_pos_seq, device=device)
     
 
-    def get_tgt_mask(self) -> torch.tensor:
-        matrix = torch.zeros(self.var_len * self.tgt_time_len, self.var_len * self.tgt_time_len)
-
-        for i in range(self.tgt_time_len):
-            for j in range(self.var_len):
-                inf_idx = min(((i)*self.var_len), self.var_len * self.tgt_time_len)
-                matrix[:(i*self.var_len), inf_idx:] = float('-inf')
-        return matrix
+     def get_tgt_mask(self, size) -> torch.tensor:
+        mask = torch.tril(torch.ones(size, size) == 1) # Lower triangular matrix
+        mask = mask.float()
+        mask = mask.masked_fill(mask == 0, float('-inf')) # Convert zeros to -inf
+        mask = mask.masked_fill(mask == 1, float(0.0)) # Convert ones to 0
+ 
+        return mask
 
 
     

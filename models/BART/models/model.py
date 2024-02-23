@@ -11,7 +11,7 @@ class PositionalEmbedding(nn.Module):
         self.dropout = nn.Dropout(dropout)
         # Compute the positional encodings once in log space.
         pe = torch.zeros(max_len, d_model).float()
-        pe.require_grad = Falsek
+        pe.require_grad = False
 
         position = torch.arange(0, max_len).float().unsqueeze(1)
         div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()

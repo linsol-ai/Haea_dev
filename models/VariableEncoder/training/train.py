@@ -114,7 +114,7 @@ if __name__=='__main__':
     trainer = pl.Trainer(
         accelerator="auto",
         devices=-1,
-        strategy="dp",
+        strategy="",
         max_epochs=config.training.max_epochs,
         logger=logger,
         gradient_clip_val=config.training.gradient_clip_val,

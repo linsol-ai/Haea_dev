@@ -116,19 +116,6 @@ class Haea(nn.Module):
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
         return out
-
-
-    def get_pos_seq(self, batch_size, device):
-        tgt_pos_seq = []
-
-        for _ in range(batch_size):
-            tgt_seq = []
-
-            for i in range(0, self.tgt_time_len):
-                tgt_seq.extend([ i for _ in range(self.var_len)])
-        
-            tgt_pos_seq.append(tgt_seq)
-        return torch.tensor(tgt_pos_seq, device=device)
     
 
     def get_tgt_mask(self, size) -> torch.tensor:

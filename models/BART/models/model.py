@@ -78,7 +78,7 @@ class LinearDecoder(nn.Module):
        x = x.unsqueeze(-1)
        # x.shape = (batch, time_len, hidden, var_len)
        x = self.seq(x)
-       return x.sw
+       return x.swapaxes()
 
 
 class Haea(nn.Module):

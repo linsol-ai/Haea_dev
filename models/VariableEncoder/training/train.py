@@ -119,7 +119,6 @@ if __name__=='__main__':
         gradient_clip_val=config.training.gradient_clip_val,
         callbacks=[
         LearningRateMonitor(logging_interval="step"),
-
         ],
         precision="bf16-mixed"
     )

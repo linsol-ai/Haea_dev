@@ -6,7 +6,7 @@ import torch
 from typing import Tuple
 from torch.utils.data import DataLoader, Dataset
 from pathlib import Path
-from models.dVAE.training.lightning import DVAETrainModule
+from tra import DVAETrainModule
 
 class VariablePredictor:
     def __init__(self, model_path: str, batch_size: int):

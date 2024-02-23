@@ -43,12 +43,7 @@ class MNISTDataModule(pl.LightningDataModule):
 
     def setup(self, stage: str):
         dataset, mean_std, var_list = get_normal_dataset(self.config)
-        self.mnist_test = MNIST(self.data_dir, train=False)
-        self.mnist_predict = MNIST(self.data_dir, train=False)
-        mnist_full = MNIST(self.data_dir, train=True)
-        self.mnist_train, self.mnist_val = random_split(
-            mnist_full, [55000, 5000], generator=torch.Generator().manual_seed(42)
-        )
+        
 
     def train_dataloader(self):
         return DataLoader(self.mnist_train, batch_size=self.batch_size)

@@ -53,7 +53,7 @@ class LinearDecoder(nn.Module):
 class ClimateTransformer(nn.Module):
     def __init__(self, var_list: List[str],
                 in_dim: int, out_dim: int, max_var_len=300, 
-                num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
+                num_heads=12, n_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list

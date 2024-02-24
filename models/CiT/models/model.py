@@ -89,18 +89,6 @@ class ClimateTransformer(nn.Module):
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
         return out
-
-    
-
-    def get_tgt_mask(self) -> torch.tensor:
-        var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
-
-        for i in range(self.tgt_time_len):
-            for _ in range(var_len):
-                inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
-                matrix[:(i*var_len), inf_idx:] = float('-inf')
-        return matrix
     
 
     def encode(self, x : torch.Tensor) -> torch.Tensor:

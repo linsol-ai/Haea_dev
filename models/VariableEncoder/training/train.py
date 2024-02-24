@@ -94,7 +94,6 @@ model = VariableEncoder(
     tgt_time_len=config.training.tgt_time_len,
     in_dim=dataset.source_dataset.size(-1),
     out_dim=dataset.label_dataset.size(-1),
-    batch_size=config.training.batch_size,
     num_heads=config.model.num_heads,
     n_encoder_layers=config.model.n_encoder_layers,
     n_decoder_layers=config.model.n_decoder_layers,

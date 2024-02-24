@@ -4,6 +4,7 @@ from torch.nn import functional as F
 import math
 from typing import List
 
+
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
         super().__init__(var_len, embed_size)
@@ -72,7 +73,7 @@ class ClimateTransformer(nn.Module):
         self.embedding = Embedding(max_time_len, max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
-    
+
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         if not hasattr(self, 'src_var_seq'):

@@ -38,6 +38,7 @@ class BARTDenoisingDataset(Dataset):
         self.insert_ratio = args.insert
         self.mask_length = args['mask_length']
         self.replace_length = args['replace_length']
+        
 
         self.replace_length = self.replace_length
         if not self.replace_length in [-1, 0, 1]:

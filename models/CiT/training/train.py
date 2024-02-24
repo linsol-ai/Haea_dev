@@ -30,7 +30,6 @@ def get_normal_dataset(config: TrainingConfig):
     source, label, mean_std = weather.load(config.air_variable, config.surface_variable, config.only_input_variable, config.constant_variable)
     dataset = CustomDataset(source, label, config.max_lead_time)
     src_var_list = weather.get_var_code(config.air_variable, config.surface_variable + config.only_input_variable+config.constant_variable)
-    tgt_var_list = weather.get_var_code(config.air_variable, config.surface_variable)
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
 

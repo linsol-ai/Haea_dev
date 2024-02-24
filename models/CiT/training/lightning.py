@@ -118,7 +118,7 @@ class TrainModule(pl.LightningModule):
         delta = batch[2]
         predict = self.model(src, delta)
         loss = self.calculate_sqare_loss(predict, label)
-        # loss.shape = (batch, time_len, var_len, 1450)
+        # loss.shape = (batch, var_len, 1450)
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.swapaxes(1, 2)

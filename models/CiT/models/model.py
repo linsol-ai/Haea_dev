@@ -81,7 +81,7 @@ class ClimateTransformer(nn.Module):
         var_seq = torch.tensor([self.var_list for _ in range(src.size(0))], device=src.device)
         src = self.embedding(src, var_seq, lead_time) * math.sqrt(self.in_dim)
         out = self.encoder(src)
-        out = self.decoder(transformer_out)
+        out = self.decoder(out)
         return out
     
 

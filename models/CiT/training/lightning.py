@@ -50,7 +50,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         tgt = batch[1]
         delta = batch[2]
-        predict = self.model(src, tgt)
+        predict = self.model(src, delta)
         loss = self.calculate_rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

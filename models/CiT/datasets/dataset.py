@@ -29,7 +29,7 @@ class CustomDataset(Dataset):
         dataset_inc = []
         for t in range(self.source_dataset.size(0)):
             src = t
-            tgt = range(t, t + self.tgt_time_len)
+            tgt = torch.
             dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc

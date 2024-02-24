@@ -29,7 +29,7 @@ class TrainingConfig(BaseModel):
     gradient_clip_val: float | None = None
     """The value to clip the gradients to."""
 
-    max_lead_time: int = Field(ge=0, default=7)
+    max_lead_time: int = Field(ge=0, default=72)
 
     train_offset: int = 0
 

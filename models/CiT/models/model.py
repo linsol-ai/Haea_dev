@@ -76,7 +76,7 @@ class ClimateTransformer(nn.Module):
     
 
     def forward(self, src: torch.Tensor, lead_time: torch.Tensor):
-        # src.shape = (batch, var_len, hidden), lead_time.shape = (batch, )
+        # src.shape = (batch, var_len, hidden), lead_time.shape = (batch)
         if not hasattr(self, 'src_var_seq'):
             self.init_seq(src.device, src.size(0))
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))

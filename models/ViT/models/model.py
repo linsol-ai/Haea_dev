@@ -66,7 +66,8 @@ class ClimateTransformer(nn.Module):
         )
         self.transformer = nn.TransformerEncoder(
             encoder_layers,
-            num_layers=n
+            num_layers=n_layers,
+            
         )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

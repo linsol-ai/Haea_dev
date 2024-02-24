@@ -19,9 +19,6 @@ class CustomDataset(Dataset):
         return self.source_dataset[t], self.label_dataset[sample], delta
 
     def __getitem__(self, t):
-        src_ind, tgt_ind = self.dataset_inc[item]
-        src = self.get_data(src_ind, self.source_dataset)
-        tgt = self.get_data(tgt_ind, self.source_dataset, source=False)
-        label = self.get_data(tgt_ind, self.label_dataset, source=False)
+        
         return src, tgt, label
 

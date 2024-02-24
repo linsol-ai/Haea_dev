@@ -86,7 +86,7 @@ max_iters = config.training.max_epochs*(dataset.source_dataset.size(0) // config
 print(f"max_iters: {max_iters}")
 
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-model = VariableEncoder(
+model = ClimateTransformer(
     src_var_list=var_list[0],
     tgt_var_list=var_list[1],
     tgt_time_len=config.training.tgt_time_len,

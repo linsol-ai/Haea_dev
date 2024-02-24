@@ -103,6 +103,6 @@ class TrainModule(pl.LightningModule):
         src.cpu().detach()
         label.cpu().detach()
         delta.cpu().detach()
-        return predict.cpu().detach(), label
+        return predict.cpu().detach(), label.cpu().detach()
     
 

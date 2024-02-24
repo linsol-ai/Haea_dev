@@ -101,7 +101,7 @@ class TrainModule(pl.LightningModule):
         predict = denormalize(predict, self.mean_std)
         self.mean_std.cpu().detach()
         src.cpu().detach()
-        
+        src.cpu().detach()
         return predict, label
     
 

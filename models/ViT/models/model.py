@@ -26,7 +26,7 @@ class Embedding(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, lead_time_seq: int):
+    def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, lead_time_seq: torch.Tensor):
         
 
 

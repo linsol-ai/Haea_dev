@@ -183,7 +183,7 @@ class TrainModule(pl.LightningModule):
         predict = self.model(src, tgt)
         predict = predict.view(predict.size(0), -1, var_len, predict.size(2))
         # predict.shape = (batch, time_len, var_len, hidden) -> not nomalized
-        reversed_predict = denormalize(predict, self.mean_std.to(self.device)).cpu().detach()
+        reversed_predict = denormalize(predict, self.mean_std).cpu().detach()
         label = denormalize(label, self.mean_std)
         predict.cpu().detach()
         src.cpu().detach()

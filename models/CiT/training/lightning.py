@@ -93,9 +93,9 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
         self.mean_std = self.mean_std.to(self.device)
-        src = batch[0]
-        label = batch[1]
-        delta = batch[2]
+        src = batch[0].to(self.device)
+        label = batch[1].to(self.device)
+        delta = batch[2].to(self.device)
         predict = self.model(src, delta)
         label = denormalize(label, self.mean_std)
         predict = denormalize(predict, self.mean_std)

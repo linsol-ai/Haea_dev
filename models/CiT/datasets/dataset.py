@@ -15,8 +15,7 @@ class CustomDataset(Dataset):
     def get_data(self, t):
         range = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
         delta = range-t
-        sample = delta * torch.rand(1,)
-
+        sample = torch.rand
         return result
 
     def __getitem__(self, t):

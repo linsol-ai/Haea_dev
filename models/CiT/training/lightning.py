@@ -93,19 +93,10 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
         self.mean_std = self.mean_std.to(self.device)
-        src = batch[0].to(self.device)
-        tgt = batch[1].to(self.device)
-        label = batch[2].to(self.device)
-        var_len = label.size(2)
-        self.model.init_seq(self.device, src.size(0))
-        predict = self.model(src, tgt)
-        predict = predict.view(predict.size(0), -1, var_len, predict.size(2))
-        # predict.shape = (batch, time_len, var_len, hidden) -> not nomalized
-        reversed_predict = denormalize(predict, self.mean_std).cpu().detach()
-        label = denormalize(label, self.mean_std).cpu().detach()
-        predict.cpu().detach()
-        src.cpu().detach()
-        tgt.cpu().detach()
+        src = batch[0]
+        label = batch[1]
+        delta = batch[2]
+        predict = self.model(src, delta)
         return reversed_predict, label
     
 

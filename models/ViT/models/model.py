@@ -22,7 +22,7 @@ class Embedding(nn.Module):
         """
         super().__init__()
         self.variable = VariableEmbedding(var_len, embed_size)
-        self.time = VariableEmbedding(var_len, embed_size)
+        self.time = LeadTimeEmbedding(var_len, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 

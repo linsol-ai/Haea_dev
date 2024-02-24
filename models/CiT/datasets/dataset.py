@@ -12,7 +12,7 @@ class CustomDataset(Dataset):
     def __len__(self):
         return self.source_dataset.size(0)
 
-    def get_data(self):
+    def get_data(self, t):
         result = []
         for t in indicate:
             data = dataset[t]

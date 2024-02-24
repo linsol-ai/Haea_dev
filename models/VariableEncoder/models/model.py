@@ -52,7 +52,7 @@ class LinearDecoder(nn.Module):
 
 class VariableEncoder(nn.Module):
     def __init__(self, src_var_list: List[str], tgt_var_list: List[str], tgt_time_len: int, 
-                 in_dim: int, out_dim: int, batch_size: int, 
+                 in_dim: int, out_dim: int, 
                  max_var_len=300, max_time_len=4*10, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
         self.src_var_list = src_var_list

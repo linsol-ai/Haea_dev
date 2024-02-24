@@ -37,7 +37,6 @@ class BARTDenoisingDataset(Dataset):
         self.random_ratio = args.mask_random
         self.insert_ratio = args.insert
 
-        self.tab_sep_index = self.vocab.index('\t')
         self.replace_length = args.replace_length
         if not self.replace_length in [-1, 0, 1]:
             raise (f'invalid arg: replace_length={self.replace_length}')

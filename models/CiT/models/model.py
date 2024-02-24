@@ -80,9 +80,6 @@ class ClimateTransformer(nn.Module):
         lead_time = lead_time.unsqueeze(1).repeat(1, src.size(1))
         var_seq = torch.tensor([self.var_list for _ in range(src.size(0))], device=src.device)
         src = self.embedding(src, var_seq, lead_time) * math.sqrt(self.in_dim)
-
-        
-
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
         return out

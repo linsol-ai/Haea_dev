@@ -184,7 +184,8 @@ class TrainModule(pl.LightningModule):
         reversed_predict = denormalize(predict, self.mean_std).cpu().detach()
         predict.cpu().detach()
         src.cpu().detach()
-        tgt
+        tgt.cpu().detach()
+        
         return reversed_predict, label
     
 

@@ -175,8 +175,8 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch):
         src = batch[0].to(self.device)
-        tgt = batch[1]
-        label = batch[2]
+        tgt = batch[1].to(self.device)
+        label = batch[2].to(self.device)
         var_len = label.size(2)
         predict = self.model(src, tgt)
         predict = predict.view(predict.size(0), -1, var_len, predict.size(2))

@@ -8,7 +8,6 @@ class CustomDataset(Dataset):
         self.source_dataset = source_dataset.unsqueeze(1)
         self.label_dataset = label_dataset.unsqueeze(1)
         self.max_lead_time = max_lead_time
-        self.make_dataset()
 
     def __len__(self):
         return self.source_dataset.size(0)

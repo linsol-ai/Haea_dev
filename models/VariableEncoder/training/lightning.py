@@ -35,7 +35,7 @@ class TrainModule(pl.LightningModule):
     
     def setup(self, stage: str) -> None:
         print(stage)
-        self.model.init_seq(self.device, con)
+        self.model.init_seq(self.device, )
         self.mean_std = self.mean_std.to(self.device)
 
 

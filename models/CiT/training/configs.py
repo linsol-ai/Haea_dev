@@ -37,10 +37,6 @@ class TrainingConfig(BaseModel):
 
     surface_variable: List[str]
 
-    only_input_variable: List[str] = []
-
-    constant_variable: List[str] = []
-
     
 
 class TrainingRunConfig(BaseModel):

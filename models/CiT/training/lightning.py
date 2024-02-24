@@ -79,61 +79,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()  # Step per iteration
 
 
-    def visualization_air(self, air_loss: torch.Tensor):
-        for i, name in enumerate(self.config.air_variable):
-            start = i * self.pressure_level
-            end = start + self.pressure_level
-            loss = air_loss[start:end]
-            print(loss.shape)
-
-            custom_plot = wandb.plot.line_series(
-                xs=range(loss.size(1)), 
-                ys=loss,
-                keys=range(self.pressure_level),
-                title=name,
-                xname="Time - 1Hour per"
-            )
-
-            self.logger.experiment.log({f"Atmospheric Loss/{name}": custom_plot})
     
-
-    def visualization_surface(self, surface_loss: torch.Tensor):
-        for i, name in enumerate(self.config.surface_variable):
-            loss = surface_loss[i]
-            print(loss.shape)
-
-            custom_plot = wandb.plot.line_series(
-                xs=range(loss.size(0)), 
-                ys=[loss],
-                title=name,
-                xname="Time - 1Hour per"
-            )
-            self.logger.log
-            self.logger.experiment.log({f"Surface Loss/{name}": custom_plot})
-    
-
-    def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):
-        src = batch[0]
-        label = batch[1]
-        delta = batch[2]
-        predict = self.model(src, delta)
-        loss = self.calculate_sqare_loss(predict, label)
-        # loss.shape = (batch, var_len, hidden)
-        hidden = loss.size(-1)
-        # loss.shape = (batch, var_len)
-        loss = torch.sum(loss, dim=-1) / hidden
-        # loss.shape = (var_len, batch, time_len)
-        loss = loss.swapaxes(0, 1)
-        n_batch = loss.size(1)
-        # loss.shape = (var_len, time_len)
-        loss = torch.sum(loss, dim=1) / n_batch
-        loss = torch.sqrt(loss)
-
-        air_loss = loss[:self.pressure_level * len(self.config.air_variable), :]
-        surface_loss = loss[self.pressure_level * len(self.config.air_variable):, :]
-
-        self.visualization_air(air_loss)
-        self.visualization_surface(surface_loss)
 
         
 

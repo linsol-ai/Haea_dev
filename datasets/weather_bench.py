@@ -177,7 +177,7 @@ class WeatherDataset:
         source = torch.cat([source_t, source_b], dim=2)
         offset = len(only_input_variable)
         if offset > 0:
-        mean_std = mean_std[:-len(only_input_variable), :]
+            mean_std = mean_std[:-len(only_input_variable), :]
 
         return source, source_t, mean_std
 

@@ -56,7 +56,7 @@ class ClimateTransformer(nn.Module):
         super().__init__()
         self.var_list = var_list
         self.in_dim = in_dim
-        encoder_layers = nn.TransformerEncoderLayer(d_model, nhead, d_hid, dropout)
+        encoder_layers = nn.TransformerEncoderLayer()
         self.transformer = nn.TransformerEncoder(
             d_model=in_dim,
             nhead=num_heads,

@@ -116,17 +116,17 @@ class VariableEncoder(nn.Module):
         return src_seq, tgt_seq
 
 
-    def get_pos_seq(self, batch_size, device):
-        tgt_pos_seq = []
+    def positional_encoding(batch, d_model, var_len, time_len):
+    pe = torch.zeros(batch, time_len, d_model).float()
+    pe.require_grad = False
 
-        for _ in range(batch_size):
-            tgt_seq = []
+    position = torch.arange(0, time_len).float().unsqueeze(1)
+    div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
 
-            for i in range(0, self.tgt_time_len):
-                tgt_seq.extend([ i for _ in range(len(self.tgt_var_list))])
-        
-            tgt_pos_seq.append(tgt_seq)
-        return torch.tensor(tgt_pos_seq, device=device)
+    pe[:, :, 0::2] = torch.sin(position * div_term)
+    pe[:, :, 1::2] = torch.cos(position * div_term)
+
+    return pe.repeat_interleave(var_len, dim=1)
     
 
     def get_tgt_mask(self) -> torch.tensor:
@@ -144,7 +144,7 @@ class VariableEncoder(nn.Module):
         x = self.embedding(x, self.src_var_seq) * math.sqrt(self.in_dim)
         return self.transformer.encoder(x)
     
-    
+
     @torch.no_grad()
     def get_attention_maps(self, x: torch.Tensor) -> torch.Tensor:
         """Function for extracting the attention matrices of the whole Transformer for a single batch.

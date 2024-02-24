@@ -8,7 +8,7 @@ from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
 import wandb
 
-def denormalize(inputs, mean_std):
+def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, 1, mean_std.size(0), 1)
     std = mean_std[:, 1].view(1, 1, mean_std.size(0), 1)
     # 역정규화 수행

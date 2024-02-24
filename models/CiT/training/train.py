@@ -29,7 +29,7 @@ def get_normal_dataset(config: TrainingConfig):
     # dataset.shape:  torch.Size([7309, 100, 1450])
     source, label, mean_std = weather.load(config.air_variable, config.surface_variable)
     dataset = CustomDataset(source, label, config.max_lead_time)
-    src_var_list = weather.get_var_code(config.air_variable, config.surface_variable)
+    var_list = weather.get_var_code(config.air_variable, config.surface_variable)
     return dataset, mean_std, src_var_list
 
 

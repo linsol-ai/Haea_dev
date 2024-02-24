@@ -71,7 +71,7 @@ class VariableEncoder(nn.Module):
             batch_first=True
         )
         
-        self.embedding = Embedding(max_var_len, max_time_len, in_dim, dropout)
+        self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 

@@ -87,7 +87,7 @@ class BARTDenoisingDataset(Dataset):
         self.epoch = epoch
 
     def __getitem__(self, index):
-        with data_utils.numpy_seed(self.seed, self.epoch, index):
+        with numpy_seed(self.seed, self.epoch, index):
             tokens = self.dataset[index]
             assert tokens[-1] == self.vocab.eos()
             source, target = tokens, tokens.clone()

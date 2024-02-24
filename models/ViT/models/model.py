@@ -65,13 +65,8 @@ class ClimateTransformer(nn.Module):
             activation=F.gelu
         )
         self.transformer = nn.TransformerEncoder(
-            d_model=in_dim,
-            nhead=num_heads,
-            num_encoder_layers=n_encoder_layers,
-            num_decoder_layers=n_decoder_layers,
-            dim_feedforward=in_dim*2,
-            dropout=dropout,
-            batch_first=True
+            encoder_layers,
+            
         )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

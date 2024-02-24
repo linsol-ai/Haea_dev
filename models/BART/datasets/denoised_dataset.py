@@ -33,7 +33,7 @@ class BARTDenoisingDataset(Dataset):
         self.seed = seed
         self.mask_idx = mask_idx
         self.mask_whole_word = mask_whole_words
-        self.mask_ratio = args['']
+        self.mask_ratio = args['mask_ratio']
         self.random_ratio = args['random_ratio']
         self.mask_length = args['mask_length']
         self.replace_length = args['replace_length']

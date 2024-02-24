@@ -29,7 +29,7 @@ class Embedding(nn.Module):
 
     def forward(self, x, variable_seq, position_seq=None):
         if position_seq is not None:
-            x = x +  self.variable(variable_seq) + self.position(position_seq)
+            x = x +  self.variable(variable_seq) + position_seq
             return self.dropout(x)
         else:
             x = x + self.variable(variable_seq)

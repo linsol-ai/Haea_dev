@@ -75,7 +75,7 @@ class VariableEncoder(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
-    def init_seq(self, device, ):
+    def init_seq(self, device, batch_size):
         print("init", device)
         self.tgt_mask = self.get_tgt_mask()
         self.src_var_seq, self.tgt_var_seq = self.get_var_seq(self.batch_size, device)

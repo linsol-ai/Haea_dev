@@ -13,15 +13,7 @@ class CustomDataset(Dataset):
         return self.source_dataset.size(0)
 
     def get_data(self, t):
-        result = []
-        for t in indicate:
-            data = dataset[t]
-            if not source:
-                data = data[:, :-self.n_only_input, :]
-            result.append(data)
-
-        # dataset.shape = (time_len, var, hidden)
-        result = torch.concat(result, dim=0)
+        
         return result
 
     def __getitem__(self, t):

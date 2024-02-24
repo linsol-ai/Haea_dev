@@ -16,9 +16,9 @@ from datasets.weather_bench import WeatherDataset
 from models.CiT.datasets.dataset import CustomDataset
 from models.CiT.models.model import ClimateTransformer
 
-from models.VariableEncoder.training.configs import TrainingConfig
-from models.VariableEncoder.training.configs import TrainingRunConfig
-from models.VariableEncoder.training.lightning import TrainModule
+from models.CiT.training.configs import TrainingConfig
+from models.CiT.training.configs import TrainingRunConfig
+from models.CiT.training.lightning import TrainModule
 
 
 def get_normal_dataset(config: TrainingConfig):

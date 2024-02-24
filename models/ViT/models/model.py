@@ -69,7 +69,7 @@ class ClimateTransformer(nn.Module):
             n_layers
         )
         
-        self.embedding = Embedding(max_var_len, in_dim, dropout)
+        self.embedding = Embedding(max_time_len, max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 

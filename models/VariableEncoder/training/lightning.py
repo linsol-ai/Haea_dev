@@ -173,7 +173,6 @@ class TrainModule(pl.LightningModule):
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)
 
-
     def forward(self, batch):
         src = batch[0]
         tgt = batch[1]

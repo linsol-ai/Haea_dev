@@ -54,7 +54,7 @@ class ClimateTransformer(nn.Module):
     def __init__(self, var_list: List[str], in_dim: int, out_dim: int, 
                  max_var_len=300, num_heads=12, n_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
-        self.src_var_list = src_var_list
+        self.var_list = var_list
         self.tgt_var_list = tgt_var_list
         self.tgt_time_len = tgt_time_len
         self.in_dim = in_dim

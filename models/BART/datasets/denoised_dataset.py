@@ -39,7 +39,7 @@ class BARTDenoisingDataset(Dataset):
         self.mask_length = args['mask_length']
         self.replace_length = args['replace_length']
 
-        self.replace_length = args.replace_length
+        self.replace_length = self.replace_length
         if not self.replace_length in [-1, 0, 1]:
             raise (f'invalid arg: replace_length={self.replace_length}')
         if not self.mask_length in ['subword', 'word', 'span', 'span-poisson']:

@@ -16,7 +16,7 @@ class CustomDataset(Dataset):
         range = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
         delta = range-t
         sample = torch.randint(t, range, (1,))
-        return result
+        return self.source_dataset[]
 
     def __getitem__(self, t):
         src_ind, tgt_ind = self.dataset_inc[item]

@@ -14,7 +14,7 @@ class LeadTimeEmbedding(nn.Embedding):
         super().__init__(time_len, embed_size)
 
 class Embedding(nn.Module):
-    def __init__(self, var_len, embed_size, dropout=0.1):
+    def __init__(self, time_len, var_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding

@@ -59,6 +59,7 @@ class TrainModule(pl.LightningModule):
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, var_len, hidden)
         label = denormalize(label, self.mean_std)
+               print(label.shape)
         # reversed_predict.shape = (batch, var_len, hidden) -> nomalized
         reversed_predict = denormalize(predict, self.mean_std)
         loss = rmse_loss(reversed_predict, label)

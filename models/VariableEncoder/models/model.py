@@ -99,6 +99,7 @@ class VariableEncoder(nn.Module):
         out = self.out(transformer_out)
         return out
 
+
     def get_var_seq(self, batch_size, device):
         tgt_seq = []
 

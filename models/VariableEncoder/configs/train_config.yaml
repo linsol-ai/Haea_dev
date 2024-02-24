@@ -27,3 +27,8 @@ training:
     - mean_sea_level_pressure
     - total_cloud_cover
     - total_precipitation
+  only_input_variable:
+    - toa_incident_solar_radiation
+  constant_variable:
+    - geopotential_at_surface
+    - land_sea_mask

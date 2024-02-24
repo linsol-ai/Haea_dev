@@ -4,7 +4,7 @@ from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.BART.models.model import HAEA
-from models.VariableEncoder.training.configs import TrainingConfig
+from models.BART.training.configs import TrainingConfig
 from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
 import wandb
 

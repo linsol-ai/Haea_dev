@@ -55,15 +55,6 @@ class TrainModule(pl.LightningModule):
         loss = self.calculate_rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
-    
-
-    def on_save_checkpoint(self, checkpoint):
-        # dvae 상태를 checkpoint 딕셔너리에 추가
-        checkpoint['model_state'] = self.model.state_dict()
-
-    def on_load_checkpoint(self, checkpoint):
-        # checkpoint 딕셔너리에서 dvae 상태를 로드
-        self.model.load_state_dict(checkpoint['model_state'])
 
 
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):

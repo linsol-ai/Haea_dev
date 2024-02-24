@@ -11,8 +11,8 @@ class VariableEmbedding(nn.Embedding):
 
 
 class LeadTimeEmbedding(nn.Embedding):
-    def __init__(self, time_len, embed_size=768):
-        super().__init__(time_len, embed_size)
+    def __init__(self, max_lead_time, embed_size=768):
+        super().__init__(max_lead_time, embed_size)
 
 
 class Embedding(nn.Module):

@@ -62,7 +62,7 @@ class ClimateTransformer(nn.Module):
             dim_feedforward=in_dim*4,
             dropout=dropout,
             batch_first=True,
-            activation=
+            activation=F.H
         )
         self.transformer = nn.TransformerEncoder(
             d_model=in_dim,

@@ -185,7 +185,7 @@ class TrainModule(pl.LightningModule):
         predict.cpu().detach()
         src.cpu().detach()
         tgt.cpu().detach()
-        label
+        label.cpu().detach()
         return reversed_predict, label
     
 

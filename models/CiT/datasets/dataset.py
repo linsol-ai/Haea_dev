@@ -17,7 +17,7 @@ class CustomDataset(Dataset):
         if t != next:
             sample = torch.randint(t, next, (1,))
         else:
-            sample = next
+            sample = t
         delta = sample-t
         return self.source_dataset[t], self.label_dataset[sample], delta
 

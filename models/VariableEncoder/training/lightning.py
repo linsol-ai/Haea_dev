@@ -182,6 +182,7 @@ class TrainModule(pl.LightningModule):
         return reversed_predict
 
 
-    def forwa
+    def forward(self, batch):
+        return self.dvae.get_codebook_indices(batch)
     
 

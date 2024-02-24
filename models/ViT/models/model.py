@@ -9,7 +9,7 @@ class VariableEmbedding(nn.Embedding):
         super().__init__(var_len, embed_size)
 
 
-class VariableEmbedding(nn.Embedding):
+class LeadTimeEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
         super().__init__(var_len, embed_size)
 

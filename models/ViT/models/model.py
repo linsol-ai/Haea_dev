@@ -27,12 +27,7 @@ class Embedding(nn.Module):
         self.embed_size = embed_size
 
     def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, lead_time: int):
-        if position_seq is not None:
-            x = x +  self.variable(variable_seq) + position_seq
-            return self.dropout(x)
-        else:
-            x = x + self.variable(variable_seq)
-            return self.dropout(x)
+        
 
 
 class LinearDecoder(nn.Module):

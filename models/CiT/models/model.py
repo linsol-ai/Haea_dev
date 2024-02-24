@@ -72,7 +72,7 @@ class ClimateTransformer(nn.Module):
         )
         
         self.embedding = Embedding(max_time_len, max_var_len, in_dim, dropout)
-        self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
+        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
     def forward(self, src: torch.Tensor, lead_time: torch.Tensor):

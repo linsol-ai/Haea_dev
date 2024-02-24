@@ -102,7 +102,7 @@ class TrainModule(pl.LightningModule):
         self.mean_std.cpu().detach()
         src.cpu().detach()
         label.cpu().detach()
-        label.cpu().detach()
+        delta.cpu().detach()
         return predict, label
     
 

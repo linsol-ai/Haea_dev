@@ -108,7 +108,7 @@ class TrainModule(pl.LightningModule):
                 title=name,
                 xname="Time - 1Hour per"
             )
-
+            self.logger.
             self.logger.experiment.log({f"Surface Loss/{name}": custom_plot})
     
 

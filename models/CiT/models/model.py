@@ -66,7 +66,7 @@ class ClimateTransformer(nn.Module):
             batch_first=True,
             activation=F.gelu
         )
-        self.transformer = nn.TransformerEncoder(
+        self.transformer = nn.  (
             encoder_layers,
             n_layers
         )

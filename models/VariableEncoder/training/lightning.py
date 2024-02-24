@@ -174,7 +174,7 @@ class TrainModule(pl.LightningModule):
         return self(batch)
 
     def forward(self, batch):
-        src = batch[0]
+        src = batch[0].to(self.device)
         tgt = batch[1]
         label = batch[2]
         var_len = label.size(2)

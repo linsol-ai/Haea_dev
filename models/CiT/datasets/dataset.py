@@ -13,7 +13,7 @@ class CustomDataset(Dataset):
         return self.source_dataset.size(0)
 
     def get_data(self, t):
-        
+        range = 
         return result
 
     def __getitem__(self, t):

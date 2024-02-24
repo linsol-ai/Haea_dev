@@ -119,7 +119,6 @@ class TrainModule(pl.LightningModule):
         predict = self.model(src, delta)
         loss = self.calculate_sqare_loss(predict, label)
         # loss.shape = (batch, var_len, hidden)
-        loss = loss.swapaxes(1, 2)
         hidden = loss.size(-1)
         # loss.shape = (batch, var_len, time_len)
         loss = torch.sum(loss, dim=-1) / hidden

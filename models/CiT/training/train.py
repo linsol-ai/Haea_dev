@@ -92,8 +92,7 @@ model = ClimateTransformer(
     out_dim=dataset.label_dataset.size(-1),
     max_lead_time=config.training.max_lead_time,
     num_heads=config.model.num_heads,
-    n_encoder_layers=config.model.n_encoder_layers,
-    n_decoder_layers=config.model.n_decoder_layers,
+    n_layers=config.model.
     dropout=config.model.dropout
 )
 

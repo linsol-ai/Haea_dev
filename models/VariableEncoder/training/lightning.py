@@ -127,7 +127,7 @@ class TrainModule(pl.LightningModule):
     
 
     def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):
-        src = batch[0]
+        src = batch[0].to(self.device)
         tgt = batch[1]
         label = batch[2]
         var_len = label.size(2)

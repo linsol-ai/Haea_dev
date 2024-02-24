@@ -77,7 +77,7 @@ class ClimateTransformer(nn.Module):
 
     def forward(self, src: torch.Tensor, lead_time: torch.Tensor):
         # src.shape = (batch, var_len, hidden), lead_time.shape = (batch)
-        lead_time = lead_time.repeat(1, src.size(1))
+        lead_time = lead_time.unsqueeze(0).repeat(1, src.size(1))
         var_seq = torch.tensor([self.var_list for _ in range(src.size(0))], device=src.device)
         src = self.embedding(src, var_seq, lead_time) * math.sqrt(self.in_dim)
         out = self.encoder(src)

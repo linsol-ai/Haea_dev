@@ -180,5 +180,9 @@ class TrainModule(pl.LightningModule):
         # predict.shape = (batch, time_len, var_len, hidden) -> not nomalized
         reversed_predict = denormalize(predict, self.mean_std)
         return reversed_predict
+
+
+    def forward(self, *args: torch.optim.optimizer.Any, **kwargs: torch.optim.optimizer.Any) -> torch.optim.optimizer.Any:
+        return super().forward(*args, **kwargs)
     
 

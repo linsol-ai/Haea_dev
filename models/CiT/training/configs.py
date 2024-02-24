@@ -7,7 +7,7 @@ class ModelConfig(BaseModel):
 
     num_heads: int = Field(ge=5, default=10)
 
-    n_layers: int = Field(ge=1, default=3)
+    n_layers: int = Field(ge=1, default=6)
 
     dropout: float = Field(ge=0, default=0.1)
 

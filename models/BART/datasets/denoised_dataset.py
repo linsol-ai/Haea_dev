@@ -47,7 +47,7 @@ class BARTDenoisingDataset(Dataset):
         if self.mask_length == 'subword' and not args.replace_length in [0, 1]:
             raise (f'if using subwords, use replace-length=1 or 0')
 
-        self.is_span_mask = (args.mask_length == 'span')
+        self.is_span_mask = (self.mask_length == 'span')
         self.mask_span_distribution = None
         if args.mask_length == 'span-poisson':
             _lambda = args.poisson_lambda

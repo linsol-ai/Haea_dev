@@ -171,6 +171,9 @@ class TrainModule(pl.LightningModule):
         self._step(batch, "test")
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
-        return self.dvae.get_codebook_indices(batch)
+        src = batch[0]
+        tgt = batch[1]
+        label = batch[2]
+        predict = self.model(src, tgt)
     
 

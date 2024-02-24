@@ -16,6 +16,8 @@ class CustomDataset(Dataset):
         next = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
         if t == next:
             sample = torch.randint(t, next, (1,))
+        else:
+            sample = 0
         delta = sample-t
         return self.source_dataset[t], self.label_dataset[sample], delta
 

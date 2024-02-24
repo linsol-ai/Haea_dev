@@ -3,7 +3,7 @@ import torch
 
 class CustomDataset(Dataset):
 
-    def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, max_lead_time: int):
+    def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, max_lead_time: int = ):
         # dataset.shape = (time, 1, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)
         self.label_dataset = label_dataset.unsqueeze(1)

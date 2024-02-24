@@ -20,5 +20,5 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, t):
         src, label, delta = self.get_data(t)
-        return src, tgt, delta
+        return src, label, delta
 

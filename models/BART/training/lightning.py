@@ -5,7 +5,7 @@ from torch.optim import Adam
 import torch.nn.functional as F
 from models.BART.models.model import HAEA
 from models.BART.training.configs import TrainingConfig
-from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
+from models.BART.training.params_schedule import CosineWarmupScheduler
 import wandb
 
 def denormalize(inputs, mean_std):

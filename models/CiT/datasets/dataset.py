@@ -13,7 +13,7 @@ class CustomDataset(Dataset):
         return self.source_dataset.size(0)
 
     def get_data(self, t):
-        range = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
+        next = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
         delta = range-t
         sample = torch.randint(t, range, (1,))
         return self.source_dataset[t], self.label_dataset[sample], delta

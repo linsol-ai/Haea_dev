@@ -182,7 +182,6 @@ class TrainModule(pl.LightningModule):
         return reversed_predict
 
 
-    def forward(self, *args: torch.optim.optimizer.Any, **kwargs: torch.optim.optimizer.Any) -> torch.optim.optimizer.Any:
-        return super().forward(*args, **kwargs)
+    def forwa
     
 

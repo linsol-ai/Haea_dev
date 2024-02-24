@@ -183,6 +183,14 @@ class TrainModule(pl.LightningModule):
 
 
     def forward(self, batch):
-        return self.dvae.get_codebook_indices(batch)
+        src = batch[0]
+        tgt = batch[1]
+        label = batch[2]
+        var_len = label.size(2)
+        predict = self.model(src, tgt)
+        predict = predict.view(predict.size(0), -1, var_len, predict.size(2))
+        # predict.shape = (batch, time_len, var_len, hidden) -> not nomalized
+        reversed_predict = denormalize(predict, self.mean_std)
+        return reversed_predict
     
 

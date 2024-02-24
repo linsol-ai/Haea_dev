@@ -51,7 +51,7 @@ class BARTDenoisingDataset(Dataset):
         self.is_span_mask = (self.mask_length == 'span')
         self.mask_span_distribution = None
         if self.mask_length == 'span-poisson':
-            _lambda = args.poisson_lambda
+            _lambda = self.poisson_lambda
 
             lambda_to_the_k = 1
             e_to_the_minus_lambda = math.exp(-_lambda)

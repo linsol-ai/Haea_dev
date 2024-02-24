@@ -144,6 +144,7 @@ class VariableEncoder(nn.Module):
         x = self.embedding(x, self.src_var_seq) * math.sqrt(self.in_dim)
         return self.transformer.encoder(x)
     
+    
     @torch.no_grad()
     def get_attention_maps(self, x: torch.Tensor) -> torch.Tensor:
         """Function for extracting the attention matrices of the whole Transformer for a single batch.

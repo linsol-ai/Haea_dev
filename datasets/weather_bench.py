@@ -185,8 +185,6 @@ class WeatherDataset:
         variables = air_variable + surface_variable + only_input_variable
         source_t, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
         
-        # var_dataset.shape = (time, var * level, h * w)
-        source = torch.cat([source_t, source_b], dim=2)
         offset = len(only_input_variable)
         if offset > 0:
             mean_std = mean_std[:-len(only_input_variable), :]

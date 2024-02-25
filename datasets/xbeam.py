@@ -107,7 +107,7 @@ def main(argv):
         temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
-        machine_type='c3d-standard-8',
+        machine_type='c3d-standard-',
   )
   itemsize = max(variable.dtype.itemsize for variable in template.values())
 

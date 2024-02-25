@@ -104,7 +104,7 @@ def main(argv):
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
         project='climate-414222',
-        temp_location='gs://era5_climate/temp',
+        temp_location='gs://era5_dataset/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
         machine_type='c3d-standard-8',

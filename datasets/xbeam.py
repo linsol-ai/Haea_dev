@@ -21,7 +21,7 @@ NONE_LEVEL_VARIABLE = [
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE
 
 LAT = [(32, 39.3), (20, 50), (0, 70), (20, 45)]
-LON = [(124, 131.4), (115, 145), (90, 180)]
+LON = [(124, 131.4), (115, 145), (90, 180), (115, 140)]
 
 INPUT_PATHS = [
   'gcs://gcp-public-data-arco-era5/ar/1959-2022-full_37-1h-0p25deg-chunk-1.zarr-v2',

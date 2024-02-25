@@ -29,7 +29,7 @@ INPUT_PATHS = [
   'gs://gcp-public-data-arco-era5/ar/1959-2022-6h-64x32_equiangular_with_poles_conservative.zarr'
   'gcs://weatherbench2/datasets/era5/1959-2023_01_10-full_37-1h-512x256_equiangular_conservative.zarr'
 ]
-FOLDER_NAME = ['1440x720', '240x120', '60x30', '']
+FOLDER_NAME = ['1440x720', '240x120', '60x30', '512x256']
 
 
 # pylint: disable=expression-not-assigned

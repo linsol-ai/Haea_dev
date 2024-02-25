@@ -24,7 +24,9 @@ NONE_LEVEL_VARIABLE = [
   'mean_top_net_long_wave_radiation_flux',
   'mean_top_net_short_wave_radiation_flux',
   'mean_vertically_integrated_moisture_divergence',
-  'surface_pressure'
+  'surface_pressure',
+  'total_column_water',
+  ''
   'geopotential_at_surface', 
   'land_sea_mask', 
   '2m_temperature', 

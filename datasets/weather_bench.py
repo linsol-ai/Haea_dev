@@ -114,7 +114,7 @@ class WeatherDataset:
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 
-    def __init__(self, year_offset: int, device: torch.device, normalize=True, offline = True, resolution=):
+    def __init__(self, year_offset: int, device: torch.device, normalize=True, offline = True, resolution=[]):
         end, start = self.DATE_OFFSET[year_offset]
         self.start = pd.to_datetime(f'{start}-12-31')
         self.end = pd.to_datetime(f'{end}-12-31')

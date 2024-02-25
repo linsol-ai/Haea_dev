@@ -26,7 +26,7 @@ NONE_LEVEL_VARIABLE = [
   'mean_vertically_integrated_moisture_divergence',
   'surface_pressure',
   'total_column_water',
-  'total_column_water_vapour',
+  'total_column_water_vapour'
   'geopotential_at_surface', 
   'land_sea_mask', 
   '2m_temperature', 

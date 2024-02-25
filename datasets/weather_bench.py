@@ -107,7 +107,7 @@ class WeatherDataset:
 
     GCS_BUCKET = 'gcs://era5_climate'
 
-    RESOLUTION = ['1440x720', '512x256', '240x120']
+    RESOLUTION = ['512x256']
 
     PRESSURE_LEVEL = 37
 

@@ -13,7 +13,7 @@ class EncoderDataset(Dataset):
             sample = self.data_array[idx]
             return sample
 
-class VariablePredictor:j
+class VariablePredictor:
     def __init__(self, model_path: str, batch_size: int):
         self.model_path = model_path
         self.batch_size = batch_size

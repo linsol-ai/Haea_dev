@@ -69,7 +69,7 @@ def main(argv):
 
   if FLAGS.type == 0:
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).sortby('latitude', ascending=True)
-  elif FLAGS.type == 1 or :
+  elif FLAGS.type == 1 or FLAGS.type == 1:
       source_dataset = source_dataset.isel(latitude=lat_indices, longitude=lon_indices).transpose('time', 'level', 'latitude', 'longitude')
 
   template = (

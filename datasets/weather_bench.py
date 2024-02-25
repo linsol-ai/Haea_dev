@@ -116,7 +116,7 @@ class WeatherDataset:
 
     def __init__(self, year_offset: int, device: torch.device, normalize=True, offline = True):
         end, start = self.DATE_OFFSET[year_offset]
-        self.start = pd.to_datetime(f'{start}-12-31')
+        self.start = pd.to_datetime(f'{start}-01-01')
         self.end = pd.to_datetime(f'{end}-12-31')
         self.offline = offline
         self.device = device

@@ -22,7 +22,8 @@ NONE_LEVEL_VARIABLE = [
   'mean_surface_sensible_heat_flux',
   'mean_top_downward_short_wave_radiation_flux',
   'mean_top_net_long_wave_radiation_flux',
-  'mean_top_net_short_wave_radiation_flux'
+  'mean_top_net_short_wave_radiation_flux',
+  ''
   'geopotential_at_surface', 
   'land_sea_mask', 
   '2m_temperature', 

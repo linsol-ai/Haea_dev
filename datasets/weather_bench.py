@@ -181,7 +181,7 @@ class WeatherDataset:
 
         return source, source_t, mean_std
     
-    def load_one()
+    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[])
 
 
     def load_variable_optimized(self, data: xr.DataArray):

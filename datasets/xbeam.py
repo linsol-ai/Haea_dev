@@ -18,7 +18,8 @@ NONE_LEVEL_VARIABLE = [
   '2m_dewpoint_temperature', 
   'mean_surface_latent_heat_flux', 
   'mean_surface_net_long_wave_radiation_flux',
-  
+  'mean_surface_net_short_wave_radiation_flux',
+  ''
   'geopotential_at_surface', 
   'land_sea_mask', 
   '2m_temperature', 

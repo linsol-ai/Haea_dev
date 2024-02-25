@@ -100,7 +100,6 @@ class TrainModule(pl.LightningModule):
         label = denormalize(label, self.mean_std)
         predict = denormalize(predict, self.mean_std)
         loss = rmse_loss(predict, label)
-
         self.mean_std.cpu().detach()
         src.cpu().detach()
         delta.cpu().detach()

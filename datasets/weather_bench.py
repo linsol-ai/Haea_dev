@@ -326,5 +326,5 @@ if __name__ == '__main__':
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-    weather = WeatherDataset(0, device=device, offline=True)
+    weather = WeatherDataset(0, device=device, offline=True, resolution=[])
     print(weather.load(weather.AIR_VARIABLE, weather.SURFACE_VARIABLE)[0].shape)

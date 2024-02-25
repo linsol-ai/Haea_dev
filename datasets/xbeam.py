@@ -19,7 +19,8 @@ NONE_LEVEL_VARIABLE = [
   'mean_surface_latent_heat_flux', 
   'geopotential_at_surface', 
   'land_sea_mask', 
-  '2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation'
+  '2m_temperature', 
+  '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation'
 ]
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE

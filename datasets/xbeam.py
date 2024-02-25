@@ -23,7 +23,8 @@ NONE_LEVEL_VARIABLE = [
   '10m_u_component_of_wind', 
   '10m_v_component_of_wind', 
   'mean_sea_level_pressure', 
-  'total_cloud_cover', 'total_precipitation'
+  'total_cloud_cover', 
+  'total_precipitation'
 ]
 
 VARIABLE = HAS_LEVEL_VARIABLE + NONE_LEVEL_VARIABLE

@@ -66,7 +66,7 @@ def main(argv):
   START_DATE = f'{FLAGS.start}-01-01'
   END_DATE = f'{FLAGS.end}-01-01'
   print('Preprocess Data: ', START_DATE, 'to', END_DATE)
-  OUTPUT_PATH = f'gs://era5_dataset/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
+  OUTPUT_PATH = f'gs://era5_climate/{FOLDER_NAME[FLAGS.type]}/{START_DATE}_{END_DATE}.zarr'
 
   source_dataset, source_chunks = xbeam.open_zarr(INPUT_PATHS[FLAGS.type])
 
@@ -103,8 +103,8 @@ def main(argv):
 
   pipeline_options = PipelineOptions(
         runner='DataflowRunner',
-        project='climate-prediction-415114',
-        temp_location='gs://era5_dataset/temp',
+        project='climate-414222',
+        temp_location='gs://era5_climate/temp',
         requirements_file='/workspace/Haea_dev/req.txt',
         region='us-central1',
         machine_type='c3d-standard-8',

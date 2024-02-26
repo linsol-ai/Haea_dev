@@ -51,7 +51,7 @@ class LinearDecoder(nn.Module):
        return self.seq(x)
 
 
-class HAEA(nn.Module):
+class Haea(nn.Module):
     def __init__(self, src_var_list: List[str], tgt_var_list: List[str], tgt_time_len: int, 
                 in_dim: int, out_dim: int, max_var_len=300, 
                 num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):

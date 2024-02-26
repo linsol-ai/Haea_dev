@@ -26,7 +26,24 @@ class PositionalEmbedding(nn.Module):
         return self.dropout(x + self.pe[:, :x.size(1)])
 
 
+class LinearDecoder(nn.Module):
+    def __init__(self, in_dim, out_dim, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.seq = nn.Sequential(
+            nn.Linear(in_dim, out_dim),
+            nn.LayerNorm(out_dim),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+            nn.Linear(out_dim, out_dim),
+        )
 
+    def forward(self, x):
+       return self.seq(x)
 
 
 class HAEA(nn.Module):

@@ -145,7 +145,7 @@ class Haea(nn.Module):
 
     def get_tgt_mask(self, batch, device) -> torch.tensor:
         var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(batch, var_len * self.time_len, var_len * self.time_len, de)
+        matrix = torch.zeros(batch, var_len * self.time_len, var_len * self.time_len, device=device)
 
         for i in range(self.time_len):
             for _ in range(var_len):

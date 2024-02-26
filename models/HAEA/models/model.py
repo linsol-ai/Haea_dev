@@ -26,60 +26,7 @@ class PositionalEmbedding(nn.Module):
         return self.dropout(x + self.pe[:, :x.size(1)])
 
 
-class LinearEncoder(nn.Module):
-    def __init__(self, in_dim, dropout=0.1):
-        """
-        :param vocab_size: total vocab size
-        :param embed_size: embedding size of token embedding
-        :param dropout: dropout rate
-        """
-        super().__init__()
-        self.seq = nn.Sequential(
-            nn.Linear(in_dim, in_dim // 2),
-            nn.LayerNorm(in_dim // 2),
-            nn.ReLU(inplace=True),
-            nn.Dropout(dropout),
-            nn.Linear(in_dim // 2, in_dim // 4),
-            nn.LayerNorm(in_dim // 4),
-            nn.ReLU(inplace=True),
-            nn.Dropout(dropout),
-            nn.Linear(in_dim // 4, 1),
-        )
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-       # x.shape = (batch, time_len, var_len, hidden)
-       x = x.swapaxes(2, 3)
-       # x.shape = (batch, time_len, hidden)
-       return self.seq(x).squeeze(-1)
-    
-
-class LinearDecoder(nn.Module):
-    def __init__(self, out_dim, dropout=0.1):
-        """
-        :param vocab_size: total vocab size
-        :param embed_size: embedding size of token embedding
-        :param dropout: dropout rate
-        """
-        super().__init__()
-        self.seq = nn.Sequential(
-            nn.Linear(1, out_dim // 4),
-            nn.LayerNorm(out_dim // 4),
-            nn.ReLU(inplace=True),
-            nn.Dropout(dropout),
-            nn.Linear(out_dim // 4, out_dim // 2),
-            nn.LayerNorm(out_dim // 2),
-            nn.ReLU(inplace=True),
-            nn.Dropout(dropout),
-            nn.Linear(out_dim // 2, out_dim),
-        )
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor :
-       # x.shape = (batch, time_len, hidden, 1)
-       x = x.unsqueeze(-1)
-       # x.shape = (batch, time_len, hidden, var_len)
-       x = self.seq(x)
-       # x.shape = (batch, time_len, var_len, hidden)
-       return x.swapaxes(2, 3)
 
 
 class HAEA(nn.Module):

@@ -58,7 +58,7 @@ class Haea(nn.Module):
         super().__init__()
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
-        self.tgt_time_len = tgt_time_len
+        self.time_len = time_len
         self.in_dim = in_dim
 
         self.encoder = Reformer(

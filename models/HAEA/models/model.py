@@ -71,6 +71,7 @@ class HaeaEmbedding(nn.Module):
             x = x + self.variable(variable_seq)
             return self.dropout(x)
 
+
 class HAEA(nn.Module):
     def __init__(self, var_len, dim_model, batch_size, max_len=24*30, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()

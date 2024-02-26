@@ -150,7 +150,7 @@ class Haea(nn.Module):
         for i in range(self.tgt_time_len):
             for _ in range(var_len):
                 inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
-                matrix[:(i*var_len), inf_idx:] = float('-inf')
+                matrix[:, :(i*var_len), inf_idx:] = float('-inf')
         return matrix
     
     

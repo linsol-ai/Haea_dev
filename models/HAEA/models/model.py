@@ -69,7 +69,7 @@ class Haea(nn.Module):
             ff_glu=True,
             n_hashes = 4,
             attn_chunks = 8,
-            dropout
+            dropout = dropout
         )
         self.decoder = Reformer(
             dim=in_dim,

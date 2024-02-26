@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import math
-
+from reformer_pytorch import ReformerLM
 
 class PositionalEmbedding(nn.Module):
 

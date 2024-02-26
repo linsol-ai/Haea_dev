@@ -71,7 +71,7 @@ class Haea(nn.Module):
             attn_chunks = 8,
             dropout = dropout
         )
-        
+
         self.decoder = Reformer(
             dim=in_dim,
             depth=n_decoder_layers,
@@ -105,7 +105,7 @@ class Haea(nn.Module):
         x = self.encoder(src)
         x = self.decoder(tgt, keys=x, input_attn_mask=self.tgt_mask)
         
-        out = self.out(transformer_out)
+        out = self.out(x)
         return out
 
 

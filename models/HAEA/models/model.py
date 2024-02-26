@@ -72,9 +72,9 @@ class Haea(nn.Module):
         )
         self.decoder = Reformer(
             dim=in_dim,
-            depth=n_encoder_layers,
+            depth=n,
             heads=num_heads,
-            causal=T,
+            causal=True,
             ff_glu=True,
             n_hashes = 4,
             attn_chunks = 8

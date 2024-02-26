@@ -13,7 +13,7 @@ class HaeaVocab(Dataset):
 
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, n_only_input: int = 0):
         # dataset.shape = (time, 1, var_len, hidden)
-        self.source_dataset = source_dataset.unsqueeze(1)
+        self.source_dataset = source_dataset
         self.label_dataset = label_dataset.unsqueeze(1)
         self.n_only_input = n_only_input
         self.make_dataset()

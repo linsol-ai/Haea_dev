@@ -100,7 +100,6 @@ class Haea(nn.Module):
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, self.src_var_seq) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.in_dim)
-        tgt_mask = self.tgt_mask.to(src.device)
 
         x = self.encoder(src)
         x = self.decoder(tgt, keys=x, )

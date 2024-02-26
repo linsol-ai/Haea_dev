@@ -75,7 +75,7 @@ class Haea(nn.Module):
             dim=in_dim,
             depth=n_decoder_layers,
             heads=num_heads,
-            causal=True,
+            causal=False,
             ff_glu=True,
             n_hashes = 4,
             attn_chunks = 8,

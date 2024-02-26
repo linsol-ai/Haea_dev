@@ -40,7 +40,7 @@ class HaeaVocab(Dataset):
             tgt = range(t, t + self.tgt_time_len)
             dataset_inc.append((src, tgt))
 
-        self.dataset_inc = dataset_inc
+        self.dataset = dataset_inc
 
     def __getitem__(self, item):
         src_ind, tgt_ind = self.dataset_inc[item]

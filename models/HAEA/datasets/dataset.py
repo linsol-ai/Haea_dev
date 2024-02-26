@@ -1,2 +1,3 @@
 
-class WeatherVocab
+class WeatherVocab:
+    

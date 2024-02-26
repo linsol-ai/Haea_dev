@@ -15,7 +15,6 @@ class HaeaVocab(Dataset):
         # dataset.shape = (time, 1, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)
         self.label_dataset = label_dataset.unsqueeze(1)
-        self.tgt_time_len = tgt_time_len
         self.n_only_input = n_only_input
         self.make_dataset()
 

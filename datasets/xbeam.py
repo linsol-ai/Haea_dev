@@ -96,7 +96,7 @@ def main(argv):
   )
 
   mid_chunks = source_chunks.copy()
-  
+  mid_chunks['time'] = 1
 
   out_chunks = source_chunks.copy()
 

@@ -102,7 +102,7 @@ class Haea(nn.Module):
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.in_dim)
         tgt_mask = self.tgt_mask.to(src.device)
 
-        encoded = self.encoder(src)
+        x = self.encoder(src)
         decoded = self.decoder(encoded)
 
         

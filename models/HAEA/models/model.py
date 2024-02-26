@@ -70,7 +70,15 @@ class Haea(nn.Module):
             n_hashes = 4,
             attn_chunks = 8
         )
-        
+        self.encoder = Reformer(
+            dim=in_dim,
+            depth=n_encoder_layers,
+            heads=num_heads,
+            causal=False,
+            ff_glu=True,
+            n_hashes = 4,
+            attn_chunks = 8
+        )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)

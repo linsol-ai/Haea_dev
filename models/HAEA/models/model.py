@@ -71,6 +71,7 @@ class Haea(nn.Module):
             attn_chunks = 8
         )
         
+        
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
     

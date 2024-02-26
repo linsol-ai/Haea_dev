@@ -109,7 +109,6 @@ class Haea(nn.Module):
         return out
 
 
-
     def get_var_seq(self, batch_size, device):
         src_seq = []
         tgt_seq = []

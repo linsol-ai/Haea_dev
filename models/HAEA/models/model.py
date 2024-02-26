@@ -102,7 +102,7 @@ class Haea(nn.Module):
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.in_dim)
 
         x = self.encoder(src)
-        x = self.decoder(tgt, keys=x, input_attn_mask=)
+        x = self.decoder(tgt, keys=x, input_attn_mask=self.tg)
 
         
         out = self.out(transformer_out)

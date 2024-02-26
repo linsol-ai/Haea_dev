@@ -103,7 +103,6 @@ class Haea(nn.Module):
 
         x = self.encoder(src)
         x = self.decoder(tgt, keys=x, input_attn_mask=self.tgt_mask)
-
         
         out = self.out(transformer_out)
         return out

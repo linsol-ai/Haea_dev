@@ -61,7 +61,9 @@ class Haea(nn.Module):
         self.tgt_time_len = tgt_time_len
         self.in_dim = in_dim
 
-        self.encoder = Ref
+        self.encoder = Reformer(
+            
+        )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)

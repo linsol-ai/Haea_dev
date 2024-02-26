@@ -95,7 +95,7 @@ def main(argv):
       xbeam.make_template(source_dataset)
   )
 
-  mid_
+  mid_chunks
 
   out_chunks = source_chunks.copy()
 

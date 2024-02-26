@@ -98,7 +98,7 @@ def main(argv):
   out_chunks = source_chunks.copy()
 
   out_chunks['time'] = 256
-  out_chunks['level'] = source_dataset.level
+  out_chunks['level'] = source_dataset.level.size
   out_chunks['latitude'] = source_dataset.latitude.size
   out_chunks['longitude'] = source_dataset.longitude.size
 

@@ -71,6 +71,7 @@ class Haea(nn.Module):
             attn_chunks = 8,
             dropout = dropout
         )
+        
         self.decoder = Reformer(
             dim=in_dim,
             depth=n_decoder_layers,

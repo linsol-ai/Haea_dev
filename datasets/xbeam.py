@@ -95,6 +95,8 @@ def main(argv):
       xbeam.make_template(source_dataset)
   )
 
+  source_chunks['time'] = 1
+
   out_chunks = source_chunks.copy()
 
   out_chunks['time'] = 256

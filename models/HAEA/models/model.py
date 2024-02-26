@@ -122,7 +122,7 @@ class Haea(nn.Module):
             tgt_seq.append(t_seq)
         
         tgt_seq = torch.tensor(tgt_seq, device=device)
-        src_seq = torch.tensor([self.src_var_list for _ in range(batch_size)], device=device)
+        
         return src_seq, tgt_seq
 
 

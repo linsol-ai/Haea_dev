@@ -83,7 +83,7 @@ def preprocess_wind_data(u, v, device):
 
 def download_zarr(source, output_path, variables):
     source_dataset, source_chunks = xb.open_zarr(source)
-    source_dataset
+    source_dataset = source_dataset[variables]
 
     template = (
       xb.make_template(source_dataset)

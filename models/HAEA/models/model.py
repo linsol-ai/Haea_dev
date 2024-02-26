@@ -129,6 +129,7 @@ class Haea(nn.Module):
         return src_seq, tgt_seq
 
 
+
     def positional_encoding(self, batch, d_model, var_len, time_len, device):
         pe = torch.zeros(batch, time_len, d_model).float()
         pe.require_grad = False
@@ -141,6 +142,7 @@ class Haea(nn.Module):
 
         return pe.repeat_interleave(var_len, dim=1).to(device)
     
+
 
     def get_tgt_mask(self, batch, device) -> torch.tensor:
         var_len = len(self.tgt_var_list)

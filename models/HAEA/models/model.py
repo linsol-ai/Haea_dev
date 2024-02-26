@@ -3,7 +3,7 @@ from torch import nn
 from torch.nn import functional as F
 import math
 from typing import List
-from 
+from reformer_pytorch import Reformer, ReformerLM
 
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):

@@ -103,7 +103,7 @@ class Haea(nn.Module):
         tgt_mask = self.tgt_mask.to(src.device)
 
         encoded = self.encoder(src)
-        decoded = 
+        decoded = self.decoder()
 
         
         out = self.out(transformer_out)

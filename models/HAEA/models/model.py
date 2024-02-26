@@ -45,6 +45,30 @@ class LinearDecoder(nn.Module):
     def forward(self, x):
        return self.seq(x)
 
+class VariableEmbedding(nn.Embedding):
+    def __init__(self, var_len, embed_size=768):
+        super().__init__(var_len, embed_size)
+
+
+class Embedding(nn.Module):
+    def __init__(self, var_len, embed_size, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.variable = VariableEmbedding(var_len, embed_size)
+        self.dropout = nn.Dropout(p=dropout)
+        self.embed_size = embed_size
+
+    def forward(self, x, variable_seq, position_seq=None):
+        if position_seq is not None:
+            x = x +  self.variable(variable_seq) + position_seq
+            return self.dropout(x)
+        else:
+            x = x + self.variable(variable_seq)
+            return self.dropout(x)
 
 class HAEA(nn.Module):
     def __init__(self, var_len, dim_model, batch_size, max_len=24*30, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):

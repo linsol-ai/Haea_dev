@@ -39,6 +39,7 @@ class BARTDenoisingDataset(Dataset):
         seed,
         args
     ):
+        
         self.dataset = dataset
         self.sizes = sizes
         self.vocab = vocab

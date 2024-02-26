@@ -112,7 +112,6 @@ class Haea(nn.Module):
 
         for _ in range(batch_size):
             t_seq = []
-            s_seq = []
 
             for _ in range(0, self.time_len):
                 s_seq.extend(self.src_var_list)

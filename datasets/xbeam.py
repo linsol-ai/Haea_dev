@@ -117,7 +117,7 @@ def main(argv):
   with beam.Pipeline(options=pipeline_options) as root :
     (
         root
-        | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
+        | xbeam.DatasetToChunks(source_dataset, mid_chunks, split_vars=True)
         | xbeam.SplitChunks()
         | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
             source_dataset.sizes,

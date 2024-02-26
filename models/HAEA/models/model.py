@@ -63,7 +63,8 @@ class Haea(nn.Module):
 
         self.encoder = Reformer(
             dim=in_dim,
-            depth=
+            depth=n_encoder_layers,
+            
         )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

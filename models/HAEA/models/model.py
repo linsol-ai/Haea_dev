@@ -116,6 +116,7 @@ class Haea(nn.Module):
 
             for _ in range(0, self.time_len):
                 t_seq.extend(self.tgt_var_list)
+                
 
             tgt_seq.append(t_seq)
         

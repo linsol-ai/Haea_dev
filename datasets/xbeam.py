@@ -117,7 +117,7 @@ def main(argv):
         | xbeam.DatasetToChunks(source_dataset, source_chunks, split_vars=True)
         | xbeam.Rechunk(  # pytype: disable=wrong-arg-types
             source_dataset.sizes,
-            mid_chunks,
+            source_chunks,
             out_chunks,
             itemsize=itemsize,
         )

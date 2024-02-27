@@ -40,7 +40,7 @@ class HaeaVocab:
         return result
 
     def get(self, times: torch.Tensor):
-        times = times - 4
+        times = times - len(self.S)
         src = self.get_data(times, self.source_dataset)
         tgt = self.get_data(times, self.label_dataset, source=False)
         return src, tgt

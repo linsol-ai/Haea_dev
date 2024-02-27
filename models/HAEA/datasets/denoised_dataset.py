@@ -147,7 +147,7 @@ class BARTDenoisingDataset(Dataset):
         for i in range(len(self.vocab.SPECIAL_TOKENS), size):
             start = i
             end = i + length
-            dataset[i] = torch.cat([self.vocab.SPECIAL_TOKEN_BOS + torch.arange(start, end, step=1)] , dim=0)
+            dataset[i] = torch.cat([self.vocab.SPECIAL_TOKEN_BOS + torch.arange(start, end, step=1) + SP] , dim=0)
 
         return dataset
 

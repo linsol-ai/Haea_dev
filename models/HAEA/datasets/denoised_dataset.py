@@ -58,7 +58,6 @@ def numpy_seed(seed, *addl_seeds):
 class BARTDenoisingDataset(Dataset):
     def __init__(
         self,
-        dataset,
         vocab: HaeaVocab,
         mask_idx,
         mask_whole_words,

@@ -17,7 +17,7 @@ class HaeaVocab:
         self.label_dataset = label_dataset
         self.n_only_input = n_only_input
         self.bos = torch.zeros(source_dataset.size(-1))
-        
+        self.eos = torch.zeros(source_dataset.size(-1))
 
     def __len__(self):
         return self.source_dataset.size(0)-(self.tgt_time_len)

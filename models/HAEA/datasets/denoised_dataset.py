@@ -24,7 +24,7 @@ class HaeaVocab:
 
     def get_data(self, indicate, dataset, source: bool = True):
         if not source:
-            data = dataset[:, :-self.n_only_input, :]
+            data = dataset[indicate, :-self.n_only_input, :]
 
         result = []
         for t in indicate:

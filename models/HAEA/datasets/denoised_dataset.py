@@ -20,7 +20,7 @@ class HaeaVocab:
         self.eos = torch.zeros(source_dataset.size(-1))
 
     def __len__(self):
-        return self.source_dataset.size(0)-(self.tgt_time_len)
+        return self.source_dataset.size(0) + 2
 
     def get_data(self, indicate, dataset, source: bool = True):
         result = []

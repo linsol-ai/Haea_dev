@@ -143,6 +143,7 @@ class BARTDenoisingDataset(Dataset):
     
     def make_dataset(self, size, length):
         dataset = []
+        data
 
         for i in range(size):
             start = i

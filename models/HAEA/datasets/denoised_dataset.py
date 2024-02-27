@@ -45,6 +45,8 @@ class HaeaVocab:
     def eos(self):
         return self.SPECIAL_TOKEN_EOS
 
+    
+
 
 @contextlib.contextmanager
 def numpy_seed(seed, *addl_seeds):

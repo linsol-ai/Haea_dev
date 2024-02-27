@@ -69,7 +69,6 @@ class BARTDenoisingDataset(Dataset):
         self,
         vocab: HaeaVocab,
         mask_whole_words,
-        shuffle,
         seed,
         args
     ):

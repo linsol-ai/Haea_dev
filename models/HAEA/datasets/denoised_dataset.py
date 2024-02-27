@@ -68,6 +68,7 @@ class BARTDenoisingDataset(Dataset):
     def __init__(
         self,
         vocab: HaeaVocab,
+        
         mask_whole_words,
         seed,
         args
@@ -144,7 +145,7 @@ class BARTDenoisingDataset(Dataset):
             start = i
             end = i + length
             dataset[i] = torch.arange(start, end, step=1)
-            
+
         self.dataset = dataset
 
 

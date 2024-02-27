@@ -22,7 +22,7 @@ class HaeaVocab:
     def __len__(self):
         return self.source_dataset.size(0) + 2
 
-    def get_data(self, indicate, dataset, source: bool = True):
+    def get_data(self, indicate, dataset: torch.Tensor, source: bool = True):
         if not source:
             result = dataset[indicate, :-self.n_only_input, :]
         else:

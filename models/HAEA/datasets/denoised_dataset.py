@@ -75,7 +75,6 @@ class BARTDenoisingDataset(Dataset):
     ):
         
         self.vocab = vocab
-        self.shuffle = shuffle
         self.seed = seed
         self.mask_idx = vocab.SPECIAL_TOKEN_MASK
         self.mask_whole_word = mask_whole_words
@@ -141,7 +140,7 @@ class BARTDenoisingDataset(Dataset):
         }
     
     def make_dataset(self, size, length):
-        
+
 
     def __len__(self):
         return len(self.dataset)

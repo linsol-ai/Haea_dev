@@ -33,7 +33,6 @@ class HaeaVocab:
         return result
 
     def get(self, items):
-        src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind, self.source_dataset)
         tgt = self.get_data(tgt_ind, self.source_dataset, source=False)
         label = self.get_data(tgt_ind, self.label_dataset, source=False)

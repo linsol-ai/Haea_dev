@@ -133,7 +133,8 @@ class BARTDenoisingDataset(Dataset):
             'target': target,
         }
     
-    def make_dataset(self, size, length)
+    def make_dataset(self, size, length):
+        
 
     def __len__(self):
         return len(self.dataset)

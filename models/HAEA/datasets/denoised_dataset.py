@@ -31,7 +31,7 @@ class HaeaVocab:
 
         # dataset.shape = (time_len, var, hidden)
         result = torch.concat(result, dim=0)
-        result = torch.concat(result, dim=0)
+        result = result.view()
         return result
 
     def get(self, items):

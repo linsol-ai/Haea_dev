@@ -143,7 +143,7 @@ class BARTDenoisingDataset(Dataset):
         for i in range(size):
             start = i
             end = i + length
-            dataset[i] = torch.arange(start, end, st)
+            dataset[i] = torch.arange(start, end, step=1)
 
 
     def __len__(self):

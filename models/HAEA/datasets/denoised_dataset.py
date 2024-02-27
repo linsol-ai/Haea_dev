@@ -27,7 +27,7 @@ class HaeaVocab:
         self.eos = torch.zeros(source_dataset.size(-1))
 
     def __len__(self):
-        return self.source_dataset.size(0) + 4
+        return self.source_dataset.size(0) + len(self.SPECIAL_TOKENS)
 
     def get_data(self, indicate, dataset: torch.Tensor, source: bool = True):
         if not source:

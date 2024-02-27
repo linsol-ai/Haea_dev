@@ -32,7 +32,7 @@ class HaeaVocab:
         result = torch.concat(result, dim=0)
         return result
 
-    def __getitem__(self, item):
+    def get(self, item):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind, self.source_dataset)
         tgt = self.get_data(tgt_ind, self.source_dataset, source=False)

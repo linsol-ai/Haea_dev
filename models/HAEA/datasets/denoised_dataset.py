@@ -11,7 +11,7 @@ import contextlib
 
 class HaeaVocab:
 
-    SPECIAL_
+    SPECIAL_TOKEN = [d]
 
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)

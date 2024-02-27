@@ -121,7 +121,7 @@ class BARTDenoisingDataset(Dataset):
     def __getitem__(self, index):
         with numpy_seed(self.seed, self.epoch, index):
             tokens = self.dataset[index]
-            assert tokens[-1] == self.vocab.eos()
+            assert tokens[-1] == self.vocab.SPECIAL_TOKEN_EOS
             source, target = tokens, tokens.clone()
 
             if self.mask_ratio > 0:

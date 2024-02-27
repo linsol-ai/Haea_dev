@@ -69,7 +69,6 @@ class BARTDenoisingDataset(Dataset):
     def __init__(
         self,
         vocab: HaeaVocab,
-        mask_idx,
         mask_whole_words,
         shuffle,
         seed,

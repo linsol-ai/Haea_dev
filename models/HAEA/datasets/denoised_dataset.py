@@ -60,7 +60,7 @@ class BARTDenoisingDataset(Dataset):
         self,
         dataset,
         sizes,
-        vocab: ,
+        vocab: HaeaVocab,
         mask_idx,
         mask_whole_words,
         shuffle,

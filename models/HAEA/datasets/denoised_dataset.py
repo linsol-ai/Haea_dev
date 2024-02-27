@@ -38,7 +38,7 @@ class HaeaVocab:
         result = torch.cat([self.bos, result, self.eos])
         return result
 
-    def get(self, times):
+    def get(self, times: torch.Tensor):
         src = self.get_data(times, self.source_dataset)
         tgt = self.get_data(times, self.label_dataset, source=False)
         return src, tgt

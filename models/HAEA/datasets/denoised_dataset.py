@@ -37,6 +37,8 @@ class HaeaVocab:
         tgt = self.get_data(times, self.label_dataset, source=False)
         return src, tgt
 
+    def 
+
 
 @contextlib.contextmanager
 def numpy_seed(seed, *addl_seeds):
@@ -134,7 +136,7 @@ class BARTDenoisingDataset(Dataset):
         }
     
     def make_dataset(self, size, length):
-        
+
 
     def __len__(self):
         return len(self.dataset)

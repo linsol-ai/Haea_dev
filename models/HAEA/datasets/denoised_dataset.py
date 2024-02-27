@@ -16,7 +16,8 @@ class HaeaVocab:
         self.source_dataset = source_dataset
         self.label_dataset = label_dataset
         self.n_only_input = n_only_input
-        self.bos = torch.zeros()
+        self.bos = torch.zeros(source_dataset.size(-1))
+        
 
     def __len__(self):
         return self.source_dataset.size(0)-(self.tgt_time_len)
@@ -32,7 +33,7 @@ class HaeaVocab:
         # dataset.shape = (time_len, var, hidden)
         result = torch.concat(result, dim=0)
         result = result.view(-1, result.size(-1))
-        
+
         return result
 
     def get(self, items):

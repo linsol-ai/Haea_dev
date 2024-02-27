@@ -28,15 +28,6 @@ class HaeaVocab:
         else:
             data = dataset[indicate, :, :]
 
-        result = []
-        for t in indicate:
-            data = dataset[t]
-            if not source:
-                data = data[:, :-self.n_only_input, :]
-            result.append(data)
-
-        # dataset.shape = (time_len, var, hidden)
-        result = torch.concat(result, dim=0)
         result = result.view(-1, result.size(-1))
         result = torch.cat([self.bos, result, self.eos])
 

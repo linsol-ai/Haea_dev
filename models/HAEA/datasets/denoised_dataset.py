@@ -26,7 +26,7 @@ class HaeaVocab:
         if not source:
             data = dataset[indicate, :-self.n_only_input, :]
         else:
-            
+            data = dataset[indicate, :-self.n_only_input, :]
 
         result = []
         for t in indicate:

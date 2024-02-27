@@ -133,7 +133,7 @@ class BARTDenoisingDataset(Dataset):
         assert (source >= 0).all()
         assert (source[1:-1] >= 1).all()
         assert (source <= len(self.vocab)).all()
-        assert source[0] == self.vocab.SP
+        assert source[0] == self.vocab.SPECIAL_TOKEN_BOS
         assert source[-1] == self.vocab.SPECIAL_TOKEN_EOS
         return {
             'id': index,

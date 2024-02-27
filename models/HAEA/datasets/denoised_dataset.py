@@ -43,7 +43,7 @@ class HaeaVocab:
         return src, tgt
 
     def eos(self):
-        return SPECIAL_TOKEN_EOS
+        return self.SPECIAL_TOKEN_EOS
 
 
 @contextlib.contextmanager

@@ -277,35 +277,3 @@ class BARTDenoisingDataset(Dataset):
 
         source = source[to_keep]
         return source
-
-    def num_tokens(self, index):
-        """Return the number of tokens in a sample. This value is used to
-        enforce ``--max-tokens`` during batching."""
-        return self.sizes[index]
-
-    def size(self, index):
-        """Return an example's size as a float or tuple. This value is used when
-        filtering a dataset with ``--max-positions``."""
-        return self.sizes[index]
-
-    def ordered_indices(self):
-        """Return an ordered list of indices. Batches will be constructed based
-        on this order."""
-        if self.shuffle:
-            indices = np.random.permutation(len(self))
-        else:
-            indices = np.arange(len(self))
-        return indices[np.argsort(self.sizes[indices], kind='mergesort')]
-
-    def prefetch(self, indices):
-        self.src.prefetch(indices)
-        self.tgt.prefetch(indices)
-
-    @property
-    def supports_prefetch(self):
-        return (
-            hasattr(self.src, 'supports_prefetch')
-            and self.src.supports_prefetch
-            and hasattr(self.tgt, 'supports_prefetch')
-            and self.tgt.supports_prefetch
-        )

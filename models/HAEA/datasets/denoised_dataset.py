@@ -74,7 +74,6 @@ class BARTDenoisingDataset(Dataset):
         args
     ):
         
-        self.dataset = dataset
         self.vocab = vocab
         self.shuffle = shuffle
         self.seed = seed

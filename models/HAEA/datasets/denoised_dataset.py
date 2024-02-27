@@ -15,7 +15,7 @@ class HaeaVocab:
     SPECIAL_TOKEN_EOS = 1
     SPECIAL_TOKEN_MASK = 2
     SPECIAL_TOKEN_PAD = 3
-    SPECIAL_TOKENS = [SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_EOS, ]
+    SPECIAL_TOKENS = [SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_EOS, SPECIAL_TOKEN_MASK, ]
 
 
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, n_only_input: int = 0):

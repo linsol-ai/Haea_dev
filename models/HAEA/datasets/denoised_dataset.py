@@ -38,8 +38,8 @@ class HaeaVocab:
         return result
 
     def get(self, times):
-        src = self.get_data(items, self.source_dataset)
-        tgt = self.get_data(items, self.label_dataset, source=False)
+        src = self.get_data(times, self.source_dataset)
+        tgt = self.get_data(times, self.label_dataset, source=False)
         return src, tgt
 
 

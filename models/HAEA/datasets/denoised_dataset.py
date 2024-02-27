@@ -30,7 +30,6 @@ class HaeaVocab:
 
         result = result.view(-1, result.size(-1))
         result = torch.cat([self.bos, result, self.eos])
-
         return result
 
     def get(self, times):

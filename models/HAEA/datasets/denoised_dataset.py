@@ -83,6 +83,7 @@ class BARTDenoisingDataset(Dataset):
         self.mask_length = args['mask_length']
         self.replace_length = args['replace_length']
         self.poisson_lambda = args['poisson_lambda']
+        
 
         self.replace_length = self.replace_length
         if not self.replace_length in [-1, 0, 1]:

@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 import math
 import contextlib
 
-class HaeaVocab(Dataset):
+class HaeaVocab:
 
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)

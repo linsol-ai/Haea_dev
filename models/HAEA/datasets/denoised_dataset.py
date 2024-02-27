@@ -84,7 +84,7 @@ class BARTDenoisingDataset(Dataset):
         self.replace_length = args['replace_length']
         self.poisson_lambda = args['poisson_lambda']
 
-        self.dataset = self.make_dataset(self.vocab.source_dataset.size(0), )
+        self.dataset = self.make_dataset(self.vocab.source_dataset.size(0), le)
 
         self.replace_length = self.replace_length
         if not self.replace_length in [-1, 0, 1]:

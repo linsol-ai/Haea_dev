@@ -37,7 +37,7 @@ class HaeaVocab:
         tgt = self.get_data(times, self.label_dataset, source=False)
         return src, tgt
 
-    def 
+    def eos()
 
 
 @contextlib.contextmanager

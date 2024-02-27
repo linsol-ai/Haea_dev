@@ -23,6 +23,8 @@ class HaeaVocab:
         return self.source_dataset.size(0) + 2
 
     def get_data(self, indicate, dataset, source: bool = True):
+        if not source:
+            
         result = []
         for t in indicate:
             data = dataset[t]

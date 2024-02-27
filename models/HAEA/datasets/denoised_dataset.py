@@ -79,7 +79,7 @@ class BARTDenoisingDataset(Dataset):
         self.vocab = vocab
         self.shuffle = shuffle
         self.seed = seed
-        self.mask_idx = mask_idx
+        self.mask_idx = vocab.SPECIAL_TOKEN_MASK
         self.mask_whole_word = mask_whole_words
         self.mask_ratio = args['mask_ratio']
         self.random_ratio = args['random_ratio']

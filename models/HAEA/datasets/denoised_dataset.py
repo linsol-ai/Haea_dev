@@ -11,7 +11,7 @@ import contextlib
 
 class HaeaVocab:
 
-    SPECIAL_TOKEN_EOS = 0
+    SPECIAL_TOKEN_BOS = 0
     SPECIAL_TOKEN_EOS = 0
 
     def __init__(self, source_dataset: torch.Tensor, label_dataset: torch.Tensor, n_only_input: int = 0):

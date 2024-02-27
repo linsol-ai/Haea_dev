@@ -68,7 +68,6 @@ class BARTDenoisingDataset(Dataset):
     ):
         
         self.dataset = dataset
-        self.sizes = sizes
         self.vocab = vocab
         self.shuffle = shuffle
         self.seed = seed

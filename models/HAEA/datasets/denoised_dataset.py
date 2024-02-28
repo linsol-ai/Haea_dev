@@ -31,7 +31,7 @@ class HaeaVocab:
         return self.source_dataset.size(0) + len(self.SPECIAL_TOKENS)
 
     
-    def positional_encoding(self, batch, d_model, max_len):
+    def positional_encoding(self, d_model, max_len):
         pe = torch.zeros(batch, max_len, d_model).float()
 
         position = torch.arange(0, max_len).float().unsqueeze(1)

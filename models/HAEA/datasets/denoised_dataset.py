@@ -49,7 +49,7 @@ class HaeaVocab:
         for i, t in enumerate(indicate):
             pos = t - len(self.SPECIAL_TOKENS)
             if t in self.SPECIAL_TOKENS:
-                data = 
+                data = torch.zeros(dataset.size(1), dataset.size(2))
                 result.append(torch.zeros(dataset.size(1), dataset.size(2)))
             else:
                 if not source:

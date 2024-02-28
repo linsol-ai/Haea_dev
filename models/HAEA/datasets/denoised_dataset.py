@@ -70,7 +70,7 @@ class HaeaVocab:
         return src
     
     def get_target():
-         tgt = self.get_data(times, self.label_dataset, source=False)
+        tgt = self.get_data(times, self.label_dataset, source=False)
         return tgt
 
 

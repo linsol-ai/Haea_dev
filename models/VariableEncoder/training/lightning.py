@@ -179,8 +179,9 @@ class TrainModule(pl.LightningModule):
         tgt = batch[1].to(self.device)
         var_len = tgt.size(2)
         predict = self.model(src, tgt)
+        # loss.shape = (batch, time_len, var_len, 1450)
         loss = self.calculate_sqare_loss(predict, tgt)
-        
+
         return reversed_predict, label
     
 

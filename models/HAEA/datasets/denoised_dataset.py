@@ -473,10 +473,6 @@ class DenoisingDataset(Dataset):
                 assert source_length - 1 not in indices
 
         source = source[to_keep]
-
-        if num_inserts > 0:
-            source = self.add_insertion_noise(source, num_inserts / source.size(0))
-
         return source
 
     def add_permuted_noise(self, tokens, p):

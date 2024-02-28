@@ -184,6 +184,7 @@ class TrainModule(pl.LightningModule):
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.swapaxes(1, 2)
+        
 
         return reversed_predict, label
     

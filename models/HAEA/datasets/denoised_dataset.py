@@ -53,7 +53,7 @@ class HaeaVocab:
                         data = torch.zeros(dataset.size(1)-self.n_only_input, dataset.size(2))
                     else:
                         data = torch.zeros(dataset.size(1), dataset.size(2))
-                        print(data.shape)
+                    print(data.shape)
                 else:
                     data = torch.zeros(1, dataset.size(2))
             else:

@@ -188,6 +188,6 @@ class TrainModule(pl.LightningModule):
         loss = torch.mean(loss, dim=-1)
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
-        return reversed_predict, label
+        return loss
     
 

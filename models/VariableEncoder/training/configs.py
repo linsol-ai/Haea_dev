@@ -43,8 +43,8 @@ class TrainingConfig(BaseModel):
 
     constant_variable: List[str] = []
 
-    train_start: str
-    
+    train_start: da
+
     train_end : str
 
     

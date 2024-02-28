@@ -93,6 +93,7 @@ class HaeaVocab:
         return matrix.bool()
 
 
+
 @contextlib.contextmanager
 def numpy_seed(seed, *addl_seeds):
     """Context manager which seeds the NumPy PRNG with the specified seed and

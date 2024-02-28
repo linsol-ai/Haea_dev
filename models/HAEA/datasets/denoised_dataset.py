@@ -159,7 +159,7 @@ class DenoisingDataset(Dataset):
             e_to_the_minus_lambda = math.exp(-_lambda)
             k_factorial = 1
             ps = []
-            for k in range(1, 128):
+            for k in range(0, 128):
                 ps.append(e_to_the_minus_lambda * lambda_to_the_k / k_factorial)
                 lambda_to_the_k *= _lambda
                 k_factorial *= k + 1

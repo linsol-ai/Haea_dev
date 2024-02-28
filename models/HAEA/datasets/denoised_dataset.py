@@ -87,6 +87,7 @@ class HaeaVocab:
             for _ in range(var_len):
                 inf_idx = min(((i)*var_len), var_len * self.time_len)
                 matrix[:, :(i*var_len), inf_idx:] = 0
+                
         return matrix.bool()
 
 

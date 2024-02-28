@@ -177,7 +177,7 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
-        
+        self.model.init_seq()
         var_len = tgt.size(2)
         predict = self.model(src, tgt)
         # loss.shape = (batch, time_len * var_len, 1450)

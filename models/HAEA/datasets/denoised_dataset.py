@@ -200,7 +200,7 @@ class DenoisingDataset(Dataset):
                 source = self.permute_sentences(source, self.permute_sentence_ratio)
 
             if self.mask_ratio > 0:
-                source = self.add_whole_word_mask(source, self.mask_ratio)
+                source = self.add_word_mask(source, self.mask_ratio)
 
             if self.insert_ratio > 0:
                 source = self.add_insertion_noise(source, self.insert_ratio)

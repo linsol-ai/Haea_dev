@@ -114,7 +114,7 @@ class Haea(nn.Module):
             seq =  []
             for item in batch:
                 if item in HaeaVocab.SPECIAL_TOKENS:
-                    
+                    if 
 
             src_seq.append(s_seq)
             tgt_seq.append(t_seq)

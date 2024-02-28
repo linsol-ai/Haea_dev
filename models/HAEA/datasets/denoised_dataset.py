@@ -84,7 +84,7 @@ class HaeaVocab:
         matrix = torch.zeros(batch, var_len * (self.max_len + 2), var_len * (self.max_len + 2))
         matrix[:, :, 0] = 1
 
-        for i in range(1, self.max_len):
+        for i in range(1, self.max_len+1):
             inf_idx = min(((i)*var_len), var_len * self.max_len)
             matrix[:, :(i*var_len), :inf_idx] = 0
 

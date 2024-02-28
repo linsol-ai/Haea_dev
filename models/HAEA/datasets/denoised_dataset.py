@@ -28,7 +28,7 @@ class HaeaVocab:
         self.n_only_input = n_only_input
         self.pe = self.positional_encoding(dataset.size(-1), max_len + 10)
         self.max_len = max_len
-        self.tgt_mask = self.get_tgt_mask(len(tgt_var_list), )
+        self.tgt_mask = self.get_tgt_mask(len(tgt_var_list), max_len)
 
 
     def __len__(self):

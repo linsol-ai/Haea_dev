@@ -59,6 +59,7 @@ class HaeaVocab:
                 else:
                     data = dataset[pos, :, :]
 
+            print(data.shape)
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
                 

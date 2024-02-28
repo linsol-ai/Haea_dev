@@ -40,7 +40,7 @@ class HaeaVocab:
         pe[:, :, 0::2] = torch.sin(position * div_term)
         pe[:, :, 1::2] = torch.cos(position * div_term)
 
-        return pe.repeat_interleave(var_len, dim=1).to(device)
+        return 
 
 
     def get_data(self, indicate, dataset: torch.Tensor, source: bool = True):

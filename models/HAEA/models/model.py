@@ -108,7 +108,7 @@ class Haea(nn.Module):
         src_seq = []
         tgt_seq = []
 
-        # 
+        # indicate.shape = ()
 
         for _ in range(indicate.size(0)):
             s_seq = []

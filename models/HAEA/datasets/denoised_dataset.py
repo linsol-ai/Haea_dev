@@ -31,7 +31,7 @@ class HaeaVocab:
 
 
     def __len__(self):
-        return self.source_dataset.size(0) + len(self.SPECIAL_TOKENS)
+        return self.dataset.size(0) + len(self.SPECIAL_TOKENS)
 
     
     def positional_encoding(self, d_model, max_len):

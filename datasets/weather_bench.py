@@ -216,8 +216,6 @@ class WeatherDataset:
         start = time.time()
 
         if start_date is not None:
-            start_date = pd.to_datetime(start_date)
-            end_date = pd.to_datetime(end_date)
             dataset = dataset.sel(time=slice(start_date, end_date))
 
         print("==== LOAD DATASET ====\n", dataset)

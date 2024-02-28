@@ -82,7 +82,7 @@ class Haea(nn.Module):
     
 
     def init_seq(self, device, batch_size):
-        self.tgt_mask = self.vocab.tgt_mask.re
+        self.tgt_mask = self.vocab.tgt_mask.
         self.src_var_seq, self.tgt_var_seq = self.get_var_seq(batch_size, device)
 
 

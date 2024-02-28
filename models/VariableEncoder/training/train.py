@@ -123,3 +123,4 @@ if __name__=='__main__':
     )
 
     trainer.fit(model_pl, datamodule=data_module)
+    trainer.predict

@@ -59,7 +59,7 @@ class HaeaVocab:
                 else:
                     data = dataset[pos, :, :]
 
-            data = data + self.pe[i].repeat_interleave(data.size(0), dim=0)
+            data = data + self.pe[i].unsqueeze(dim=0), repeat_interleave(data.size(0), dim=0)
             result.append(data)
                 
         result = torch.cat(result, dim=0)

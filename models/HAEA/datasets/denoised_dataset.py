@@ -49,10 +49,10 @@ class HaeaVocab:
             pos = t - len(self.SPECIAL_TOKENS)
             if t in self.SPECIAL_TOKENS:
                 if t is self.SPECIAL_TOKEN_MASK:
-                if not source and self.n_only_input > 0:
-                    data = torch.zeros(dataset.size(1)-self.n_only_input, dataset.size(2))
-                else:
-                    data = torch.zeros(dataset.size(1), dataset.size(2))
+                    if not source and self.n_only_input > 0:
+                        data = torch.zeros(dataset.size(1)-self.n_only_input, dataset.size(2))
+                    else:
+                        data = torch.zeros(dataset.size(1), dataset.size(2))
             else:
                 if not source and self.n_only_input > 0:
                     data = dataset[pos, :-self.n_only_input, :]

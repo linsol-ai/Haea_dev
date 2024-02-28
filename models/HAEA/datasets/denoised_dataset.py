@@ -63,8 +63,6 @@ class HaeaVocab:
             result.append(data)
                 
         result = torch.cat(result, dim=0)
-        if self.max_len-result.size(0) > 0:
-            result = torch.cat([result, torch.zeros(self.max_len-result.size(0), result.size(-1))])
         return result
 
 

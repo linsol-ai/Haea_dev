@@ -181,9 +181,9 @@ class WeatherDataset:
 
         return source, source_t, mean_std
     
-    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[]):
+    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], start_date=None, end_date=None):
         variables = air_variable + surface_variable + only_input_variable
-        source, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
+        source, mean_std = self.load_data_single(self.datasets[0], start_date, end_date, variables, constant_variables)
         
         offset = len(only_input_variable)
         if offset > 0:
@@ -212,8 +212,13 @@ class WeatherDataset:
             source, mean, std = normalize_tensor(source)
             return source.flatten(1), torch.tensor([mean, std])
         
-    def load_data_single(self, dataset: xr.Dataset, variables, constant_variables):
+    def load_data_single(self, dataset: xr.Dataset, start_date, end_date, variables, constant_variables):
         start = time.time()
+
+        if start_date is not None:
+            start_date = pd.to_datetime(start_date)
+            end_date = pd.to_datetime(end_date)
+            dataset = dataset.sel(time=slice(start_date, end_date))
 
         print("==== LOAD DATASET ====\n", dataset)
 

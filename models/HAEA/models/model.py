@@ -3,7 +3,7 @@ from torch import nn
 from torch.nn import functional as F
 import math
 from typing import List
-from reformer_pytorch import Reformer, ReformerLM, ReformerEncDec
+from reformer_pytorch import Reformer
 
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
@@ -144,13 +144,13 @@ class Haea(nn.Module):
 
     def get_tgt_mask(self, batch, device) -> torch.tensor:
         var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(batch, var_len * self.time_len, var_len * self.time_len, device=device)
+        matrix = torch.ones(batch, var_len * self.time_len, var_len * self.time_len, device=device)
 
         for i in range(self.time_len):
             for _ in range(var_len):
                 inf_idx = min(((i)*var_len), var_len * self.time_len)
-                matrix[:, :(i*var_len), inf_idx:] = float('-inf')
-        return matrix
+                matrix[:, :(i*var_len), inf_idx:] = 0
+        return matrix.bool()
     
     
 

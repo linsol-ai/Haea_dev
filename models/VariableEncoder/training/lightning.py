@@ -49,9 +49,8 @@ class TrainModule(pl.LightningModule):
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         tgt = batch[1]
-        label = batch[2]
         predict = self.model(src, tgt)
-        loss = self.calculate_rmse_loss(predict, label)
+        loss = self.calculate_rmse_loss(predict, tgt)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
@@ -129,10 +128,9 @@ class TrainModule(pl.LightningModule):
     def validation(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor]):
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
-        label = batch[2].to(self.device)
-        var_len = label.size(2)
+        var_len = tgt.size(2)
         predict = self.model(src, tgt)
-        loss = self.calculate_sqare_loss(predict, label)
+        loss = self.calculate_sqare_loss(predict, tgt)
 
         # loss.shape = (batch, time_len, var_len, 1450)
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))

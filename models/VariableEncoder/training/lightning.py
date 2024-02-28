@@ -181,7 +181,9 @@ class TrainModule(pl.LightningModule):
         predict = self.model(src, tgt)
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, tgt)
-        
+        loss = loss.view(loss.size(0), -1, var_len, loss.size(2))
+        # loss.shape = (batch, var_len, time_len, 1450)
+        loss = loss.swapaxes(1, 2)
 
         return reversed_predict, label
     

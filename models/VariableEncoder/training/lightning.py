@@ -190,7 +190,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
 
-        srccpu().detach()
+        src.cpu().detach()
 
         return loss
     

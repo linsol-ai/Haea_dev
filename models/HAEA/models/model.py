@@ -84,7 +84,7 @@ class Haea(nn.Module):
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
-        src_var_seq = self.get_var_seq()
+        src_var_seq = self.get_var_seq(self.vocab.var)
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, self.src_var_seq) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, self.tgt_var_seq) * math.sqrt(self.in_dim)

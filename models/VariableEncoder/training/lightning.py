@@ -48,7 +48,8 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
-   
+        tgt = batch[1]
+    
         predict = self.model(src, tgt)
         loss = self.calculate_rmse_loss(predict, tgt)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

@@ -8,7 +8,6 @@ import torch
 from torch.utils.data import Dataset
 import math
 import contextlib
-from typing import List
 
 class HaeaVocab:
 

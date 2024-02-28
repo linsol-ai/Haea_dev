@@ -101,7 +101,7 @@ class Haea(nn.Module):
         src_seq = []
 
         # indicate.shape = (batch, max_len + 2)
-        var_seq = torch.emp()
+        var_seq = torch.empty_like(indicate)
 
         for batch in indicate:
             seq = []

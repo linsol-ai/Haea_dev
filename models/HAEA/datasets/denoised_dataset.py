@@ -474,6 +474,7 @@ class DenoisingDataset(Dataset):
 
         source = source[to_keep]
         return source
+    
 
     def add_permuted_noise(self, tokens, p):
         num_words = len(tokens)

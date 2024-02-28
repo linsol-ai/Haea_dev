@@ -13,7 +13,7 @@ training:
   gradient_clip_val: 0.5
   tgt_time_len: 4
   train_offset: 0
-  train_start: 2020-01-01
+  train_start: 2013-01-01
   train_end: 2023-01-01
   
   air_variable:

@@ -26,7 +26,7 @@ class HaeaVocab:
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
         self.n_only_input = n_only_input
-        self.pe = self.positional_encoding(source_dataset.size(-1), max_len + 10)
+        self.pe = self.positional_encoding(dataset.size(-1), max_len + 10)
         self.max_len = max_len
 
 

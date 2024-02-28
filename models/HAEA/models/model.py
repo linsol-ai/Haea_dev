@@ -53,8 +53,6 @@ class Haea(nn.Module):
                 num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
         super().__init__()
         self.vocab = vocab
-        self.tgt_var_list = tgt_var_list
-        self.time_len = time_len
         self.in_dim = in_dim
 
         self.encoder = Reformer(

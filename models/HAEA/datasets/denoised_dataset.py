@@ -1,8 +1,3 @@
-# Modifications Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: CC-BY-NC-4.0
-# Original Copyright Facebook, Inc. and its affiliates. Licensed under the MIT License as part of
-# fairseq package.
-
 import numpy as np
 import torch
 from torch.utils.data import Dataset

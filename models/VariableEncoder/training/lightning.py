@@ -177,8 +177,10 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
-        
-        
+        var_len = tgt.size(2)
+        predict = self.model(src, tgt)
+        loss = self.calculate_sqare_loss(predict, tgt)
+
         return reversed_predict, label
     
 

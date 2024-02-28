@@ -48,7 +48,7 @@ class HaeaVocab:
         for i, t in enumerate(indicate):
             pos = t - len(self.SPECIAL_TOKENS)
             if t in self.SPECIAL_TOKENS:
-                if not source:
+                if not source and :
                     data = torch.zeros(dataset.size(1)-self.n_only_input, dataset.size(2))
                 else:
                     data = torch.zeros(dataset.size(1), dataset.size(2))

@@ -24,7 +24,7 @@ class HaeaVocab:
         self.label_dataset = label_dataset
         self.n_only_input = n_only_input
         self.max_len = max_len * source_dataset.size(1)
-        self.pe = 
+        self.pe = self.positional_encoding()
 
 
     def __len__(self):

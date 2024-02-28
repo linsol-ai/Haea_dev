@@ -87,6 +87,7 @@ class HaeaVocab:
         for i in range(self.max_len):
             s =  i * var_len
             e =  (i+1) * var_len
+            
 
         return matrix.bool()
 

@@ -46,7 +46,7 @@ class HaeaVocab:
     def get_data(self, indicate, dataset: torch.Tensor, source: bool = True):
         result = []
         
-        for i, t in enumerate(indicate:
+        for i, t in enumerate(indicate):
             pos = t - len(self.SPECIAL_TOKENS)
             if t in self.SPECIAL_TOKENS:
                 result.append(torch.zeros(dataset.size(1), dataset.size(2)))

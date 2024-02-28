@@ -214,7 +214,7 @@ class DenoisingDataset(Dataset):
         assert source[-1] == self.vocab.SPECIAL_TOKEN_EOS
 
         source_dataset = self.vocab.get(source)
-        
+        source_dataset = self.vocab.get(source)
 
         return {
             "id": index,

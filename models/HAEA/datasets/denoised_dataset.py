@@ -30,6 +30,7 @@ class HaeaVocab:
         self.max_len = max_len
 
 
+
     def __len__(self):
         return self.dataset.size(0) + len(self.SPECIAL_TOKENS)
 

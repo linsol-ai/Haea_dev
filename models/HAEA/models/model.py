@@ -109,6 +109,8 @@ class Haea(nn.Module):
                         seq.extend([item for _ in range()])
                     else:
                         seq.append(item)
+                else:
+                    
 
             src_seq.append(s_seq)
             tgt_seq.append(t_seq)

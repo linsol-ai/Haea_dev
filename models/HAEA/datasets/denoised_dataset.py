@@ -101,7 +101,7 @@ class HaeaVocab:
             matrix[:, s:e, :e] = 1
         
         matrix[:, -1, :] = 1
-        return matrix
+        return matrix.bool()
 
 
 @contextlib.contextmanager

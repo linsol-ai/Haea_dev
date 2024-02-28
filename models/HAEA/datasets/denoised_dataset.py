@@ -19,7 +19,7 @@ class HaeaVocab:
     SPECIAL_TOKENS = [SPECIAL_TOKEN_PAD, SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_EOS, SPECIAL_TOKEN_MASK]
 
 
-    def __init__(self, source_dataset: torch.Tensor, src_var_list: List[str], target_dataset: torch.Tensor, tgt_var_list: List[str],
+    def __init__(self, source_dataset: torch.Tensor, src_var_list: List[str], tgt_var_list: List[str],
                   max_len, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset

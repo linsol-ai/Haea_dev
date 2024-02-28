@@ -78,18 +78,6 @@ class HaeaVocab:
     def get_target(self, times: torch.Tensor):
         tgt = self.get_data(times, self.dataset, source=False)
         return tgt
-
-    def get_tgt_mask(self, batch) -> torch.tensor:
-        var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(batch, var_len * (self.max_len + 2), var_len * (self.max_len + 2))
-        matrix[:, :, 0] = 1
-
-        for i in range(self.max_len):
-            s =  (i * var_len) + 1
-            e =  ((i+1) * var_len) + 1
-            matrix[:, s:e, s:e] = 1
-
-        return matrix.bool()
     
     def get_tgt_mask(batch, var_len, max_len) -> torch.tensor:
         matrix = torch.zeros(batch, var_len * max_len + 2, var_len * max_len + 2)

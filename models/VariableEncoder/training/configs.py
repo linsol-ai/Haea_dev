@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
-import dat
+import datetime
 
 class ModelConfig(BaseModel):
     """A config specification of model."""

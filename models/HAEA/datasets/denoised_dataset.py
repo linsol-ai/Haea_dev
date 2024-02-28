@@ -406,12 +406,12 @@ class DenoisingDataset(Dataset):
             num_inserts = num_to_mask - lengths.size(0)
             num_to_mask -= num_inserts
             if num_to_mask == 0:
-                return self.add_insertion_noise(source, num_inserts / source.size(0))
+                return source
 
             assert (lengths > 0).all()
         else:
             lengths = torch.ones((num_to_mask,)).long()
-            
+
         assert is_word_start[-1] == 0
         word_starts = is_word_start.nonzero(as_tuple=False)
         indices = word_starts[

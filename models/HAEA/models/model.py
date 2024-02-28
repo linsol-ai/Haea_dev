@@ -111,6 +111,8 @@ class Haea(nn.Module):
                         seq.append(item)
                 else:
                     seq.extend(var_seq)
+                
+                
 
 
             src_seq.append(s_seq)

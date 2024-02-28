@@ -99,7 +99,7 @@ class Haea(nn.Module):
 
     def get_var_seq(self, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len + 2)
-        var_seq = torch.empty_like(indicate)
+        var_seq = []
 
         for batch in indicate:
             seq = []

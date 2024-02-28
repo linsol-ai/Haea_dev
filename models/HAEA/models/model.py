@@ -103,7 +103,7 @@ class Haea(nn.Module):
         # indicate.shape = (batch, max_len + 2)
 
         for batch in indicate:
-            seq =  []
+            seq = []
             for item in batch:
                 if item in HaeaVocab.SPECIAL_TOKENS:
                     if item == HaeaVocab.SPECIAL_TOKEN_MASK:

@@ -89,7 +89,7 @@ class HaeaVocab:
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = 1
         
-        matrix[:, -1, :] = 1
+        matrix[-1, :] = 1
         return matrix.bool()
 
 

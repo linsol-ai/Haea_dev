@@ -411,6 +411,7 @@ class DenoisingDataset(Dataset):
             assert (lengths > 0).all()
         else:
             lengths = torch.ones((num_to_mask,)).long()
+            
         assert is_word_start[-1] == 0
         word_starts = is_word_start.nonzero(as_tuple=False)
         indices = word_starts[

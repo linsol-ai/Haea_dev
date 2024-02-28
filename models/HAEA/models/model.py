@@ -120,7 +120,6 @@ class Haea(nn.Module):
         src_seq = torch.tensor(src_seq, device=device)
         tgt_seq = torch.tensor(tgt_seq, device=device)
         return src_seq, tgt_seq
-
     
 
     def get_tgt_mask(self, batch, device) -> torch.tensor:

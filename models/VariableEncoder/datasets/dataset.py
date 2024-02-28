@@ -17,7 +17,7 @@ class CustomDataset(Dataset):
         result = []
         for t in indicate:
             data = dataset[t]
-            if not source and :
+            if not source and self.n_only_input > 0:
                 data = data[:, :-self.n_only_input, :]
             result.append(data)
 

@@ -371,7 +371,6 @@ class DenoisingDataset(Dataset):
         return source
     
 
-
     def add_whole_word_mask(self, source, p):
         is_word_start = self.word_starts(source)
         num_to_mask = int(math.ceil(is_word_start.float().sum() * p))

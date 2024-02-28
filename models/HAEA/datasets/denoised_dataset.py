@@ -85,7 +85,7 @@ class HaeaVocab:
         matrix[:, :, 0] = 1
 
         for i in range(self.max_len):
-            s =  i * var_len
+            s =  (i * var_len
             e =  (i+1) * var_len
             matrix[:, s:e, s:e] = 1
 

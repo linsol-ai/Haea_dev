@@ -221,7 +221,7 @@ class DenoisingDataset(Dataset):
             "source": source,
             "source_dataset": source_dataset,
             "target": target,
-            ""
+            "target_dataset"
         }
 
     def __len__(self):

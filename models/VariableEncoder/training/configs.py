@@ -45,7 +45,7 @@ class TrainingConfig(BaseModel):
 
     train_start: datetime.datetime
 
-    train_end : str
+    train_end : datetime.datetime
 
     
 

@@ -110,7 +110,7 @@ class Haea(nn.Module):
                     else:
                         seq.append(item)
                 else:
-                    seq.extend(var_seq)
+                    seq.extend(var_list)
                 
             result.append(seq)
 

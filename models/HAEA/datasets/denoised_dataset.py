@@ -82,7 +82,7 @@ class HaeaVocab:
     
     def get_tgt_mask(var_len, max_len) -> torch.tensor:
         matrix = torch.zeros(var_len * max_len + 2, var_len * max_len + 2)
-        matrix[:, :, 0] = 1
+        matrix[:, 0] = 1
 
         for i in range(max_len+1):
             s =  (i * var_len) + 1

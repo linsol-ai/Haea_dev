@@ -114,7 +114,7 @@ class TrainModule(pl.LightningModule):
     def visualization_surface(self, surface_loss: torch.Tensor):
         for i, name in enumerate(self.config.surface_variable):
             loss = surface_loss[i]
-            print(loss.shape)
+       
 
             custom_plot = wandb.plot.line_series(
                 xs=range(loss.size(0)), 

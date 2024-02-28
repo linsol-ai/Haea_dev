@@ -113,7 +113,7 @@ class Haea(nn.Module):
         for batch in indicate:
             seq =  []
             for item in batch:
-                if item == 
+                if item == HaeaVocab.
 
             src_seq.append(s_seq)
             tgt_seq.append(t_seq)

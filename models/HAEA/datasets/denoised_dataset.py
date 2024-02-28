@@ -219,6 +219,7 @@ class DenoisingDataset(Dataset):
         return {
             "id": index,
             "source": source,
+            "source_dataset": so
             "target": target,
         }
 

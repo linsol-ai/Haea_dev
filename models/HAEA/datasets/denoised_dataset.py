@@ -84,7 +84,7 @@ class HaeaVocab:
         matrix = torch.zeros(batch, var_len * (self.max_len + 2), var_len * (self.max_len + 2))
         matrix[:, :, 0] = 1
 
-        for i in range(1, self.max_len+1):
+        for i in range(self.max_len+1):
             
 
         return matrix.bool()

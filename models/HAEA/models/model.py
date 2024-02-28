@@ -111,6 +111,7 @@ class Haea(nn.Module):
         # indicate.shape = (batch, max_len + 2)
 
         for i in range(indicate.size(0)):
+            seq =  []
             for j in range(indicate.size(1)):
                 
 

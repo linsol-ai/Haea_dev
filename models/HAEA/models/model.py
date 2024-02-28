@@ -113,7 +113,7 @@ class Haea(nn.Module):
         for i in range(indicate.size(0)):
             seq =  []
             for j in range(indicate.size(1)):
-                
+                if indicate[i, j]
 
             src_seq.append(s_seq)
             tgt_seq.append(t_seq)

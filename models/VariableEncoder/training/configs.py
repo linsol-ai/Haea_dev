@@ -43,7 +43,7 @@ class TrainingConfig(BaseModel):
 
     constant_variable: List[str] = []
 
-    train_start: 
+    train_start: datetime
 
     train_end : str
 

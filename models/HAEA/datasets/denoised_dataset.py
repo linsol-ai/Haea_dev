@@ -72,7 +72,7 @@ class HaeaVocab:
 
 
     def get_source(self, times: torch.Tensor):
-        src = self.get_data(times, self.source_dataset)
+        src = self.get_data(times, self.dataset)
         return src
     
     def get_target(self, times: torch.Tensor):

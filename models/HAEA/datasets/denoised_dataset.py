@@ -79,6 +79,16 @@ class HaeaVocab:
         tgt = self.get_data(times, self.dataset, source=False)
         return tgt
 
+    def get_tgt_mask(self, batch, device) -> torch.tensor:
+        var_len = len(self.tgt_var_list)
+        matrix = torch.ones(batch, var_len * self.time_len, var_len * self.time_len, device=device)
+
+        for i in range(self.time_len):
+            for _ in range(var_len):
+                inf_idx = min(((i)*var_len), var_len * self.time_len)
+                matrix[:, :(i*var_len), inf_idx:] = 0
+        return matrix.bool()
+
 
 @contextlib.contextmanager
 def numpy_seed(seed, *addl_seeds):

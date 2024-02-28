@@ -14,7 +14,7 @@ training:
   tgt_time_len: 4
   train_offset: 0
   train_start: 2020-01-01
-  
+  train
   air_variable:
     - geopotential
     - specific_humidity

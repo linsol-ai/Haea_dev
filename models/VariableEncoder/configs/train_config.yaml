@@ -1,7 +1,7 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 model:
-  num_heads: 20
+  num_heads: 16
   n_encoder_layers: 6
   n_decoder_layers: 3
   dropout: 0.1

@@ -53,7 +53,7 @@ class HaeaVocab:
                 else:
                     data = torch.zeros(dataset.size(1), dataset.size(2))
             else:
-                if not source:
+                if not source and self.n_only_input > 0:
                     data = dataset[pos, :-self.n_only_input, :]
                 else:
                     data = dataset[pos, :, :]

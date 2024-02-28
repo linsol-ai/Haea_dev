@@ -23,7 +23,6 @@ class HaeaVocab:
                   max_len, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset
-        self.target_dataset = target_dataset
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
         self.n_only_input = n_only_input

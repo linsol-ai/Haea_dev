@@ -90,6 +90,18 @@ class HaeaVocab:
             matrix[:, s:e, s:e] = 1
 
         return matrix.bool()
+    
+    def get_tgt_mask(batch, var_len, max_len) -> torch.tensor:
+        matrix = torch.zeros(batch, var_len * max_len + 2, var_len * max_len + 2)
+        matrix[:, :, 0] = 1
+
+        for i in range(max_len+1):
+            s =  (i * var_len) + 1
+            e =  ((i+1) * var_len) + 1
+            matrix[:, s:e, :e] = 1
+        
+        matrix[:, -1, :] = 1
+        return matrix
 
 
 @contextlib.contextmanager

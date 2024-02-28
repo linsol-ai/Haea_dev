@@ -32,7 +32,7 @@ class HaeaVocab:
 
     
     def positional_encoding(self, d_model, max_len):
-        pe = torch.zeros(batch, max_len, d_model).float()
+        pe = torch.zeros(max_len, d_model).float()
 
         position = torch.arange(0, max_len).float().unsqueeze(1)
         div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()

@@ -70,7 +70,6 @@ class HaeaVocab:
         return src
     
     def get_target(self, times: torch.Tensor):
-        print(times)
         tgt = self.get_data(times, self.label_dataset, source=False)
         return tgt
 

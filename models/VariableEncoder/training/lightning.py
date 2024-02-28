@@ -191,6 +191,7 @@ class TrainModule(pl.LightningModule):
         loss = loss.swapaxes(0, 1)
 
         src.cpu().detach()
+        
 
         return loss
     

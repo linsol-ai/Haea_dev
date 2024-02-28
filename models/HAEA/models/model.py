@@ -115,7 +115,6 @@ class Haea(nn.Module):
             result.append(seq)
 
         result = torch.tensor(result, device=device)
-        tgt_seq = torch.tensor(tgt_seq, device=device)
         return src_seq, tgt_seq
     
     

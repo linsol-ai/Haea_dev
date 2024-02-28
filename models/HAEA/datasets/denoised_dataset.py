@@ -71,7 +71,7 @@ class HaeaVocab:
     
     def get_target():
          tgt = self.get_data(times, self.label_dataset, source=False)
-
+        return 
 
 
 @contextlib.contextmanager

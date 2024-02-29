@@ -151,7 +151,6 @@ class WeatherDataset:
                 break
         
         assert idx != -1
-
             
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []

@@ -143,7 +143,7 @@ class WeatherDataset:
 
     def check_dataset(self, start_date: datetime, end_date: datetime):
         for offset in self.DATE_OFFSET:
-            
+            start = 
 
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []

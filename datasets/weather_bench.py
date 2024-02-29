@@ -229,7 +229,7 @@ class WeatherDataset:
         start = time.time()
 
         if start_date is not None:
-            dataset = dataset.sel(time=slice(self.start_date, end_date))
+            dataset = dataset.sel(time=slice(self.start_date, self.end_date))
 
         print("==== LOAD DATASET ====\n", dataset)
 

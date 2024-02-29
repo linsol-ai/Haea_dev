@@ -13,7 +13,8 @@ import pandas as pd
 RUNNER = 'DirectRunner'
 HAS_LEVEL_VARIABLE = [
   'potential_vorticity', 
-  'geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
+  'geopotential', 
+  'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
 
 NONE_LEVEL_VARIABLE = [
   '2m_dewpoint_temperature', 

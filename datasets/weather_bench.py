@@ -140,7 +140,7 @@ class WeatherDataset:
         return code
 
 
-    def check_dataset(self, start_date, end):
+    def check_dataset(self, start_date, end_date):
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []
 

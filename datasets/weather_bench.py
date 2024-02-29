@@ -131,7 +131,7 @@ class WeatherDataset:
         'mean_sea_level_pressure', 
         'total_cloud_cover', 
         'total_precipitation'
-]
+    ]
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
 

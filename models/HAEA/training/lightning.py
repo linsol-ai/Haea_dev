@@ -4,8 +4,8 @@ from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.HAEA.models.model import VariableEncoder
-from models.VariableEncoder.training.configs import TrainingConfig
-from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
+from models.HAEA.training.configs import TrainingConfig
+from models.HAEA.training.params_schedule import CosineWarmupScheduler
 import wandb
 
 def denormalize(inputs, mean_std) -> torch.Tensor:

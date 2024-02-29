@@ -172,5 +172,4 @@ class TrainModule(pl.LightningModule):
         return self(batch)
 
     
-    
 

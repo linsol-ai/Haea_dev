@@ -14,7 +14,7 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset
 from models.HAEA.datasets.denoised_dataset import DenoisingDataset
-from models.VariableEncoder.models.model import VariableEncoder
+from models.HAEA.models.model import VariableEncoder
 
 from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.configs import TrainingRunConfig

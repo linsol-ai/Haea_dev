@@ -16,9 +16,9 @@ from datasets.weather_bench import WeatherDataset
 from models.HAEA.datasets.denoised_dataset import DenoisingDataset
 from models.HAEA.models.model import VariableEncoder
 
-from models.VariableEncoder.training.configs import TrainingConfig
-from models.VariableEncoder.training.configs import TrainingRunConfig
-from models.VariableEncoder.training.lightning import TrainModule
+from models.HAEA.training.configs import TrainingConfig
+from models.HAEA.training.configs import TrainingRunConfig
+from models.HAEA.training.lightning import TrainModule
 
 
 def get_normal_dataset(config: TrainingConfig):

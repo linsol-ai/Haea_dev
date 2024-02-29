@@ -111,7 +111,6 @@ class WeatherDataset:
     def __init__(self, start_date: datetime, end_date: datetime, device: torch.device):
         self.start_date = start_date
         self.end_date= end_date
-        self.offline = offline
         self.device = device
         self.normalize = normalize
         dataset_path = self.check_dataset(start_date, end_date)

@@ -168,8 +168,5 @@ class TrainModule(pl.LightningModule):
     def test_step(self, batch: Dict, _: int) -> None:  # noqa: D102
         self._step(batch, "test")
 
-    def predict_step(self, batch, batch_idx, dataloader_idx=0):
-        return self(batch)
-
     
 

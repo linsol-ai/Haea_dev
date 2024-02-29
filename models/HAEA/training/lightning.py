@@ -48,8 +48,8 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: Dict, mode: str) -> torch.Tensor:
         src = batch['source']
-        tgt = batch['source_offset']
-        
+        src_offset = batch['source_offset']
+
         predict = self.model(src, tgt)
         loss = self.calculate_rmse_loss(predict, tgt)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

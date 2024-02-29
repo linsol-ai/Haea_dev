@@ -142,8 +142,6 @@ class WeatherDataset:
 
 
     def check_dataset(self, start_date: datetime, end_date: datetime):
-        start_year = start_date.year
-        end_year = end_date.year
 
         for offset in self.DATE_OFFSET:
             

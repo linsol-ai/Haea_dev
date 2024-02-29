@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
-
+import datetime
 
 class ModelConfig(BaseModel):
     """A config specification of model."""
@@ -31,7 +31,7 @@ class TrainingConfig(BaseModel):
     gradient_clip_val: float | None = None
     """The value to clip the gradients to."""
 
-    time_len: int = Field(ge=0, default=7)
+    tgt_time_len: int = Field(ge=0, default=7)
 
     train_offset: int = 0
 
@@ -42,6 +42,10 @@ class TrainingConfig(BaseModel):
     only_input_variable: List[str] = []
 
     constant_variable: List[str] = []
+
+    train_start: datetime.datetime
+
+    train_end : datetime.datetime
 
     
 

@@ -106,7 +106,7 @@ class WeatherDataset:
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
 
-    DATE_OFFSET = [(2023, 2013), (2018, 2017), (2011, 2006), (2006, 2001)]
+    DATE_OFFSET = [(2013, 2013), (2018, 2017), (2011, 2006), (2006, 2001)]
 
     GCS_BUCKET = 'gcs://era5_climate'
 
@@ -146,7 +146,7 @@ class WeatherDataset:
         end_year = end_date.year
 
         for offset in self.DATE_OFFSET:
-            
+
 
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []

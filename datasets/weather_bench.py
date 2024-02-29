@@ -105,8 +105,6 @@ class WeatherDataset:
 
     RESOLUTION = ['512x256']
 
-    PRESSURE_LEVEL = 37
-
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 

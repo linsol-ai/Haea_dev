@@ -145,7 +145,7 @@ class WeatherDataset:
         start_year = start_date.year
         end_year = end_date.year
 
-        for offset in self.S
+        for offset in self.
 
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []

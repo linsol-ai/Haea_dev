@@ -17,7 +17,8 @@ HAS_LEVEL_VARIABLE = [
   'specific_humidity', 
   'temperature', 
   'u_component_of_wind', 
-  'v_component_of_wind', 'vertical_velocity']
+  'v_component_of_wind', 
+  'vertical_velocity']
 
 NONE_LEVEL_VARIABLE = [
   '2m_dewpoint_temperature', 

@@ -100,9 +100,38 @@ def download_zarr(source, output_path, variables=None):
 
 class WeatherDataset:
 
-    AIR_VARIABLE = ['geopotential', 'specific_humidity', 'temperature', 'u_component_of_wind', 'v_component_of_wind', 'vertical_velocity']
+    AIR_VARIABLE = [
+        'potential_vorticity', 
+        'geopotential', 
+        'specific_humidity', 
+        'temperature', 
+        'u_component_of_wind', 
+        'v_component_of_wind', 
+        'vertical_velocity'
+    ]
 
-    SURFACE_VARIABLE = ['2m_temperature', '10m_u_component_of_wind', '10m_v_component_of_wind', 'mean_sea_level_pressure', 'total_cloud_cover', 'total_precipitation', 'total_column_water', 'total_column_water_vapour']
+    SURFACE_VARIABLE = [
+        '2m_dewpoint_temperature', 
+        'mean_surface_latent_heat_flux', 
+        'mean_surface_net_long_wave_radiation_flux',
+        'mean_surface_net_short_wave_radiation_flux',
+        'mean_surface_sensible_heat_flux',
+        'mean_top_downward_short_wave_radiation_flux',
+        'mean_top_net_long_wave_radiation_flux',
+        'mean_top_net_short_wave_radiation_flux',
+        'mean_vertically_integrated_moisture_divergence',
+        'surface_pressure',
+        'total_column_water',
+        'total_column_water_vapour',
+        'geopotential_at_surface', 
+        'land_sea_mask', 
+        '2m_temperature', 
+        '10m_u_component_of_wind', 
+        '10m_v_component_of_wind', 
+        'mean_sea_level_pressure', 
+        'total_cloud_cover', 
+        'total_precipitation'
+    ]
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
 

@@ -1,6 +1,6 @@
 import pytorch_lightning as pl
 import torch.optim.optimizer
-from typing import Tuple
+from typing import Dict
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.HAEA.models.model import Haea

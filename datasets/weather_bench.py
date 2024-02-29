@@ -112,7 +112,7 @@ class WeatherDataset:
         self.start_date = start_date
         self.end_date= end_date
         self.device = device
-        dataset_path = self.check_dataset(start_date, end_date)
+        dataset_path = self.check_dataset(start_date, end_date, download_variables)
         self.load_dataset(dataset_path)
     
 

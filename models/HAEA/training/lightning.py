@@ -46,7 +46,7 @@ class TrainModule(pl.LightningModule):
         return optimizer
 
 
-    def _step(self, batch: Dict[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+    def _step(self, batch: Dict[torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         tgt = batch[1]
         predict = self.model(src, tgt)

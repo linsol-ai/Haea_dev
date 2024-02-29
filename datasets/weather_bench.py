@@ -151,7 +151,7 @@ class WeatherDataset:
                 break
         
         if idx == -1:
-            raise Exception("")
+            raise Exception("There are no data sets for the selected date.")
 
             
         file_name = f'{start}-01-01_{end}-01-01.zarr'

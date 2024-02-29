@@ -228,8 +228,7 @@ class WeatherDataset:
     def load_data_single(self, dataset: xr.Dataset, variables, constant_variables):
         start = time.time()
 
-        if se is not None:
-            dataset = dataset.sel(time=slice(self.start_date, self.end_date))
+        dataset = dataset.sel(time=slice(self.start_date, self.end_date))
 
         print("==== LOAD DATASET ====\n", dataset)
 

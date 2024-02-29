@@ -341,7 +341,7 @@ if __name__ == '__main__':
     device = torch.device(device)
 
     start = datetime.strptime(f'{offset[0]}-01-01', '%Y-%m-%d')
-            end = datetime.strptime(f'{offset[1]}-01-01', '%Y-%m-%d')
+    end = datetime.strptime(f'{offset[1]}-01-01', '%Y-%m-%d')
     
     weather = WeatherDataset(0, device=device, offline=True)
     print(weather.load_one(weather.AIR_VARIABLE, weather.SURFACE_VARIABLE)[0].shape)

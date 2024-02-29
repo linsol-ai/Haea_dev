@@ -101,13 +101,13 @@ def download_zarr(source, output_path, variables=None):
 class WeatherDataset:
 
     AIR_VARIABLE = [
-  'potential_vorticity', 
-  'geopotential', 
-  'specific_humidity', 
-  'temperature', 
-  'u_component_of_wind', 
-  'v_component_of_wind', 
-  'vertical_velocity']
+    'potential_vorticity', 
+    'geopotential', 
+    'specific_humidity', 
+    'temperature', 
+    'u_component_of_wind', 
+    'v_component_of_wind', 
+    'vertical_velocity']
 
     SURFACE_VARIABLE = [
   '2m_dewpoint_temperature', 

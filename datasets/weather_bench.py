@@ -12,7 +12,7 @@ import sys,os
 from pathlib import Path
 import apache_beam as beam
 import gc
-from datetime
+from datetime import datetime
 
 def normalize_tensor(tensor):
     mean = tensor.mean()

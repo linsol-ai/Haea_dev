@@ -50,7 +50,7 @@ class TrainModule(pl.LightningModule):
         src = batch['source']
         src_id = batch['source_id']
         tgt = batch['target']
-        tgt_id = batch['target_offset']
+        tgt_id = batch['target_id']
 
         predict = self.model(src, src_offset, tgt, tgt_offset)
         loss = self.calculate_rmse_loss(predict, tgt)

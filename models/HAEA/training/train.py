@@ -28,8 +28,9 @@ def get_normal_dataset(config: TrainingConfig):
 
     weather = WeatherDataset(config.train_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
-    source, label, mean_std = weather.load(config.air_variable, config.surface_variable, config.only_input_variable, config.constant_variable)
-    dataset = CustomDataset(source, label, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
+    source, mean_std = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
+                                        config.constant_variable, config.train_start, config.train_end)
+    dataset = CustomDataset(source, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
     src_var_list = weather.get_var_code(config.air_variable, config.surface_variable + config.only_input_variable+config.constant_variable)
     tgt_var_list = weather.get_var_code(config.air_variable, config.surface_variable)
     return dataset, mean_std, (src_var_list, tgt_var_list)
@@ -93,7 +94,7 @@ model = VariableEncoder(
     tgt_var_list=var_list[1],
     tgt_time_len=config.training.tgt_time_len,
     in_dim=dataset.source_dataset.size(-1),
-    out_dim=dataset.label_dataset.size(-1),
+    out_dim=dataset.source_dataset.size(-1),
     num_heads=config.model.num_heads,
     n_encoder_layers=config.model.n_encoder_layers,
     n_decoder_layers=config.model.n_decoder_layers,

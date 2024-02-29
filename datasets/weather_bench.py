@@ -149,7 +149,9 @@ class WeatherDataset:
             if start <= start_date and end_date <= end:
                 idx = i
                 break
-
+        
+        if idx == -1:
+            
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []
 

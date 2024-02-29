@@ -171,28 +171,6 @@ class TrainModule(pl.LightningModule):
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)
 
-    def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
-        self.mean_std = self.mean_std.to(self.device)
-        src = batch[0].to(self.device)
-        tgt = batch[1].to(self.device)
-        self.model.init_seq(self.device, src.size(0))
-        var_len = tgt.size(2)
-        predict = self.model(src, tgt)
-        # loss.shape = (batch, time_len * var_len, 1450)
-        loss = self.calculate_sqare_loss(predict, tgt)
-        loss = loss.view(loss.size(0), -1, var_len, loss.size(2))
-        # loss.shape = (batch, var_len, time_len, 1450)
-        loss = loss.swapaxes(1, 2)
-        # loss.shape = (batch, var_len, time_len)
-        loss = torch.mean(loss, dim=-1)
-        # loss.shape = (var_len, batch, time_len)
-        loss = loss.swapaxes(0, 1)
-
-
-        src.cpu().detach()
-        tgt.cpu().detach()
-        predict.cpu().detach()
-        loss = loss.cpu().detach()
-        return loss
+    
     
 

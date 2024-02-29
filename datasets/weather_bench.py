@@ -153,7 +153,7 @@ class WeatherDataset:
         if idx == -1:
             raise Exception("There are no data sets for the selected date.")
 
-        file_name = f'{start}-01-01_{end}-01-01.zarr'
+        file_name = f'{}-01-01_{end}-01-01.zarr'
         dataset_path = []
 
         for resol in self.RESOLUTION:

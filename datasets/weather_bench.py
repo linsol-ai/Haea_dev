@@ -108,7 +108,7 @@ class WeatherDataset:
     DIR_NAME = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'resource')
 
 
-    def __init__(self, start_date: datetime, end_date: datetime, device: torch.device, normalize=True, offline=True):
+    def __init__(self, start_date: datetime, end_date: datetime, device: torch.device):
         self.start_date = start_date
         self.end_date= end_date
         self.offline = offline

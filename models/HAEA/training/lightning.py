@@ -48,7 +48,7 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: Dict, mode: str) -> torch.Tensor:
         src = batch['source']
-        src_offset = batch['source_id']
+        src_id = batch['source_id']
         tgt = batch['target']
         tgt_offset = batch['target_offset']
 

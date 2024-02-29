@@ -142,7 +142,7 @@ class WeatherDataset:
 
 
     def check_dataset(self, start_date: datetime, end_date: datetime):
-        idx = 
+        idx = -1
         for offset in self.DATE_OFFSET:
             start = datetime.strptime(f'{offset[0]}-01-01', '%Y-%m-%d')
             end = datetime.strptime(f'{offset[1]}-01-01', '%Y-%m-%d')

@@ -106,7 +106,7 @@ class WeatherDataset:
 
     VARIABLES = AIR_VARIABLE + SURFACE_VARIABLE
 
-    DATE_OFFSET = [(2013, 2013), (2018, 2017), (2011, 2006), (2006, 2001)]
+    DATE_OFFSET = [(2013, 2023), (2018, 2017), (2011, 2006), (2006, 2001)]
 
     GCS_BUCKET = 'gcs://era5_climate'
 

@@ -11,7 +11,7 @@ import pandas as pd
 
 
 RUNNER = 'DirectRunner'
-HAS_LEVEL_VARIABLE = [
+AIR_VARIABLE = [
   'potential_vorticity', 
   'geopotential', 
   'specific_humidity', 

@@ -145,6 +145,8 @@ class WeatherDataset:
         start_year = start_date.year
         end_year = end_date.year
 
+        if start
+
         file_name = f'{start}-01-01_{end}-01-01.zarr'
         dataset_path = []
 

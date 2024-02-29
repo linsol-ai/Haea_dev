@@ -225,7 +225,7 @@ class WeatherDataset:
             source, mean, std = normalize_tensor(source)
             return source.flatten(1), torch.tensor([mean, std])
         
-    def load_data_single(self, dataset: xr.Dataset, start_date, end_date, variables, constant_variables):
+    def load_data_single(self, dataset: xr.Dataset, variables, constant_variables):
         start = time.time()
 
         if start_date is not None:

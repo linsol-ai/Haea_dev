@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
-from models.VariableEncoder.models.model import VariableEncoder
+from models.HAEA.models.model import VariableEncoder
 from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
 import wandb

@@ -39,7 +39,7 @@ def get_normal_dataset(config: TrainingConfig):
         vocab,
         127,
         mask=0.3,
-        mask_random=0.3,
+        mask_random=0,
         insert=0,
         rotate=0,
         permute_sentences=0,

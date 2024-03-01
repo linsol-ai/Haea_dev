@@ -68,19 +68,6 @@ class DataModule(pl.LightningDataModule):
         self.val_ds = val_ds
         self.test_ds = test_ds
 
-    def setup(self, stage: str):
-        train_ds, test_ds = torch.utils.data.random_split(
-            self.dataset,
-            [0.8, 0.2],
-        )
-        val_ds, test_ds = torch.utils.data.random_split(
-            test_ds,
-            [0.3, 0.7],
-        )
-        self.train_ds = train_ds
-        self.val_ds = val_ds
-        self.test_ds = test_ds
-
     def train_dataloader(self):
         return DataLoader(self.train_ds, batch_size=config.training.batch_size, shuffle=True, drop_last=True, num_workers=8)
 

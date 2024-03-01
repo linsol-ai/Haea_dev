@@ -97,7 +97,7 @@ def download_zarr(source, output_path, variables=None):
             | "Write to Zarr" >> xb.ChunksToZarr(output_path, template, source_chunks)
         )
 
-class ERA5Vocab
+class ERA5Vocab:
         
 
 class WeatherDataset:

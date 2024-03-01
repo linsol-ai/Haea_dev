@@ -31,7 +31,8 @@ def get_normal_dataset(config: TrainingConfig):
     source, mean_std, var_vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
                                         config.constant_variable)
     src_var_list = var_vocab.get_code(config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable)
-    
+        src_var_list = var_vocab.get_code(config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable)
+
     time_vocab = TimeVocab(source, )
     
     dataset = CustomDataset(source, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))

@@ -121,7 +121,7 @@ class VariableVocab:
         codes = []
         for var in variables:
             codes.extend(self.vocab[var])
-        return torch.tensor(codes
+        return torch.tensor(codes)
 
         
 

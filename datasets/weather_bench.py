@@ -117,7 +117,7 @@ class VariableVocab:
             vocab[var] = [value]
         return vocab
 
-    def get_code(self, variables):
+    def get_code(self, variables) -> torch.Tensor:
         codes = []
         for var in variables:
             codes.extend(self.vocab[var])

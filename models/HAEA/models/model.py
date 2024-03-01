@@ -107,8 +107,8 @@ class Haea(nn.Module):
         for batch in indicate:
             seq = []
             for item in batch:
-                if item in HaeaVocab.SPECIAL_TOKENS:
-                    if item == HaeaVocab.SPECIAL_TOKEN_MASK:
+                if item in TimeVocab.SPECIAL_TOKENS:
+                    if item == TimeVocab.SPECIAL_TOKEN_MASK:
                         seq.extend([item for _ in range(var_list.size(0))])
                     else:
                         seq.append(item)

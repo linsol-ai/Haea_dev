@@ -96,6 +96,8 @@ def download_zarr(source, output_path, variables=None):
             | "Read from Source Dataset" >> xb.DatasetToChunks(source_dataset, source_chunks)
             | "Write to Zarr" >> xb.ChunksToZarr(output_path, template, source_chunks)
         )
+
+class 
         
 
 class WeatherDataset:

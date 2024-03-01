@@ -101,7 +101,7 @@ class ERA5Vocab:
     def __init__(self, dataset: xr.Dataset, src_variables, tgt_variables):
         self.dataset = dataset
         self.level = dataset.level.values
-        _vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
+        air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
         level_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
     
     def create_vocab():

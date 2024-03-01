@@ -104,7 +104,7 @@ print(f"max_iters: {max_iters}")
 
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
 model = Haea(
-    data_module.
+    data_module.time_vocab,
     tgt_time_len=config.training.tgt_time_len,
     in_dim=dataset.source_dataset.size(-1),
     out_dim=dataset.source_dataset.size(-1),

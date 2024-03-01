@@ -107,7 +107,7 @@ class ERA5Vocab:
     def create_vocab(self):
         for i, var in enumerate(self.air_vars):
             idx = i + 1
-            level_list = [((idx-1) * level) + k for k in range(level)]
+            level_list = [((idx-1) * self.level) + k for k in range(level)]
 
         
 

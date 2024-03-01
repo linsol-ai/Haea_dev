@@ -90,7 +90,7 @@ def download_zarr(source, output_path, variables=None):
     template = (
       xb.make_template(source_dataset)
     )
-    with beam.Pipeline() as root :
+    with beam.Pipeline() as root:
         (
             root
             | "Read from Source Dataset" >> xb.DatasetToChunks(source_dataset, source_chunks)

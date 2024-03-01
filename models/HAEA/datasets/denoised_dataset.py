@@ -40,7 +40,7 @@ class HaeaVocab:
         return pe
 
 
-    def get_data(self, indicate, dataset: torch.Tensor, source: bool = True):
+    def get_data(self, indicate, source: bool = True):
         result = []
         for i, t in enumerate(indicate):
             pos = t - len(self.SPECIAL_TOKENS)

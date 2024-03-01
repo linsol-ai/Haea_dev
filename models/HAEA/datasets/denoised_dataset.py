@@ -4,7 +4,7 @@ from torch.utils.data import Dataset
 import math
 import contextlib
 
-class HaeaVocab:
+class TimeVocab:
 
     SPECIAL_TOKEN_PAD = 0
     SPECIAL_TOKEN_BOS = 1

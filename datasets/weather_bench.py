@@ -128,6 +128,8 @@ class VariableVocab:
         cnt = 0
         for key in self.vocab.keys():
             cnt += len(self.vocab[key])
+        
+        return 
 
         
 

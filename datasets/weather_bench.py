@@ -123,6 +123,8 @@ class VariableVocab:
             codes.extend(self.vocab[var])
         return torch.tensor(codes)
 
+    def __
+
         
 
 class WeatherDataset:

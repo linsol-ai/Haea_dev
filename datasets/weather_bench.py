@@ -187,7 +187,6 @@ class WeatherDataset:
         if offset > 0:
             mean_std = mean_std[:-len(only_input_variable), :]
 
-        keys = list(self.datasets[0].keys())
         for k in 
 
         return source, mean_std

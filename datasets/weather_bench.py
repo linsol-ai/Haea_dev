@@ -194,7 +194,8 @@ class WeatherDataset:
 
 
     def find_keys(self, keys, items):
-        for 
+        for i in items:
+            
 
 
     def load_variable_optimized(self, data: xr.DataArray):

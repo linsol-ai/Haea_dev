@@ -101,6 +101,7 @@ class VariableVocab:
     def __init__(self, dataset: xr.Dataset):
         self.dataset = dataset
         self.level = dataset.level.values
+        print()
         self.air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]
         self.vocab = self.create_vocab()

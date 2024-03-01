@@ -39,7 +39,7 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.
     dataset = DenoisingDataset(
         time_vocab,
         127,
-        mask=0.3,
+        mask=,
         mask_random=0,
         insert=0,
         rotate=0,

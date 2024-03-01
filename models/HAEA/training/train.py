@@ -46,7 +46,7 @@ def get_normal_dataset(config: TrainingConfig):
     replace_length=-1,
     mask_length='span-poisson',
     poisson_lambda=3
-)
+    )
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
 

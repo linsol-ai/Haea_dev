@@ -112,7 +112,7 @@ class ERA5Vocab:
             vocab[var] = level_list
         
         for i, var in enumerate(self.surface_vars):
-            value = self.level * self.air_vars
+            value = self.level * lenself.air_vars
             vocab[var] = []
         
 

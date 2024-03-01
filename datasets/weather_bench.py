@@ -121,12 +121,12 @@ class VariableVocab:
         codes = []
         for var in variables:
             codes.extend(self.vocab[var])
-        return codes
+        return torch.tensor(codes
 
         
 
 class WeatherDataset:
-    
+
     DATE_OFFSET = [(2013, 2023), (2018, 2017), (2011, 2006), (2006, 2001)]
 
     GCS_BUCKET = 'gcs://era5_climate'

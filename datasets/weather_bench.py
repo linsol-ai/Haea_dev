@@ -193,7 +193,7 @@ class WeatherDataset:
         return source, mean_std
 
 
-    def find_keys(self, ):
+    def find_keys(self, keys, items):
 
 
     def load_variable_optimized(self, data: xr.DataArray):

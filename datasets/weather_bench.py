@@ -195,7 +195,7 @@ class WeatherDataset:
         keys = list(self.datasets[0].keys())
         result = []
         for i in items:
-            idx = keys.index(i)
+            idx = keys.index(i) + 1
             var = dataset[i]
             if 'level' in var.dims:
                 result.extend([(i) for k in range(1, level+1)])

@@ -80,7 +80,6 @@ class DataModule(pl.LightningDataModule):
         return DataLoader(self.test_ds, batch_size=config.training.batch_size, drop_last=True, num_workers=2)
 
 
-
 config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
 
 try:

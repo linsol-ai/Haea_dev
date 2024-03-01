@@ -98,7 +98,7 @@ def download_zarr(source, output_path, variables=None):
         )
 
 class ERA5Vocab:
-    def __init__(self, dataset: xr.Dataset, src_variables, tgt_variables):
+    def __init__(self, dataset: xr.Dataset):
         self.dataset = dataset
         self.level = dataset.level.values
         self.air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]

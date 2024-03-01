@@ -193,7 +193,7 @@ class WeatherDataset:
         return source, mean_std
 
 
-    def find_keys(self, dataset, keys, items):
+    def find_keys(self, dataset: xr, keys, items):
         for i in items:
 
 

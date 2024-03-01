@@ -47,7 +47,7 @@ class HaeaVocab:
             if t in self.SPECIAL_TOKENS:
                 if t == self.SPECIAL_TOKEN_MASK:
                     if not source:
-                        data = torch.zeros(dataset.size(1)-self.n_only_input, self.dataset.size(2))
+                        data = torch.zeros(len(self.tgt_var_list), self.dataset.size(2))
                     else:
                         data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
                 else:

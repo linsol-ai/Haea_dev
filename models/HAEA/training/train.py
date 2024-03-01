@@ -100,7 +100,7 @@ max_iters = config.training.max_epochs*(len(data_module.train_ds) // config.trai
 print(f"max_iters: {max_iters}")
 
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-
+print()
 model = Haea(
     data_module.time_vocab,
     in_dim=dataset.dataset.size(-1),

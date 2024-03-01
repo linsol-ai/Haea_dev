@@ -88,6 +88,8 @@ class Haea(nn.Module):
         src_var_seq = self.get_var_seq(self.vocab.src_var_list, src_id, src.device)
         tgt_var_seq = self.get_var_seq(self.vocab.tgt_var_list, tgt_id, src.device)
 
+        print()
+
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, tgt_var_seq) * math.sqrt(self.in_dim)

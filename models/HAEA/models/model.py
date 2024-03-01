@@ -4,7 +4,7 @@ from torch.nn import functional as F
 import math
 from typing import List
 from reformer_pytorch import Reformer
-from models.HAEA.datasets.denoised_dataset import HaeaVocab
+from models.HAEA.datasets.denoised_dataset import TimeVocab
 
 
 class VariableEmbedding(nn.Embedding):

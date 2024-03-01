@@ -21,7 +21,7 @@ from models.HAEA.training.configs import TrainingRunConfig
 from models.HAEA.training.lightning import TrainModule
 
 
-def get_normal_dataset(config: TrainingConfig) -> T:
+def get_normal_dataset(config: TrainingConfig) -> Tu:
     time_len = 1 * config.time_len
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)

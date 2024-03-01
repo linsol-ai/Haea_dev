@@ -11,7 +11,7 @@ from absl import app
 from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
-from typing
+from typing import Tuple
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset
 from models.HAEA.datasets.denoised_dataset import DenoisingDataset, TimeVocab

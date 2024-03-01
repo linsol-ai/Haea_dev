@@ -33,6 +33,8 @@ class TrainingConfig(BaseModel):
 
     time_len: int = Field(ge=0, default=7)
 
+    mask
+
     air_variable: List[str]
 
     surface_variable: List[str]

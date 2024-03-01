@@ -118,7 +118,7 @@ class ERA5Vocab:
         return vocab
 
     def get_code(self, variables):
-        
+        codes = 
 
         
 

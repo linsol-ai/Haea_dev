@@ -197,7 +197,8 @@ class WeatherDataset:
         for i in items:
             idx = keys.index(i)
             var = dataset[i]
-            if len(var.dims) > 
+            if 'level' in var.dims:
+                
 
 
 

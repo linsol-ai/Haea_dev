@@ -109,7 +109,7 @@ class ERA5Vocab:
         for i, var in enumerate(self.air_vars):
             idx = i + 1
             level_list = [((idx-1) * self.level) + k for k in range(self.level)]
-            vocab[]
+            vocab[var] = 
 
         
 

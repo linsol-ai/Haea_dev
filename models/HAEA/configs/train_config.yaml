@@ -1,0 +1,32 @@
+# See dvae_pytorch/training/dvae/config.py for more information about
+# specific options.
+model:
+  num_heads: 16
+  n_encoder_layers: 6
+  n_decoder_layers: 3
+  dropout: 0.1
+training:
+  learning_rate: 2e-5
+  warmup_step: 3000
+  batch_size: 16
+  max_epochs: 20
+  gradient_clip_val: 0.5
+  tgt_time_len: 4
+  train_offset: 0
+  train_start: 2013-01-01
+  train_end: 2023-01-01
+  
+  air_variable:
+    - geopotential
+    - specific_humidity
+    - temperature
+    - u_component_of_wind
+    - v_component_of_wind
+    - vertical_velocity
+  surface_variable:
+    - 2m_temperature
+    - 10m_u_component_of_wind
+    - 10m_v_component_of_wind
+    - mean_sea_level_pressure
+    - total_cloud_cover
+    - total_precipitation

@@ -20,6 +20,8 @@ class TrainingConfig(BaseModel):
     learning_rate: float = 2e-4
     """The learning rate."""
 
+    
+
     warmup_step: int = Field(ge=0, default=4000)
 
     batch_size: int = Field(ge=0, default=256)

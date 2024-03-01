@@ -33,7 +33,7 @@ class TrainingConfig(BaseModel):
 
     time_len: int = Field(ge=0, default=7)
 
-    mask_
+    mask_ratio: float = 0
 
     air_variable: List[str]
 

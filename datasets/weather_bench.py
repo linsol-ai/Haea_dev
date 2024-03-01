@@ -121,6 +121,7 @@ class ERA5Vocab:
         codes = []
         for var in variables:
             codes.extend(self.vocab[var])
+        return codes
 
         
 

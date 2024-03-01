@@ -194,7 +194,7 @@ class WeatherDataset:
     def find_keys(self, dataset: xr.Dataset, items):
         keys = list(self.datasets[0].keys())
         for i in items:
-            idx = keys.
+            idx = keys.i
 
 
 

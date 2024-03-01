@@ -117,7 +117,7 @@ class ERA5Vocab:
             vocab[var] = [value]
         return vocab
 
-    def get_code(self, ):
+    def get_code(self, variables):
         
 
         

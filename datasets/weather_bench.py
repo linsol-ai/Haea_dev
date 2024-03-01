@@ -106,7 +106,7 @@ class ERA5Vocab:
     
     def create_vocab(self):
         for var in self.air_vars:
-            level_list = [ f"{}" in self.level]
+            level_list = [ f"{var}_{}" in self.level]
         
 
 class WeatherDataset:

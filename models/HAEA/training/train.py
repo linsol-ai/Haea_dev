@@ -28,7 +28,7 @@ def get_normal_dataset(config: TrainingConfig):
 
     weather = WeatherDataset(config.train_start, config.train_end, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
-    source, mean_std = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
+    source, mean_std, vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
                                         config.constant_variable)
     vocab = HaeaVocab(source, )
     

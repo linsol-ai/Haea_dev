@@ -102,7 +102,7 @@ class ERA5Vocab:
         self.dataset = dataset
         self.level = dataset.level.values
         air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
-        level_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
+        surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
     
     def create_vocab():
         

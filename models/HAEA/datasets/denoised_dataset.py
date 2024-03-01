@@ -56,7 +56,7 @@ class HaeaVocab:
                 if not source and self.n_only_input > 0:
                     data = dataset[pos, :-self.n_only_input, :]
                 else:
-                    data = dataset[pos, :, :]
+                    data = self.dataset[pos, :, :]
 
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)

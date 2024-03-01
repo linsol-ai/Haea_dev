@@ -196,7 +196,7 @@ class WeatherDataset:
     def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]):
         variables = air_variable + surface_variable + only_input_variable
         dataset = self.datasets[0].sel(time=slice(self.start_date, self.end_date))
-        dataset = self.datasets[]
+        dataset = self.datasets.
 
         source, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
         

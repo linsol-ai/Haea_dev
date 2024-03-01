@@ -99,7 +99,7 @@ data_module = DataModule(config.training)
 var_list = data_module.var_list
 dataset = data_module.dataset
 mean_std = data_module.mean_std
-max_iters = config.training.max_epochs*(dataset.source_dataset.size(0) // config.training.batch_size)
+max_iters = config.training.max_epochs*(dataset.dataset.size(0) // config.training.batch_size)
 print(f"max_iters: {max_iters}")
 
 logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")

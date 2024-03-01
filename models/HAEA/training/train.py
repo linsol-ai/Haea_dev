@@ -111,8 +111,7 @@ model = Haea(
     n_encoder_layers=config.model.n_encoder_layers,
     n_decoder_layers=config.model.n_decoder_layers,
     dropout=config.model.dropout,
-    max_var_len=len(data_module.var_vocab),
-    
+    max_var_len=len(data_module.var_vocab)
 )
 
 print("setting lr rate: ", config.training.learning_rate)

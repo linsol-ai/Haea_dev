@@ -106,7 +106,7 @@ class ERA5Vocab:
     
     def create_vocab(self):
         for i, var in enumerate(self.air_vars):
-            level_list = [f"{var}_{lv}" for lv in self.level]
+            level_list = []
 
         
 

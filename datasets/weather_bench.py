@@ -193,7 +193,7 @@ class WeatherDataset:
         return source, source_t, mean_std
     
 
-    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]) -> :
+    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]) -> Tuple[]:
         variables = air_variable + surface_variable + only_input_variable
         dataset = self.datasets[0].sel(time=slice(self.start_date, self.end_date))
         if len(level) > 0:

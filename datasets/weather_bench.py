@@ -119,7 +119,8 @@ class ERA5Vocab:
 
     def get_code(self, variables):
         codes = []
-        for var in variables
+        for var in variables:
+            co
 
         
 

@@ -193,7 +193,7 @@ class WeatherDataset:
         return source, source_t, mean_std
     
 
-    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]) -> Tuple[torch.Tensor, torch.Tensor, ERA5Vocab]:
+    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]) -> Tuple[torch.Tensor, torch.Tensor, VariableVocab]:
         variables = air_variable + surface_variable + only_input_variable
         dataset = self.datasets[0].sel(time=slice(self.start_date, self.end_date))
         if len(level) > 0:

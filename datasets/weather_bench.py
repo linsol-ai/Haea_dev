@@ -123,8 +123,9 @@ class VariableVocab:
             codes.extend(self.vocab[var])
         return torch.tensor(codes)
 
+
     def __len__(self):
-        
+
 
         
 

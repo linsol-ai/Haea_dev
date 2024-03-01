@@ -110,7 +110,8 @@ model = Haea(
     num_heads=config.model.num_heads,
     n_encoder_layers=config.model.n_encoder_layers,
     n_decoder_layers=config.model.n_decoder_layers,
-    dropout=config.model.dropout
+    dropout=config.model.dropout,
+    
 )
 
 print("setting lr rate: ", config.training.learning_rate)

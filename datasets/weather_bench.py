@@ -188,7 +188,7 @@ class WeatherDataset:
             mean_std = mean_std[:-len(only_input_variable), :]
 
         keys = list(self.datasets[0].keys())
-        for key in 
+        for 
 
         return source, mean_std
 

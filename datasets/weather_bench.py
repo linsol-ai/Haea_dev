@@ -199,7 +199,7 @@ class WeatherDataset:
         if len(level) > 0:
             dataset = dataset.sel(level=level)
 
-        vocab = ERA5Vocab(dataset=dataset)
+        vocab = ERA5Vocab(dataset)
 
         source, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
         

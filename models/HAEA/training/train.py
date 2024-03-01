@@ -36,7 +36,7 @@ def get_normal_dataset(config: TrainingConfig):
     time_vocab = TimeVocab(source, src_var_list, tgt_var_list, time_len)
     
     dataset = DenoisingDataset(
-        vocab,
+        time_vocab,
         127,
         mask=0.3,
         mask_random=0,

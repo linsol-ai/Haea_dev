@@ -105,10 +105,11 @@ class ERA5Vocab:
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]
     
     def create_vocab(self):
+        vocab = {}
         for i, var in enumerate(self.air_vars):
             idx = i + 1
             level_list = [((idx-1) * self.level) + k for k in range(self.level)]
-            
+
 
         
 

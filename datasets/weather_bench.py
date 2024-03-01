@@ -100,7 +100,7 @@ def download_zarr(source, output_path, variables=None):
 class VariableVocab:
     def __init__(self, dataset: xr.Dataset):
         self.dataset = dataset
-        self.level = len(dataset.level.values
+        self.level = len(dataset.level.values)
         print(self.level)
         self.air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]

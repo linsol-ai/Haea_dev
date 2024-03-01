@@ -215,18 +215,6 @@ class WeatherDataset:
         return source, mean_std
 
 
-    def find_keys(self, dataset: xr.Dataset, items, level):
-        keys = list(self.datasets[0].keys())
-        result = []
-        for i in items:
-            idx = keys.index(i) + 1
-            var = dataset[i]
-            if 'level' in var.dims:
-                result.extend([((idx-1) * level) + k for k in range(level)])
-            else:
-                result.extend()
-
-
 
     def load_variable_optimized(self, data: xr.DataArray):
         source = torch.from_numpy(data.values)  # `to_numpy()` 대신 `values` 사용

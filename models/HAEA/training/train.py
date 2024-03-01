@@ -35,7 +35,18 @@ def get_normal_dataset(config: TrainingConfig):
 
     time_vocab = TimeVocab(source, src_var_list, tgt_var_list, time_len)
     
-    dataset = DenoisingDataset()
+    dataset = dataset = DenoisingDataset(
+    vocab,
+    127,
+    mask=0.3,
+    mask_random=0.3,
+    insert=0,
+    rotate=0,
+    permute_sentences=0,
+    replace_length=-1,
+    mask_length='span-poisson',
+    poisson_lambda=3
+)
     return dataset, mean_std, (src_var_list, tgt_var_list)
 
 

@@ -127,7 +127,7 @@ class VariableVocab:
     def __len__(self):
         cnt = 0
         for key in self.vocab.keys():
-            cnt += len(self.vocab[key]
+            cnt += len(self.vocab[key])
 
         
 

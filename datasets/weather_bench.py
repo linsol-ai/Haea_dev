@@ -193,7 +193,7 @@ class WeatherDataset:
         return source, source_t, mean_std
     
 
-    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level):
+    def load_one(self, air_variable, surface_variable, only_input_variable=[], constant_variables=[], level=[]):
         variables = air_variable + surface_variable + only_input_variable
         source, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
         

@@ -98,7 +98,7 @@ def download_zarr(source, output_path, variables=None):
         )
 
 class ERA5Vocab:
-    def __init__(self, dataset: xr.)
+    def __init__(self, dataset: xr.Dataset, )
         
 
 class WeatherDataset:

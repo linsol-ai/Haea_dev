@@ -14,7 +14,7 @@ class HaeaVocab:
 
 
     def __init__(self, dataset: torch.Tensor, src_var_list: torch.Tensor, tgt_var_list: torch.Tensor,
-                  max_len: int, n_only_input: int = 0):
+                  max_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.src_var_list = src_var_list

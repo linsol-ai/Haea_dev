@@ -124,7 +124,7 @@ class DenoisingDataset(Dataset):
 
     def __init__(
         self,
-        vocab: HaeaVocab,
+        vocab: TimeVocab,
         seed,
         mask,
         mask_random,

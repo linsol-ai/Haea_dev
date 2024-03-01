@@ -47,7 +47,7 @@ def get_normal_dataset(config: TrainingConfig):
         mask_length='span-poisson',
         poisson_lambda=3
     )
-    return dataset, mean_std, (src_var_list, tgt_var_list)
+    return dataset, mean_std, 
 
 
 class DataModule(pl.LightningDataModule):

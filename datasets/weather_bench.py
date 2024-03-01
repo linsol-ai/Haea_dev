@@ -105,7 +105,8 @@ class ERA5Vocab:
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]
     
     def create_vocab(self):
-        for vars in self.air_vars
+        for vars in self.air_vars:
+            
         
 
 class WeatherDataset:

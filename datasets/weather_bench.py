@@ -141,20 +141,6 @@ class WeatherDataset:
         self.device = device
         dataset_path = self.check_dataset(start_date, end_date, download_variables)
         self.load_dataset(dataset_path)
-    
-
-    def get_var_code(self, air_var, surface_var, level=37):
-        code = []
-        for air in air_var:
-            idx = self.AIR_VARIABLE.index(air) + 1
-            air_list = [ ((idx-1)*level) + i for i in range(level)]
-            code.extend(air_list)
-
-        for sur in surface_var:
-            idx = len(self.AIR_VARIABLE) * level + self.SURFACE_VARIABLE.index(sur)
-            code.append(idx)
-
-        return code
 
 
     def check_dataset(self, start_date: datetime, end_date: datetime, download_variables):

@@ -56,6 +56,17 @@ class DataModule(pl.LightningDataModule):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_vocab, self.time_vocab = get_normal_dataset(self.config)
+        train_ds, test_ds = torch.utils.data.random_split(
+            self.dataset,
+            [0.8, 0.2],
+        )
+        val_ds, test_ds = torch.utils.data.random_split(
+            test_ds,
+            [0.3, 0.7],
+        )
+        self.train_ds = train_ds
+        self.val_ds = val_ds
+        self.test_ds = test_ds
 
     def setup(self, stage: str):
         train_ds, test_ds = torch.utils.data.random_split(

@@ -125,6 +125,7 @@ class VariableVocab:
 
 
     def __len__(self):
+        cnt = 0
         
 
         

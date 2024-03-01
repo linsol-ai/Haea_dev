@@ -131,6 +131,8 @@ class VariableVocab:
             cnt += len(self.vocab[key])
         return cnt
 
+    
+
         
 
 class WeatherDataset:

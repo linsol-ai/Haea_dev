@@ -199,6 +199,8 @@ class WeatherDataset:
             var = dataset[i]
             if 'level' in var.dims:
                 result.extend([((idx-1) * level) + k for k in range(level)])
+            else:
+                result.extend()
 
 
 

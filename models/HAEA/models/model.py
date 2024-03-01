@@ -109,7 +109,7 @@ class Haea(nn.Module):
             for item in batch:
                 if item in HaeaVocab.SPECIAL_TOKENS:
                     if item == HaeaVocab.SPECIAL_TOKEN_MASK:
-                        seq.extend([item for _ in range()])
+                        seq.extend([item for _ in range(var_list.size(0))])
                     else:
                         seq.append(item)
                 else:

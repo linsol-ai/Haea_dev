@@ -73,7 +73,7 @@ class TimeVocab:
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
         
-        padding = torch.zer
+        padding = torch.zeros()
                 
         result = torch.cat(result, dim=0)
         return result

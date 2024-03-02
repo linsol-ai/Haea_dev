@@ -196,7 +196,7 @@ class DenoisingDataset(Dataset):
         for i in range(len(self.vocab.SPECIAL_TOKENS), size-length+2):
             start = i
             end = i + length
-            data = [self.vocab.SPECIAL_TOKEN_BOS] + [x for x in range(start, end)] + [self.vocab.SPECIAL_TOKEN_EOS] + [self.vocab. for _ in range(pad_len)]
+            data = [self.vocab.SPECIAL_TOKEN_BOS] + [x for x in range(start, end)] + [self.vocab.SPECIAL_TOKEN_EOS] + [self.vocab.SPECIAL_TOKEN_PAD for _ in range(pad_len)]
             dataset.append(data)
 
         return torch.tensor(dataset)

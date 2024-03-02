@@ -27,6 +27,7 @@ class TimeVocab:
     
 
     def get_max_len(self, bucket_size: int, var_len: int, max_len: int):
+        size = 
         if max_len % bucket_size == 0:
             return max_len
         else:

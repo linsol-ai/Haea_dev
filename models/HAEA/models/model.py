@@ -118,8 +118,6 @@ class Haea(nn.Module):
                     seq.extend(var_list)
                 
             result.append(seq)
-
-        result.extend([TimeVocab.SPECIAL_TOKEN_PAD for _ in range(pad_len)])
         result = torch.tensor(result, device=device)
         return result
     

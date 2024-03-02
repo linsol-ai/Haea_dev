@@ -9,7 +9,7 @@ from models.HAEA.datasets.denoised_dataset import TimeVocab
 
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
-        super().__init__(var_len, embed_size, padding_idx=TimeVocab.)
+        super().__init__(var_len, embed_size, padding_idx=TimeVocab.SPECIAL_TOKEN_PAD)
 
 
 class Embedding(nn.Module):

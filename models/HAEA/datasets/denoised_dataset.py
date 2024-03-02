@@ -104,7 +104,7 @@ class TimeVocab:
       
         return matrix
 
-    def get_mask(self, var_len, max_len, pad_len):
+    def get_mask(self, max_len, pad_len):
         matrix = torch.zeros(max_len, dtype=torch.bool)
         matrix[:(max_len-2)*var_len + 2] = True
         return matrix

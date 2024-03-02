@@ -82,7 +82,7 @@ class Haea(nn.Module):
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
-        self.tgt_mask = self.vocab.tgt_mask.unsqueeze(dim=0).expand(max_batch_size, -1, -1)
+        self.tgt_mask = self.vocab.tgt_mask.unsqueeze(dim=0).expand(max_batch_size, -1, -1).to
         self.mask = self.vocab.mask.unsqueeze(dim=0).expand(max_batch_size, -1, -1)
 
 

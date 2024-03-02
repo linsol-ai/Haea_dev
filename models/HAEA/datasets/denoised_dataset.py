@@ -80,7 +80,7 @@ class TimeVocab:
         
         padding = padding + self.pe[len(indicate)].repeat_interleave(padding.size(0), dim=0)
                 
-        result = torch.cat(result, dim=0)
+        result = torch.cat([result, dim=0)
         return result
 
 

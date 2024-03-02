@@ -58,7 +58,7 @@ class Haea(nn.Module):
 
         self.encoder = Reformer(
             dim=in_dim,
-            bucket_size=
+            bucket_size=64,
             depth=n_encoder_layers,
             heads=num_heads,
             causal=False,

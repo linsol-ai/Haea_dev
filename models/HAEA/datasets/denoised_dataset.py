@@ -92,7 +92,7 @@ class TimeVocab:
             matrix[s:e, :e] = 1
 
         matrix[(max_len-2)*var_len+1, :(max_len-2)*var_len+2] = 1
-        return matrix
+        return matrix.bool()
 
 
 

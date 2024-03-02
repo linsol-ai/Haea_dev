@@ -14,7 +14,7 @@ class TimeVocab:
 
 
     def __init__(self, dataset: torch.Tensor, 
-                 src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, bucket_size: int, max_len: int):
+                 src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, bucket_size: int, time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
         self.src_var_list = src_var_list
@@ -27,7 +27,7 @@ class TimeVocab:
     
 
     def get_max_len(self, bucket_size: int, var_len: int, max_len: int):
-        
+
         if max_len % bucket_size == 0:
             return max_len
         else:

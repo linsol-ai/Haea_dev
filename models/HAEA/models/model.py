@@ -97,7 +97,7 @@ class Haea(nn.Module):
         attn_mask = self.tgt_mask[:src.size(0)].to(src.device)
 
         self.get_size(src)
-        self.get_size(src)
+        self.get_size(tgt)
         self.get_size(src)
         self.get_size(src)
 

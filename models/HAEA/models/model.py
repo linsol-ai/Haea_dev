@@ -85,6 +85,9 @@ class Haea(nn.Module):
         self.tgt_mask = self.vocab.tgt_mask.unsqueeze(dim=0).expand(max_batch_size, -1, -1)
         self.mask = self.vocab.mask.unsqueeze(dim=0).expand(max_batch_size, -1)
 
+    def init_seq(self, device, batch_size):
+        
+
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)

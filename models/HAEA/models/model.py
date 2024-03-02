@@ -103,6 +103,7 @@ class Haea(nn.Module):
         out = self.out(x)
 
         src_var_seq.cpu().detach()
+        
         return out
 
 

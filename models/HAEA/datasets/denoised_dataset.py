@@ -13,7 +13,8 @@ class TimeVocab:
     SPECIAL_TOKENS = [SPECIAL_TOKEN_PAD, SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_EOS, SPECIAL_TOKEN_MASK]
 
 
-    def __init__(self, dataset: torch.Tensor, src_var_list: torch.Tensor, tgt_var_list: torch.Tensor,
+    def __init__(self, dataset: torch.Tensor, 
+                 src_var_list: torch.Tensor, tgt_var_list: torch.Tensor,
                   max_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset

@@ -102,7 +102,7 @@ class Haea(nn.Module):
         x = self.decoder(tgt, keys=x, context_mask=self.mask, input_attn_mask=self.tgt_mask)
         out = self.out(x)
 
-        
+        src_var_seq.cpu().detach()
         return out
 
 

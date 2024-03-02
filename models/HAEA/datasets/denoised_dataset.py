@@ -106,7 +106,7 @@ class TimeVocab:
 
     def get_mask(self, max_len, pad_len):
         matrix = torch.zeros(max_len, dtype=torch.bool)
-        matrix[:] = True
+        matrix[:-pad_len] = True
         return matrix
 
 

@@ -23,7 +23,7 @@ class TimeVocab:
         self.max_len = max_len
         self.tgt_mask = self.get_tgt_mask(len(tgt_var_list), max_len)
     
-    def get_max
+    def get_len()
 
 
     def __len__(self):

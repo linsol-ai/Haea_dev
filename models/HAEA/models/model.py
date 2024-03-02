@@ -94,7 +94,7 @@ class Haea(nn.Module):
         mask = self.mask[:src.size(0)]
         x = self.encoder(src, input_mask=mask)
         x = self.decoder(tgt, keys=x, context_mask=mask, input_attn_mask=self.tgt_mask[:src.size(0)])
-        
+
         out = self.out(x)
         return out
 

@@ -84,7 +84,8 @@ class Haea(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
     def init_seq(self, device, batch_size):
-
+        self.tgt_mask = self.vocab.tgt_mask.unsqueeze(dim=0).expand(max_batch_size, -1, -1)
+        self.mask = self.vocab.mask.unsqueeze(dim=0).expand(max_batch_size, -1)
 
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):

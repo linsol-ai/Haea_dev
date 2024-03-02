@@ -91,14 +91,14 @@ class Haea(nn.Module):
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
         if not hasattr(self, 'tgt_mask'):
             self.init_seq(src.device, src.size(0))
-            
+
         src_var_seq = self.get_var_seq(self.vocab.src_var_list, src_id, self.vocab.src_pad, src.device)
         tgt_var_seq = self.get_var_seq(self.vocab.tgt_var_list, tgt_id, self.vocab.tgt_pad, tgt.device)
 
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, tgt_var_seq) * math.sqrt(self.in_dim)
     
-        x = self.encoder(src, input_mask=mask)
+        x = self.encoder(src, input_mask=self.mask)
         x = self.decoder(tgt, keys=x, context_mask=mask, input_attn_mask=attn_mask)
         out = self.out(x)
         return out

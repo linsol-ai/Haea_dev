@@ -91,7 +91,7 @@ class TimeVocab:
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = True
 
-        matrix[(max_len-2)*var_len+1, :(max_len-2)*var_len+2] = 1
+        matrix[(max_len-2)*var_len+1, :(max_len-2)*var_len+2] = True
         return matrix
 
 

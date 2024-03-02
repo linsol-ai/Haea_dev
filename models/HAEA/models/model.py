@@ -126,11 +126,11 @@ class Haea(nn.Module):
     def get_size(self, tensor:torch.Tensor):
         element_size = tensor.element_size()
 
-# 텐서 내 요소의 총 개수
-num_elements = tensor.nelement()
+        # 텐서 내 요소의 총 개수
+        num_elements = tensor.nelement()
 
-# 총 메모리 사용량 계산 (바이트 단위)
-total_memory_bytes = element_size * num_elements
+        # 총 메모리 사용량 계산 (바이트 단위)
+        total_memory_bytes = element_size * num_elements
     
     
     

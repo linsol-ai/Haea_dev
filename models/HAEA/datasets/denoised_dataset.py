@@ -20,7 +20,7 @@ class TimeVocab:
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
         self.max_len = self.get_max_len(bucket_size, max_len)
-        self.pad_len = 
+        self.pad_len =  
         self.pe = self.positional_encoding(dataset.size(-1), self.max_len + 10)
         self.tgt_mask = self.get_tgt_mask(len(tgt_var_list), self.max_len)
     

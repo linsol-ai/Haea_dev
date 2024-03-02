@@ -95,6 +95,7 @@ class TimeVocab:
         return matrix
 
     def get_mask(self, var_len, max_len, pad_len):
+        
 
 
 

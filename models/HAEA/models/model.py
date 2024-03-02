@@ -136,7 +136,7 @@ class Haea(nn.Module):
 
         # 총 메모리 사용량 계산 (바이트 단위)
         total_memory_bytes = element_size * num_elements
-        print(f'Tensor shape:' )
+        print(f'Tensor shape: {}')
         print(f'Element size: {element_size} bytes')
         print(f'Number of elements: {num_elements}')
         print(f'Total memory usage: {total_memory_bytes} bytes')

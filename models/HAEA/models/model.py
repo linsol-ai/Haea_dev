@@ -98,6 +98,8 @@ class Haea(nn.Module):
 
         self.get_size(src)
         self.get_size(src)
+        self.get_size(src)
+        self.get_size(src)
 
     
         x = self.encoder(src, input_mask=mask)

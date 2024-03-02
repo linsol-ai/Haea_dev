@@ -97,7 +97,7 @@ class Haea(nn.Module):
         attn_mask = self.tgt_mask[:src.size(0)].to(src.device)
 
         self.get_size(src)
-        
+        self.get_size(src)
 
     
         x = self.encoder(src, input_mask=mask)

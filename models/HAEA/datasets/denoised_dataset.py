@@ -102,7 +102,7 @@ class TimeVocab:
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = True
 
-        matrix[(max_len-2)*var_len+1, :(max_len-2)*var_len+2] = True
+        matrix[max_len-pad_len+1, :(max_len-2)*var_len+2] = True
         return matrix
 
     def get_mask(self, var_len, max_len, pad_len):

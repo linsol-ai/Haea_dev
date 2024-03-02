@@ -93,16 +93,15 @@ class TimeVocab:
         tgt = self.get_data(times, source=False)
         return tgt
     
-    def get_tgt_mask(self, var_len, max_len, pad_len) -> torch.Tensor:
-        matrix = torch.zeros(max_len, max_len, dtype=torch.bool)
-        matrix[:max_len-pad_len, 0] = True
-
-        for i in range(max_len-pad_len-2):
+    def get_tgt_mask(var_len, max_len, pad_len) -> torch.Tensor:
+        matrix = torch.zeros(max_len, max_len)
+        matrix[1, 1] = True
+        for i in range( (max_len-pad_len-2) // var_len):
             s =  (i * var_len) + 1
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = True
-
-        matrix[max_len-pad_len+1, :max_len-pad_len+2] = True
+        matrix[-pad_len-1, :-pad_len] = True
+      
         return matrix
 
     def get_mask(self, var_len, max_len, pad_len):

@@ -26,7 +26,7 @@ class TimeVocab:
         self.mask = self.get_mask(len(src_var_list), self.max_len, self.pad_len)
     
 
-    def get_max_len(self, bucket_size: int, max_len: int):
+    def get_max_len(self, bucket_size: int, max_len: int, max_len: int):
         if max_len % bucket_size == 0:
             return max_len
         else:

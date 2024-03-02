@@ -33,7 +33,7 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.
     src_var_list = var_vocab.get_code(config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable)
     tgt_var_list = var_vocab.get_code(config.air_variable + config.surface_variable)
 
-    time_vocab = TimeVocab(source, src_var_list, tgt_var_list, time_len, bucket_size=)
+    time_vocab = TimeVocab(source, src_var_list, tgt_var_list, time_len, bucket_size=con)
     
     dataset = DenoisingDataset(
         time_vocab,

@@ -74,7 +74,7 @@ class TimeVocab:
             result.append(data)
         
         if source:
-            padding = 
+            padding = torch.zeros()
                 
         result = torch.cat(result, dim=0)
         return result

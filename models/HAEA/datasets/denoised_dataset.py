@@ -190,7 +190,7 @@ class DenoisingDataset(Dataset):
         self.epoch = 0
     
 
-    def make_dataset(self, size, length):
+    def make_dataset(self, size, padd, length):
         dataset = []
         
         for i in range(len(self.vocab.SPECIAL_TOKENS), size-length+2):

@@ -89,7 +89,8 @@ class Haea(nn.Module):
 
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
-        # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
+              if not hasattr(self, 'src_var_seq'):
+            self.init_seq(src.device, src.size(0))
         src_var_seq = self.get_var_seq(self.vocab.src_var_list, src_id, self.vocab.src_pad, src.device)
         tgt_var_seq = self.get_var_seq(self.vocab.tgt_var_list, tgt_id, self.vocab.tgt_pad, tgt.device)
 

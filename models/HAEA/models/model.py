@@ -123,7 +123,7 @@ class Haea(nn.Module):
         result = torch.tensor(result, device=device)
         return result
 
-    def get_size(self, tensor):
+    def get_size(self, tensor:torch.Tensor):
     
     
     

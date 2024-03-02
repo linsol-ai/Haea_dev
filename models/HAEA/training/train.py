@@ -8,7 +8,6 @@ from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader
 from absl import app
-from pytorch_lightning.utilities.model_summary import ModelSummary
 
 import sys,os
 from typing import Tuple

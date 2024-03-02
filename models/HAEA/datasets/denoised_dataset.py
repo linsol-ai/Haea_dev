@@ -94,7 +94,7 @@ class TimeVocab:
         matrix[(max_len-2)*var_len+1, :(max_len-2)*var_len+2] = True
         return matrix
 
-    def get_mask()
+    def get_mask():
 
 
 

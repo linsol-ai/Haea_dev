@@ -78,7 +78,7 @@ class TimeVocab:
         else:
             padding = torch.zeros(self.tgt_pad, self.dataset.size(2))
         
-        padding
+        padding = padding + self.pe[]
                 
         result = torch.cat(result, dim=0)
         return result

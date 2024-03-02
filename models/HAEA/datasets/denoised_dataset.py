@@ -32,7 +32,6 @@ class TimeVocab:
             return max_len, 0
         else:
             r = max_len % bucket_size
-            resize = 
             return max_len + (bucket_size - r) , 
 
 

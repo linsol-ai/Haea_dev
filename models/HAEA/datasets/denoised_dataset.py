@@ -28,7 +28,7 @@ class TimeVocab:
         if max_len % bucket_size == 0:
             return max_len
         else:
-            p = max_len % bucket_size
+            r = max_len % bucket_size
             m = max_len + ()
 
 

@@ -77,7 +77,7 @@ class Haea(nn.Module):
             ff_glu=True,
             n_hashes = 4,
             attn_chunks = 8,
-            ff_dropout=dropout
+            lsh_dropout=dropout
         )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

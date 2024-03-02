@@ -119,7 +119,7 @@ class Haea(nn.Module):
                 
             result.append(seq)
 
-        result.extend([T])
+        result.extend([Time])
         result = torch.tensor(result, device=device)
         return result
     

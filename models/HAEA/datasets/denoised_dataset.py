@@ -21,7 +21,7 @@ class TimeVocab:
         self.tgt_var_list = tgt_var_list
         self.time_len = time_len
         self.src_max_len, self.src_pad = self.get_max_len(bucket_size, len(src_var_list), time_len)
-        self.src_max_len, self.tgt_pad = self.get_max_len(bucket_size, len(src_var_list), time_len)
+        self.tgt_max_len, self.tgt_pad = self.get_max_len(bucket_size, len(src_var_list), time_len)
 
         self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)
         self.tgt_mask = self.get_tgt_mask(len(tgt_var_list), self.max_len, self.pad_len)

@@ -62,7 +62,6 @@ class Haea(nn.Module):
             num_decoder_layers=n_decoder_layers,
             dim_feedforward=in_dim*4,
             dropout=dropout,
-            activation=F.gelu,
             batch_first=True
         )
         self.embedding = Embedding(max_var_len, in_dim, dropout)

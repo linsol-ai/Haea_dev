@@ -55,7 +55,6 @@ class Haea(nn.Module):
         super().__init__()
         self.vocab = vocab
         self.in_dim = in_dim
-
         self.model = nn.Transformer(
             d_model=in_dim,
             nhead=num_heads,

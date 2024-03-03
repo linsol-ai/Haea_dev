@@ -92,7 +92,7 @@ class TimeVocab:
             s =  (i * var_len) + 1
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = True
-        matrix[var_len*time_len] = True
+        matrix[var_len*time_len, ] = True
       
         return matrix
 

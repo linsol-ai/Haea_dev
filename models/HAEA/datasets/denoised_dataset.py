@@ -36,6 +36,7 @@ class TimeVocab:
         self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)
         self.tgt_mask = get_tgt_mask(len(tgt_var_list), time_len)
 
+
     def __len__(self):
         return self.dataset.size(0) + len(self.SPECIAL_TOKENS)
 

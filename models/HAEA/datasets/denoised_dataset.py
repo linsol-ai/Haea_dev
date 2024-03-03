@@ -35,16 +35,6 @@ class TimeVocab:
         self.time_len = time_len
         self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)
         self.tgt_mask = get_tgt_mask(len(tgt_var_list), time_len)
-        
-
-    def get_max_len(self, bucket_size: int, var_len: int, time_len: int):
-        max_len = (var_len * time_len) + 2
-        if max_len % bucket_size == 0:
-            return max_len, 0
-        else:
-            r = max_len % bucket_size
-            return max_len + (bucket_size - r) , (bucket_size - r)
-
 
     def __len__(self):
         return self.dataset.size(0) + len(self.SPECIAL_TOKENS)

@@ -69,7 +69,7 @@ class Haea(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
 
-    def init_seq(self, device, batch_size):
+    def init_seq(self, device):
         self.tgt_mask = self.vocab.tgt_mask.to(device)
 
 

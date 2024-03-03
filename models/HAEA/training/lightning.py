@@ -55,7 +55,7 @@ class TrainModule(pl.LightningModule):
 
         loss = self.calculate_rmse_loss(predict[:, 1:-1, :], tgt[:, 1:-1, :], len(self.model.vocab.tgt_var_list))
 
-        indices = torch.tensor([0, predict.size(1)-1], device=)
+        indices = torch.tensor([0, predict.size(1)-1], device=self.device)
         bos_eos_loss = rmse_loss(predict.index_select(1, indices), tgt.index_select(1, indices))
 
         loss += bos_eos_loss

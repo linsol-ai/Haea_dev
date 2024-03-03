@@ -58,7 +58,7 @@ class TrainModule(pl.LightningModule):
         indices = torch.tensor([0, predict.size(1)-1])
         bos_eos_loss = rmse_loss(predict.index_select(1, indices), tgt.index_select(1, indices))
 
-        loss += 
+        loss += bos_eos_loss
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

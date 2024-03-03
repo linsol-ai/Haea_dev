@@ -53,7 +53,7 @@ class TrainModule(pl.LightningModule):
 
         predict = self.model(src, src_id, tgt, tgt_id)
 
-        if torch.isnan(predict):
+        if torch.isnan(predict).any():
             print("p nan")
         
         if src.isnan():

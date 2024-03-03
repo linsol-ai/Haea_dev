@@ -67,7 +67,6 @@ class TrainModule(pl.LightningModule):
 
         label = label.view(label.size(0), -1, var_len, label.size(2))
         label = denormalize(label, self.mean_std)
-        label = label.view(label.size(0), -1, label.size(3))
 
         # reversed_predict.shape = (batch, time_len * var_len, 1450) -> nomalized
         loss = rmse_loss(reversed_predict, label)

@@ -53,12 +53,7 @@ class TrainModule(pl.LightningModule):
 
         predict = self.model(src, src_id, tgt, tgt_id)
 
-        loss = self.calculate_rmse_loss(predict[:, 1:-1, :], tgt[:, 1:-1, :], len(self.model.vocab.tgt_var_list))
-
-        indices = torch.tensor([0, predict.size(1)-1], device=self.device)
-        bos_eos_loss = rmse_loss(predict.index_select(1, indices), tgt.index_select(1, indices))
-
-        loss += bos_eos_loss
+        loss = rmse_loss()
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

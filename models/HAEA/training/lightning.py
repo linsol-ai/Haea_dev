@@ -53,15 +53,6 @@ class TrainModule(pl.LightningModule):
 
         predict = self.model(src, src_id, tgt, tgt_id)
 
-        if torch.isnan(predict).any():
-            print("p nan")
-        
-        if src.isnan().any():
-            print("s nan")
-        
-        if tgt.isnan().any():
-            print("t nan")
-
         loss = rmse_loss(predict, tgt)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

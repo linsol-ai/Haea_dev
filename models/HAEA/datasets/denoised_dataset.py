@@ -73,7 +73,6 @@ class TimeVocab:
 
                 
         result = torch.cat(result, dim=0)
-        result = torch.cat([result, padding], dim=0)
         return result
 
 

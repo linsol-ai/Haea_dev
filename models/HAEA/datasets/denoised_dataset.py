@@ -7,7 +7,7 @@ import contextlib
 
 def get_tgt_mask(var_len, time_len) -> torch.Tensor:
         size = var_len * time_len + 2
-        matrix = torch.fill(size, size, float('-inf'))
+        matrix = torch.full(size, size, float('-inf'))
         matrix[0, 0] = True
         for i in range(time_len):
             s =  (i * var_len) + 1

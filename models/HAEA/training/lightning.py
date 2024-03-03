@@ -57,7 +57,7 @@ class TrainModule(pl.LightningModule):
             print("p nan")
         
         if src.isnan():
-            print("p nan")
+            print("s nan")
         
         if tgt.isnan():
             print("p nan")

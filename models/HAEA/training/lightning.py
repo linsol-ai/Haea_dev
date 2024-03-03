@@ -59,8 +59,8 @@ class TrainModule(pl.LightningModule):
 
 
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
-        # predict.size = (batch, time_len * var_len + 2, hidden)
-        
+        # predict.size = (batch, time_len * var_len, hidden)
+
 
 
 

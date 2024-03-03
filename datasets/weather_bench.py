@@ -213,7 +213,7 @@ class WeatherDataset:
 
         vocab = VariableVocab(dataset)
 
-        source, mean_std = self.load_data_single(self.datasets[0], variables, constant_variables)
+        source, mean_std = self.load_data_single(dataset, variables, constant_variables)
         
         offset = len(only_input_variable)
         if offset > 0:

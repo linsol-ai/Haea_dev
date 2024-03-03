@@ -88,7 +88,7 @@ class TimeVocab:
         size = var_len * time_len + 2
         matrix = torch.zeros(size, size, dtype=torch.bool)
         matrix[1, 1] = True
-        for i in range( (max_len-pad_len-2) // var_len):
+        for i in range(time_len):
             s =  (i * var_len) + 1
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = True

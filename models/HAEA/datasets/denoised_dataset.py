@@ -70,13 +70,7 @@ class TimeVocab:
 
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
-        
-        if source:
-            padding = torch.zeros(self.src_pad, self.dataset.size(2))
-        else:
-            padding = torch.zeros(self.tgt_pad, self.dataset.size(2))
-        
-        padding = padding + self.pe[len(indicate)].unsqueeze(dim=0).repeat_interleave(padding.size(0), dim=0)
+
                 
         result = torch.cat(result, dim=0)
         result = torch.cat([result, padding], dim=0)

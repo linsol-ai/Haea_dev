@@ -56,7 +56,9 @@ class Haea(nn.Module):
         self.vocab = vocab
         self.in_dim = in_dim
 
-        self.model = 
+        self.model = nn.Transformer(
+            
+        )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)

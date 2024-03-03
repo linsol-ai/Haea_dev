@@ -4,6 +4,7 @@ from torch.utils.data import Dataset
 import math
 import contextlib
 
+
 def get_tgt_mask(var_len, time_len) -> torch.Tensor:
         size = var_len * time_len + 2
         matrix = torch.zeros(size, size, dtype=torch.bool)

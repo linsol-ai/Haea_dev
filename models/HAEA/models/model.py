@@ -56,29 +56,7 @@ class Haea(nn.Module):
         self.vocab = vocab
         self.in_dim = in_dim
 
-        self.encoder = Reformer(
-            dim=in_dim,
-            bucket_size=bucket_size,
-            depth=n_encoder_layers,
-            heads=num_heads,
-            causal=False,
-            ff_glu=True,
-            n_hashes = 4,
-            attn_chunks = 8,
-            lsh_dropout=dropout
-        )
-
-        self.decoder = Reformer(
-            dim=in_dim,
-            bucket_size=bucket_size,
-            depth=n_decoder_layers,
-            heads=num_heads,
-            causal=False,
-            ff_glu=True,
-            n_hashes = 4,
-            attn_chunks = 8,
-            lsh_dropout=dropout
-        )
+        self.
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)

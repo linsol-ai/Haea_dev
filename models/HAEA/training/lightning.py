@@ -60,7 +60,7 @@ class TrainModule(pl.LightningModule):
             print("s nan")
         
         if tgt.isnan():
-            print("p nan")
+            print("t nan")
 
         loss = rmse_loss(predict, tgt)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

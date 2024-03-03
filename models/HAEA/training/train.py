@@ -22,7 +22,6 @@ from models.HAEA.training.lightning import TrainModule
 
 
 def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
-    time_len = 1 * config.time_len
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 

@@ -11,7 +11,7 @@ training:
   batch_size: 1
   max_epochs: 20
   gradient_clip_val: 0.5
-  time_len: 7
+  time_len: 24
   train_start: 2013-01-01
   train_end: 2023-01-01
   mask_ratio: 0.3

@@ -4,6 +4,18 @@ from torch.utils.data import Dataset
 import math
 import contextlib
 
+def get_tgt_mask(var_len, time_len) -> torch.Tensor:
+        size = var_len * time_len + 2
+        matrix = torch.zeros(size, size, dtype=torch.bool)
+        matrix[0, 0] = True
+        for i in range(time_len):
+            s =  (i * var_len) + 1
+            e =  ((i+1) * var_len) + 1
+            matrix[s:e, :e] = True
+        matrix[var_len*time_len+1, :] = True
+      
+        return matrix
+
 class TimeVocab:
 
     SPECIAL_TOKEN_PAD = 0

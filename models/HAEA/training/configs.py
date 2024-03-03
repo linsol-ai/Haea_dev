@@ -35,7 +35,7 @@ class TrainingConfig(BaseModel):
 
     mask_ratio: float = 0.3
 
-    l: List[str]
+    levels: List[str]
 
     air_variable: List[str]
 

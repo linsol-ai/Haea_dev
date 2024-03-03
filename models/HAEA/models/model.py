@@ -63,7 +63,7 @@ class Haea(nn.Module):
             num_decoder_layers=n_decoder_layers,
             dim_feedforward=in_dim*2,
             dropout=dropout,
-            activation=
+            activation=F.gelu,
             batch_first=True
         )
         

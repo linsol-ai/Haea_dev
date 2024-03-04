@@ -54,7 +54,7 @@ class Haea(nn.Module):
                 num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
-        
+
         self.model = nn.Transformer(
             d_model=in_dim,
             nhead=num_heads,
@@ -69,7 +69,7 @@ class Haea(nn.Module):
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor, tgt_mask: torch.Tensor, src_var_list: torch.Tensor, tgt_var_list: torch.Tensor):
     
-        src_var_seq = self.get_var_seq(self.src_var_list, src_id, src.device)
+        src_var_seq = self.get_var_seq(src_var_list, src_id, src.device)
         tgt_var_seq = self.get_var_seq(self.tgt_var_list, tgt_id, tgt.device)
 
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)

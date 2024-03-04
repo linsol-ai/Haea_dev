@@ -85,7 +85,7 @@ class Haea(nn.Module):
         transformer_out = self.model(src, tgt, tgt_mask=self.tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
 
-        
+        self.src_var_list.
     
         return out
 

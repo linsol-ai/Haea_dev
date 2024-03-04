@@ -111,7 +111,6 @@ class Haea(nn.Module):
             seq = torch.cat(seq, dim=0)
             result.append(seq)
         result = torch.stack(result, dim=0)
-        print(result.shape)
         return result
 
 

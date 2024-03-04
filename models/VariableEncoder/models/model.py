@@ -81,7 +81,7 @@ class VariableEncoder(nn.Module):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         
         src_var_seq = self.src_var_seq[:src.size(0), :, :].to(src.device)
-        
+        src_var_seq = self.src_var_seq[:src.size(0), :, :].to(src.device)
 
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, self.src_var_seq[:src.size(0), :, :].to(src.device)) * math.sqrt(self.in_dim)

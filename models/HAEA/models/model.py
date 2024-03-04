@@ -57,7 +57,7 @@ class Haea(nn.Module):
         self.tgt_mask = tgt_mask
         self.src_var_list = src_var_list
         self.tgt_var_list = tgt_var_list
-        
+
         self.model = nn.Transformer(
             d_model=in_dim,
             nhead=num_heads,
@@ -69,10 +69,6 @@ class Haea(nn.Module):
         )
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
-
-
-    def init_seq(self, device):
-        self.tgt_mask = self.tgt_mask.to(device)
 
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):

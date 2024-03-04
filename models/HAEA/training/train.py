@@ -135,7 +135,6 @@ def main(argv):
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
     model = Haea(
-        data_module.time_vocab,
         in_dim=data_module.time_vocab.dataset.size(-1),
         out_dim=data_module.time_vocab.dataset.size(-1),
         num_heads=config.model.num_heads,

@@ -166,6 +166,8 @@ class TrainModule(pl.LightningModule):
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)
+    
+    def setting(self):
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         self.mean_std = self.mean_std.to(self.device)

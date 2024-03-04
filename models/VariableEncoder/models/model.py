@@ -105,8 +105,8 @@ class VariableEncoder(nn.Module):
 
             tgt_seq.append(t_seq)
         
-        
-        tgt_seq = torch.tensor(tgt_seq, device=device)
+
+        tgt_seq = self.tgt_time_len.
         src_seq = self.src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
         return src_seq, tgt_seq
 

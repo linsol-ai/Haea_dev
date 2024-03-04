@@ -107,7 +107,7 @@ class VariableEncoder(nn.Module):
         pe[:, :, 0::2] = torch.sin(position * div_term)
         pe[:, :, 1::2] = torch.cos(position * div_term)
 
-        return pe.repeat_interleave(var_len, dim=1).to(device)
+        return pe.repeat_interleave(var_len, dim=1)
     
 
     def get_tgt_mask(self) -> torch.Tensor:

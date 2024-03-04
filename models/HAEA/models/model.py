@@ -92,7 +92,7 @@ class Haea(nn.Module):
             for item in batch:
                 if item in TimeVocab.SPECIAL_TOKENS:
                     if item == TimeVocab.SPECIAL_TOKEN_MASK:
-                        seq.append(torch.full_like(var_list, item))
+                        seq.append(torch.full_like(var_list, item, ))
                     else:
                         seq.append(torch.tensor([item]))
                 else:

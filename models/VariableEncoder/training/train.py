@@ -114,6 +114,7 @@ class DataModule(pl.LightningDataModule):
 
 
 
+
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
 
     try:

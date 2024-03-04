@@ -87,7 +87,7 @@ class Haea(nn.Module):
         result = []
         var_list = var_list.cpu() + len(TimeVocab.SPECIAL_TOKENS)
 
-        for batch in indicate:
+        for batch in indicatecpu():
             seq = []
             for item in batch:
                 if item in TimeVocab.SPECIAL_TOKENS:

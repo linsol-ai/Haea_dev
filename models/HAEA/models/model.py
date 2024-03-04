@@ -101,7 +101,7 @@ class Haea(nn.Module):
                     seq.extend(var_list)
 
             result.append(seq)
-        result = torch.tensor(result, device=device)
+        result = torch.tensor(result)
         return result
 
 

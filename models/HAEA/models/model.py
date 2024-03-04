@@ -71,9 +71,7 @@ class Haea(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
-        if not hasattr(self, 'tgt_mask'):
-            self.init_seq(src.device)
-
+    
         src_var_seq = self.get_var_seq(self.src_var_list, src_id, src.device)
         tgt_var_seq = self.get_var_seq(self.tgt_var_list, tgt_id, tgt.device)
 

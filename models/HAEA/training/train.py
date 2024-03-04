@@ -151,7 +151,7 @@ def main(argv):
     
     trainer = pl.Trainer(
         accelerator="auto",
-        devices=FLAGS.WORD,
+        devices=FLAGS.WORLD_SIZE,
         strategy="ddp",
         max_epochs=config.training.max_epochs,
         logger=logger,

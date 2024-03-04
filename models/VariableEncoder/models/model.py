@@ -94,18 +94,7 @@ class VariableEncoder(nn.Module):
         return out
 
 
-    def get_var_seq(self, batch_size, device):
-        tgt_seq = []
-
-        for _ in range(batch_size):
-            t_seq = []
-
-            for _ in range(0, self.tgt_time_len):
-                t_seq.extend(self.tgt_var_list)
-
-            tgt_seq.append(t_seq)
-        
-
+    def get_var_seq(self, batch_size):
         tgt_seq = self.tgt_var_list.unsqueeze(0).repeat_interleave(self.tgt_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
         src_seq = self.src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
         return src_seq, tgt_seq

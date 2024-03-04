@@ -29,7 +29,7 @@ class TrainModule(pl.LightningModule):
         self.model = model
         self.pressure_level = pressure_level
         self.mean_std = mean_std
-        self.config = TrainingConfig() if config is None else config
+        self.config = config
         self.save_hyperparameters()
 
     

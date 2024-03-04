@@ -91,7 +91,8 @@ class VariableEncoder(nn.Module):
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)
 
-        src_var_seq.cpu()
+        src_var_seq.cpu().detach()
+        
         return out
 
 

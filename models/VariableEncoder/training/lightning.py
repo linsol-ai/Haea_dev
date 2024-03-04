@@ -185,7 +185,7 @@ class TrainModule(pl.LightningModule):
         loss = loss.swapaxes(0, 1)
 
 
-        predict = predict.view(loss.size(0), -1, var_len, loss.size(2))
+        predict = predict.view(predict.size(0), -1, var_len, loss.size(2))
 
 
         src.cpu().detach()

@@ -77,8 +77,6 @@ class VariableEncoder(nn.Module):
         self.tgt_pos_seq = self.positional_encoding(batch_size, self.in_dim, len(self.tgt_var_list), self.tgt_time_len)
     
 
-
-
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         if not hasattr(self, 'src_var_seq'):

@@ -28,6 +28,8 @@ def get_normal_dataset(config: TrainingConfig):
 
     vars = config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable
 
+    intervals = split_datetime_range(config.train_start, config.train_end, FLAGS.WORLD_SIZE)
+
     weather = WeatherDataset(config.train_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     source, mean_std = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 

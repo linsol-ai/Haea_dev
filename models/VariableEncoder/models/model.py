@@ -72,6 +72,7 @@ class VariableEncoder(nn.Module):
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
+        self.tgt_mask = self.get_tgt_mask()
     
 
     def init_seq(self, device, batch_size):

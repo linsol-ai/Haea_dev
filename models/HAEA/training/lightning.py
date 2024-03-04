@@ -54,7 +54,7 @@ class TrainModule(pl.LightningModule):
         src_var_list = batch['src_var_list']
         tgt_var_list = batch['tgt_var_list']
 
-        predict = self.model(src, src_id, tgt, tgt_id, tgt)
+        predict = self.model(src, src_id, tgt, tgt_id, tgt_mask, src_var_list, tgt)
 
         loss = rmse_loss(predict, tgt)
 

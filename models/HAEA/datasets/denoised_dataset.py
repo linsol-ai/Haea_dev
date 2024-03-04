@@ -237,6 +237,7 @@ class DenoisingDataset(Dataset):
             "source_id": source,
             "target": target_dataset,
             "target_id": target,
+            
             "tgt_mask": self.vocab.tgt_mask,
             "src_var_list": self.vocab.src_var_list,
             "tgt_var_list": self.vocab.tgt_var_list

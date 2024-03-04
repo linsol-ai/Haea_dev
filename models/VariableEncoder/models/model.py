@@ -106,7 +106,7 @@ class VariableEncoder(nn.Module):
             tgt_seq.append(t_seq)
         
 
-        tgt_seq = self.tgt_var_list.unsqueeze(0).repeat_interleave(tgt_time_len, dim=0)
+        tgt_seq = self.tgt_var_list.unsqueeze(0).repeat_interleave(self.tgt_time_len, dim=0)
         src_seq = self.src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
         return src_seq, tgt_seq
 

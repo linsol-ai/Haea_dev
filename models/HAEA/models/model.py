@@ -86,7 +86,7 @@ class Haea(nn.Module):
         out = self.out(transformer_out)
 
         self.src_var_list.cpu().detach()
-        
+        self.src_var_list.cpu().detach()
     
         return out
 

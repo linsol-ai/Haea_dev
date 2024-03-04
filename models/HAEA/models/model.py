@@ -88,6 +88,7 @@ class Haea(nn.Module):
 
         self.src_var_list.cpu().detach()
         self.tgt_var_list.cpu().detach()
+        
     
         return out
 

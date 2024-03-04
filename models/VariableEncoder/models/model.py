@@ -92,7 +92,7 @@ class VariableEncoder(nn.Module):
         out = self.out(transformer_out)
 
         src_var_seq.cpu().detach()
-        src_var_seq.cpu().detach()
+        tgt_var_seq.cpu().detach()
         src_var_seq.cpu().detach()
         return out
 

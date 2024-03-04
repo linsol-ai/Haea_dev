@@ -108,7 +108,6 @@ class VariableVocab:
         self.air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]
         self.vocab = self.create_vocab()
-        print(self.vocab)
     
     def create_vocab(self):
         vocab = {}

@@ -114,7 +114,7 @@ class DataModule(pl.LightningDataModule):
 
 
 def main(argv):
-    
+
     config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
 
     try:
@@ -154,8 +154,6 @@ def main(argv):
 
     model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=max_iters, 
                             config=config.training)
-
-if __name__=='__main__':
     trainer = pl.Trainer(
         accelerator="auto",
         devices=1,

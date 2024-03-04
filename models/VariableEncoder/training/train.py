@@ -39,7 +39,7 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Ten
     tgt_var_list = var_vocab.get_code(config.air_variable + config.surface_variable)
 
     dataset = CustomDataset(source, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
-    return dataset, mean_std, var_vocab, time_vocab
+    return dataset, mean_std, var_vocab
 
 
 class DataModule(pl.LightningDataModule):

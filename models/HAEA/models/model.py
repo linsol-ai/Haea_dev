@@ -100,7 +100,7 @@ class Haea(nn.Module):
 
             seq = torch.cat(seq, dim=0)
             result.append(seq)
-        result = torch.tensor(result, device=device)
+        result = torch.stack()
         return result
 
 

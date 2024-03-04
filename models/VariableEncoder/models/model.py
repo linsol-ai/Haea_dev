@@ -82,7 +82,7 @@ class VariableEncoder(nn.Module):
         if not hasattr(self, 'src_var_seq'):
             self.init_seq(src.device, src.size(0))
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
-        src = self.embedding(src, self.src_var_seq[:, :, :]) * math.sqrt(self.in_dim)
+        src = self.embedding(src, self.src_var_seq[:, :, :].to()) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, self.tgt_var_seq, self.tgt_pos_seq) * math.sqrt(self.in_dim)
         tgt_mask = self.tgt_mask.to(src.device)
 

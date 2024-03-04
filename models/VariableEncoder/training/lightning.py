@@ -190,6 +190,8 @@ class TrainModule(pl.LightningModule):
         predict = torch.mean(predict, dim=-1)
         predict = predict.swapaxes(0, 1)
 
+        
+
         src.cpu().detach()
         tgt.cpu().detach()
         predict.cpu().detach()

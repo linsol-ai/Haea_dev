@@ -167,3 +167,7 @@ def main(argv):
     )
 
     trainer.fit(model_pl, datamodule=data_module)
+
+
+if __name__=='__main__':
+    

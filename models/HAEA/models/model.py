@@ -86,6 +86,7 @@ class Haea(nn.Module):
         # indicate.shape = (batch, max_len + 2)
         result = []
         var_list = var_list + len(TimeVocab.SPECIAL_TOKENS)
+        print(var_list.shape)
 
         for batch in indicate:
             seq = []

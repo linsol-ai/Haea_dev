@@ -21,6 +21,37 @@ from models.VariableEncoder.training.configs import TrainingRunConfig
 from models.VariableEncoder.training.lightning import TrainModule
 
 
+import os
+env_cp = os.environ.copy()
+
+
+FLAGS = flags.FLAGS
+WORLD_SIZE = flags.DEFINE_integer('WORLD_SIZE', None, help='define gpu size')
+flags.mark_flag_as_required("WORLD_SIZE")
+
+if 'NODE_RANK' in env_cp.keys():
+    node_rank, local_rank, world_size = int(env_cp['NODE_RANK']), int(env_cp['LOCAL_RANK']), int(env_cp['WORLD_SIZE'])
+else:
+    world_size = 1
+    local_rank = 0
+
+config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
+
+
+try:
+    with open(config_path) as f:
+        config_dict = yaml.safe_load(f)
+    config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
+except FileNotFoundError:
+    logging.error(f"Config file {config_path} does not exist. Exiting.")
+except yaml.YAMLError:
+    logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
+except ValidationError as e:
+    logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
+else:
+    pl.seed_everything(config.seed)
+
+
 def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Tensor, VariableVocab]:
     tgt_time_len = 1 * config.tgt_time_len
     device = ("cuda" if torch.cuda.is_available() else "cpu" )

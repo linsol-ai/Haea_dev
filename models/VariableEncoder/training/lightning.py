@@ -171,7 +171,6 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        mean_std = self.mean_std.to(self.device)
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
         var_len = tgt.size(2)

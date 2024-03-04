@@ -77,9 +77,6 @@ class VariableEncoder(nn.Module):
         self.tgt_pos_seq = self.positional_encoding(batch_size, self.in_dim, len(self.tgt_var_list), self.tgt_time_len)
     
 
-    def init_seq(self, device, batch_size):
-        self.src_var_seq, self.tgt_var_seq = self.get_var_seq(batch_size, device)
-        self.tgt_pos_seq = self.positional_encoding(batch_size, self.in_dim, len(self.tgt_var_list), self.tgt_time_len, device)
 
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):

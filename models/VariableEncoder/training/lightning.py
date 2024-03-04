@@ -173,7 +173,6 @@ class TrainModule(pl.LightningModule):
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
-        self.model.init_seq(self.device, src.size(0))
         var_len = tgt.size(2)
         predict = self.model(src, tgt)
         # loss.shape = (batch, time_len * var_len, 1450)

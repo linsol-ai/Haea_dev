@@ -123,7 +123,7 @@ class VariableEncoder(nn.Module):
         return pe.repeat_interleave(var_len, dim=1).to(device)
     
 
-    def get_tgt_mask(self) -> torch.tensor:
+    def get_tgt_mask(self) -> torch.Tensor:
         var_len = len(self.tgt_var_list)
         matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
 

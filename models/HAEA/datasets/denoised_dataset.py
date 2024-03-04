@@ -238,7 +238,7 @@ class DenoisingDataset(Dataset):
             "target": target_dataset,
             "target_id": target,
             "tgt_mask": self.vocab.tgt_mask,
-            "src_var_list": self.
+            "src_var_list": self.vocab.src_var_list
         }
 
     def __len__(self):

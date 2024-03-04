@@ -79,7 +79,7 @@ class VariableEncoder(nn.Module):
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
-        src_var_seq = self.src_var_seq[:src.size(0), :, :].to(src.device)
+        src_var_seq = self.src_var_seq[:src.size(0),  :].to(src.device)
         tgt_var_seq = self.tgt_var_seq[:tgt.size(0), :, :].to(tgt.device)
         tgt_pos_seq = self.tgt_pos_seq[:tgt.size(0), :, :].to(tgt.device)
 
@@ -95,7 +95,7 @@ class VariableEncoder(nn.Module):
         tgt_var_seq.cpu().detach()
         tgt_pos_seq.cpu().detach()
         tgt_mask.cpu().detach()
-        
+
         return out
 
 

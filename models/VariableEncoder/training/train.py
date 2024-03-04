@@ -26,7 +26,7 @@ def get_normal_dataset(config: TrainingConfig):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
-     vars = config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable
+    vars = config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable
 
     weather = WeatherDataset(config.train_offset, device=device)
     # dataset.shape:  torch.Size([7309, 100, 1450])

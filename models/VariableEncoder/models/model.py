@@ -95,6 +95,7 @@ class VariableEncoder(nn.Module):
         tgt_var_seq.cpu().detach()
         tgt_pos_seq.cpu().detach()
         tgt_mask.cpu().detach()
+        
         return out
 
 

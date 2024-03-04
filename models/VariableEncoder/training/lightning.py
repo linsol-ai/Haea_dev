@@ -198,6 +198,7 @@ class TrainModule(pl.LightningModule):
         tgt.cpu().detach()
         predict.cpu().detach()
         loss = loss.cpu().detach()
+        
 
         return loss, predict, tgt
     

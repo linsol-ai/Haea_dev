@@ -70,7 +70,9 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Ten
 
     vars = config.air_variable + config.surface_variable + config.only_input_variable + config.constant_variable
 
-    weather = WeatherDataset(config.train_start, config.train_end, device=device, download_variables=vars, download_levels=config.levels)
+    intervals = split_datetime_range(config.train_start, config.train_end, FLAGS.WORLD_SIZE)
+
+    weather = WeatherDataset(intervals[local_rank], intervals[local_rank+1], device=device, download_variables=vars, download_levels=config.levels)
     # dataset.shape:  torch.Size([7309, 100, 1450])
     
     source, mean_std, var_vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 

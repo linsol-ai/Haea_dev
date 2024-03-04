@@ -50,8 +50,7 @@ class LinearDecoder(nn.Module):
 
 
 class Haea(nn.Module):
-    def __init__(self, in_dim: int, out_dim: int,
-                num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1, max_var_len=300):
+    def __init__(self, in_dim: int, out_dim: int, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
 

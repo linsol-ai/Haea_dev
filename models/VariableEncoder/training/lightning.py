@@ -186,6 +186,7 @@ class TrainModule(pl.LightningModule):
 
 
         predict = predict.view(predict.size(0), -1, var_len, predict.size(2))
+        
 
 
         src.cpu().detach()

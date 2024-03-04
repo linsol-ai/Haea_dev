@@ -11,7 +11,7 @@ training:
   batch_size: 16
   max_epochs: 20
   gradient_clip_val: 0.5
-  tgt_time_len: 4
+  tgt_time_len: 6
   train_start: 2013-01-01
   train_end: 2023-01-01
   

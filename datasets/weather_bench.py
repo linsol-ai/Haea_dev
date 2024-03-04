@@ -87,7 +87,7 @@ def download_zarr(source, output_path, variables=None, levels=None):
     if variables is not None:
         source_dataset = source_dataset[variables]
     if levels is not None:
-        source_dataset = source_dataset.sel(level=levels)
+        source_dataset = source_dataset.sel(level)
 
     template = (
       xb.make_template(source_dataset)
@@ -108,7 +108,6 @@ class VariableVocab:
         self.air_vars = [var_name for var_name, var in dataset.variables.items() if 'level' in var.dims]
         self.surface_vars = [var_name for var_name, var in dataset.variables.items() if 'level' not in var.dims]
         self.vocab = self.create_vocab()
-        print(self.vocab)
     
     def create_vocab(self):
         vocab = {}
@@ -135,6 +134,9 @@ class VariableVocab:
             cnt += len(self.vocab[key])
         return cnt + 10
 
+
+
+        
 
 class WeatherDataset:
 

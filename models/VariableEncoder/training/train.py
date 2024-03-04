@@ -52,6 +52,17 @@ else:
     pl.seed_everything(config.seed)
 
 
+def split_datetime_range(start, end, n):
+    # 시작과 끝 사이의 총 시간을 계산
+    total_duration = end - start
+    # 각 구간의 길이를 계산
+    interval_duration = total_duration / n
+    # 각 구간의 시작점을 저장할 리스트 생성
+    intervals = [start + interval_duration * i for i in range(n)]
+    # 마지막 구간의 끝을 추가
+    intervals.append(end)
+    return intervals
+
 def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Tensor, VariableVocab]:
     tgt_time_len = 1 * config.tgt_time_len
     device = ("cuda" if torch.cuda.is_available() else "cpu" )

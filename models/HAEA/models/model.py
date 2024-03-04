@@ -55,6 +55,7 @@ class Haea(nn.Module):
         super().__init__()
         self.in_dim = in_dim
         self.tgt_mask = tgt_mask
+        self.src_var_list = src_var_list
         self.
         self.model = nn.Transformer(
             d_model=in_dim,

@@ -98,7 +98,7 @@ class Haea(nn.Module):
                 else:
                     seq.append(var_list)
 
-            print(seq)
+            seq = torch.cat(seq, dim=0)
             result.append(seq)
         result = torch.tensor(result, device=device)
         return result

@@ -87,7 +87,7 @@ def download_zarr(source, output_path, variables=None, levels=None):
     if variables is not None:
         source_dataset = source_dataset[variables]
     if levels is not None:
-        
+        source_dataset = source_dataset[variables]
 
     template = (
       xb.make_template(source_dataset)

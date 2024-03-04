@@ -3,7 +3,6 @@ from torch import nn
 from torch.nn import functional as F
 import math
 from typing import List
-from reformer_pytorch import Reformer, ReformerEncDec
 from models.HAEA.datasets.denoised_dataset import TimeVocab
 
 

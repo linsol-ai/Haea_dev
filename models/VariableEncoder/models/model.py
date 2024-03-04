@@ -22,7 +22,6 @@ class Embedding(nn.Module):
         self.embed_size = embed_size
 
     def forward(self, x, variable_seq, position_seq=None):
-        print(x.shape, )
         if position_seq is not None:
             x = x +  self.variable(variable_seq) + position_seq
             return self.dropout(x)

@@ -84,7 +84,6 @@ class Haea(nn.Module):
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len + 2)
-        print(indicate)
         result = []
         var_list = var_list + len(TimeVocab.SPECIAL_TOKENS)
 

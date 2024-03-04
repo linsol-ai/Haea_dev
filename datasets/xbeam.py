@@ -18,7 +18,8 @@ AIR_VARIABLE = [
   'temperature', 
   'u_component_of_wind', 
   'v_component_of_wind', 
-  'vertical_velocity']
+  'vertical_velocity'
+  ]
 
 SURFACE_VARIABLE = [
   '2m_dewpoint_temperature', 

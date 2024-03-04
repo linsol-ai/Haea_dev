@@ -29,3 +29,17 @@ training:
     - mean_sea_level_pressure
     - total_cloud_cover
     - total_precipitation
+    levels:
+    - 50
+    - 100
+    - 150
+    - 200
+    - 250
+    - 300
+    - 400
+    - 500
+    - 600
+    - 700
+    - 850
+    - 925
+    - 1000

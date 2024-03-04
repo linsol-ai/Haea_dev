@@ -30,10 +30,14 @@ def get_normal_dataset(config: TrainingConfig):
 
     intervals = split_datetime_range(config.train_start, config.train_end, FLAGS.WORLD_SIZE)
 
-    weather = WeatherDataset(config.train_offset, device=device)
+    weather = WeatherDataset(intervals[local_rank], intervals[local_rank+1], device=device, download_variables=vars, download_levels=config.levels)
     # dataset.shape:  torch.Size([7309, 100, 1450])
-    source, mean_std = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
-                                        config.constant_variable, config.train_start, config.train_end)
+    
+    source, mean_std, var_vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
+                                        config.constant_variable, level=config.levels)
+    src_var_list = var_vocab.get_code(vars)
+    tgt_var_list = var_vocab.get_code(config.air_variable + config.surface_variable)
+    
     dataset = CustomDataset(source, tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
     src_var_list = weather.get_var_code(config.air_variable, config.surface_variable + config.only_input_variable+config.constant_variable)
     tgt_var_list = weather.get_var_code(config.air_variable, config.surface_variable)

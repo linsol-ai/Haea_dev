@@ -137,9 +137,6 @@ def main(argv):
     model = Haea(
         in_dim=data_module.time_vocab.dataset.size(-1),
         out_dim=data_module.time_vocab.dataset.size(-1),
-        tgt_mask=data_module.time_vocab.tgt_mask,
-        src_var_list=,
-        tgt_var_list=,
         num_heads=config.model.num_heads,
         n_encoder_layers=config.model.n_encoder_layers,
         n_decoder_layers=config.model.n_decoder_layers,

@@ -25,7 +25,7 @@ class Embedding(nn.Module):
         if position_seq is not None:
             print(x.shape)
             print(self.variable(variable_seq).shape)
-            print()
+            print(position_seq.shape)
             x = x +  self.variable(variable_seq) + position_seq
             return self.dropout(x)
         else:

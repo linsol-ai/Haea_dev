@@ -68,7 +68,7 @@ class Haea(nn.Module):
 
 
     def init_seq(self, device):
-        self.tgt_mask = self.vocab.tgt_mask.to(device)
+        self.tgt_mask = self.tgt_mask.to(device)
 
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):

@@ -23,9 +23,6 @@ class Embedding(nn.Module):
 
     def forward(self, x, variable_seq, position_seq=None):
         if position_seq is not None:
-            print(x.shape)
-            print(self.variable(variable_seq).shape)
-            print(position_seq.shape)
             x = x +  self.variable(variable_seq) + position_seq
             return self.dropout(x)
         else:

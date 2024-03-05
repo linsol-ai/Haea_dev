@@ -3,6 +3,8 @@ import torch
 
 class CustomDataset(Dataset):
 
+    
+
     def __init__(self, source_dataset: torch.Tensor, tgt_time_len: int, n_only_input: int = 0):
         # dataset.shape = (time, 1, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)

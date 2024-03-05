@@ -72,10 +72,6 @@ class VariableEncoder(nn.Module):
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
-        self.tgt_mask = self.get_tgt_mask()
-        self.src_var_seq, self.tgt_var_seq = self.get_var_seq(16)
-        self.tgt_pos_seq = self.positional_encoding(16, self.in_dim, len(self.tgt_var_list), self.tgt_time_len)
-    
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, 
                 src_var_seq: torch.Tensor, tgt_var_seq: torch.Tensor, tgt_mask: torch.Tensor, tgt_pos_seq: torch.Tensor):

@@ -65,7 +65,7 @@ class TrainModule(pl.LightningModule):
         self.src_var_list = src_var_list + 1
         self.tgt_var_list = tgt_var_list + 1
         self.save_hyperparameters()
-        self.pe = positional_encoding(model.)
+        self.pe = positional_encoding(model.in_dim, )
         self.tgt_mask = get_tgt_mask(tgt_var_list.size(0), config.tgt_time_len)
 
 

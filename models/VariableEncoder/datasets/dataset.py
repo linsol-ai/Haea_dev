@@ -56,6 +56,5 @@ class CustomDataset(Dataset):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)
-
         return src, tgt
 

@@ -210,12 +210,18 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = self.tgt_mask.to(self.device)
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        src = batch[0].to(self.device)
-        tgt = batch[1].to(self.device)
-        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
+        src = batch[0]
+        # (batch, time, var, hidden)
+        label = batch[1]
+        zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
+        tgt = torch.cat((zeros_tensor, label[:, :-1, :, :]), dim=1)
 
-        var_len = tgt.size(2)
+        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
+        src_seq = src_seq.to(self.device)
+        tgt_seq = tgt_seq.to(self.device)
+        # predict.shape = (batch, time * var, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
+        label = label.view(label.size(0), -1, label.size(-1))
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, tgt)
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))

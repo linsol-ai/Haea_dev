@@ -30,7 +30,6 @@ class CustomDataset(Dataset):
         result = torch.concat(result, dim=0)
         return result
 
-
     def positional_encoding(self, d_model, max_len):
         pe = torch.zeros(max_len, d_model).float()
 

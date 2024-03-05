@@ -60,6 +60,7 @@ class TrainModule(pl.LightningModule):
         self.model = model
         self.mean_std = mean_std
         self.config = config
+        self.src_var_list = src_var_list
         self.
         self.save_hyperparameters()
 

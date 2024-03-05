@@ -70,6 +70,7 @@ class Haea(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
+
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
 
         self.src_var_list = self.src_var_list.to(src.device)

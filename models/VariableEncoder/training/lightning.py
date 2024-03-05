@@ -54,7 +54,7 @@ class TrainModule(pl.LightningModule):
         return loss
 
 
-     def get_var_seq(self, batch_size):
+    def get_var_seq(self, batch_size):
         tgt_seq = self.tgt_var_list.repeat_interleave(self.tgt_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
         src_seq = self.src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
         return src_seq, tgt_seq

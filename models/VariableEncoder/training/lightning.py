@@ -80,7 +80,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         tgt = batch[1]
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
-        src_seq = src_seq.to()
+        src_seq = src_seq.to(self.device)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
         loss = rmse_loss(predict, tgt.view(tgt.size(0), -1, tgt.size(3)))
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

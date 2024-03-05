@@ -70,7 +70,7 @@ class VariableEncoder(nn.Module):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src, tgt = src.squeeze(1), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
-        tgt = tgt + 
+        tgt = tgt + self.positional_encoding()
         tgt = self.embedding(tgt, tgt_var_seq) * math.sqrt(self.in_dim)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

@@ -20,7 +20,7 @@ def get_tgt_mask(var_len, time_len) -> torch.Tensor:
 class TimeVocab:
 
     SPECIAL_TOKEN_BOS = 0
-    SPECIAL_TOKEN_MASK = 3
+    SPECIAL_TOKEN_MASK = 1
     SPECIAL_TOKENS = [SPECIAL_TOKEN_PAD, SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_EOS, SPECIAL_TOKEN_MASK]
 
 

@@ -53,7 +53,6 @@ class CustomDataset(Dataset):
             tgt = [t + 2 for t in range(t, t + self.tgt_time_len)]
             tgt.insert(0, self.SPECIAL_TOKEN_BOS)
             tgt.append(self.SPECIAL_TOKEN_EOS)
-            tgt = range(t, t + self.tgt_time_len)
             dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc

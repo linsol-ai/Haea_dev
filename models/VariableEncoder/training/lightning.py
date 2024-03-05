@@ -46,8 +46,8 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time
 
 def get_tgt_mask(var_len, time_len) -> torch.Tensor:
     size = var_len * time_len
-     matrix = torch.full((size, size), float('-inf'))
-        matrix[0, 0] = 0
+    matrix = torch.full((size, size), float('-inf'))
+    matrix[0, 0] = 0
         for i in range(time_len):
             s =  (i * var_len) + 1
             e =  ((i+1) * var_len) + 1

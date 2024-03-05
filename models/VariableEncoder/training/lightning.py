@@ -91,6 +91,8 @@ class TrainModule(pl.LightningModule):
 
         # Insert the zeros tensor at the first index of the time dimension
         new_tensor = torch.cat((zeros_tensor, tensor[:, 1:, :, :]), dim=1)
+
+        
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
         tgt_seq = tgt_seq.to(self.device)

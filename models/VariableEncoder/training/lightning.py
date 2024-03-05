@@ -61,7 +61,6 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = get_tgt_mask(tgt_var_list.size(0), config.tgt_time_len)
 
 
-    
     def setup(self, stage: str) -> None:
         print(stage)
         self.mean_std = self.mean_std.to(self.device)

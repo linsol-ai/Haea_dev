@@ -32,7 +32,6 @@ class CustomDataset(Dataset):
 
         # result.shape = (time_len * var + 2, hidden)
         result = torch.concat(result, dim=0)
-        # result.shape = (time_len * var + 2, hidden)
         return result
 
     def positional_encoding(self, d_model, max_len):

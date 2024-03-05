@@ -85,7 +85,7 @@ class VariableEncoder(nn.Module):
         div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
 
         pe[:, :, 0::2] = torch.sin(position * div_term)
-        pe[:, 1::2] = torch.cos(position * div_term)
+        pe[:, :, 1::2] = torch.cos(position * div_term)
 
         return pe.repeat_interleave(var_len, dim=0)
 

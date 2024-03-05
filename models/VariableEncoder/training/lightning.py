@@ -21,7 +21,7 @@ def rmse_loss(x, y):
 
 
 def get_var_seq(src_var_list, tgt_var_list, tgt_time_len, batch_size):
-    tgt_seq = tgt_var_list.repeat_interleave(self.tgt_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
+    tgt_seq = tgt_var_list.repeat_interleave(tgt_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
     src_seq = src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 

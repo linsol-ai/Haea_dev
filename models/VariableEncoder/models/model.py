@@ -80,7 +80,7 @@ class VariableEncoder(nn.Module):
 
 
     def positional_encoding(self, shape, device):
-        pe = torch.zeros(shape[0], shape[]).float()
+        pe = torch.zeros(shape[0], shape[2], shape[3]).float()
         pe.require_grad = False
 
         position = torch.arange(0, shape[1]).float().unsqueeze(1)

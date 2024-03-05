@@ -47,7 +47,7 @@ def get_tgt_mask(self) -> torch.Tensor:
             for _ in range(var_len):
                 inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
-        return matri
+        return matrix
 
 
 class TrainModule(pl.LightningModule):

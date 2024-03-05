@@ -45,7 +45,7 @@ def get_tgt_mask(tgt_var_list: torch.Tensor, tgt_time_len: int) -> torch.Tensor:
 
         for i in range(tgt_time_len):
             for _ in range(var_len):
-                inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
+                inf_idx = min(((i)*var_len), var_len * tgt_time_len)
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
         return matrix
 

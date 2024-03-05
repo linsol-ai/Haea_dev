@@ -98,7 +98,8 @@ class TrainModule(pl.LightningModule):
 
         loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
-
+        
+        
         tgt.cpu().detach()
         src_seq.cpu().detach()
         tgt_seq.cpu().detach()

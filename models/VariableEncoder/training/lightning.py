@@ -54,37 +54,6 @@ class TrainModule(pl.LightningModule):
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
-
-    def get_var_seq(self, batch_size):
-        tgt_seq = self.tgt_var_list.repeat_interleave(self.tgt_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
-        src_seq = self.src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
-        return src_seq, tgt_seq
-
-
-    def positional_encoding(self, batch, d_model, var_len, time_len):
-        pe = torch.zeros(batch, time_len, d_model).float()
-        pe.require_grad = False
-
-        position = torch.arange(0, time_len).float().unsqueeze(1)
-        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
-
-        pe[:, :, 0::2] = torch.sin(position * div_term)
-        pe[:, :, 1::2] = torch.cos(position * div_term)
-
-        return pe.repeat_interleave(var_len, dim=1)
-    
-
-    def get_tgt_mask(self) -> torch.Tensor:
-        var_len = len(self.tgt_var_list)
-        matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
-
-        for i in range(self.tgt_time_len):
-            for _ in range(var_len):
-                inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
-                matrix[:(i*var_len), inf_idx:] = float('-inf')
-        return matrix
-
-
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, time_len, var_len, hidden)
         var_len = label.size(2)

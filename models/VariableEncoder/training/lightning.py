@@ -31,7 +31,7 @@ def positional_encoding(batch, d_model, var_len, time_len):
     pe[:, :, 0::2] = torch.sin(position * div_term)
     pe[:, :, 1::2] = torch.cos(position * div_term)
 
-    return pe.repeat_interleave(var_len, dim=1).to(device)
+    return pe.repeat_interleave(var_len, dim=1)
 
 
 def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time_len: int, batch_size: int):

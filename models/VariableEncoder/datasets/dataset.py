@@ -4,7 +4,7 @@ import torch
 class CustomDataset(Dataset):
 
     SPECIAL_TOKEN_BOS = 0
-    SPECIAL_TOKEN_EOS = 2
+    SPECIAL_TOKEN_EOS = 1
 
     def __init__(self, source_dataset: torch.Tensor, tgt_time_len: int, n_only_input: int = 0):
         # dataset.shape = (time, 1, var_len, hidden)

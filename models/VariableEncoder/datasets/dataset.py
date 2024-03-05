@@ -13,7 +13,7 @@ class CustomDataset(Dataset):
         self.tgt_time_len = tgt_time_len
         self.n_only_input = n_only_input
         self.pe = self.positional_encoding(source_dataset.size(-1), tgt_time_len + 10)
-        self.bos = torch.zeros()
+        self.bos = torch.zeros(source_dataset.size(-1))
         self.make_dataset()
 
     def __len__(self):

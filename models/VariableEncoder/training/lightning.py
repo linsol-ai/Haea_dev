@@ -47,7 +47,7 @@ def rmse_loss(x, y):
             for _ in range(var_len):
                 inf_idx = min(((i)*var_len), var_len * self.tgt_time_len)
                 matrix[:(i*var_len), inf_idx:] = float('-inf')
-        return matrix
+        return matri
 
 
 class TrainModule(pl.LightningModule):

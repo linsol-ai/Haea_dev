@@ -210,7 +210,6 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         self.tgt_mask = self.tgt_mask.to(self.device)
 
-
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)

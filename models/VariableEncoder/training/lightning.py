@@ -21,18 +21,6 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
 def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
-def positional_encoding(d_model, var_len, time_len):
-    pe = torch.zeros(time_len, d_model).float()
-    pe.require_grad = False
-
-    position = torch.arange(0, time_len).float().unsqueeze(1)
-    div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
-
-    pe[:, 0::2] = torch.sin(position * div_term)
-    pe[:, 1::2] = torch.cos(position * div_term)
-
-    return pe.repeat_interleave(var_len, dim=0)
-
 
 def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time_len: int, batch_size: int):
     bos_seq = SPECIAL_TOKEN_BOS.repeat_interleave(tgt_var_list.size(0))

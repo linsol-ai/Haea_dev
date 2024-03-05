@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
     def __len__(self):
         return self.source_dataset.size(0)-(self.tgt_time_len)
 
-    def get_data(self, indicate, dataset, source: bool = True):
+    def get_data(self, indicate, source: bool = True):
         result = []
         for i, t in enumerate(indicate):
             data = dataset[t]

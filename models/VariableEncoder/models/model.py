@@ -72,7 +72,7 @@ class VariableEncoder(nn.Module):
         pe_tgt = self.positional_encoding(tgt.size(0), tgt.size(1), tgt.size(2), tgt.size(3)).to(tgt.device)
         src, tgt = src.view(tgt.size(0), -1, tgt.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
-        tgt = tgt + pe
+        tgt = tgt + [e]
         tgt = self.embedding(tgt, tgt_var_seq) * math.sqrt(self.in_dim)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

@@ -9,8 +9,8 @@ from models.VariableEncoder.training.params_schedule import CosineWarmupSchedule
 import wandb
 import math
 
-SPECIAL_TOKEN_BOS = 0
-SPECIAL_TOKEN_EOS = 1
+SPECIAL_TOKEN_BOS = torch.tensor(0)
+SPECIAL_TOKEN_EOS = torch.tensor(1)
 
 def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, 1, mean_std.size(0), 1)

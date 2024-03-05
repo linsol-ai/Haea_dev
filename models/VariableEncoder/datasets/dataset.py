@@ -22,7 +22,7 @@ class CustomDataset(Dataset):
         result = []
         for i, t in enumerate(indicate):
             if t == self.SPECIAL_TOKEN_BOS or t == self.SPECIAL_TOKEN_EOS:
-                data = torch.zeros(1, source_dataset.size(-1))
+                data = torch.zeros(1, self.source_dataset.size(-1))
             else:  
                 data = self.source_dataset[t]
                 if not source and self.n_only_input > 0:

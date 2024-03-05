@@ -22,11 +22,11 @@ def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
 
-def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time_len: int, batch_size: int):
+def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time_len: int, tgt_time_len: int, batch_size: int):
     bos_seq = SPECIAL_TOKEN_BOS.repeat_interleave(tgt_var_list.size(0))
     tgt_seq = tgt_var_list.repeat_interleave(tgt_time_len-1, dim=0)
     tgt_seq = torch.cat([bos_seq, tgt_seq])
-    
+
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     src_seq = src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq

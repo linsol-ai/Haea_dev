@@ -7,7 +7,6 @@ from models.VariableEncoder.models.model import VariableEncoder
 from models.VariableEncoder.training.configs import TrainingConfig
 from models.VariableEncoder.training.params_schedule import CosineWarmupScheduler
 import wandb
-import math
 
 SPECIAL_TOKEN_BOS = torch.tensor([0])
 SPECIAL_TOKEN_EOS = torch.tensor([1])

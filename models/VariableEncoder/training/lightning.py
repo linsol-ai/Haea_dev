@@ -25,6 +25,7 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time
     src_seq = src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 
+
 def get_tgt_mask(tgt_var_list: torch.Tensor, tgt_time_len: int) -> torch.Tensor:
         var_len = len(tgt_var_list)
         matrix = torch.zeros(var_len * tgt_time_len, var_len * tgt_time_len)

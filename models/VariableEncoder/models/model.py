@@ -77,7 +77,7 @@ class VariableEncoder(nn.Module):
         self.tgt_pos_seq = self.positional_encoding(16, self.in_dim, len(self.tgt_var_list), self.tgt_time_len)
     
 
-    def forward(self, src: torch.Tensor, tgt: torch.Tensor, src_var_seq: torch.Tensor, tgt_var_seq: torch.Tensor, tgt_mask):
+    def forward(self, src: torch.Tensor, tgt: torch.Tensor, src_var_seq: torch.Tensor, tgt_var_seq: torch.Tensor, tgt_mask, ):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src_var_seq = self.src_var_seq[:src.size(0)].to(src.device)
         tgt_var_seq = self.tgt_var_seq[:tgt.size(0)].to(tgt.device)

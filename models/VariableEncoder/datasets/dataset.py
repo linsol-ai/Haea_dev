@@ -27,7 +27,7 @@ class CustomDataset(Dataset):
                 data = self.source_dataset[t-2]
                 if not source and self.n_only_input > 0:
                     data = data[:, :-self.n_only_input, :]
-                    
+
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
 
@@ -45,7 +45,6 @@ class CustomDataset(Dataset):
         pe[:, 1::2] = torch.cos(position * div_term)
 
         return pe
-
 
     def make_dataset(self):
         dataset_inc = []

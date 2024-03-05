@@ -21,7 +21,7 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
 def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
-def positional_encoding(self, d_model, max_len):
+def positional_encoding(d_model, max_len):
         pe = torch.zeros(max_len, d_model).float()
 
         position = torch.arange(0, max_len).float().unsqueeze(1)

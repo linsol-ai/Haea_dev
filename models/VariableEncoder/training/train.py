@@ -149,7 +149,7 @@ def main(argv):
 
     print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=max_iters, var_list
+    model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=max_iters, var_list[0]
                             config=config.training)
     trainer = pl.Trainer(
         accelerator="auto",

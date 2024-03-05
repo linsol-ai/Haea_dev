@@ -87,7 +87,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         # (batch, time, var, hidden)
         label = batch[1]
-        zeros_tensor = torch.zeros(label.size(2), 1, label.size(2), label.size(3))
+        zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3))
 
         # Insert the zeros tensor at the first index of the time dimension
         tgt = torch.cat((zeros_tensor, label[:, 1:, :, :]), dim=1)

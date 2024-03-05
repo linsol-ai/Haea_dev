@@ -21,7 +21,7 @@ class CustomDataset(Dataset):
     def get_data(self, indicate, source: bool = True):
         result = []
         for i, t in enumerate(indicate):
-            data = self.dataset[t]
+            data = self.source_dataset[t]
             if not source and self.n_only_input > 0:
                 data = data[:, :-self.n_only_input, :]
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)

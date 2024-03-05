@@ -201,7 +201,6 @@ class TrainModule(pl.LightningModule):
         src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
-        tgt_pos = positional_encoding(tgt.size(0), tgt.size(-1), self.tgt_var_list.size(0), self.config.tgt_time_len)
 
         var_len = tgt.size(2)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask, tgt_pos)

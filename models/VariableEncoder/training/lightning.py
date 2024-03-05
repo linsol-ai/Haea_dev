@@ -28,6 +28,7 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time
     tgt_seq = torch.cat([SPECIAL_TOKEN_BOS, tgt_seq, SPECIAL_TOKEN_EOS])
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     src_seq = src_var_list.unsqueeze(0)
+    
     src_seq = src_seq.repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 

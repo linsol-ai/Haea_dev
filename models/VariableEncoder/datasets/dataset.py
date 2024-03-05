@@ -24,6 +24,7 @@ class CustomDataset(Dataset):
             data = dataset[t]
             if not source and self.n_only_input > 0:
                 data = data[:, :-self.n_only_input, :]
+            data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
 
         # dataset.shape = (time_len, var, hidden)

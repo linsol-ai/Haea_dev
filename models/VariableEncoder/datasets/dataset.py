@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
             if t == self.SPECIAL_TOKEN_BOS or t == self.SPECIAL_TOKEN_EOS:
                 data = torch.zeros(1, self.source_dataset.size(-1))
             else:  
-                data = self.source_dataset[t]
+                data = self.source_dataset[t-2]
                 if not source and self.n_only_input > 0:
                     data = data[:, :-self.n_only_input, :]
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)

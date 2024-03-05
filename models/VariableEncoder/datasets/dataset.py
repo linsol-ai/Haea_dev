@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
             data = self.source_dataset[t-2]
             if not source and self.n_only_input > 0:
                 data = data[:, :-self.n_only_input, :]
-                
+
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
 
@@ -57,5 +57,6 @@ class CustomDataset(Dataset):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)
+        
         return src, tgt
 

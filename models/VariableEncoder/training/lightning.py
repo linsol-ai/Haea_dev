@@ -42,7 +42,6 @@ def get_tgt_mask(var_len, time_len) -> torch.Tensor:
             e =  ((i+1) * var_len) + 1
             matrix[s:e, :e] = 0
         matrix[var_len*time_len+1, :] = 0
-      
         return matrix
 
 

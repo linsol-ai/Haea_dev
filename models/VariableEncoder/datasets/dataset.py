@@ -20,7 +20,7 @@ class CustomDataset(Dataset):
 
     def get_data(self, indicate, dataset, source: bool = True):
         result = []
-        for t in indicate:
+        for i, t in indicate:
             data = dataset[t]
             if not source and self.n_only_input > 0:
                 data = data[:, :-self.n_only_input, :]

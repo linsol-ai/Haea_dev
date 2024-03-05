@@ -28,7 +28,7 @@ class CustomDataset(Dataset):
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
 
-        # result.shape = (time_len * var + 2, hidden)
+        # result.shape = (time_len * var, hidden)
         result = torch.concat(result, dim=0)
         return result
 
@@ -57,6 +57,6 @@ class CustomDataset(Dataset):
         src_ind, tgt_ind = self.dataset_inc[item]
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)
-        
+
         return src, tgt
 

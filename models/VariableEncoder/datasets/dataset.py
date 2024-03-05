@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 import torch
-improt math
+import math
 
 class CustomDataset(Dataset):
 

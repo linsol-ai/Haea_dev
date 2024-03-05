@@ -52,7 +52,7 @@ def get_tgt_mask(tgt_var_list: torch.Tensor, tgt_time_len: int) -> torch.Tensor:
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: VariableEncoder, mean_std: torch.Tensor,
+    def __init__(self, *, model: VariableEncoder, mean_std: torch.Tensor, src_var_list: torch.Tensor, tgt_var_list: torch.Tensor
                  max_iters: int, config: TrainingConfig):
         
         super().__init__()

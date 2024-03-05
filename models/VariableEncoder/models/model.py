@@ -83,7 +83,7 @@ class VariableEncoder(nn.Module):
         pe.require_grad = False
 
         position = torch.arange(0, shape[1]).float().unsqueeze(1)
-        div_term = (torch.arange(0, shape[-1], 2).float() * -(math.log(10000.0) / shape[-1])).exp()
+        div_term = (torch.arange(0, shape[2], 2).float() * -(math.log(10000.0) / shape[-1])).exp()
 
         pe[:, :, 0::2] = torch.sin(position * div_term)
         pe[:, :, 1::2] = torch.cos(position * div_term)

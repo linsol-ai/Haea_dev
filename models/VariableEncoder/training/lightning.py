@@ -86,7 +86,6 @@ class TrainModule(pl.LightningModule):
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         label = batch[1]
-        
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
         tgt_seq = tgt_seq.to(self.device)

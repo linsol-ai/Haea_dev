@@ -24,6 +24,7 @@ class CustomDataset(Dataset):
         result = []
         for i, t in enumerate(indicate):
             if t == self.SPECIAL_TOKEN_BOS or t == self.SPECIAL_TOKEN_EOS:
+                data = 
             else:  
                 data = self.source_dataset[t]
                 if not source and self.n_only_input > 0:

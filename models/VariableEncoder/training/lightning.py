@@ -25,7 +25,7 @@ def rmse_loss(x, y):
 
 def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, tgt_time_len: int, batch_size: int):
     tgt_seq = tgt_var_list.repeat_interleave(tgt_time_len, dim=0)
-    tgt_seq = torch.cat([0, tgt_seq, 1])
+    tgt_seq = torch.cat([SPECIAL_TOKEN_BOS, tgt_seq, SPECIAL_TOKEN_EOS])
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     src_seq = src_var_list.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq

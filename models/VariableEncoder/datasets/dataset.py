@@ -8,7 +8,7 @@ class CustomDataset(Dataset):
     SPECIAL_TOKEN_EOS = 1
 
     def __init__(self, source_dataset: torch.Tensor, tgt_time_len: int, n_only_input: int = 0):
-        # dataset.shape = (time, 1, var_len, hidden)
+        # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset
         self.tgt_time_len = tgt_time_len
         self.n_only_input = n_only_input

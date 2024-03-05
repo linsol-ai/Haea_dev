@@ -42,7 +42,7 @@ class CustomDataset(Dataset):
         dataset_inc = []
         for t in range(self.source_dataset.size(0)-self.tgt_time_len-1):
             src = [t]
-            tgt = [r + 2 for r in range(t+1, t+1 + self.tgt_time_len)]
+            tgt = [r for r in range(t+1, t+1 + self.tgt_time_len)]
             dataset_inc.append((src, tgt))
 
         self.dataset_inc = dataset_inc

@@ -26,17 +26,6 @@ class CustomDataset(Dataset):
         result = torch.concat(result, dim=0)
         return result
 
-    def positional_encoding(self, d_model, max_len):
-        pe = torch.zeros(max_len, d_model).float()
-
-        position = torch.arange(0, max_len).float().unsqueeze(1)
-        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
-
-        pe[:, 0::2] = torch.sin(position * div_term)
-        pe[:, 1::2] = torch.cos(position * div_term)
-
-        return pe
-
     def make_dataset(self):
         dataset_inc = []
         for t in range(self.source_dataset.size(0)-self.tgt_time_len-1):

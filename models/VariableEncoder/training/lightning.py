@@ -217,7 +217,7 @@ class TrainModule(pl.LightningModule):
         tgt_pos = positional_encoding(tgt.size(0), tgt.size(-1), self.tgt_var_list.size(0), self.config.tgt_time_len)
 
         var_len = tgt.size(2)
-        predict = self.model(src, tgt, )
+        predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask, tgt_pos)
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, tgt)
         loss = loss.view(loss.size(0), -1, var_len, loss.size(2))

@@ -40,7 +40,7 @@ def positional_encoding(batch, d_model, var_len, time_len):
     
 
 def get_tgt_mask(tgt_var_list: torch.Tensor, ) -> torch.Tensor:
-        var_len = len(self.tgt_var_list)
+        var_len = len(tgt_var_list)
         matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
 
         for i in range(self.tgt_time_len):

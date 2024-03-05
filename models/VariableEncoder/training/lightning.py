@@ -39,7 +39,7 @@ def positional_encoding(self, batch, d_model, var_len, time_len):
         return pe.repeat_interleave(var_len, dim=1)
     
 
-    def get_tgt_mask(self) -> torch.Tensor:
+def get_tgt_mask(self) -> torch.Tensor:
         var_len = len(self.tgt_var_list)
         matrix = torch.zeros(var_len * self.tgt_time_len, var_len * self.tgt_time_len)
 

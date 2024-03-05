@@ -27,7 +27,7 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, src_time
     tgt_seq = tgt_var_list.repeat_interleave(tgt_time_len-1, dim=0)
     tgt_seq = torch.cat([bos_seq, tgt_seq])
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
-    
+
     src_seq = src_var_list.repeat_interleave(src_time_len, dim=0).unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 
@@ -79,7 +79,7 @@ class TrainModule(pl.LightningModule):
         zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
         tgt = torch.cat((zeros_tensor, label[:, :-1, :, :]), dim=1)
 
-        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, src.size(0))
+        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.tgt_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
         tgt_seq = tgt_seq.to(self.device)
         # predict.shape = (batch, time * var, hidden)

@@ -32,7 +32,6 @@ class CustomDataset(Dataset):
 
         # result.shape = (time_len * var, hidden)
         result = torch.concat(result, dim=0)
-        result = torch.concat([self.bos, result, self.eos], dim=0)
         # result.shape = (time_len * var + 2, hidden)
         return result
 

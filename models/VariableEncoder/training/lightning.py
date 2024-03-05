@@ -233,7 +233,7 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
 
-        predict = predict.view(predict.size(0), -1, var_len, predict.size(2))
+        predict = predict.view(predict.size(0), -1, self.tgt_var_list.size(0), predict.size(2))
         predict = predict.swapaxes(1, 2)
         predict = torch.mean(predict, dim=-1)
         # predict.shape = (var_len, batch, time_len)

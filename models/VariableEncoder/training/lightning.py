@@ -243,7 +243,7 @@ class TrainModule(pl.LightningModule):
         tgt = tgt.swapaxes(0, 1)
 
         src_seq.cpu().detach()
-        
+        src_seq.cpu().detach()
         zeros_tensor.cpu().detach()
         label.cpu().detach()
         src.cpu().detach()

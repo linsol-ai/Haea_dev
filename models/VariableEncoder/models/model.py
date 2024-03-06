@@ -73,7 +73,7 @@ class VariableEncoder(nn.Module):
         zeros_tensor = torch.full((tgt.size(0), 1, tgt.size(2), tgt.size(3)), fill_value=0.38, device=self.device)
         
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
-        src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
+        src = self.embedding(src, src_var_seq)
         src = (src + pe_src) * math.sqrt(self.in_dim)
 
         tgt = tgt + pe_tgt

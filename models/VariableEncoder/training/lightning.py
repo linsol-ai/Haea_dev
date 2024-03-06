@@ -62,7 +62,7 @@ class TrainModule(pl.LightningModule):
         self.src_var_list = src_var_list + 2
         self.tgt_var_list = tgt_var_list + 2
         self.save_hyperparameters()
-        self.tgt_mask = get_tgt_mask(tgt_var_list.size(0), config.tgt_time_len)
+        self.tgt_mask = get_tgt_mask(tgt_var_list.size(0), config.tgt_time_len+1)
 
 
     def setup(self, stage: str) -> None:
@@ -83,13 +83,17 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         # (batch, time, var, hidden)
         label = batch[1]
+        zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
+        src = torch.cat((zeros_tensor, src, zeros_tensor), dim=1)
+        tgt = torch.cat((zeros_tensor, label), dim=1)
 
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
         tgt_seq = tgt_seq.to(self.device)
       
-        # predict.shape = (batch, time*var+1, hidden)
-        predict = self.model(src, label, src_seq, tgt_seq, self.tgt_mask)
+        # predict.shape = (batch, time+1, var, hidden)
+        predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
+        predict = predict.view(predict.size(0), -1, self.tgt_var_list.size(0), predict.size(-1))
         predict = predict[:, :-1]
         loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

@@ -83,7 +83,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         # (batch, time, var, hidden)
         label = batch[1]
-        zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
+        zeros_tensor = torch.zeros(label.size(0), 1, 1, label.size(3), device=self.device)
         src = torch.cat((zeros_tensor, src, zeros_tensor), dim=1)
         tgt = torch.cat((zeros_tensor, label), dim=1)
 

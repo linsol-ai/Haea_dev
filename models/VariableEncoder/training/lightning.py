@@ -129,7 +129,7 @@ class TrainModule(pl.LightningModule):
         # reversed_predict.shape = (batch, time_len * var_len, 1450) -> nomalized
         loss = F.mse_loss(reversed_predict, label, reduction='none')
         reversed_predict.cpu().detach()
-        reversed_predict.cpu().detach()
+        predict.cpu().detach()
         reversed_predict.cpu().detach()
         return loss
     

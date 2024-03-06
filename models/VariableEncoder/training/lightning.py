@@ -246,7 +246,7 @@ class TrainModule(pl.LightningModule):
         tgt.cpu().detach()
         src.cpu().detach()
 
-        label = label.cpu().detach()
+        label.cpu().detach()
         predict = predict.cpu().detach()
         loss = loss.cpu().detach()
 

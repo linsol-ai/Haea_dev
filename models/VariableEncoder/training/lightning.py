@@ -210,7 +210,7 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = self.tgt_mask.to(self.device)
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-         src = batch[0].to(self.device)
+        src = batch[0].to(self.device)
         tgt = batch[1].to(self.device)
         zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
         tgt = torch.cat((zeros_tensor, label[:, :-1, :, :]), dim=1)

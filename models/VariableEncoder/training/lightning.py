@@ -110,7 +110,7 @@ class TrainModule(pl.LightningModule):
 
     def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, time_len, var_len, hidden)
-        label = label[:, ]
+        label = label[:, 1:,]
         var_len = label.size(2)
         label = denormalize(label, self.mean_std)
 

@@ -9,7 +9,7 @@ training:
   learning_rate: 2e-5
   warmup_step: 3000
   batch_size: 24
-  max_epochs: 20
+  max_epochs: 10
   gradient_clip_val: 0.5
   src_time_len: 12
   tgt_time_len: 12

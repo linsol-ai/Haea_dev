@@ -238,8 +238,6 @@ class TrainModule(pl.LightningModule):
 
         src_seq.cpu().detach()
         tgt_seq.cpu().detach()
-        zeros_tensor.cpu().detach()
-        tgt.cpu().detach()
         src.cpu().detach()
 
         label.cpu().detach()

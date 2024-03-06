@@ -12,6 +12,7 @@ import math
 SPECIAL_TOKEN_BOS = torch.tensor([0])
 SPECIAL_TOKEN_EOS = torch.tensor([1])
 
+
 def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, 1, mean_std.size(0), 1)
     std = mean_std[:, 1].view(1, 1, mean_std.size(0), 1)

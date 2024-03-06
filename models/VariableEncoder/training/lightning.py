@@ -242,6 +242,7 @@ class TrainModule(pl.LightningModule):
         tgt = torch.mean(tgt, dim=-1)
         tgt = tgt.swapaxes(0, 1)
 
+        
         label.cpu().detach()
         src.cpu().detach()
         tgt = tgt.cpu().detach()

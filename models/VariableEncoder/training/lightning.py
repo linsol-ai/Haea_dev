@@ -132,7 +132,6 @@ class TrainModule(pl.LightningModule):
             end = start + self.pressure_level
             loss = air_loss[start:end]
       
-
             custom_plot = wandb.plot.line_series(
                 xs=range(loss.size(1)), 
                 ys=loss,

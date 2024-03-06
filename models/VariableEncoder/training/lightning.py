@@ -88,7 +88,7 @@ class TrainModule(pl.LightningModule):
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
         tgt_seq = tgt_seq.to(self.device)
-        # predict.shape = (batch, time, var, hidden)
+        # predict.shape = (batch, time+1, var, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
         predict = predict.view(predict.size(0), self.config.tgt_time_len, -1, predict.size(-1))
     

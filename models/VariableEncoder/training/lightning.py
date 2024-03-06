@@ -240,16 +240,6 @@ class TrainModule(pl.LightningModule):
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
 
-        predict = predict.view(predict.size(0), -1, self.tgt_var_list.size(0), predict.size(2))
-        predict = predict.swapaxes(1, 2)
-        predict = torch.mean(predict, dim=-1)
-        # predict.shape = (var_len, batch, time_len)
-        predict = predict.swapaxes(0, 1)
-
-        label = label.swapaxes(1, 2)
-        label = torch.mean(label, dim=-1)
-        label = label.swapaxes(0, 1)
-
         src_seq.cpu().detach()
         tgt_seq.cpu().detach()
         zeros_tensor.cpu().detach()

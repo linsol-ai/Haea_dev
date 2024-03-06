@@ -91,7 +91,6 @@ class TrainModule(pl.LightningModule):
         tgt_seq = tgt_seq.to(self.device)
         # predict.shape = (batch, time+1, var, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
-        
         predict = predict.view(predict.size(0), self.config.tgt_time_len, -1, predict.size(-1))
     
         loss = rmse_loss(predict[:, :-1], label)

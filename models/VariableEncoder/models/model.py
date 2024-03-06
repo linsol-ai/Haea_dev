@@ -82,7 +82,7 @@ class VariableEncoder(nn.Module):
         return out
 
 
-    def positional_encoding(batch, time_len, var_len, d_model):
+    def positional_encoding(self, batch, time_len, var_len, d_model):
         pe = torch.zeros(batch, time_len, d_model).float()
         pe.require_grad = False
 

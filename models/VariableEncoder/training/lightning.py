@@ -217,7 +217,7 @@ class TrainModule(pl.LightningModule):
         self.model.eval()
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-     src = batch[0]
+        src = batch[0]
         # (batch, time, var, hidden)
         label = batch[1]
         zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)

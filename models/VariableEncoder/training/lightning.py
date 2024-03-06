@@ -210,6 +210,7 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = self.tgt_mask.to(self.device)
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        self.model.eval()
         src = batch[0].to(self.device)
         label = batch[1].to(self.device)
         zeros_tensor = torch.zeros(label.size(0), 1, label.size(2), label.size(3), device=self.device)
@@ -247,7 +248,7 @@ class TrainModule(pl.LightningModule):
         zeros_tensor.cpu().detach()
         label.cpu().detach()
         src.cpu().detach()
-        
+
         tgt = tgt.cpu().detach()
         predict = predict.cpu().detach()
         loss = loss.cpu().detach()

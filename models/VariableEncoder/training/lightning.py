@@ -29,11 +29,11 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, src_time
     eos_seq = SPECIAL_TOKEN_EOS.repeat_interleave(tgt_var_list.size(0))
 
     tgt_seq = tgt_var_list.repeat_interleave(tgt_time_len, dim=0)
-    tgt_seq = torch.cat([SPECIAL_TOKEN_BOS, tgt_seq])
+    tgt_seq = torch.cat([bos_seq, tgt_seq])
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
 
     src_seq = src_var_list.repeat_interleave(src_time_len, dim=0)
-    src_seq = torch.cat([bos_seq, src_seq, SPECIAL_TOKEN_EOS])
+    src_seq = torch.cat([bos_seq, src_seq, eos_seq])
     src_seq = src_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 
@@ -130,7 +130,7 @@ class TrainModule(pl.LightningModule):
         loss = F.mse_loss(reversed_predict, label, reduction='none')
         reversed_predict.cpu().detach()
         predict.cpu().detach()
-        label.cpu().detach()
+        reversed_predict.cpu().detach()
         return loss
     
 

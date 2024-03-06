@@ -219,7 +219,6 @@ class TrainModule(pl.LightningModule):
         tgt_seq = tgt_seq.to(self.device)
         # predict.shape = (batch, time * var, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
-        label = label.view(label.size(0), -1, label.size(-1))
 
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, label)

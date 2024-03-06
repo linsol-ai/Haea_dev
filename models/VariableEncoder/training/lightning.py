@@ -130,7 +130,7 @@ class TrainModule(pl.LightningModule):
         loss = F.mse_loss(reversed_predict, label, reduction='none')
         reversed_predict.cpu().detach()
         predict.cpu().detach()
-        reversed_predict.cpu().detach()
+        label.cpu().detach()
         return loss
     
 

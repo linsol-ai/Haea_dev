@@ -72,7 +72,7 @@ class VariableEncoder(nn.Module):
         pe_tgt = self.positional_encoding(tgt.size(0), tgt.size(1), tgt.size(2), tgt.size(3)).to(tgt.device)
         
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
-        zeros_tensor = torch.zeros(src.size(0), 1, src.size(3), device=self.device)
+        zeros_tensor = torch.zeros(src.size(0), 1, src.size(-1), device=self.device)
         src = torch.cat((zeros_tensor, src, zeros_tensor), dim=1)
         tgt = torch.cat((zeros_tensor, tgt), dim=1)
 

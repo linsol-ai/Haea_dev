@@ -118,8 +118,6 @@ class TrainModule(pl.LightningModule):
         # target.size = (batch, time_len, var_len, hidden)
         var_len = label.size(2)
         label = denormalize(label, self.mean_std)
-
-        # predict.shape = (batch, time_len * var_len + 1, hidden) -> not nomalized
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
         reversed_predict = denormalize(predict, self.mean_std)
         # reversed_predict.shape = (batch, time_len * var_len, 1450) -> nomalized

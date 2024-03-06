@@ -33,18 +33,17 @@ def get_var_seq(src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, src_time
     tgt_seq = tgt_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
 
     src_seq = src_var_list.repeat_interleave(src_time_len, dim=0)
-    src_seq = torch.cat([SPECIAL_TOKEN_BOS, src_seq, SPECIAL_TOKEN_EOS])
+    src_seq = torch.cat([bos_seq, src_seq, SPECIAL_TOKEN_EOS])
     src_seq = src_seq.unsqueeze(0).repeat_interleave(batch_size, dim=0)
     return src_seq, tgt_seq
 
 
 def get_tgt_mask(var_len, time_len) -> torch.Tensor:
-    size = var_len * time_len + 1
+    size = var_len * time_len
     matrix = torch.full((size, size), float('-inf'), dtype=torch.get_default_dtype())
-    matrix[0, 0] = 0
     for i in range(time_len):
-        s =  (i * var_len) + 1
-        e =  ((i+1) * var_len) + 1
+        s =  (i * var_len)
+        e =  ((i+1) * var_len)
         matrix[s:e, :e] = 0
     return matrix
 

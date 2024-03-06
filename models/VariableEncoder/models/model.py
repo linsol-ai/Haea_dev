@@ -77,7 +77,7 @@ class VariableEncoder(nn.Module):
         src = (src + pe_src) * math.sqrt(self.in_dim)
 
         tgt = torch.cat([zeros_tensor, self.embedding(tgt, tgt_var_seq)], dim=1)
-        tgt = (tgt + pe_tgt0
+        tgt = (tgt + pe_tgt) * 
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)

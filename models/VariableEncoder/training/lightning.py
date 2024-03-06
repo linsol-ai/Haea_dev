@@ -236,7 +236,7 @@ class TrainModule(pl.LightningModule):
         # predict.shape = (var_len, batch, time_len)
         predict = predict.swapaxes(0, 1)
 
-        tgt = tgt.swapaxes(1, 2)
+        label = tgt.swapaxes(1, 2)
         tgt = torch.mean(tgt, dim=-1)
         tgt = tgt.swapaxes(0, 1)
 

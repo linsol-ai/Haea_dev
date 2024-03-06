@@ -75,7 +75,7 @@ class VariableEncoder(nn.Module):
         src = src + pe_src
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
         tgt = tgt + pe_tgt
-        tgt = self.embedding(tgt, tgt_var_seq) + 
+        tgt = self.embedding(tgt, tgt_var_seq)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)

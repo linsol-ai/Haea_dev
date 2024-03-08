@@ -69,7 +69,6 @@ class Haea(nn.Module):
 
 
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
-
         src_pe = self.positional_encoding(src.shape, src.device)
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 

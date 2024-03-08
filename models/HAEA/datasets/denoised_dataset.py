@@ -54,7 +54,6 @@ class TimeVocab:
                 data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
             else:
                 data = self.dataset[pos, :, :]
-
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)
 

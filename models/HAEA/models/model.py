@@ -73,7 +73,6 @@ class Haea(nn.Module):
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 
         self.var_list = self.var_list.to(src.device)
-        self.tgt_mask = self.tgt_mask.to(src.device)
     
         src_var_seq = self.get_var_seq(self.var_list, src_id, src.device)
         tgt_var_seq = self.get_var_seq(self.var_list, tgt_id, tgt.device)

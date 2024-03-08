@@ -19,17 +19,6 @@ class TimeVocab:
     def __len__(self):
         return self.dataset.size(0) + 1
 
-    
-    def positional_encoding(self, d_model, max_len):
-        pe = torch.zeros(max_len, d_model).float()
-
-        position = torch.arange(0, max_len).float().unsqueeze(1)
-        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
-
-        pe[:, 0::2] = torch.sin(position * div_term)
-        pe[:, 1::2] = torch.cos(position * div_term)
-
-        return pe
 
 
     def get_data(self, indicate):

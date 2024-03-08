@@ -68,7 +68,7 @@ class Haea(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
 
-    def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor, tgt_mask: torch.Tensor):
+    def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor, var_list: torch.Tensor, ,tgt_mask: torch.Tensor):
         src_pe = self.positional_encoding(src.shape, src.device)
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 

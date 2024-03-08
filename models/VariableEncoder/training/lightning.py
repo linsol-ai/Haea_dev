@@ -85,7 +85,7 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
-        # (batch, time, var, hidden)
+        # (batch, time+1, var, hidden)
         label = batch[1]
     
         src = src + positional_encoding(src.size(0), self.config.src_time_len, self.src_var_list.size(0), src.size(-1), src.device)

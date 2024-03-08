@@ -64,7 +64,7 @@ class TrainModule(pl.LightningModule):
         tgt_id = batch['target_id']
         tgt = label[:, :-1]
 
-        predict = self.model(src, src_id, tgt, tgt_id)
+        predict = self.model(src, src_id, tgt, tgt_id, )
 
         label = label[:, 1:]
         label = label.view(label.size(0), -1, label.size(-1))

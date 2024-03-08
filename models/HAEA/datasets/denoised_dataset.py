@@ -16,7 +16,7 @@ class TimeVocab:
 
 
     def __len__(self):
-        return self.dataset.size(0) + 1
+        return self.dataset.size(0)
 
 
     def get_data(self, indicate):

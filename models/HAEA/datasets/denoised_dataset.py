@@ -31,7 +31,7 @@ class TimeVocab:
 
 
     def __len__(self):
-        return self.dataset.size(0) + len(self.SPECIAL_TOKENS)
+        return self.dataset.size(0)
 
     
     def positional_encoding(self, d_model, max_len):

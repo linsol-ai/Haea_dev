@@ -19,6 +19,11 @@ def get_tgt_mask(var_len, time_len) -> torch.Tensor:
 
 class TimeVocab:
 
+    SPECIAL_TOKEN_BOS = 0
+    SPECIAL_TOKEN_MASK = 1
+    SPECIAL_TOKENS = [SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_MASK]
+
+
     def __init__(self, dataset: torch.Tensor, 
                  src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)
@@ -31,7 +36,7 @@ class TimeVocab:
 
 
     def __len__(self):
-        return self.dataset.size(0)
+        return self.dataset.size(0) + len(self.SPECIAL_TOKENS)
 
     
     def positional_encoding(self, d_model, max_len):

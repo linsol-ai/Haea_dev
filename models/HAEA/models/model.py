@@ -80,7 +80,7 @@ class Haea(nn.Module):
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)
         tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)
     
-        transformer_out = self.model(src, tgt, tgt_mask=self.tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
+        transformer_out = self.model(src, tgt, tgt_mask=.gt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
         out = self.out(transformer_out)    
         
         return out

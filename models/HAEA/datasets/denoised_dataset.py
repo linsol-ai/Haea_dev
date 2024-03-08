@@ -172,7 +172,7 @@ class DenoisingDataset(Dataset):
 
         source_dataset = self.vocab.get_data(source)
         target_dataset = self.vocab.get_data(target)
-        
+        target_dataset = 
 
         return {
             "source": source_dataset,

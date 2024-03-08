@@ -41,7 +41,7 @@ class TrainModule(pl.LightningModule):
         self.mean_std = mean_std
         self.config = config
         self.save_hyperparameters()
-        self.tgt_mask = get_tgt_mask(tgt_var_list.size(0), config.time_len)
+        self.tgt_mask = get_tgt_mask(var_list.size(0), config.time_len)
 
     
     def setup(self, stage: str) -> None:

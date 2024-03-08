@@ -130,7 +130,7 @@ class DenoisingDataset(Dataset):
         dataset = []
         
         for i in range(1, size-length+1):
-            start = i
+            start = i + mask_idx 
             end = i + length
             data = [x for x in range(start, end)]
             dataset.append(data)

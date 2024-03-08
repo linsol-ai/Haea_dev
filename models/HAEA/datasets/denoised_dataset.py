@@ -21,7 +21,6 @@ class TimeVocab:
 
     SPECIAL_TOKEN_MASK = 0
 
-
     def __init__(self, dataset: torch.Tensor, 
                  src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)

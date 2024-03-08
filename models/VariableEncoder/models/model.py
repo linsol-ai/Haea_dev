@@ -69,7 +69,7 @@ class VariableEncoder(nn.Module):
                 src_var_seq: torch.Tensor, tgt_var_seq: torch.Tensor, tgt_mask: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src, tgt = src.view(src.size(0), -1, src.size(3)), tgt.view(tgt.size(0), -1, tgt.size(3))
-        src = self.embedding(src, src_var_seq)* math.sqrt(self.in_dim)
+        src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
         src = (src + pe_src) * math.sqrt(self.in_dim)
 
         tgt = torch.cat([zeros_tensor, self.embedding(tgt, tgt_var_seq)], dim=1)

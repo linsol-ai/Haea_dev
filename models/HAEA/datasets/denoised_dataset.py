@@ -14,7 +14,6 @@ class TimeVocab:
         self.var_list = var_list
         self.time_len = time_len
         self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)
-        self.tgt_mask = get_tgt_mask(len(tgt_var_list), time_len)
 
 
     def __len__(self):

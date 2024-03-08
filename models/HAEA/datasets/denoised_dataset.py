@@ -9,7 +9,7 @@ class TimeVocab:
     SPECIAL_TOKEN_MASK = 0
 
     def __init__(self, dataset: torch.Tensor, var_list: torch.Tensor, time_len: int):
-        # dataset.shape = (time, var_len, hidden)
+        # dataset.shape = (time, 1, var_len, hidden)
         self.dataset = dataset.unsqueeze(1)
         self.var_list = var_list
         self.time_len = time_len

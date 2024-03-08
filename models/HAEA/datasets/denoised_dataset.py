@@ -10,7 +10,7 @@ class TimeVocab:
 
     def __init__(self, dataset: torch.Tensor, var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)
-        self.dataset = dataset.unsqueeze()
+        self.dataset = dataset.unsqueeze(1)
         self.var_list = var_list
         self.time_len = time_len
 

@@ -19,11 +19,6 @@ def get_tgt_mask(var_len, time_len) -> torch.Tensor:
 
 class TimeVocab:
 
-    SPECIAL_TOKEN_BOS = 0
-    SPECIAL_TOKEN_MASK = 1
-    SPECIAL_TOKENS = [SPECIAL_TOKEN_BOS, SPECIAL_TOKEN_MASK]
-
-
     def __init__(self, dataset: torch.Tensor, 
                  src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)

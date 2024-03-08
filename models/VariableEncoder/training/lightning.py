@@ -133,9 +133,9 @@ class TrainModule(pl.LightningModule):
 
     def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor):
         # target.size = (batch, time_len, var_len, hidden)
-
-
         
+
+
         label = denormalize(label, self.mean_std)
         # predict.shape = (batch, time_len, var_len, 1450) -> not nomalized
         reversed_predict = denormalize(predict, self.mean_std)

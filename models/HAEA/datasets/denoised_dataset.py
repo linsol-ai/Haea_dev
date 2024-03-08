@@ -53,10 +53,7 @@ class TimeVocab:
             if t in self.SPECIAL_TOKEN_MASK:
                 data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
             else:
-                if not source:
-                    data = self.dataset[pos, :len(self.var_list), :]
-                else:
-                    data = self.dataset[pos, :, :]
+                data = self.dataset[pos, :, :]
 
             data = data + self.pe[i].unsqueeze(dim=0).repeat_interleave(data.size(0), dim=0)
             result.append(data)

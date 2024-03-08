@@ -170,7 +170,7 @@ class DenoisingDataset(Dataset):
         assert (source <= len(self.vocab)).all()
     
 
-        source_dataset = self.vocab.get_source(source)
+        source_dataset = self.vocab.get_data(source)
         target_dataset = self.vocab.get_target(target)
 
         return {

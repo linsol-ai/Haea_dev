@@ -225,7 +225,7 @@ class TrainModule(pl.LightningModule):
         self.model.eval()
 
     def forward(self, batch) -> torch.Tensor:
-        src = batch[0]
+        src = batch[0].to
         # (batch, time+1, var, hidden)
         label = batch[1]
         tgt = label[:, :-1]

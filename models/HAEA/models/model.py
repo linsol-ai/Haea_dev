@@ -114,11 +114,8 @@ class Haea(nn.Module):
         for batch in indicate:
             seq = []
             for item in batch:
-                if item in TimeVocab.SPECIAL_TOKENS:
-                    if item == TimeVocab.SPECIAL_TOKEN_MASK:
+                if item == TimeVocab.SPECIAL_TOKEN_MASK:
                         seq.append(torch.full_like(var_list, item, device=device))
-                    else:
-                        seq.append(torch.tensor([item], device=device))
                 else:
                     seq.append(var_list)
 

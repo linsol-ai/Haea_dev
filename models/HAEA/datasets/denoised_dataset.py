@@ -13,7 +13,6 @@ class TimeVocab:
         self.dataset = dataset
         self.var_list = var_list
         self.time_len = time_len
-        self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)
 
 
     def __len__(self):

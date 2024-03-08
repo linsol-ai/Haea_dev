@@ -46,7 +46,7 @@ class TimeVocab:
         return pe
 
 
-    def get_data(self, indicate, source: bool = True):
+    def get_data(self, indicate):
         result = []
         for i, t in enumerate(indicate):
             pos = t - 1

@@ -73,7 +73,7 @@ class Haea(nn.Module):
         self.var_list = self.var_list.to(src.device)
         self.tgt_mask = self.tgt_mask.to(src.device)
     
-        src_var_seq = self.get_var_seq(self.var_list, src_id, src.device)
+        var_seq = self.get_var_seq(self.var_list, src_id, src.device)
 
         src = self.embedding(src, src_var_seq) * math.sqrt(self.in_dim)
         tgt = self.embedding(tgt, tgt_var_seq) * math.sqrt(self.in_dim)

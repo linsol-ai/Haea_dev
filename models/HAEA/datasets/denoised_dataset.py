@@ -6,7 +6,7 @@ import contextlib
 
 class TimeVocab:
 
-    SPECIAL_TOKEN_MASK = 0
+    SPECIAL_TOKEN_MASK = 3
 
     def __init__(self, dataset: torch.Tensor, var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, 1, var_len, hidden)

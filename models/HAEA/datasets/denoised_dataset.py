@@ -92,7 +92,6 @@ class DenoisingDataset(Dataset):
         self.insert_ratio = insert
         self.rotate_ratio = rotate
         self.permute_sentence_ratio = permute_sentences
-
         self.item_transform_func = item_transform_func
 
         self.full_stop_index = self.eos

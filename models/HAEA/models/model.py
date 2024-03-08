@@ -71,7 +71,7 @@ class Haea(nn.Module):
         src_pe = self.positional_encoding(src.shape, src.device)
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 
-        print()
+        print(src.shape, tgt.shape)
 
         src, tgt = src.view(src.size(0), -1, src.size(-1)), tgt.view(tgt.size(0), -1, tgt.size(-1))
     

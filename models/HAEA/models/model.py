@@ -92,6 +92,7 @@ class Haea(nn.Module):
     
         return out
     
+    
     def positional_encoding(self, shape, device):       
         batch, time_len, var_len, d_model = shape 
         pe = torch.zeros(batch, time_len, d_model, device=device).float()

@@ -18,6 +18,7 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
 def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
+
 def get_tgt_mask(var_len, time_len) -> torch.Tensor:
     size = var_len * time_len
     matrix = torch.full((size, size), float('-inf'), dtype=torch.get_default_dtype())

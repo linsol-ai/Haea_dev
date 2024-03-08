@@ -24,7 +24,7 @@ class TimeVocab:
     def __init__(self, dataset: torch.Tensor, var_list: torch.Tensor, time_len: int):
         # dataset.shape = (time, var_len, hidden)
         self.dataset = dataset
-        self.src_var_list = src_var_list
+        self.var_list = var_list
         self.tgt_var_list = tgt_var_list
         self.time_len = time_len
         self.pe = self.positional_encoding(dataset.size(-1), time_len + 10)

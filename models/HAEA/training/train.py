@@ -146,7 +146,7 @@ def main(argv):
 
     model_pl = TrainModule(
         model=model, mean_std=mean_std, max_iters=max_iters,
-        config=config.training)
+        var_list=,config=config.training)
     
     trainer = pl.Trainer(
         accelerator="auto",

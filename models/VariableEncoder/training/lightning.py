@@ -38,7 +38,7 @@ def positional_encoding(batch, time_len, var_len, d_model, device, has_special_t
     pe[:, :, 1::2] = torch.cos(position * div_term)
 
     if has_special_token:
-        return torch.cat([pe[:, 0].unsqueeze(1), pe[:, 1:].repeat_interleave(var_len, dim=1)], dim=1)
+        return torch.cat([pe[:, 1].unsqueeze(1), pe[:, 1:].repeat_interleave(var_len, dim=1)], dim=1)
     else:
         return pe.repeat_interleave(var_len, dim=1)
 
@@ -254,7 +254,7 @@ class TrainModule(pl.LightningModule):
         predict = predict[:, :-1]
 
         predict = predict.view(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1))
-        label = label.view(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1))
+        label = predict.view(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1))
 
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, label)

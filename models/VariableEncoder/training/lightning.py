@@ -94,7 +94,7 @@ class TrainModule(pl.LightningModule):
         label = batch[1]
         zero_tensor = torch.zeros(label.size(0), 1, label.size(2))
         tgt = torch.cat([zero_tensor, label], dim=1)
-        src = src + 
+        src = src + positional_encoding()
 
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)

@@ -29,7 +29,7 @@ def positional_encoding(batch, time_len, var_len, d_model, device, has_special_t
         pe = torch.zeros(batch, time_len+1, d_model, device=device).float()
     else:
         pe = torch.zeros(batch, time_len, d_model, device=device).float()
-        
+
     pe.require_grad = False
 
     position = torch.arange(0, time_len).float().unsqueeze(1)
@@ -37,6 +37,8 @@ def positional_encoding(batch, time_len, var_len, d_model, device, has_special_t
 
     pe[:, :, 0::2] = torch.sin(position * div_term)
     pe[:, :, 1::2] = torch.cos(position * div_term)
+
+    if has_special_token:
 
     return torch.cat([pe, pe[:, 1:].repeat_interleave(var_len, dim=1)], dim=1)
 

@@ -19,7 +19,6 @@ class TimeVocab:
         return self.dataset.size(0) + 1
 
 
-
     def get_data(self, indicate):
         result = []
         for i, t in enumerate(indicate):

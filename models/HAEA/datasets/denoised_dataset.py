@@ -60,16 +60,6 @@ class TimeVocab:
         return result
 
 
-    def get_source(self, times: torch.Tensor):
-        src = self.get_data(times)
-        return src
-    
-    def get_target(self, times: torch.Tensor):
-        tgt = self.get_data(times, source=False)
-        return tgt
-
-
-
 @contextlib.contextmanager
 def numpy_seed(seed, *addl_seeds):
     """Context manager which seeds the NumPy PRNG with the specified seed and

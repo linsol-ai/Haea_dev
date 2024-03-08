@@ -237,9 +237,9 @@ class TrainModule(pl.LightningModule):
         self.model.eval()
 
     def forward(self, batch) -> torch.Tensor:
-        src = batch[0].to(src.device)
+        src = batch[0].to(self.device)
         # (batch, time * var, hidden)
-        label = batch[1].to(src.device)
+        label = batch[1].to(self.device)
         zero_tensor = torch.zeros(label.size(0), 1, label.size(2), device=src.device)
         tgt = torch.cat([zero_tensor, label], dim=1)
         src = src + positional_encoding(src.size(0), self.config.src_time_len, self.src_var_list.size(0), src.size(-1), src.device)

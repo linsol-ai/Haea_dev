@@ -148,7 +148,6 @@ class DenoisingDataset(Dataset):
     def __getitem__(self, index):
         with numpy_seed(self.seed, self.epoch, index):
             tokens = self.dataset[index]
-
             source, target = tokens.clone(), tokens.clone()
 
             if self.permute_sentence_ratio > 0.0:

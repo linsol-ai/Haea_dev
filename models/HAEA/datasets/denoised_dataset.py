@@ -94,7 +94,7 @@ class DenoisingDataset(Dataset):
         self.permute_sentence_ratio = permute_sentences
         self.item_transform_func = item_transform_func
 
-        self.full_stop_index = self.eos
+        self.full_stop_index = -1
 
         self.dataset = self.make_dataset(len(vocab), vocab.time_len)
 

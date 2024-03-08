@@ -23,7 +23,7 @@ class TimeVocab:
         result = []
         for t in indicate:
             pos = t - self.SPECIAL_TOKEN_MASK - 1
-            if t in self.SPECIAL_TOKEN_MASK:
+            if t == self.SPECIAL_TOKEN_MASK:
                 data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
             else:
                 data = self.dataset[pos, :, :]

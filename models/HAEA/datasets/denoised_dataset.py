@@ -53,10 +53,13 @@ class TimeVocab:
         for i, t in enumerate(indicate):
             pos = t - 1
             if t in self.SPECIAL_TOKEN_MASK:
-                if not source:
-                    data = torch.zeros(len(self.tgt_var_list), self.dataset.size(2))
+                if t == self.SPECIAL_TOKEN_MASK:
+                    if not source:
+                        data = torch.zeros(len(self.tgt_var_list), self.dataset.size(2))
+                    else:
+                        data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
                 else:
-                    data = torch.zeros(self.dataset.size(1), self.
+                    data = torch.zeros(1, self.dataset.size(2))
             else:
                 if not source:
                     data = self.dataset[pos, :len(self.tgt_var_list), :]

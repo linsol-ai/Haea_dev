@@ -225,13 +225,10 @@ class TrainModule(pl.LightningModule):
         self.model.eval()
 
     def forward(self, batch) -> torch.Tensor:
-        src = batch[0].to(self.device)
-        # (batch, time * var, hidden)
-        label = batch[1].to(self.device)
-        zero_tensor = torch.zeros(label.size(0), 1, label.size(2), device=src.device)
-        tgt = torch.cat([zero_tensor, label], dim=1)
-        src = src + positional_encoding(src.size(0), self.config.src_time_len, self.src_var_list.size(0), src.size(-1), src.device)
-        tgt = tgt + positional_encoding(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1), tgt.device, has_special_token=True)
+        src = batch[0]
+        # (batch, time+1, var, hidden)
+        label = batch[1]
+        tgt = label[:, :-1]
 
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)
@@ -239,10 +236,8 @@ class TrainModule(pl.LightningModule):
       
         # predict.shape = (batch, time * var + 1, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
-        predict = predict[:, :-1]
-
-        predict = predict.view(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1))
-        label = predict.view(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1))
+        label = label[:, 1:]
+        label = label.view(label.size(0), -1, label.size(-1))
 
         # loss.shape = (batch, time_len * var_len, 1450)
         loss = self.calculate_sqare_loss(predict, label)

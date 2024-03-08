@@ -54,7 +54,7 @@ class TimeVocab:
                 data = torch.zeros(self.dataset.size(1), self.dataset.size(2))
             else:
                 if not source:
-                    data = self.dataset[pos, :len(self.tgt_var_list), :]
+                    data = self.dataset[pos, :len(self.var_list), :]
                 else:
                     data = self.dataset[pos, :, :]
 

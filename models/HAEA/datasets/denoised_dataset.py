@@ -96,7 +96,7 @@ class DenoisingDataset(Dataset):
 
         self.full_stop_index = -1
 
-        self.dataset = self.make_dataset(len(vocab), vocab.time_len, s)
+        self.dataset = self.make_dataset(len(vocab), vocab.time_len, self.mask_idx)
 
         self.replace_length = replace_length
         if self.replace_length not in [-1, 0, 1]:

@@ -53,7 +53,6 @@ class Haea(nn.Module):
                  num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
-        self.tgt_mask = tgt_mask
         self.var_list = var_list
         self.tgt_var_list = tgt_var_list
 

@@ -90,7 +90,7 @@ class TrainModule(pl.LightningModule):
         tgt = label[:, :-1]
     
         src = src + positional_encoding(src.size(0), self.config.src_time_len, self.src_var_list.size(0), src.size(-1), src.device)
-        tgt = tgt + positional_encoding(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1), tgt.device, has_special_token=True)
+        tgt = tgt + positional_encoding(tgt.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), tgt.size(-1), tgt.device)
 
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)

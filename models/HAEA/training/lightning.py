@@ -46,7 +46,7 @@ class TrainModule(pl.LightningModule):
     
     def setup(self, stage: str) -> None:
         self.mean_std = self.mean_std.to(self.device)
-        self.tgt_mask = self.tgt_mask.to(self.device)
+        self.var_list = self.var_list.to(self.device)
         self.tgt_mask = self.tgt_mask.to(self.device)
 
 

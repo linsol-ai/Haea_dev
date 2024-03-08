@@ -92,7 +92,7 @@ class TrainModule(pl.LightningModule):
         src = batch[0]
         # (batch, time * var, hidden)
         label = batch[1]
-        zero_tensor = torch.zeros(label.size(0), 1, la)
+        zero_tensor = torch.zeros(label.size(0), 1, label.size(2))
 
         src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
         src_seq = src_seq.to(self.device)

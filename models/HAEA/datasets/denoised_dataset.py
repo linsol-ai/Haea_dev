@@ -126,7 +126,7 @@ class DenoisingDataset(Dataset):
         self.epoch = 0
     
 
-    def make_dataset(self, size, length):
+    def make_dataset(self, size, length, mask_idx):
         dataset = []
         
         for i in range(2, size-length+1):

@@ -51,7 +51,7 @@ class TimeVocab:
     def get_data(self, indicate, source: bool = True):
         result = []
         for i, t in enumerate(indicate):
-            pos = t - len(self.SPECIAL_TOKENS)
+            pos = t - 1
             if t in self.SPECIAL_TOKENS:
                 if t == self.SPECIAL_TOKEN_MASK:
                     if not source:

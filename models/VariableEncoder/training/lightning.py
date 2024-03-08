@@ -31,7 +31,6 @@ def positional_encoding(batch, time_len, var_len, d_model, device, has_special_t
         pe = torch.zeros(batch, time_len, d_model, device=device).float()
 
     pe.require_grad = False
-
     position = torch.arange(0, time_len).float().unsqueeze(1)
     div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
 

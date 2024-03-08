@@ -172,7 +172,6 @@ class DenoisingDataset(Dataset):
         target_dataset = torch.cat([self.vocab.dataset[target[0]-1], target_dataset], dim=0)
         source_dataset = self.vocab.get_data(source)
         target_dataset = self.vocab.get_data(target)
-     
 
         return {
             "source": source_dataset,

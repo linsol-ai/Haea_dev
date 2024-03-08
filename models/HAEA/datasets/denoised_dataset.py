@@ -26,7 +26,7 @@ class TimeVocab:
             if t == self.SPECIAL_TOKEN_MASK:
                 data = torch.zeros(1, self.dataset.size(1), self.dataset.size(2))
             else:
-                data = self.dataset[pos, :, :]
+                data = self.dataset[pos]
             result.append(data)
 
         result = torch.cat(result, dim=0)

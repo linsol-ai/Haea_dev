@@ -165,13 +165,16 @@ class DenoisingDataset(Dataset):
         if self.item_transform_func is not None:
             source, target = self.item_transform_func(source, target)
 
+
+
         assert (source >= 0).all()
         assert (source[1:-1] >= 1).all()
         assert (source <= len(self.vocab)).all()
     
-        target = torch.cat([torch.tensor([target[0]-1]), target], dim=0)
+
         source_dataset = self.vocab.get_data(source)
         target_dataset = self.vocab.get_data(target)
+        target_dataset = torch.cat([self.vocab.dataset[target[0]-1], target_dataset], dim=0)
 
         return {
             "source": source_dataset,

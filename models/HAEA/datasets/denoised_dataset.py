@@ -165,7 +165,7 @@ class DenoisingDataset(Dataset):
         if self.item_transform_func is not None:
             source, target = self.item_transform_func(source, target)
 
-        assert (source >= 0).all()
+        assert (source >= 0).all(
         assert (source[1:-1] >= 1).all()
     
 

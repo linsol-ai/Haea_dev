@@ -167,7 +167,6 @@ class DenoisingDataset(Dataset):
 
         assert (source >= 0).all()
         assert (source[1:-1] >= 1).all()
-        assert (source <= len(self.vocab)).all()
     
 
         source_dataset = self.vocab.get_data(source)

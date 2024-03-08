@@ -50,7 +50,7 @@ class LinearDecoder(nn.Module):
 
 class Haea(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
-                 tgt_mask: torch.Tensor, src_var_list: torch.Tensor, tgt_var_list: torch.Tensor, 
+                 tgt_mask: torch.Tensor, var_list: torch.Tensor, tgt_var_list: torch.Tensor, 
                  num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
@@ -92,7 +92,7 @@ class Haea(nn.Module):
     
         return out
     
-    
+
     def positional_encoding(self, shape, device):       
         batch, time_len, var_len, d_model = shape 
         pe = torch.zeros(batch, time_len, d_model, device=device).float()

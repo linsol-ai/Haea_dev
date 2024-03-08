@@ -54,7 +54,7 @@ class TimeVocab:
             pos = t - 1
             if t in self.SPECIAL_TOKEN_MASK:
                 if not source:
-                        data = torch.zeros(len(self.tgt_var_list), self.dataset.size(2))
+                    data = torch.zeros(len(self.tgt_var_list), self.dataset.size(2))
                 else:
                         data = torch.zeros(self.dataset.size(1), self.
             else:

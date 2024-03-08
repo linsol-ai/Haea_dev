@@ -71,7 +71,7 @@ class VariableEncoder(nn.Module):
         src_pe = self.positional_encoding(src.shape, src.device)
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 
-        src, tgt = src.view(src.size(0), -1, src.size(-1)), tgt
+        src, tgt = src.view(src.size(0), -1, src.size(-1)), tgt.view(src.size(0), -1, src.size(-1))
 
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)
         tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)

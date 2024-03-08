@@ -24,7 +24,7 @@ def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
 
-def positional_encoding(batch, time_len, var_len, d_model, device, has_special_token=False):        
+def positional_encoding(batch, time_len, var_len, d_model, device):        
     pe = torch.zeros(batch, time_len, d_model, device=device).float()
     pe.require_grad = False
     position = torch.arange(0, time_len).float().unsqueeze(1)

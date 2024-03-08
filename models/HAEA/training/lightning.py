@@ -59,7 +59,7 @@ class TrainModule(pl.LightningModule):
     def _step(self, batch: Dict, mode: str) -> torch.Tensor:
         src = batch['source']
         src_id = batch['source_id']
-        tgt = batch['target']
+        label = batch['target']
         tgt_id = batch['target_id']
 
         predict = self.model(src, src_id, tgt, tgt_id)

@@ -37,7 +37,7 @@ class TrainModule(pl.LightningModule):
         super().__init__()
         self.max_iters = max_iters
         self.model = model
-        self.
+        self.var_list = var_list
         self.mean_std = mean_std
         self.config = config
         self.save_hyperparameters()

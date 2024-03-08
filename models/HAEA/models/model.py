@@ -71,7 +71,6 @@ class Haea(nn.Module):
     def forward(self, src: torch.Tensor, src_id: torch.Tensor, tgt: torch.Tensor, tgt_id: torch.Tensor):
 
         self.var_list = self.var_list.to(src.device)
-        self.tgt_var_list = self.tgt_var_list.to(src.device)
         self.tgt_mask = self.tgt_mask.to(src.device)
     
         src_var_seq = self.get_var_seq(self.src_var_list, src_id, src.device)

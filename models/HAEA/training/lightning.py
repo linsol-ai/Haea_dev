@@ -125,7 +125,7 @@ class TrainModule(pl.LightningModule):
 class FinetuningModule(pl.LightningModule):
 
     def __init__(self, *, model: Haea, mean_std: torch.Tensor, var_list: torch.Tensor,
-                 max_iters: int, config: TrainingConfig):
+                 max_iters: int, config: FinetuningConfig):
         
         super().__init__()
         self.max_iters = max_iters

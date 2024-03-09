@@ -20,7 +20,7 @@ from models.HAEA.models.model import Haea
 
 from models.HAEA.training.configs import FinetuningConfig
 from models.HAEA.training.configs import FinetuningRunConfig
-from models.HAEA.training.lightning import FinetuningModule
+from models.HAEA.training.lightning import FinetuningModule, TrainModule
 
 import os
 env_cp = os.environ.copy()

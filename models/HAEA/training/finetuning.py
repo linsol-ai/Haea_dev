@@ -119,7 +119,7 @@ def main(argv):
     print(f"max_iters: {max_iters}")
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-    model = TrainModule.load_from_checkpoint(F)
+    model = TrainModule.load_from_checkpoint(FLAGS.)
 
 
     print("setting lr rate: ", config.training.learning_rate)

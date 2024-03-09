@@ -36,7 +36,7 @@ else:
     world_size = 1
     local_rank = 0
 
-config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
+config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/pretrain_config.yaml')
 
 
 try:

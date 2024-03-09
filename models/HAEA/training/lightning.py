@@ -42,7 +42,7 @@ class TrainModule(pl.LightningModule):
         self.config = config
         self.save_hyperparameters()
         self.tgt_mask = get_tgt_mask(var_list.size(0), config.time_len)
-        print(var_list)
+        print(self.var_list)
 
     
     def setup(self, stage: str) -> None:

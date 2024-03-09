@@ -39,7 +39,7 @@ class Seq2SeqDataset(Dataset):
     def __getitem__(self, item):
         src_ind, tgt_ind = self.dataset_inc[item]
         src_ind = torch.tensor(src_ind)
-        tgt_ind = torch.tensor(tgt_ind)
+        tgt_ind = torch.tensor(tgt_ind[:-1])
 
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)

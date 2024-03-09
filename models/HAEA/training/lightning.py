@@ -29,7 +29,7 @@ def get_tgt_mask(var_len, time_len) -> torch.Tensor:
     return matrix
 
 
-class PreTrainModule(pl.LightningModule):
+class PretrainModule(pl.LightningModule):
 
     def __init__(self, *, model: Haea, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):

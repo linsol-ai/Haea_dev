@@ -18,7 +18,7 @@ from models.HAEA.models.model import VariableEncoder
 
 from models.HAEA.training.configs import TrainingConfig
 from models.HAEA.training.configs import TrainingRunConfig
-from models.HAEA.training.lightning import TrainModule
+from models.HAEA.training.lightning import FinetuningModule
 
 
 import os

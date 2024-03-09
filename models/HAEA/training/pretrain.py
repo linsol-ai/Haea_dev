@@ -19,7 +19,7 @@ from models.HAEA.datasets.denoised_dataset import DenoisingDataset, TimeVocab
 from models.HAEA.models.model import Haea
 
 from models.HAEA.training.configs import PretrainingConfig
-from models.HAEA.training.configs import TrainingRunConfig
+from models.HAEA.training.configs import PretrainingRunConfig
 from models.HAEA.training.lightning import PretrainModule
 
 import os

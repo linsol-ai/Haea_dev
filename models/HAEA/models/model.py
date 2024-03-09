@@ -74,7 +74,7 @@ class Haea(nn.Module):
         src, tgt = src.view(src.size(0), -1, src.size(-1)), tgt.view(tgt.size(0), -1, tgt.size(-1))
     
         src_var_seq = self.get_var_seq(var_list, src_id, src.device)
-        print(src)
+        print(src_var_seq)
         tgt_var_seq = self.get_var_seq(var_list, tgt_id, tgt.device)
 
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)

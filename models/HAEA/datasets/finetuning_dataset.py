@@ -34,7 +34,7 @@ class FinetuningDataset(Dataset):
             tgt = [r for r in range(t, t + self.tgt_time_len + 1)]
             dataset_inc.append((src, tgt))
 
-        self.dataset_inc = torch.tensdataset_inc
+        self.dataset_inc = torch.tensordataset_inc
 
 
     def __getitem__(self, item):

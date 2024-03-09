@@ -63,6 +63,7 @@ class TrainingRunConfig(BaseModel):
     seed: int = 123
     """The random seed."""
 
+
 class FinetuningConfig(BaseModel):
     """A config specification of training the DVAE."""
 

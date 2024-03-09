@@ -152,20 +152,18 @@ class FinetuningModule(pl.LightningModule):
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
-        src = batch[0]
-        # (batch, time+1, var, hidden)
-        label = batch[1]
+        src = batch['source']
+        src_id = batch['source_id']
+        label = batch['target']
+        tgt_id = batch['target_id']
         tgt = label[:, :-1]
 
-        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
-        src_seq = src_seq.to(self.device)
-        tgt_seq = tgt_seq.to(self.device)
-      
-        # predict.shape = (batch, time * var + 1, hidden)
-        predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
+        predict = self.model(src, src_id, tgt, tgt_id, self.var_list, self.tgt_mask)
+
         label = label[:, 1:]
         label = label.view(label.size(0), -1, label.size(-1))
         loss = rmse_loss(predict, label)
+
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
 
         return loss

@@ -97,7 +97,7 @@ class PretrainingRunConfig(BaseModel):
     seed: int = 123
     """The random seed."""
 
-class PretrainingRunConfig(BaseModel):
+class FinetuningRunConfig(BaseModel):
     """A config specification of the training run."""
 
     model: ModelConfig

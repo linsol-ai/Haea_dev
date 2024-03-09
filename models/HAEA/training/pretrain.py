@@ -20,7 +20,7 @@ from models.HAEA.models.model import Haea
 
 from models.HAEA.training.configs import TrainingConfig
 from models.HAEA.training.configs import TrainingRunConfig
-from models.HAEA.training.lightning import PretrainModule
+from models.HAEA.training.lightning import TrainModule
 
 import os
 env_cp = os.environ.copy()

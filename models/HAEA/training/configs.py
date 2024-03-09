@@ -101,7 +101,7 @@ class PretrainingRunConfig(BaseModel):
 class FinetuningRunConfig(BaseModel):
     """A config specification of the training run."""
 
-    training: F
+    training: FinetuningConfig
     """A config specification of the training."""
 
     seed: int = 123

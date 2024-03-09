@@ -41,7 +41,7 @@ class Seq2SeqDataset(Dataset):
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)
 
-          src_ind = torch.tensor(src_ind)
+        src_ind = torch.tensor(src_ind)
         tgt_ind = torch.tensor(tgt_ind[:-1])
 
         return {

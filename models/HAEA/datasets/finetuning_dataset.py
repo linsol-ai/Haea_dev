@@ -39,6 +39,7 @@ class FinetuningDataset(Dataset):
 
     def __getitem__(self, item):
         src_ind, tgt_ind = self.dataset_inc[item]
+        src_ind = torch.tensor(src_ind)
         
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)

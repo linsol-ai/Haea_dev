@@ -99,7 +99,7 @@ def get_normal_dataset(config: PretrainingConfig) -> Tuple[DenoisingDataset, tor
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: TrainingConfig):
+    def __init__(self, config: PretrainingConfig):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_vocab, self.time_vocab = get_normal_dataset(self.config)

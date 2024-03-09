@@ -14,7 +14,7 @@ from absl import flags
 import sys,os
 from typing import Tuple
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
-from datasets.weather_bench import WeatherDataset, VariableVocab
+from datasets.weather_bench import WeatherDataset
 from models.HAEA.datasets.finetuning_dataset import FinetuningDataset
 from models.HAEA.models.model import Haea
 

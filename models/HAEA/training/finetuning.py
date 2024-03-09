@@ -19,7 +19,7 @@ from Haea_dev.models.HAEA.datasets.seq2seq_dataset import Seq2SeqDataset
 from models.HAEA.models.model import Haea
 
 from models.HAEA.training.configs import FinetuningConfig
-from models.HAEA.training.configs import Fune
+from models.HAEA.training.configs import FinetuningRunConfig
 from models.HAEA.training.lightning import FinetuningModule
 
 import os

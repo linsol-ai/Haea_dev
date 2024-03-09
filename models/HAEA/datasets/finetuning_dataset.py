@@ -48,5 +48,4 @@ class FinetuningDataset(Dataset):
             "target": target_dataset,
             "target_id": target
         }
-        return src, tgt
 

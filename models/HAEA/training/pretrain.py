@@ -18,8 +18,8 @@ from datasets.weather_bench import WeatherDataset, VariableVocab
 from models.HAEA.datasets.denoised_dataset import DenoisingDataset, TimeVocab
 from models.HAEA.models.model import Haea
 
-from models.HAEA.training.configs import Train
-from models.HAEA.training.configs import PretrainingRunConfig
+from models.HAEA.training.configs import TrainingConfig
+from models.HAEA.training.configs import TrainingRunConfig
 from models.HAEA.training.lightning import PretrainModule
 
 import os
@@ -36,13 +36,13 @@ else:
     world_size = 1
     local_rank = 0
 
-config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/pretrain_config.yaml')
+config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
 
 
 try:
     with open(config_path) as f:
         config_dict = yaml.safe_load(f)
-    config: PretrainingRunConfig = PretrainingRunConfig.parse_obj(config_dict)
+    config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
 except FileNotFoundError:
     logging.error(f"Config file {config_path} does not exist. Exiting.")
 except yaml.YAMLError:
@@ -65,7 +65,7 @@ def split_datetime_range(start, end, n):
     return intervals
 
 
-def get_normal_dataset(config: PretrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
+def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
@@ -99,7 +99,7 @@ def get_normal_dataset(config: PretrainingConfig) -> Tuple[DenoisingDataset, tor
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: PretrainingConfig):
+    def __init__(self, config: TrainingConfig):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_vocab, self.time_vocab = get_normal_dataset(self.config)

@@ -28,7 +28,7 @@ class FinetuningDataset(Dataset):
 
     def make_dataset(self):
         dataset_inc = []
-        for t in range(self.src_time_len, self.source_dataset.size(0)-self.tgt_time_len-1):
+        for t in range(self.time_len, self.source_dataset.size(0)-self.tgt_time_len-1):
             src = [r for r in range(t-self.src_time_len, t)]
             tgt = [r for r in range(t, t + self.tgt_time_len + 1)]
             dataset_inc.append((src, tgt))

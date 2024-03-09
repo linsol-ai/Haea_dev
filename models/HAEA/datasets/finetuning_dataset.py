@@ -8,7 +8,6 @@ class FinetuningDataset(Dataset):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)
         self.time_len = time_len
-        self.tgt_time_len = tgt_time_len
         self.n_only_input = n_only_input
         self.make_dataset()
 

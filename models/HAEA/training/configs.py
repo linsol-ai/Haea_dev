@@ -14,7 +14,7 @@ class ModelConfig(BaseModel):
     dropout: float = Field(ge=0, default=0.1)
 
 
-class PreTrainingConfig(BaseModel):
+class PretrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 
     learning_rate: float = 2e-4

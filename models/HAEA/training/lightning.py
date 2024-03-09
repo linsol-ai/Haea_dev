@@ -122,7 +122,7 @@ class PretrainModule(pl.LightningModule):
         self._step(batch, "test")
 
 
-class PretrainModule(pl.LightningModule):
+class FinetuningModule(pl.LightningModule):
 
     def __init__(self, *, model: Haea, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):

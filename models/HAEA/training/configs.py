@@ -83,7 +83,14 @@ class FinetuningConfig(BaseModel):
 
     train_end : datetime.datetime
 
-    
+class FinetuningRunConfig(BaseModel):
+    """A config specification of the training run."""
+
+    training: FinetuningConfig
+    """A config specification of the training."""
+
+    seed: int = 123
+    """The random seed."""    
 
 class PretrainingRunConfig(BaseModel):
     """A config specification of the training run."""
@@ -98,11 +105,3 @@ class PretrainingRunConfig(BaseModel):
     """The random seed."""
 
 
-class FinetuningRunConfig(BaseModel):
-    """A config specification of the training run."""
-
-    training: FinetuningConfig
-    """A config specification of the training."""
-
-    seed: int = 123
-    """The random seed."""

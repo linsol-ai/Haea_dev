@@ -65,8 +65,7 @@ def split_datetime_range(start, end, n):
     return intervals
 
 
-def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
-
+def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
@@ -79,23 +78,11 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.
     
     source, mean_std, var_vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
                                         config.constant_variable, level=config.levels)
-    var_list = var_vocab.get_code(vars)
+    src_var_list = var_vocab.get_code(vars)
+    tgt_var_list = var_vocab.get_code(config.air_variable + config.surface_variable)
 
-    time_vocab = TimeVocab(source, var_list, config.time_len)
-    
-    dataset = DenoisingDataset(
-        time_vocab,
-        127,
-        mask=config.mask_ratio,
-        mask_random=0,
-        insert=0,
-        rotate=0,
-        permute_sentences=0,
-        replace_length=-1,
-        mask_length='span-poisson',
-        poisson_lambda=3
-    )
-    return dataset, mean_std, var_vocab, time_vocab
+    dataset = CustomDataset(source, config.src_time_len, config.tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
+    return dataset, mean_std, (src_var_list, tgt_var_list)
 
 
 class DataModule(pl.LightningDataModule):

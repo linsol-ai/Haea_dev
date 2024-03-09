@@ -112,7 +112,6 @@ class DataModule(pl.LightningDataModule):
 
 def main(argv):
     data_module = DataModule(config.training)
-    var_list = data_module.var_list
     dataset = data_module.dataset
     mean_std = data_module.mean_std
     max_iters = config.training.max_epochs*(len(data_module.train_ds) // config.training.batch_size)

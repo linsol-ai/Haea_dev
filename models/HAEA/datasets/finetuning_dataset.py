@@ -4,7 +4,7 @@ import math
 
 class FinetuningDataset(Dataset):
 
-    def __init__(self, source_dataset: torch.Tensor, src_time_len: int, tgt_time_len: int, n_only_input: int = 0):
+    def __init__(self, source_dataset: torch.Tensor, tgt_time_len: int, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset.unsqueeze(1)
         self.src_time_len = src_time_len

@@ -12,7 +12,7 @@ class FinetuningDataset(Dataset):
         self.make_dataset()
 
     def __len__(self):
-        return self.source_dataset.size(0)-(self.tgt_time_len + self.src_time_len+1)
+        return self.source_dataset.size(0)-(self.time_len + self.src_time_len+1)
 
     def get_data(self, indicate, source: bool = True):
         result = []

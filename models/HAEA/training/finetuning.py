@@ -16,9 +16,9 @@ from datasets.weather_bench import WeatherDataset, VariableVocab
 from models.HAEA.datasets.dataset import CustomDataset
 from models.HAEA.models.model import VariableEncoder
 
-from models.VariableEncoder.training.configs import TrainingConfig
-from models.VariableEncoder.training.configs import TrainingRunConfig
-from models.VariableEncoder.training.lightning import TrainModule
+from models.HAEA.training.configs import TrainingConfig
+from models.HAEA.training.configs import TrainingRunConfig
+from models.HAEA.training.lightning import TrainModule
 
 
 import os

@@ -50,7 +50,7 @@ class PretrainingConfig(BaseModel):
     train_end : datetime.datetime
 
 
-class PretrainingConfig(BaseModel):
+class FinetuningConfig(BaseModel):
     """A config specification of training the DVAE."""
 
     learning_rate: float = 2e-4

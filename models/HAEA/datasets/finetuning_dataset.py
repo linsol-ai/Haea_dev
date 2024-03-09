@@ -2,7 +2,7 @@ from torch.utils.data import Dataset
 import torch
 import math
 
-class FinetDataset(Dataset):
+class FinetuningDataset(Dataset):
 
     def __init__(self, source_dataset: torch.Tensor, src_time_len: int, tgt_time_len: int, n_only_input: int = 0):
         # dataset.shape = (time, var_len, hidden)

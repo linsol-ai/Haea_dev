@@ -51,7 +51,7 @@ class PretrainingConfig(BaseModel):
 
     
 
-class PreTrainingRunConfig(BaseModel):
+class PretrainingRunConfig(BaseModel):
     """A config specification of the training run."""
 
     model: ModelConfig

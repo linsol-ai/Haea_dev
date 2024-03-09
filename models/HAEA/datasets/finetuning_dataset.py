@@ -41,15 +41,15 @@ class FinetuningDataset(Dataset):
         src_ind, tgt_ind = self.dataset_inc[item]
         src_ind = torch.tensor(src_ind)
         tgt_ind = torch.tensor(tgt_ind)
-        
+
         src = self.get_data(src_ind)
         tgt = self.get_data(tgt_ind, source=False)
 
         return {
-            "source": source_dataset,
-            "source_id": source,
-            "target": target_dataset,
-            "target_id": target
+            "source": src,
+            "source_id": src_ind,
+            "target": tgt,
+            "target_id": tgt_ind
         }
 
 

@@ -28,7 +28,7 @@ env_cp = os.environ.copy()
 
 FLAGS = flags.FLAGS
 WORLD_SIZE = flags.DEFINE_integer('WORLD_SIZE', None, help='define gpu size')
-MODEL_PATH = flags.DEFINE_integer('WORLD_SIZE', None, help='define gpu size')
+MODEL_PATH = flags.DEFINs('WORLD_SIZE', None, help='define gpu size')
 flags.mark_flag_as_required("WORLD_SIZE")
 
 if 'NODE_RANK' in env_cp.keys():

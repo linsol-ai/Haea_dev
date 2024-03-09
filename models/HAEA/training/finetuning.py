@@ -13,7 +13,7 @@ from absl import flags
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset, VariableVocab
-from models..datasets.dataset import CustomDataset
+from models.HAEA.datasets.dataset import CustomDataset
 from models.VariableEncoder.models.model import VariableEncoder
 
 from models.VariableEncoder.training.configs import TrainingConfig

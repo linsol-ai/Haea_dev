@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from models.HAEA.models.model import Haea
 from models.HAEA.training.configs import TrainingConfig
 from models.HAEA.training.params_schedule import CosineWarmupScheduler
-import wandb
+from typing import Tuple
 
 def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, 1, mean_std.size(0), 1)

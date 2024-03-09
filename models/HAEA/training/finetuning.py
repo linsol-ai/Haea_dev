@@ -114,6 +114,7 @@ def main(argv):
     data_module = DataModule(config.training)
     dataset = data_module.dataset
     mean_std = data_module.mean_std
+    
     max_iters = config.training.max_epochs*(len(data_module.train_ds) // config.training.batch_size)
     print(f"max_iters: {max_iters}")
 

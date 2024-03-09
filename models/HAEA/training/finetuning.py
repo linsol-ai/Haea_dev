@@ -85,7 +85,7 @@ def get_normal_dataset(config: FinetuningConfig) -> Tuple[Seq2SeqDataset, torch.
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: TrainingConfig):
+    def __init__(self, config: FinetuningConfig):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)

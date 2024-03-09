@@ -124,7 +124,7 @@ def main(argv):
     print("setting lr rate: ", config.training.learning_rate)
 
     model_pl = FinetuningModule(
-        model=model, mean_std=data_module.mean_std, max_iters=max_iters,
+        model=model.model, mean_std=data_module.mean_std, max_iters=max_iters,
         var_list=data_module.var_list, config=config.training)
     
     trainer = pl.Trainer(

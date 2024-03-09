@@ -151,7 +151,7 @@ class FinetuningModule(pl.LightningModule):
         return optimizer
 
 
-    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+    def _step(self, batch: batch: Dict, mode: str) -> torch.Tensor:
         src = batch['source']
         src_id = batch['source_id']
         label = batch['target']

@@ -88,7 +88,7 @@ class DataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig):
         super().__init__()
         self.config = config
-        self.dataset, self.mean_std, var_list = get_normal_dataset(self.config)
+        self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)
         train_ds, test_ds = torch.utils.data.random_split(
             self.dataset,
             [0.8, 0.2],

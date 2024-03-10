@@ -223,8 +223,6 @@ class FinetuningModule(pl.LightningModule):
         tgt_id = batch['target_id']
         tgt = label[:, :-1]
 
-      
-      
         # predict.shape = (batch, time * var + 1, hidden)
         predict = self.model(src, src_id, tgt, tgt_id, self.var_list, self.tgt_mask)
         label = label[:, 1:]

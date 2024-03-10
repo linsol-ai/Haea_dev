@@ -31,7 +31,6 @@ training:
     - total_cloud_cover
     - total_precipitation
   levels:
-  levels:
     - 50
     - 100
     - 150

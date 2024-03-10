@@ -229,7 +229,7 @@ class FinetuningModule(pl.LightningModule):
         predict = predict.view(predict.size(0), self.config.time_len, self.var_list.size(0), predict.size(-1))
         
         # loss.shape = (batch, time_len * var_len, 1450)
-        loss = self.calculate_sqare_loss(predict, label)
+        loss = self.calculate_sqare_loss(predict, label, self.mean_std)
         # loss.shape = (batch, var_len, time_len, 1450)
         loss = loss.swapaxes(1, 2)
         # loss.shape = (batch, var_len, time_len)

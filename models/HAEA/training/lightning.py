@@ -185,7 +185,7 @@ class FinetuningModule(pl.LightningModule):
         return loss
 
 
-    def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor):
+    def calculate_sqare_loss(self, predict: torch.Tensor, label: torch.Tensor, ):
         # target.size = (batch, time_len, var_len, hidden)
         var_len = label.size(2)
         label = denormalize(label, self.mean_std)

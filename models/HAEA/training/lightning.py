@@ -216,7 +216,7 @@ class FinetuningModule(pl.LightningModule):
         self._step(batch, "test")
     
 
-    def forward(self, batch) -> torch.Tensor:
+    def forward(self, batch: Dict) -> torch.Tensor:
         src = batch[0].to(self.device)
         # (batch, time+1, var, hidden)
         label = batch[1].to(self.device)

@@ -78,7 +78,8 @@ class Haea(nn.Module):
 
         print(src.shape)
         print(tgt.shape)
-        print(src)
+        print(src_var_seq.shape)
+        print(tgt)
 
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)
         tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)

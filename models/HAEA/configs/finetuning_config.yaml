@@ -2,7 +2,7 @@
 # specific options.
 training:
   learning_rate: 4e-6
-  warmup_step: 3000
+  warmup_step: 5000
   batch_size: 4
   max_epochs: 10
   gradient_clip_val: 0.5

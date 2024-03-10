@@ -237,8 +237,6 @@ class FinetuningModule(pl.LightningModule):
         # loss.shape = (var_len, batch, time_len)
         loss = loss.swapaxes(0, 1)
 
-        src_seq.cpu().detach()
-        tgt_seq.cpu().detach()
         src.cpu().detach()
 
         label.cpu().detach()

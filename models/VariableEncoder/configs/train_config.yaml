@@ -12,7 +12,7 @@ training:
   max_epochs: 10
   gradient_clip_val: 0.5
   src_time_len: 24
-  tgt_time_len: 12
+  tgt_time_len: 24
   train_start: 2013-01-01
   train_end: 2023-01-01
   

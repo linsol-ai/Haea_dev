@@ -1,17 +1,20 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 model:
-  num_heads: 20
+  num_heads: 16
   n_layers: 12
   dropout: 0.1
 training:
   learning_rate: 2e-5
   warmup_step: 5000
-  batch_size: 32
-  max_epochs: 30
+  batch_size: 16
+  max_epochs: 20
   gradient_clip_val: 0.5
-  max_lead_time: 28
-  train_offset: 0
+  max_lead_time: 24
+  time_len: 24
+  train_start: 2013-01-01
+  train_end: 2023-01-01
+
   air_variable:
     - geopotential
     - specific_humidity
@@ -26,3 +29,12 @@ training:
     - mean_sea_level_pressure
     - total_cloud_cover
     - total_precipitation
+  levels:
+    - 50
+    - 100
+    - 250
+    - 500
+    - 600
+    - 700
+    - 850
+    - 925

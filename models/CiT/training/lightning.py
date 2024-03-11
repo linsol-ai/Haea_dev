@@ -21,15 +21,14 @@ def rmse_loss(x, y):
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor, pressure_level: int,
+    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor,
                  max_iters: int, config: TrainingConfig | None = None):
         
         super().__init__()
         self.max_iters = max_iters
         self.model = model
-        self.pressure_level = pressure_level
         self.mean_std = mean_std
-        self.config = TrainingConfig() if config is None else config
+        self.config = config
         self.save_hyperparameters()
 
     
@@ -46,12 +45,13 @@ class TrainModule(pl.LightningModule):
         return optimizer
 
 
-    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         label = batch[1]
         delta = batch[2]
-        predict = self.model(src, delta)
-        loss = self.calculate_rmse_loss(predict, label)
+        var_seq = batch[3]
+        predict = self.model(src, delta, var_seq)
+        loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

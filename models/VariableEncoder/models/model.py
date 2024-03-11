@@ -51,7 +51,7 @@ class VariableEncoder(nn.Module):
         super().__init__()
         self.in_dim = in_dim
 
-        nn.Trans
+        nn.TransformerDecoder
 
         self.transformer = nn.Transformer(
             d_model=in_dim,

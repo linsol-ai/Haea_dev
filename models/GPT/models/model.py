@@ -54,7 +54,7 @@ class DecoderLayer(nn.Module):
         self.dropout1 = nn.Dropout(resid_pdrop)
         self.layernorm1 = nn.LayerNorm(d_model, eps=1e-5)    
 
-        self.ffn = PositionWiseFeedForwardNetwork(d_model, d_ff)
+        self.ffn = nn.Posti(d_model, d_ff)
         self.dropout2 = nn.Dropout(resid_pdrop)
         self.layernorm2 = nn.LayerNorm(d_model, eps=1e-5)    
 

@@ -51,6 +51,8 @@ class VariableEncoder(nn.Module):
         super().__init__()
         self.in_dim = in_dim
 
+        nn.Trans
+
         self.transformer = nn.Transformer(
             d_model=in_dim,
             nhead=num_heads,

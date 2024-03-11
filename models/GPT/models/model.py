@@ -45,7 +45,27 @@ class LinearDecoder(nn.Module):
     def forward(self, x):
        return self.seq(x)
     
+class PositionWiseFeedForwardNetwork(nn.Module):
+    def __init__(self, d_model, d_ff):
+        super(PositionWiseFeedForwardNetwork, self).__init__()
 
+        self.linear1 = nn.Linear(d_model, d_ff)
+        self.linear2 = nn.Linear(d_ff, d_model)
+        self.gelu = nn.GELU()
+
+        nn.init.normal_(self.linear1.weight, std=0.02)
+        nn.init.normal_(self.linear2.weight, std=0.02)
+
+    def forward(self, inputs):
+        # |inputs| : (batch_size, seq_len, d_model)
+
+        outputs = self.gelu(self.linear1(inputs))
+        # |outputs| : (batch_size, seq_len, d_ff)
+        outputs = self.linear2(outputs)
+        # |outputs| : (batch_size, seq_len, d_model)
+
+        return outputs
+    
 class DecoderLayer(nn.Module):
     def __init__(self, d_model, n_heads, d_ff, attn_pdrop, resid_pdrop):
         super(DecoderLayer, self).__init__()

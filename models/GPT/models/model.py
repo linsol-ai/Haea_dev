@@ -45,6 +45,7 @@ class LinearDecoder(nn.Module):
     def forward(self, x):
        return self.seq(x)
     
+    
 class PositionWiseFeedForwardNetwork(nn.Module):
     def __init__(self, d_model, d_ff):
         super(PositionWiseFeedForwardNetwork, self).__init__()

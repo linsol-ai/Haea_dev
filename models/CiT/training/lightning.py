@@ -52,7 +52,7 @@ class TrainModule(pl.LightningModule):
         var_seq = batch[3]
         print(src.shape)
         print(delta.shape)
-        p
+        print(var_seq.)
         predict = self.model(src, delta, var_seq)
         loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

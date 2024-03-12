@@ -87,7 +87,7 @@ class ClimateTransformer(nn.Module):
         x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
         x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
-        x = self.decoder(x, var_len)
+        x = self.decoder(x)
         return x
 
 

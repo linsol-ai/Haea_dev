@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
 
     def get_data(self, item):
         t = item + self.time_len
-        src = self.source_dataset[t-self.time_len:t+1]
+        src = self.source_dataset[t-self.time_len+1:t+1]
         return src, tgt
 
 

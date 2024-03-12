@@ -91,23 +91,25 @@ class TrainModule(pl.LightningModule):
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)
 
-    def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
+    def setting(self):
         self.mean_std = self.mean_std.to(self.device)
-        src = batch[0].to(self.device)
-        label = batch[1].to(self.device)
-        delta = batch[2].to(self.device)
-        predict = self.model(src, delta)
-        label = denormalize(label, self.mean_std)
-        predict = denormalize(predict, self.mean_std)
-        # loss.shape = (batch, var_len, hidden)
-        loss = F.mse_loss(predict, label, reduction='none')
-        # loss.shape = (batch, var_len)
-        loss = torch.sqrt(loss.mean(dim=-1)).cpu().detach()
+        self.model.eval()
 
-        self.mean_std.cpu().detach()
-        src.cpu().detach()
-        delta.cpu().detach()
+    def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
+        with torch.no_grad():
+            src = batch[0].to(self.device)
+            delta = batch[2].to(self.device)
+            var_seq = batch[3].to(self.device)
+            predict = self.model(src, delta, var_seq)
 
-        return predict.cpu().detach(), label.cpu().detach(), loss, delta
+            label = batch[1].to(self.device)
+            label = denormalize(label, self.mean_std)
+            predict = denormalize(predict, self.mean_std)
+            # loss.shape = (batch, var_len, hidden)
+            loss = F.mse_loss(predict, label, reduction='none')
+            # loss.shape = (batch, var_len)
+            loss = loss.mean(dim=-1)
+        
+        return loss, delta
     
 

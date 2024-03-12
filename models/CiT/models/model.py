@@ -77,20 +77,20 @@ class ClimateTransformer(nn.Module):
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
-    def forward(self, src: torch.Tensor, lead_time: torch.Tensor, var_seq: torch.Tensor):
+    def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_seq: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_len = var_seq.size(1)
-        var_seq = var_seq.repeat_interleave(src.size(1), dim=1)
-        src_pe = self.positional_encoding(src.shape, src.device)
-        src = src.view(src.size(0), -1, src.size(-1))
-        lead_time = lead_time.unsqueeze(1).repeat(1, src.size(1))
+        var_seq = var_seq.repeat_interleave(x.size(1), dim=1)
+        src_pe = self.positional_encoding(x.shape, x.device)
+        x = x.view(x.size(0), -1, x.size(-1))
+        lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
-        src = self.embedding(src, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
-        out = self.encoder(src)
+        x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
+        x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
-        out = self.decoder(out, var_len)
-        return out
-    
+        x = self.decoder(x, var_len)
+        return x
+
 
     def positional_encoding(self, shape, device):       
         batch, time_len, var_len, d_model = shape 

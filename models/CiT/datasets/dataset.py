@@ -22,7 +22,7 @@ class CustomDataset(Dataset):
         t = t - max(0, (t + choice + self.time_len) - (self.source_dataset.size(0) - 1))
         src = self.source_dataset[t-self.time_len+1:t+1]
         next = t + choice
-        tgt = self.source_dataset[next:next + ]
+        tgt = self.source_dataset[next:next + self.time_len]
 
         return src, tgt
 

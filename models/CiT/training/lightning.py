@@ -50,10 +50,6 @@ class TrainModule(pl.LightningModule):
         label = batch[1]
         delta = batch[2]
         var_seq = batch[3]
-        print(src.shape)
-        print(delta.shape)
-        print(var_seq.shape)
-        print(label.shape)
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)
         loss = rmse_loss(predict, label)

@@ -80,7 +80,7 @@ def get_normal_dataset(config: TrainingConfig):
     
     var_list = var_vocab.get_code(vars)
     print(var_list)
-    dataset = CustomDataset(source, config.time_len, config.max_lead_time)
+    dataset = CustomDataset(source, var_list, config.time_len, config.max_lead_time)
     return dataset, mean_std, var_list
 
 

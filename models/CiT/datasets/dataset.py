@@ -22,7 +22,7 @@ class CustomDataset(Dataset):
         t = t - max(0, (t + delta + self.time_len) - (self.source_dataset.size(0) - 1))
         src = self.source_dataset[t-self.time_len+1:t+1]
         next = t + delta + 1
-        tgt = self.source_dataset[next:next+self.time_len-1]
+        tgt = self.source_dataset[next:next+self.time_len]
         return src, tgt, delta
         
 

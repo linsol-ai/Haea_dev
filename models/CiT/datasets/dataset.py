@@ -16,24 +16,6 @@ class CustomDataset(Dataset):
         return self.source_dataset.size(0)
 
 
-
-
-
-    def make_dataset(self):
-        dataset_inc = []
-        for t in range(self.time_len, self.source_dataset.size(0)):
-            src = [r for r in range(t-self.time_len+1, t+1)]
-            next = min(t + self.max_lead_time, self.source_dataset.size(0)-1)
-            if t != next:
-                sample = torch.randint(t, next, (1,)).item()
-            else:
-                sample = t
-            delta = sample-t
-           
-            dataset_inc.append((src, sample, delta))
-
-        self.dataset_inc = dataset_inc
-
     def __getitem__(self, t):
         t = max(t, self.time_len-1)
         choice = self.sample[torch.randint(0, self.sample.size(0)-1, (1,))].item()

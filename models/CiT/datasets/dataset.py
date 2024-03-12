@@ -23,7 +23,7 @@ class CustomDataset(Dataset):
         src = self.source_dataset[t-self.time_len+1:t+1]
         next = t + choice + 1
         tgt = self.source_dataset[next:next+self.time_len-1]
-        return src, tgt, 
+        return src, tgt, choice
 
 
     def make_dataset(self):

@@ -8,11 +8,12 @@ class CustomDataset(Dataset):
         self.source_dataset = source_dataset
         self.max_lead_time = max_lead_time
         self.time_len = time_len
-        self.sample = torch.arange(time_len, max_lead_time, step=time_len, dtype=torch.int)
+        self.sample = torch.ar(time_len, max_lead_time, step=time_len, dtype=torch.int32)
 
 
     def __len__(self):
         return self.source_dataset.size(0)
+
 
     def __getitem__(self, t):
         t = max(t, self.time_len-1)

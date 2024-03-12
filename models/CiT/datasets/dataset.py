@@ -17,9 +17,10 @@ class CustomDataset(Dataset):
 
 
     def get_data(self, item):
+        sample = torch.randint(t, next, (1,)).item()
         t = item + self.time_len
         src = self.source_dataset[t-self.time_len+1:t+1]
-        
+
         return src, tgt
 
 

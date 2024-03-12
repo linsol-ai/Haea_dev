@@ -3,7 +3,7 @@ import torch
 
 class CustomDataset(Dataset):
 
-    def __init__(self, source_dataset: torch.Tensor, var_seq: torch.Tensor, time_len: int, max_lead_time: int = 78):
+    def __init__(self, source_dataset: torch.Tensor, time_len: int, max_lead_time: int = 78):
         # dataset.shape = (time, var_len, hidden)
         self.source_dataset = source_dataset
         self.max_lead_time = max_lead_time

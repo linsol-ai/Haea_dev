@@ -17,8 +17,7 @@ class CustomDataset(Dataset):
 
 
     def get_data(self, item):
-        src = self.source_dataset[src_ind]
-        tgt = self.source_dataset[sample]
+        
         return src, tgt
 
 

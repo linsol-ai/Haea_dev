@@ -23,6 +23,6 @@ class CustomDataset(Dataset):
         src = self.source_dataset[t-self.time_len+1:t+1]
         next = t + delta + 1
         tgt = self.source_dataset[next:next+self.time_len]
-        return src, tgt, delta, self.var_seq
+        return src, tgt, torch.tensor(delta, self.var_seq
         
 

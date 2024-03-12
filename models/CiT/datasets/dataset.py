@@ -42,8 +42,6 @@ class CustomDataset(Dataset):
         self.dataset_inc = dataset_inc
 
     def __getitem__(self, t):
-        src_ind, sample, delta = self.dataset_inc[item]
-        src, tgt = self.get_data(src_ind, sample)
-        return src, tgt, delta, self.var_seq
+        return 
         
 

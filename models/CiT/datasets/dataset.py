@@ -9,7 +9,7 @@ class CustomDataset(Dataset):
         self.max_lead_time = max_lead_time
         self.time_len = time_len
         self.var_seq = var_seq
-        self.sample = torch.arange(time_len, max_lead_time, step=time_len)
+        self.sample = torch.arange(time_len, max_lead_time, step=time_len, dtype=torch.int32)
 
 
     def __len__(self):

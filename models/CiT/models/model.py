@@ -50,7 +50,7 @@ class LinearDecoder(nn.Module):
             nn.Linear(out_dim, out_dim),
         )
 
-    def forward(self, x, var_len):
+    def forward(self, x):
        # x.shape = (batch, time * var, hidden)
        return self.seq(x)
 

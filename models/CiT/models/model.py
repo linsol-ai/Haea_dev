@@ -52,7 +52,7 @@ class LinearDecoder(nn.Module):
 
     def forward(self, x, var_len):
        # x.shape = (batch, time * var, hidden)
-       return self.seq(x[:, :var_len])
+       return self.seq(x)
 
 
 class ClimateTransformer(nn.Module):

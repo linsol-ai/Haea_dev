@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
 
     def get_data(self, t):
         t = max(t, self.time_len-1)
-        choice = self.sampletorch.randint(0, self.sample.size(0)-1, (1,)).item()
+        choice = self.sample[torch.randint(0, self.sample.size(0)-1, (1,)).item()
         diff = max(0, (t + choice + self.time_len) - (self.source_dataset.size(0) - 1))
         t = t - diff
         src = self.source_dataset[t-self.time_len+1:t+1]

@@ -97,9 +97,9 @@ class Electra(nn.Module):
         gen_var_seq, mask_ind = self.get_var_seq(var_list, src_id, src.device)
         src = self.embedding(src, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.generator(src)
-        
-        for i in range(x.shape(0)):
 
+        for i in range(x.shape(0)):
+            
 
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

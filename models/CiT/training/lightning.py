@@ -102,7 +102,7 @@ class TrainModule(pl.LightningModule):
             delta = batch[2].to(self.device)
             var_seq = batch[3].to(self.device)
             predict = self.model(src, delta, var_seq)
-
+            
             label = batch[1].to(self.device)
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)

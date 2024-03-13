@@ -102,7 +102,6 @@ class Electra(nn.Module):
 
     def generate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
         gen_var_seq, mask_ind = self.get_var_seq(var_list, src_id, x.device)
-
         x = self.embedding(x, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.generator(x)
         gen = self.decoder(x)
@@ -112,6 +111,7 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
+        
         return masked
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

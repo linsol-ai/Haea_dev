@@ -136,7 +136,7 @@ class Electra(nn.Module):
         tgt = tgt.view(tgt.size(0), -1, tgt.size(-1))
         
         # masked.shape = (batch, mask_size, hidden)
-        masked, mask_ind = self.generate(src, src_pe, var_list, src_id)
+        masked, mask_ind,  = self.generate(src, src_pe, var_list, src_id)
         for i in range(src.size(0)):
             src[i, mask_ind[i]] = masked[i]
 

@@ -34,7 +34,8 @@ class Embedding(nn.Module):
         if lead_time is not None:
             time_emb = self.time(lead_time)
             return self.dropout(x + var_emb + time_emb + pos_emb)
-        
+        time_emb = self.time(lead_time)
+            return self.dropout(x + var_emb + time_emb + pos_emb)
 
 
 

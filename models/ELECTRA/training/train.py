@@ -96,6 +96,7 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.
     )
     return dataset, mean_std, var_vocab, time_vocab
 
+
 class DataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig):
         super().__init__()

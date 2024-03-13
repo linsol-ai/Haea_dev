@@ -63,7 +63,8 @@ def split_datetime_range(start, end, n):
     intervals.append(end)
     return intervals
 
-def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:
+def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
+
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
@@ -78,9 +79,21 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Ten
                                         config.constant_variable, level=config.levels)
     var_list = var_vocab.get_code(vars)
 
-    dataset = CustomDataset(source, config.time, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
-    return dataset, mean_std, var_list
-
+    time_vocab = TimeVocab(source, var_list, config.time_len)
+    
+    dataset = DenoisingDataset(
+        time_vocab,
+        127,
+        mask=config.mask_ratio,
+        mask_random=0,
+        insert=0,
+        rotate=0,
+        permute_sentences=0,
+        replace_length=-1,
+        mask_length='span-poisson',
+        poisson_lambda=3
+    )
+    return dataset, mean_std, var_vocab, time_vocab
 
 class DataModule(pl.LightningDataModule):
     def __init__(self, config: TrainingConfig):

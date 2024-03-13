@@ -120,6 +120,7 @@ class Electra(nn.Module):
     def discriminate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
         var_seq = var_list.repeat_interleave(x.size(1), dim=1)
         x = self.embedding(x, var_seq, src_pe) * math.sqrt(self.in_dim)
+        
 
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

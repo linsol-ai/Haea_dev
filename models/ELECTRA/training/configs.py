@@ -14,7 +14,7 @@ class ModelConfig(BaseModel):
 
     dropout: float = Field(ge=0, default=0.1)
 
-     disc_weight: float = 50.
+    disc_weight: float = 50.
 
     gen_weight: float = 1.
 

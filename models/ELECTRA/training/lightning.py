@@ -53,8 +53,8 @@ class PretrainModule(pl.LightningModule):
         label = batch['target']
         loss = self.model(src, label, self.var_list, src_id)
         
-        self.log(f"{mode}/mlm_loss", mlm_loss, prog_bar=mode == "train", sync_dist=True)
-        return mlm_loss
+        self.log(f"{mode}/mlm_loss", loss, prog_bar=mode == "train", sync_dist=True)
+        return loss
 
 
     def calculate_rmse_loss(self, predict: torch.Tensor, label: torch.Tensor):

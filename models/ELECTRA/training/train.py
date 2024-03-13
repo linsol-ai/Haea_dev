@@ -17,8 +17,8 @@ from models.ELECTRA.datasets.denoised_dataset import DenoisingDataset, TimeVocab
 from models.ELECTRA.models.model import Haea
 
 from models.ELECTRA.training.configs import TrainingConfig
-from models.HAEA.training.configs import TrainingRunConfig
-from models.HAEA.training.lightning import TrainModule
+from models.ELECTRA.training.configs import TrainingRunConfig
+from models.ELECTRA.training.lightning import TrainModule
 
 
 import os

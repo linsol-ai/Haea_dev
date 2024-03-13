@@ -55,7 +55,7 @@ class LinearDecoder(nn.Module):
        return self.seq(x)
 
 
-class ClimateTransformer(nn.Module):
+class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, n_layers=3, dropout=0.1, max_lead_time=500, max_var_len=300):
         super().__init__()

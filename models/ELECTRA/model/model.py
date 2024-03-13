@@ -72,7 +72,7 @@ class CliBERT(nn.Module):
             batch_first=True,
             activation=F.gelu
         )
-        self.encoder = nn.TransformerEncoder(
+        self.model = nn.TransformerEncoder(
             encoder_layers,
             n_layers
         )

@@ -43,6 +43,7 @@ def positional_encoding(shape, device):
 
         return pe.repeat_interleave(var_len, dim=1)
 
+
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
         super().__init__(var_len, embed_size)

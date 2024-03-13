@@ -2,7 +2,6 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import math
-from typing import List
 from models.ELECTRA.datasets.denoised_dataset import TimeVocab
 
 def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):

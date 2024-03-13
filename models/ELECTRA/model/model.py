@@ -114,7 +114,7 @@ class CliBERT(nn.Module):
         return x
 
 
-class CliBERTMLM(nn.Module):
+class CliBERT(nn.Module):
     def __init__(self, in_dim: int, num_heads=12, n_layers=3, dropout=0.1):
         super().__init__()
         self.in_dim = in_dim

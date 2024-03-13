@@ -14,7 +14,7 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset, VariableVocab
 from models.ELECTRA.datasets.denoised_dataset import DenoisingDataset
-from models.ELECTRA.models.model import VariableEncoder
+from models.ELECTRA.
 
 from models.ELECTRA.training.configs import TrainingConfig
 from models.ELECTRA.training.configs import TrainingRunConfig

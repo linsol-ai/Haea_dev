@@ -142,7 +142,7 @@ class Electra(nn.Module):
 
         mlm_loss = torch.sqrt(F.mse_loss(src, tgt))
         x = self.discriminate(src, src_pe, var_list)
-        
+
         return x, mlm_loss
 
 
@@ -157,7 +157,6 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
-        label = 
         return masked, mask_ind
     
 

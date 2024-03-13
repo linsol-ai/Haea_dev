@@ -89,7 +89,7 @@ class Electra(nn.Module):
                  num_heads=12, g_layers=3, d_layers=12, dropout=0.1, max_lead_time=500, max_var_len=300):
         
         self.in_dim = in_dim
-        self.generator = CliBERT(in_dim, num_heads, g_layers, )
+        self.generator = CliBERT(in_dim, num_heads, g_layers, dropout)
         self.discriminator = discriminator
         self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)

@@ -150,8 +150,8 @@ class Electra(nn.Module):
             label
         )
         loss = self.gen_weight * mlm_loss + self.disc_weight * disc_loss
-        
-        return x, mlm_loss
+
+        return loss, 
 
 
     def generate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

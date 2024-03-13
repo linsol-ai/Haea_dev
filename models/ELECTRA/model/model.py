@@ -135,6 +135,7 @@ class Electra(nn.Module):
     def __init__(self, generator: CliBERT, discriminator: CliBERT, 
                  in_dim: int, out_dim: int, dropout=0.1, max_lead_time=500, max_var_len=300):
         self.in_dim = in_dim
+        self.generator = generator
         self.
     
 

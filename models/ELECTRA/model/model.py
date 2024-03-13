@@ -115,7 +115,7 @@ class CliBERT(nn.Module):
 
 
 class CliBERTLM(nn.Module):
-    def __init__(self, in_dim: int, num_heads=12, n_layers=3, dropout=0.1):
+    def __init__(self, in_dim: int, num_heads=12, n_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
         encoder_layers = nn.TransformerEncoderLayer(

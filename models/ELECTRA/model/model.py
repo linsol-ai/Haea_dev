@@ -114,6 +114,28 @@ class CliBERT(nn.Module):
         return x
 
 
+class CliBERT(nn.Module):
+    def __init__(self, in_dim: int, num_heads=12, n_layers=3, dropout=0.1):
+        super().__init__()
+        self.in_dim = in_dim
+        encoder_layers = nn.TransformerEncoderLayer(
+            d_model=in_dim,
+            nhead=num_heads,
+            dim_feedforward=in_dim*4,
+            dropout=dropout,
+            batch_first=True,
+            activation=F.gelu
+        )
+        self.model = nn.TransformerEncoder(
+            encoder_layers,
+            n_layers
+        )
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.model(x)
+        return x
+
+
 class Electra(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, g_layers=3, d_layers=12, dropout=0.1, 
@@ -152,7 +174,7 @@ class Electra(nn.Module):
         )
         
         loss = self.gen_weight * mlm_loss + self.disc_weight * disc_loss
-        
+
         return loss, mlm_loss, disc_loss
 
 

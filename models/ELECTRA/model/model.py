@@ -97,7 +97,7 @@ class Electra(nn.Module):
         # masked.shape = (batch, mask_size, hidden)
         masked = self.generate(x, src_pe, var_list, src_id)
         for i in range(x.size(0)):
-            masked.append(gen[i, mask_ind[i]].unsqueeze(0))
+            x[i, ]
 
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

@@ -142,7 +142,7 @@ class Electra(nn.Module):
 
         mlm_loss = torch.sqrt(F.mse_loss(src, tgt))
         x = self.discriminate(src, src_pe, var_list)
-        
+        disc_loss = 
 
         return x, mlm_loss
 

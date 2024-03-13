@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
-from models.El.models.model import ClimateTransformer
+from models.ELECTRA.models.model import ClimateTransformer
 from models.CiT.training.configs import TrainingConfig
 from models.CiT.training.params_schedule import CosineWarmupScheduler
 from typing import Dict

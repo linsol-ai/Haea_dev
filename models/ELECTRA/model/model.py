@@ -132,7 +132,7 @@ class Electra(nn.Module):
     def forward(self, src: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = positional_encoding(src.shape, src.device)
-        x = x.view(x.size(0), -1, x.size(-1))
+        x = x.view(src.size(0), -1, src.size(-1))
         # masked.shape = (batch, mask_size, hidden)
         masked, mask_ind = self.generate(x, src_pe, var_list, src_id)
         for i in range(x.size(0)):

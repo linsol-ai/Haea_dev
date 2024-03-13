@@ -154,7 +154,7 @@ class Electra(nn.Module):
 
         masked = torch.cat(masked, dim=0)
 
-        loss = torch.sqrt(F.mse_loss())
+        loss = torch.sqrt(F.mse_loss(x, ))
 
         return masked, mask_ind
     

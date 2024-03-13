@@ -113,7 +113,7 @@ class Electra(nn.Module):
             for i, item in enumerate(batch):
                 if item == TimeVocab.SPECIAL_TOKEN_MASK:
                         seq.append(torch.full_like(var_list, TimeVocab.SPECIAL_TOKEN_MASK, device=device))
-                        mask_ind.append(torch.arange(i*var_len, i*var_len + var_len, st))
+                        mask_ind.append(torch.arange(i*var_len, i*var_len + var_len, step=1))
                 else:
                     seq.append(var_list)
 

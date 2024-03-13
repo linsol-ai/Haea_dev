@@ -139,6 +139,8 @@ class Electra(nn.Module):
         for i in range(x.size(0)):
             x[i, mask_ind[i]] = masked[i]
 
+    
+
         x = self.discriminate(x, src_pe, var_list)
         return x
 

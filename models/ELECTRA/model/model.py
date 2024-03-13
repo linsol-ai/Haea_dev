@@ -149,7 +149,7 @@ class Electra(nn.Module):
             logits,
             label
         )
-        loss = 
+        loss = self.gen_weight * mlm_loss + self.disc_weight * disc_loss
 
         return x, mlm_loss
 

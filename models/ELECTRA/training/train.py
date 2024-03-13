@@ -18,7 +18,7 @@ from models.ELECTRA.model.model import Electra
 
 from models.ELECTRA.training.configs import TrainingConfig
 from models.ELECTRA.training.configs import TrainingRunConfig
-from models.ELECTRA.training.lightning import TrainModule
+from models.ELECTRA.training.lightning import PretrainModule
 
 
 import os

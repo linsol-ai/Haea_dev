@@ -154,7 +154,6 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
-
         return masked, mask_ind
     
 

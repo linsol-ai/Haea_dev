@@ -144,7 +144,7 @@ class Electra(nn.Module):
         logits = self.discriminate(src, src_pe, var_list)
         disc_loss = F.binary_cross_entropy_with_logits(
             logits,
-            disc_labels[non_padded_indices]
+            label
         )
 
         return x, mlm_loss

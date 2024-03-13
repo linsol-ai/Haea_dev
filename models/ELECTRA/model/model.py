@@ -135,7 +135,7 @@ class Electra(nn.Module):
         src = src.view(src.size(0), -1, src.size(-1))
         # masked.shape = (batch, mask_size, hidden)
         masked, mask_ind = self.generate(src, src_pe, var_list, src_id)
-        for i in range(x.size(0)):
+        for i in range(src.size(0)):
             x[i, mask_ind[i]] = masked[i]
 
         mlm_loss = torch.sqrt(F.mse_loss(x_clone, x))

@@ -76,6 +76,9 @@ class CliBERT(nn.Module):
             encoder_layers,
             n_layers
         )
+        
+        self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
+        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
     def forward(self, x: torch.Tensor, var_seq: torch.Tensor, lead_time: torch.Tensor | None):
@@ -87,6 +90,7 @@ class CliBERT(nn.Module):
         if lead_time is not None:
             lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
+        x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
         x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

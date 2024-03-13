@@ -15,7 +15,7 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
             seq = []
             mask = []
             for i, item in enumerate(batch):
-                if item == TimeVocab.:
+                if item == TimeVocab.SPECIAL_TOKEN_MASK:
                         seq.append(torch.full_like(var_list, 3, device=device))
                         mask.extend(range(i*var_len, i*var_len + var_len, 1))
                 else:

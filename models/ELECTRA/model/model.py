@@ -82,6 +82,8 @@ class CliBERT(nn.Module):
         var_seq = var_seq.repeat_interleave(x.size(1), dim=1)
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
+
+        
         lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
         x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)

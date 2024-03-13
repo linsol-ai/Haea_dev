@@ -140,7 +140,7 @@ def main(argv):
         d_layers=config.model.d_layers,
         dropout=config.model.dropout,
         disc_weight=config.model.disc_weight,
-        gen_weight=config.training.gen_weight,
+        gen_weight=config.model.gen_weight,
         max_var_len=len(data_module.var_vocab)
     )
 

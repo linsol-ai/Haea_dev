@@ -157,7 +157,7 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
-        label = (gen_var_seq == 3).int()
+        label = (gen_var_seq == TimeVocab.SPECIAL_TOKEN_MASK).int()
         return masked, mask_ind
     
 

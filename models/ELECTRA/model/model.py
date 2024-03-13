@@ -96,12 +96,31 @@ class Electra(nn.Module):
         src_pe = self.positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
         src = self.embedding(src, var_seq, src_pe) * math.sqrt(self.in_dim)
-        
+
 
         x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x
+    
+
+    def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
+        # indicate.shape = (batch, max_len)
+        result = []
+        var_list = var_list
+
+        for batch in indicate:
+            seq = []
+            for item in batch:
+                if item == TimeVocab.SPECIAL_TOKEN_MASK:
+                        seq.append(torch.full_like(var_list, TimeVocab.SPECIAL_TOKEN_MASK, device=device))
+                else:
+                    seq.append(var_list)
+
+            seq = torch.cat(seq, dim=0)
+            result.append(seq)
+        result = torch.stack(result, dim=0)
+        return result
 
 
     def positional_encoding(self, shape, device):       

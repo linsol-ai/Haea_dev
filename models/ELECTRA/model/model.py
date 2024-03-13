@@ -32,8 +32,9 @@ class Embedding(nn.Module):
     def forward(self, x: torch.Tensor, variable: torch.Tensor, pos_emb: torch.Tensor, lead_time: torch.Tensor | None) -> torch.Tensor:
         var_emb = self.variable(variable)
         if lead_time is not None:
-        time_emb = self.time(lead_time)
-        return self.dropout(x + var_emb + time_emb + pos_emb)
+            time_emb = self.time(lead_time)
+            return self.dropout(x + var_emb + time_emb + pos_emb)
+            
 
 
 class LinearDecoder(nn.Module):

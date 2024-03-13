@@ -3,7 +3,7 @@
 model:
   num_heads: 16
   g_layers: 6
-  n_decoder_layers: 6
+  d_layers: 6
   dropout: 0.1
 training:
   learning_rate: 8e-6

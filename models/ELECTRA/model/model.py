@@ -129,7 +129,7 @@ class Electra(nn.Module):
         self.logits = nn.Linear(in_dim, 1)
     
 
-    def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
+    def forward(self, src: torch.Tensor, label: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))

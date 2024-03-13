@@ -115,7 +115,7 @@ class Electra(nn.Module):
 
         return masked
     
-    def disc
+    def discriminate
 
 
 

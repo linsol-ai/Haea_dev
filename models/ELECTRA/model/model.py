@@ -77,7 +77,7 @@ class CliBERT(nn.Module):
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
-    def forward(self, x: torch.Tensor, var_seq: torch.Tensor, lead_time: torch.Tensor):
+    def forward(self, x: torch.Tensor, var_seq: torch.Tensor, lead_time: torch.Tensor | None):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_seq = var_seq.repeat_interleave(x.size(1), dim=1)
         src_pe = self.positional_encoding(x.shape, x.device)

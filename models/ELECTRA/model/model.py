@@ -112,6 +112,7 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
+        return 
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len)

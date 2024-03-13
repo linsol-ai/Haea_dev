@@ -144,7 +144,9 @@ class Electra(nn.Module):
             src[i, mask_ind[i]] = masked[i]
 
         mlm_loss = torch.sqrt(F.mse_loss(src, tgt))
+
         logits = self.discriminate(src, src_pe, var_list)
+        
         disc_loss = F.binary_cross_entropy_with_logits(
             logits,
             label

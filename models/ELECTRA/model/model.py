@@ -123,7 +123,7 @@ class Electra(nn.Module):
             mask_ind.append(mask)
         result = torch.stack(result, dim=0)
         mask_ind = torch.stack(mask_ind, dim=0)
-        return result
+        return result, 
 
 
     def positional_encoding(self, shape, device):       

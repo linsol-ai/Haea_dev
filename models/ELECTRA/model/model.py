@@ -94,17 +94,7 @@ class Electra(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
-        gen_var_seq, mask_ind = self.get_var_seq(var_list, src_id, x.device)
 
-        x = self.embedding(x, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
-        x = self.generator(x)
-        gen = self.decoder(x)
-        
-        masked = []
-        for i in range(gen.shape(0)):
-            masked.append(gen[i, mask_ind[i]].unsqueeze(0))
-
-        masked = torch.cat(masked, dim=0)
 
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

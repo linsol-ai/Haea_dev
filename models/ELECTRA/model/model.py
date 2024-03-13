@@ -26,8 +26,7 @@ class Embedding(nn.Module):
         self.variable = VariableEmbedding(var_len, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
-        if pretrain:
-            self.time = LeadTimeEmbedding(max_lead_time, embed_size)
+        iLeadTimeEmbedding(max_lead_time, embed_size)
 
     def forward(self, x: torch.Tensor, variable: torch.Tensor, pos_emb: torch.Tensor, lead_time: torch.Tensor | None) -> torch.Tensor:
         var_emb = self.variable(variable)

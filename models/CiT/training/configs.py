@@ -29,6 +29,8 @@ class TrainingConfig(BaseModel):
     gradient_clip_val: float | None = None
     """The value to clip the gradients to."""
 
+    disc_weight
+
     max_lead_time: int = Field(ge=0, default=72)
 
     time_len: int = Field(ge=0, default=7)

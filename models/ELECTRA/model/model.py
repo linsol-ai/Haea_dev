@@ -166,7 +166,7 @@ class Electra(nn.Module):
         for i in range(gen.size(0)):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
-        label = (gen_var_seq == TimeVocab.SPECIAL_TOKEN_MASK).float().squeeze(-1)
+        label = (gen_var_seq == TimeVocab.SPECIAL_TOKEN_MASK).float()
         return masked, mask_ind, label
     
 

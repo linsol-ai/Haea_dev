@@ -98,7 +98,7 @@ class Electra(nn.Module):
         src = self.embedding(src, var_seq, src_pe) * math.sqrt(self.in_dim)
 
 
-        x = self.generator(x)
+        x = self.generator(src)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x

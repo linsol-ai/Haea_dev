@@ -108,6 +108,7 @@ class Electra(nn.Module):
         result = []
         mask_ind = []
         var_len = var_list.size(0)
+        
         for batch in indicate:
             seq = []
             mask = []

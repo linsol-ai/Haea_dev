@@ -5,6 +5,44 @@ import math
 from typing import List
 from models.ELECTRA.datasets.denoised_dataset import TimeVocab
 
+    def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
+        # indicate.shape = (batch, max_len)
+        result = []
+        mask_ind = []
+        var_len = var_list.size(0)
+
+        for batch in indicate:
+            seq = []
+            mask = []
+            for i, item in enumerate(batch):
+                if item == 3:
+                        seq.append(torch.full_like(var_list, 3, device=device))
+                        mask.extend(range(i*var_len, i*var_len + var_len, 1))
+                else:
+                    seq.append(var_list)
+
+            seq = torch.cat(seq, dim=0)
+            result.append(seq)
+            mask_ind.append(mask)
+            
+        result = torch.stack(result, dim=0)
+        mask_ind = torch.tensor(mask_ind)
+        return result, mask_ind
+
+
+    def positional_encoding(self, shape, device):       
+        batch, time_len, var_len, d_model = shape 
+        pe = torch.zeros(batch, time_len, d_model, device=device).float()
+        pe.require_grad = False
+        position = torch.arange(0, time_len).float().unsqueeze(1)
+        
+        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
+
+        pe[:, :, 0::2] = torch.sin(position * div_term)
+        pe[:, :, 1::2] = torch.cos(position * div_term)
+
+        return pe.repeat_interleave(var_len, dim=1)
+
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
         super().__init__(var_len, embed_size)

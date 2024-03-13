@@ -138,6 +138,10 @@ class CliBERTLM(nn.Module):
         src_pe = positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
         tgt = tgt.view(tgt.size(0), -1, tgt.size(-1))
+
+        gen_var_seq, mask_ind = get_var_seq(var_list, src_id, x.device)
+        gen = self.embedding(x, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
+        gen = self.generator(gen)
         
         return x
 

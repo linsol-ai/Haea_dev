@@ -122,7 +122,7 @@ class Electra(nn.Module):
         x = self.embedding(x, var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.discriminator(x)
         x = self.logits(x)
-        
+        return x
 
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

@@ -103,7 +103,7 @@ class Electra(nn.Module):
         for i in range(gen.shape(0)):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
-        masked = torch.cat(masked,)
+        masked = torch.cat(masked, dim=0)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x

@@ -171,7 +171,7 @@ class Electra(nn.Module):
         return masked, mask_ind, label
     
 
-    def discriminate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor):
+    def discriminate(self, x: torch.Tensor, src_pe: torch.Tensor, var_seq: torch.Tensor):
         var_seq = var_list.repeat_interleave(x.size(1), dim=1).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
         x = self.embedding(x, var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.discriminator(x)

@@ -99,7 +99,7 @@ class Electra(nn.Module):
         x = self.embedding(x, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.generator(x)
         gen = self.decoder(x)
-        
+        masked = torch.zero
         for i in range(gen.shape(0)):
             masked = gen[i, mask_ind[i]]
 

@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import List
 import datetime
 
+
 class ModelConfig(BaseModel):
     """A config specification of model."""
 

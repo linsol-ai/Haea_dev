@@ -125,46 +125,33 @@ class DataModule(pl.LightningDataModule):
 
 
 def main(argv):
-
-    config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
-
-    try:
-        with open(config_path) as f:
-            config_dict = yaml.safe_load(f)
-        config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
-    except FileNotFoundError:
-        logging.error(f"Config file {config_path} does not exist. Exiting.")
-    except yaml.YAMLError:
-        logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
-    except ValidationError as e:
-        logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
-    else:
-        pl.seed_everything(config.seed)
-
     data_module = DataModule(config.training)
-    var_list = data_module.var_list
-    dataset = data_module.dataset
     mean_std = data_module.mean_std
-    max_iters = config.training.max_epochs*(dataset.source_dataset.size(0) // config.training.batch_size)
+    max_iters = config.training.max_epochs*(len(data_module.train_ds) // config.training.batch_size)
     print(f"max_iters: {max_iters}")
+    print(len(data_module.var_vocab))
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-    model = VariableEncoder(
-        in_dim=dataset.source_dataset.size(-1),
-        out_dim=dataset.source_dataset.size(-1),
+    model = Haea(
+        in_dim=data_module.time_vocab.dataset.size(-1),
+        out_dim=data_module.time_vocab.dataset.size(-1),
         num_heads=config.model.num_heads,
         n_encoder_layers=config.model.n_encoder_layers,
         n_decoder_layers=config.model.n_decoder_layers,
-        dropout=config.model.dropout
+        dropout=config.model.dropout,
+        max_var_len=len(data_module.var_vocab)
     )
 
     print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = TrainModule(model=model, mean_std=mean_std, max_iters=max_iters, 
-                           src_var_list=var_list[0], tgt_var_list=var_list[1], config=config.training)
+    model_pl = TrainModule(
+        model=model, mean_std=mean_std, max_iters=max_iters,
+        var_list=data_module.time_vocab.var_list, config=config.training)
+    
     trainer = pl.Trainer(
         accelerator="auto",
-        devices=1,
+        devices=FLAGS.WORLD_SIZE,
+        strategy="ddp",
         max_epochs=config.training.max_epochs,
         logger=logger,
         gradient_clip_val=config.training.gradient_clip_val,
@@ -176,6 +163,5 @@ def main(argv):
 
     trainer.fit(model_pl, datamodule=data_module)
 
-
-if __name__=='__main__':
-    app.run(main)
+if __name__ == '__main__':
+  app.run(main)

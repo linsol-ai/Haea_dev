@@ -150,7 +150,7 @@ class Electra(nn.Module):
             label
         )
         loss = self.gen_weight * mlm_loss + self.disc_weight * disc_loss
-
+        
         return x, mlm_loss
 
 

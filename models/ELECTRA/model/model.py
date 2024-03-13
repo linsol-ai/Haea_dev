@@ -117,6 +117,7 @@ class Electra(nn.Module):
 
         return masked, mask_ind
     
+    def discriminate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
 
 
 

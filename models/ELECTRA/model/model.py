@@ -99,7 +99,7 @@ class Electra(nn.Module):
         x = self.generator(src)
 
         for i in range(x.shape(0)):
-            masked = x[]
+            masked = x[i, ]
 
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

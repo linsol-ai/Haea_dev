@@ -133,7 +133,7 @@ class CliBERT(nn.Module):
 
 class Electra(nn.Module):
     def __init__(self, generator: CliBERT, discriminator: CliBERT, dropout=0.1, max_lead_time=500, max_var_len=300):
-
+        
     
 
     

@@ -13,7 +13,7 @@ from absl import flags
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset, VariableVocab
-from models.HAEA.datasets.denoised_dataset import DenoisingDataset, TimeVocab
+from models.ELECTRA.datasets.denoised_dataset import DenoisingDataset, TimeVocab
 from models.HAEA.models.model import Haea
 
 from models.HAEA.training.configs import TrainingConfig

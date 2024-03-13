@@ -146,7 +146,7 @@ def main(argv):
 
     print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = TrainModule(
+    model_pl = PretrainModule(
         model=model, mean_std=mean_std, max_iters=max_iters,
         var_list=data_module.time_vocab.var_list, config=config.training)
     

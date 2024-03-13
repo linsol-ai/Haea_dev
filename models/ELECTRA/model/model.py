@@ -94,7 +94,7 @@ class Electra(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_seq = var_seq.repeat_interleave(src.size(1), dim=1)
         src_pe = self.positional_encoding(src.shape, src.device)
-        x = x.view(src.size(0), -1, src.size(-1))
+        src = src.view(src.size(0), -1, src.size(-1))
 
         x = self.embedding(x, var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.encoder(x)

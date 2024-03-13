@@ -157,9 +157,6 @@ class Electra(nn.Module):
 
         masked = torch.cat(masked, dim=0)
 
-        for i in range(x_clone.size(0)):
-            x[i, mask_ind[i]] = masked[i]
-
         return masked, mask_ind
     
 

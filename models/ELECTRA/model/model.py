@@ -139,7 +139,7 @@ class Electra(nn.Module):
         for i in range(x.size(0)):
             x[i, mask_ind[i]] = masked[i]
 
-        mlm_loss = torch.sqrt()
+        mlm_loss = torch.sqrt(F.mse_loss(x_clone, x))
 
         x = self.discriminate(x, src_pe, var_list)
         return x

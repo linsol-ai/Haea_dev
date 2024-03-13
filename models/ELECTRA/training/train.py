@@ -63,6 +63,7 @@ def split_datetime_range(start, end, n):
     intervals.append(end)
     return intervals
 
+
 def get_normal_dataset(config: TrainingConfig) -> Tuple[DenoisingDataset, torch.Tensor, VariableVocab, TimeVocab]:
 
     device = ("cuda" if torch.cuda.is_available() else "cpu" )

@@ -152,7 +152,7 @@ class Electra(nn.Module):
         for i in range(gen.size(0)):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
-        x_clone = x.cl
+        x_clone = x.clone()
 
         masked = torch.cat(masked, dim=0)
 

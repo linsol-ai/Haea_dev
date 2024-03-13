@@ -78,7 +78,7 @@ class CliBERT(nn.Module):
         )
     
 
-    def forward(self, x: torch.Tensor, var_seq: torch.Tensor, lead_time: torch.Tensor | None):
+    def forward(self, x: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
  
         x = self.encoder(x)

@@ -140,7 +140,7 @@ class CliBERTLM(nn.Module):
 
         gen_var_seq, _ = get_var_seq(var_list, src_id, src.device)
         src = self.embedding(src, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
-        gen = self.model(gen)
+        gen = self.model(src)
         gen = self.decoder(gen)
 
         return x

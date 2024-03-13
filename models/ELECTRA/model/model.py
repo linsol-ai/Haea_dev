@@ -146,6 +146,7 @@ class Electra(nn.Module):
             logits,
             label
         )
+        loss = 
 
         return x, mlm_loss
 

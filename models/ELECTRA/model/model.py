@@ -99,7 +99,7 @@ class Electra(nn.Module):
         for i in range(x.size(0)):
             x[i, mask_ind[i]] = masked[i]
 
-        x = self.discriminate()
+        x = self.discriminate(x, )
         return x
 
     def generate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

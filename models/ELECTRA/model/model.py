@@ -40,7 +40,7 @@ def positional_encoding(shape, device):
         pe[:, :, 0::2] = torch.sin(position * div_term)
         pe[:, :, 1::2] = torch.cos(position * div_term)
 
-        return pe.repeat_interleave(var_len, dim=1)
+    return pe.repeat_interleave(var_len, dim=1)
 
 
 class VariableEmbedding(nn.Embedding):

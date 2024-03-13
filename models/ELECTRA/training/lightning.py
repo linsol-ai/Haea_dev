@@ -55,7 +55,7 @@ class PretrainModule(pl.LightningModule):
         
         self.log(f"{mode}/loss", loss, prog_bar=mode == "train", sync_dist=True)
         self.log(f"{mode}/mlm_loss", mlm_loss, prog_bar=mode == "train", sync_dist=True)
-        self.log(f"{mode}/disc_loss", disc_loss, prog_bar=mode == "train")
+        self.log(f"{mode}/disc_loss", disc_loss, prog_bar=mode == "train", sync_dist=True)
         return loss
 
 

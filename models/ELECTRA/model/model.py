@@ -127,6 +127,8 @@ class Electra(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
         self.logits = nn.Linear(in_dim, 1)
+           self.disc_weight = disc_weight
+        self.gen_weight = gen_weight
     
 
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

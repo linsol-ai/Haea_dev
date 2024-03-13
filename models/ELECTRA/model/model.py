@@ -144,8 +144,7 @@ class CliBERTLM(nn.Module):
         gen = self.decoder(gen)
 
         mlm_loss = torch.sqrt(F.mse_loss(gen, tgt))
-
-        return x
+        return mlm_loss
 
 
 class Electra(nn.Module):

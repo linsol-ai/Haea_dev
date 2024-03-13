@@ -31,7 +31,7 @@ class TrainingConfig(BaseModel):
 
     disc_weight: float = 50.
 
-    
+    gen_weight: float = 1.
 
 
     max_lead_time: int = Field(ge=0, default=72)

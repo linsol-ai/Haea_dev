@@ -33,7 +33,6 @@ class TrainingConfig(BaseModel):
 
     gen_weight: float = 1.
 
-
     max_lead_time: int = Field(ge=0, default=72)
 
     time_len: int = Field(ge=0, default=7)

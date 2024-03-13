@@ -90,7 +90,7 @@ class Electra(nn.Module):
         self.logits = nn.Linear(in_dim, 1)
     
 
-    def forward(self, x: torch.Tensor, var_seq: torch.Tensor):
+    def forward(self, src: torch.Tensor, var_seq: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_seq = var_seq.repeat_interleave(x.size(1), dim=1)
         src_pe = self.positional_encoding(x.shape, x.device)

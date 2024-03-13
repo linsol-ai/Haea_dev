@@ -94,7 +94,7 @@ class Electra(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
-        # masked.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
+        # masked.shape = (batch, time, var_len, hidden)
         masked = self.generate(x, src_pe, var_list, src_id)
 
 

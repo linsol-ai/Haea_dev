@@ -96,7 +96,7 @@ class Electra(nn.Module):
         src_pe = self.positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
         src = self.embedding(src, var_seq, src_pe) * math.sqrt(self.in_dim)
-        src_var_seq = self.get_var_seq(var_list, src_id, src.device)
+        src_var_seq = self.get_var_seq(var_seq, src_id, src.device)
 
 
         x = self.encoder(x)

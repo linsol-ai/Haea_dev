@@ -134,7 +134,6 @@ class CliBERTLM(nn.Module):
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor) -> torch.Tensor:
-        var_seq = var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         src_pe = positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
         tgt = tgt.view(tgt.size(0), -1, tgt.size(-1))

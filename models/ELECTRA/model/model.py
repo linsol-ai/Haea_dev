@@ -76,7 +76,6 @@ class CliBERT(nn.Module):
             n_layers
         )
     
-
     def forward(self, x: torch.Tensor):
         # src.shape = (batch, time * var_len, hidden)
         x = self.model(x)

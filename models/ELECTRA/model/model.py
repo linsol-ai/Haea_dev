@@ -140,7 +140,7 @@ class Electra(nn.Module):
         self.discriminator = discriminator
         self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
-        self.logits = nn.Linear(discr_dim, 1)
+        self.logits = nn.Linear(in_dim, 1)
         
 
     

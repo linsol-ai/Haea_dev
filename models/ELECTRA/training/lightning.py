@@ -21,7 +21,7 @@ def rmse_loss(x, y):
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor,
+    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):
         
         super().__init__()

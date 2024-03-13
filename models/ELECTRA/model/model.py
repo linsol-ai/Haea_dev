@@ -114,6 +114,10 @@ class Electra(nn.Module):
         masked = torch.cat(masked, dim=0)
 
         return masked
+    
+    def disc
+
+
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len)

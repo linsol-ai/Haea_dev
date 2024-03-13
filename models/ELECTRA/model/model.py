@@ -133,7 +133,7 @@ class CliBERTLM(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor) -> torch.Tensor:
         x = self.model(x)
         return x
 

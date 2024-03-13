@@ -158,7 +158,7 @@ class Electra(nn.Module):
 
         masked = torch.cat(masked, dim=0)
         label = (gen_var_seq == TimeVocab.SPECIAL_TOKEN_MASK).int()
-        return masked, mask_ind
+        return masked, mask_ind, label
     
 
     def discriminate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor):

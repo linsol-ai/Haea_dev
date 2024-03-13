@@ -98,6 +98,7 @@ class Electra(nn.Module):
         src = self.embedding(src, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.generator(src)
         
+
         for i in range(x.shape(0)):
             masked = x[i, mask_ind[i]]
 

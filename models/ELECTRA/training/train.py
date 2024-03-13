@@ -77,7 +77,6 @@ def get_normal_dataset(config: TrainingConfig) -> Tuple[CustomDataset, torch.Ten
     source, mean_std, var_vocab = weather.load_one(config.air_variable, config.surface_variable, config.only_input_variable, 
                                         config.constant_variable, level=config.levels)
     var_list = var_vocab.get_code(vars)
-    tgt_var_list = var_vocab.get_code(config.air_variable + config.surface_variable)
 
     dataset = CustomDataset(source, config.src_time_len, config.tgt_time_len, n_only_input=len(config.only_input_variable)+len(config.constant_variable))
     return dataset, mean_std, (src_var_list, tgt_var_list)

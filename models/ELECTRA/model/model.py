@@ -30,7 +30,7 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
         return result, mask_ind
 
 
-def positional_encoding(self, shape, device):       
+def positional_encoding(shape, device):       
         batch, time_len, var_len, d_model = shape 
         pe = torch.zeros(batch, time_len, d_model, device=device).float()
         pe.require_grad = False

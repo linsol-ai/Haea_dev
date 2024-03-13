@@ -82,7 +82,6 @@ class CliBERT(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         x = self.model(x)
         # out.shape = (batch, var_len, hidden)
-
         return x
 
 

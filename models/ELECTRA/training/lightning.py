@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from models.CiT.models.model import ClimateTransformer
 from models.CiT.training.configs import TrainingConfig
 from models.CiT.training.params_schedule import CosineWarmupScheduler
-import wandb
+from typing import Dict
 
 def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, mean_std.size(0), 1)

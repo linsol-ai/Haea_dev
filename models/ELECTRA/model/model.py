@@ -119,7 +119,7 @@ class Electra(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, g_layers=3, d_layers=12, dropout=0.1, 
                  disc_weight = 50., gen_weight = 1., max_var_len=300):
-        
+        super().__init__()
         self.in_dim = in_dim
         self.generator = CliBERT(in_dim, num_heads, g_layers, dropout)
         self.discriminator = CliBERT(in_dim, num_heads, d_layers, dropout)

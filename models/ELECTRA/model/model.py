@@ -35,7 +35,7 @@ class Embedding(nn.Module):
             time_emb = self.time(lead_time)
             return self.dropout(x + var_emb + time_emb + pos_emb)
         time_emb = self.time(lead_time)
-            return self.dropout(x + var_emb + time_emb + pos_emb)
+        return self.dropout(x + var_emb + time_emb + pos_emb)
 
 
 

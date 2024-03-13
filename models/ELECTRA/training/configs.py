@@ -37,6 +37,11 @@ class TrainingConfig(BaseModel):
 
     mask_ratio: float = 0.3
 
+
+    disc_weight: float = 50.
+
+    gen_weight: float = 1.
+
     air_variable: List[str]
 
     surface_variable: List[str]

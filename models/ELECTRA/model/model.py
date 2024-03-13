@@ -139,7 +139,7 @@ class CliBERTLM(nn.Module):
         tgt = tgt.view(tgt.size(0), -1, tgt.size(-1))
 
         gen_var_seq, _ = get_var_seq(var_list, src_id, src.device)
-        gen = self.embedding(src, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
+        src = self.embedding(src, gen_var_seq, src_pe) * math.sqrt(self.in_dim)
         gen = self.model(gen)
         gen = self.decoder(gen)
 

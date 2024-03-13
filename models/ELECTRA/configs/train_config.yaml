@@ -2,7 +2,7 @@
 # specific options.
 model:
   num_heads: 16
-  g_layers: 6
+  g_layers: 3
   d_layers: 12
   dropout: 0.1
 training:

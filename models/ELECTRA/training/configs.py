@@ -9,6 +9,8 @@ class ModelConfig(BaseModel):
 
     g_layers: int = Field(ge=1, default=6)
 
+    g_layers: int = Field(ge=1, default=6)
+
     dropout: float = Field(ge=0, default=0.1)
 
 

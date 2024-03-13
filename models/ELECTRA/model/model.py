@@ -106,6 +106,7 @@ class Electra(nn.Module):
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len)
         result = []
+        mask = []
         var_len = var_list.size(0)
         for batch in indicate:
             seq = []

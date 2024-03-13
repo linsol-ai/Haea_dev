@@ -129,7 +129,7 @@ class Electra(nn.Module):
         self.logits = nn.Linear(in_dim, 1)
     
 
-    def forward(self, src: torch.Tensor, label: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
+    def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
@@ -140,7 +140,7 @@ class Electra(nn.Module):
         for i in range(src.size(0)):
             src[i, mask_ind[i]] = masked[i]
 
-        mlm_loss = torch.sqrt(F.mse_loss(x_clone, x))
+        mlm_loss = torch.sqrt(F.mse_loss(tgt, x))
         x = self.discriminate(x, src_pe, var_list)
         return x, mlm_loss
 

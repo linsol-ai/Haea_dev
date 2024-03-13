@@ -97,6 +97,7 @@ class Electra(nn.Module):
         src = src.view(src.size(0), -1, src.size(-1))
         src = self.embedding(src, var_seq, src_pe) * math.sqrt(self.in_dim)
         
+
         x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

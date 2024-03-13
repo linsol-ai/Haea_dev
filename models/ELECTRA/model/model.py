@@ -103,7 +103,7 @@ class Electra(nn.Module):
         return x
     
 
-    def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):
+    def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
         # indicate.shape = (batch, max_len)
         result = []
         mask_ind = []
@@ -113,9 +113,9 @@ class Electra(nn.Module):
             seq = []
             mask = []
             for i, item in enumerate(batch):
-                if item == TimeVocab.SPECIAL_TOKEN_MASK:
-                        seq.append(torch.full_like(var_list, TimeVocab.SPECIAL_TOKEN_MASK, device=device))
-                        mask.append(range(i*var_len, i*var_len + var_len, 1))
+                if item == 3:
+                        seq.append(torch.full_like(var_list, 3, device=device))
+                        mask.extend(range(i*var_len, i*var_len + var_len, 1))
                 else:
                     seq.append(var_list)
 
@@ -124,7 +124,7 @@ class Electra(nn.Module):
             mask_ind.append(mask)
             
         result = torch.stack(result, dim=0)
-        mask_ind = torch.stack(mask_ind, dim=0)
+        mask_ind = torch.tensor(mask_ind)
         return result, mask_ind
 
 

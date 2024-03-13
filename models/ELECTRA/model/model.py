@@ -109,6 +109,8 @@ class Electra(nn.Module):
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x
+
+    def generate():
     
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

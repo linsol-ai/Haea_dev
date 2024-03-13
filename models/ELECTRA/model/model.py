@@ -5,7 +5,7 @@ import math
 from models.ELECTRA.datasets.denoised_dataset import TimeVocab
 
 def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
-        # indicate.shape = (batch, max_len)
+    # indicate.shape = (batch, max_len)
         result = []
         mask_ind = []
         var_len = var_list.size(0)

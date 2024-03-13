@@ -141,7 +141,7 @@ class Electra(nn.Module):
 
         mlm_loss = torch.sqrt(F.mse_loss(x_clone, x))
         x = self.discriminate(x, src_pe, var_list)
-        return x
+        return x, mlm_loss
 
 
     def generate(self, x: torch.Tensor, src_pe: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

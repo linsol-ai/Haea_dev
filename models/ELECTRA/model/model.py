@@ -92,7 +92,6 @@ class Electra(nn.Module):
 
     def forward(self, src: torch.Tensor, var_seq: torch.Tensor, src_id: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
-        var_seq = var_seq.repeat_interleave(src.size(1), dim=1)
         src_pe = self.positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
         src = self.embedding(src, var_seq, src_pe) * math.sqrt(self.in_dim)

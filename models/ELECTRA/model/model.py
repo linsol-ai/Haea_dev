@@ -132,7 +132,7 @@ class CliBERT(nn.Module):
 
 
 class Electra(nn.Module):
-    def __init__(self, generator: CliBERT, discriminator: CliBERT, 
+    def __init__(self, generator: CliBERT, discriminator: CliBERT, num_heads=12, n_layers=3, 
                  in_dim: int, out_dim: int, dropout=0.1, max_lead_time=500, max_var_len=300):
         
         self.in_dim = in_dim
@@ -140,7 +140,7 @@ class Electra(nn.Module):
         self.discriminator = discriminator
         self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
-        
+
 
     
 

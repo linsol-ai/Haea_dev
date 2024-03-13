@@ -16,9 +16,9 @@ from datasets.weather_bench import WeatherDataset, VariableVocab
 from models.ELECTRA.datasets.dataset import CustomDataset
 from models.ELECTRA.models.model import VariableEncoder
 
-from models.VariableEncoder.training.configs import TrainingConfig
-from models.VariableEncoder.training.configs import TrainingRunConfig
-from models.VariableEncoder.training.lightning import TrainModule
+from models.ELECTRA.training.configs import TrainingConfig
+from models.ELECTRA.training.configs import TrainingRunConfig
+from models.ELECTRA.training.lightning import TrainModule
 
 
 import os

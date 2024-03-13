@@ -94,6 +94,7 @@ class Electra(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
+        masked = self.generate(x, sr)
 
 
         # out.shape = (batch, var_len, hidden)
@@ -111,7 +112,7 @@ class Electra(nn.Module):
             masked.append(gen[i, mask_ind[i]].unsqueeze(0))
 
         masked = torch.cat(masked, dim=0)
-        
+
         return masked
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

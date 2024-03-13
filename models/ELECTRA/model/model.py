@@ -121,8 +121,8 @@ class Electra(nn.Module):
         var_seq = var_list.repeat_interleave(x.size(1), dim=1)
         x = self.embedding(x, var_seq, src_pe) * math.sqrt(self.in_dim)
         x = self.discriminator(x)
-        x = self.logits(x)
-        
+        logit = self.logits(x)
+
 
 
     def get_var_seq(self, var_list: torch.Tensor, indicate: torch.Tensor, device):

@@ -122,6 +122,7 @@ class Electra(nn.Module):
             result.append(seq)
             mask_ind.append(mask)
         result = torch.stack(result, dim=0)
+        
         return result
 
 

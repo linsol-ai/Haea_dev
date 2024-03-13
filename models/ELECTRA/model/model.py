@@ -141,7 +141,7 @@ class Electra(nn.Module):
         for i in range(src.size(0)):
             print(masked[i])
             print(src[i].type())
-            src[i, mask_ind[i]] = masked[i]
+            src[i, mask_ind[i]] = masked[i].to(dtype=torch.float)
 
         mlm_loss = torch.sqrt(F.mse_loss(src, tgt))
 

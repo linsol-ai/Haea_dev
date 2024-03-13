@@ -144,7 +144,7 @@ class Electra(nn.Module):
 
         mlm_loss = torch.sqrt(F.mse_loss(src, tgt))
 
-        logits = self.discriminate(src, src_pe, var_seq).squeeze()
+        logits = self.discriminate(src, src_pe, var_seq).squeeze(-1)
 
         print(logits.shape)
 

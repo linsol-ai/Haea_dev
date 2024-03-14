@@ -133,7 +133,7 @@ class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, num_heads=12, n_layers=3, dropout=0.1, 
                  max_lead_time=500, max_var_len=300):
         super().__init__()
-        
+
         self.in_dim = in_dim
         encoder_layers = nn.TransformerEncoderLayer(
             d_model=in_dim,
@@ -159,7 +159,7 @@ class CliBERT(nn.Module):
         lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
         x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
-        x = self.encoder(x)
+        x = self.model(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x

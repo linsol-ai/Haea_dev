@@ -74,7 +74,7 @@ class TrainingRunConfig(BaseModel):
 class FinetuningConfig(BaseModel):
     """A config specification of training the DVAE."""
 
-    learning_rate: float = 2e-4
+    learning_rate: float = 2e-5
     """The learning rate."""
 
     warmup_step: int = Field(ge=0, default=4000)

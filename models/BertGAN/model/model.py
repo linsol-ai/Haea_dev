@@ -77,5 +77,5 @@ class Discriminator(nn.Module):
         x = self.model(x)
         # out.shape = (batch, var_len, hidden)
         logits = self.dense(x[:, 0])
-        return x
+        return logits
 

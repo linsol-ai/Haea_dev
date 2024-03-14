@@ -77,5 +77,5 @@ class Discriminator(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         x = self.model(x)
         # out.shape = (batch, var_len, hidden)
-        logits = self.dense(x[:, 0])
+        logits = self.dense(x)
         return logits

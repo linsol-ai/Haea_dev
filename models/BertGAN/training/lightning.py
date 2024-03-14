@@ -103,7 +103,7 @@ class BertGAN(pl.LightningModule):
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         g_opt, d_opt = self.optimizers()
-        
+
         src = batch[0]
         label = batch[1]
         lead_time = batch[2]
@@ -139,7 +139,7 @@ class BertGAN(pl.LightningModule):
         error = err_real + err_fake
         
         d_opt.zero_grad()
-        self.manual_backward(errD)
+        self.manual_backward(error)
         d_opt.step()
         
 

@@ -38,6 +38,7 @@ class BertGAN(pl.LightningModule):
     def setup(self, stage: str) -> None:
         print(stage)
         self.mean_std = self.mean_std.to(self.device)
+        self.var_list = self.var_list.to(self.device)
 
 
     def configure_optimizers(self):

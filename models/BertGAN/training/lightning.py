@@ -116,7 +116,10 @@ class BertGAN(pl.LightningModule):
         tgt = tgt.view(src.size(0), -1, src.size(-1))
         tgt = (self.embedding(tgt, var_seq, pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)
 
-        err_real = F.c
+        err_real = disc_loss = F.binary_cross_entropy_with_logits(
+            logits,
+            label
+        )
         
 
         

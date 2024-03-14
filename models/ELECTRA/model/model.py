@@ -92,28 +92,6 @@ class LinearDecoder(nn.Module):
        return self.seq(x)
 
 
-class CliBERT(nn.Module):
-    def __init__(self, in_dim: int, num_heads=12, n_layers=3, dropout=0.1):
-        super().__init__()
-        self.in_dim = in_dim
-        encoder_layers = nn.TransformerEncoderLayer(
-            d_model=in_dim,
-            nhead=num_heads,
-            dim_feedforward=in_dim*4,
-            dropout=dropout,
-            batch_first=True,
-            activation=F.gelu
-        )
-        self.model = nn.TransformerEncoder(
-            encoder_layers,
-            n_layers
-        )
-    
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.model(x)
-        return x
-
-
 class CliBERTLM(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, num_heads=12, n_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()

@@ -3,6 +3,26 @@ from torch import nn
 from torch.nn import functional as F
 import math
 
+class LinearDecoder(nn.Module):
+    def __init__(self, in_dim, out_dim, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.seq = nn.Sequential(
+            nn.Linear(in_dim, out_dim),
+            nn.LayerNorm(out_dim),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+            nn.Linear(out_dim, out_dim),
+        )
+
+    def forward(self, x) -> torch.Tensor:
+       # x.shape = (batch, time * var, hidden)
+       return self.seq(x)
+
 class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, num_heads=12, n_layers=3, dropout=0.1, 
                  max_lead_time=500, max_var_len=300):

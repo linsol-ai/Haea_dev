@@ -55,7 +55,7 @@ class LeadTimeEmbedding(nn.Embedding):
 
 
 class Embedding(nn.Module):
-    def __init__(self, var_len, embed_size, dropout=0.1):
+    def __init__(self, max_lead_time, var_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding
@@ -63,12 +63,14 @@ class Embedding(nn.Module):
         """
         super().__init__()
         self.variable = VariableEmbedding(var_len, embed_size)
+        self.time = LeadTimeEmbedding(max_lead_time, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, x: torch.Tensor, variable: torch.Tensor, pos_emb: torch.Tensor) -> torch.Tensor:
-        var_emb = self.variable(variable)
-        return self.dropout(x + var_emb + pos_emb)
+    def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, lead_time_seq: torch.Tensor, pos_emb: torch.Tensor) -> torch.Tensor:
+        var_emb = self.variable(variable_seq)
+        time_emb = self.time(lead_time_seq)
+        return self.dropout(x + var_emb + time_emb + pos_emb)
 
 
 class LinearDecoder(nn.Module):

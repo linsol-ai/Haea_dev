@@ -102,6 +102,8 @@ class BertGAN(pl.LightningModule):
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+        g_opt, d_opt = self.optimizers()
+        
         src = batch[0]
         label = batch[1]
         lead_time = batch[2]

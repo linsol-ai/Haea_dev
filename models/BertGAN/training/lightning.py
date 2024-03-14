@@ -124,6 +124,7 @@ class BertGAN(pl.LightningModule):
             real_label
         )
         
+        
 
         
         label = label.view(label.size(0), -1, label.size(-1))

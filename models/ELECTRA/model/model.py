@@ -174,7 +174,7 @@ class CliBERTPM(nn.Module):
 
     def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_list: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
-        var_seq = var_seq.repeat_interleave(x.size(1), dim=1)
+        var_seq = var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         src_pe = positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
         lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))

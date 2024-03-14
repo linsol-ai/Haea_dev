@@ -14,7 +14,7 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset
-from models.BertGAN. import CustomDataset
+from models.BertGAN.datasets.dataset import CustomDataset
 from models.BertGAN.model.model import Discriminator, Generator
 
 from models.BertGAN.training.configs import TrainingConfig

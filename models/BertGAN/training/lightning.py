@@ -75,7 +75,7 @@ class BertGAN(pl.LightningModule):
         self.mean_std = mean_std
         self.config = config
         self.var_list = var_list
-        self.embedding = Embedding(generator.max_var_len, generator.in_dim, generator.dropout)
+        self.embedding = Embedding(max_var_len, generator.in_dim, generator.dropout)
 
         self.automatic_optimization = False
         self.save_hyperparameters()

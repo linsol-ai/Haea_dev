@@ -149,7 +149,7 @@ class CliBERTLM(nn.Module):
 
 
 
-class CliBERTPM(nn.Module):
+class CliBERT(nn.Module):
     def __init__(self, encoder: nn.TransformerEncoder, embedding: Embedding, decoder: LinearDecoder, in_dim: int, 
                  max_lead_time=500):
         super().__init__()

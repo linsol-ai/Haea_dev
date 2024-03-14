@@ -18,7 +18,7 @@ from models.ELECTRA.datasets.dataset import CustomDataset
 from models.ELECTRA.models.model import ClimateTransformer
 
 from models.ELECTRA.training.configs import FinetuningConfig
-from models.ELECTRA.training.configs import TrainingRunConfig
+from models.ELECTRA.training.configs import Fin
 from models.ELECTRA.training.lightning import TrainModule
 
 import os

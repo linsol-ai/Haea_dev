@@ -19,7 +19,7 @@ from models.ELECTRA.models.model import ClimateTransformer
 
 from models.ELECTRA.training.configs import FinetuningConfig
 from models.ELECTRA.training.configs import FinetuningRunConfig
-from models.ELECTRA.training.lightning import TrainModule
+from models.ELECTRA.training.lightning import FinetuningModule
 
 import os
 env_cp = os.environ.copy()

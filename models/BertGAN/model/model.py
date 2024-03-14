@@ -50,3 +50,4 @@ class CliBERT(nn.Module):
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)
         return x
+

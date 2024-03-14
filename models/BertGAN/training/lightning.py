@@ -46,6 +46,7 @@ class BertGAN(pl.LightningModule):
         self.g_scheduler = CosineWarmupScheduler(
             g_opt, warmup=self.config.warmup_step, max_iters=self.max_iters
         )
+        
         return optimizer
 
 

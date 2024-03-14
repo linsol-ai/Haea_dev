@@ -160,7 +160,7 @@ class BertGAN(pl.LightningModule):
             real_label
         )
 
-        err_d.requires_grad_(True)
+        err_g.requires_grad_(True)
 
         g_opt.zero_grad()
         self.manual_backward(err_g)

@@ -133,7 +133,7 @@ class CliBERTLM(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
-    
+
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor) -> torch.Tensor:
         src_pe = positional_encoding(src.shape, src.device)
         src = src.view(src.size(0), -1, src.size(-1))
@@ -146,6 +146,11 @@ class CliBERTLM(nn.Module):
 
         mlm_loss = torch.sqrt(F.mse_loss(gen, tgt))
         return mlm_loss
+
+
+
+
+
 
 
 class Electra(nn.Module):

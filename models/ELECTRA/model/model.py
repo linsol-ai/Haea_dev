@@ -134,6 +134,7 @@ class CliBERT(nn.Module):
                  max_lead_time=500):
         super().__init__()
         self.in_dim = in_dim
+        
         self.encoder = encoder
         self.decoder = decoder
         self.embedding = embedding

@@ -157,7 +157,7 @@ class BertGAN(pl.LightningModule):
 
         g_opt.zero_grad()
         self.manual_backward(err_g)
-        self.clip_gradients(g_opt, gradient_clip_val=c, gradient_clip_algorithm="norm")
+        self.clip_gradients(g_opt, gradient_clip_val=con, gradient_clip_algorithm="norm")
         g_opt.step()
 
         self.log_dict({"g_loss": err_g, "d_loss": err_d}, prog_bar=True)

@@ -142,6 +142,7 @@ class BertGAN(pl.LightningModule):
             fake_label
         )
         print(err_real)
+        print()
         err_d = err_real + err_fake
         
         d_opt.zero_grad()

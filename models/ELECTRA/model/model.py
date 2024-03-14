@@ -183,7 +183,7 @@ class Discriminator(nn.Module):
             encoder_layers,
             n_layers
         )
-        self.
+        self.dense = 
     
 
     def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_list: torch.Tensor):

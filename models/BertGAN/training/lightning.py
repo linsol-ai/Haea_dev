@@ -105,7 +105,7 @@ class BertGAN(pl.LightningModule):
         label = batch[1]
         delta = batch[2]
 
-        var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
+        var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         src_pe = positional_encoding(x.shape, x.device)
         
         label = label.view(label.size(0), -1, label.size(-1))

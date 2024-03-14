@@ -166,7 +166,7 @@ def main(argv):
             accelerator="auto",
             devices=1,
             max_epochs=config.training.max_epochs,
-            logger=logger
+            logger=logger,
             callbacks=[
             LearningRateMonitor(logging_interval="step"),
             ],

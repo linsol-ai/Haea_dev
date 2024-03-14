@@ -141,8 +141,7 @@ class BertGAN(pl.LightningModule):
             self.discriminator(tgt_fake),
             fake_label
         )
-        print(err_real)
-        print(err_fake)
+      
         err_d = err_real + err_fake
 
         err_d.requires_grad_(True)

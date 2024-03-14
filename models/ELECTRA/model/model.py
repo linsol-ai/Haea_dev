@@ -178,7 +178,7 @@ class CliBERTPM(nn.Module):
         x = x.view(x.size(0), -1, x.size(-1))
         lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
-        x = self.embedding(x, var_seq, src_pe) + self.time_emb * math.sqrt(self.in_dim)
+        x = self.embedding(x, var_seq, src_pe) + self.time_emb() * math.sqrt(self.in_dim)
         x = self.encoder(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

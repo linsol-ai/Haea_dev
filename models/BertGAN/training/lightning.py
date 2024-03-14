@@ -103,13 +103,13 @@ class BertGAN(pl.LightningModule):
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         label = batch[1]
-        delta = batch[2]
+        lead_time = batch[2]
 
         var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         src_pe = positional_encoding(src.shape, src.device)
         x = x.view(x.size(0), -1, x.size(-1))
         lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
-        
+
         
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)

@@ -4,7 +4,7 @@ from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.ELECTRA.model.model import CliBERTLM, CliBERTPM
-from models.ELECTRA.training.configs import TrainingConfig
+from models.ELECTRA.training.configs import TrainingConfig, Fine
 from models.ELECTRA.training.params_schedule import CosineWarmupScheduler
 from typing import Dict
 
@@ -100,7 +100,7 @@ class PretrainModule(pl.LightningModule):
 class FinetuningModule(pl.LightningModule):
 
     def __init__(self, *, model: CliBERTPM, mean_std: torch.Tensor, var_list: torch.Tensor,
-                 max_iters: int, config: FinetuningModule):
+                 max_iters: int, config: TrainingConfig):
         
         super().__init__()
         self.max_iters = max_iters

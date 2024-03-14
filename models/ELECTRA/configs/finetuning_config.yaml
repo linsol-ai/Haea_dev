@@ -1,7 +1,7 @@
 # See dvae_pytorch/training/dvae/config.py for more information about
 # specific options.
 training:
-  learning_rate: 2e-6
+  learning_rate: 4e-6
   warmup_step: 5000
   batch_size: 16
   max_epochs: 20

@@ -144,7 +144,7 @@ def main(argv):
         n_layers=config.model.n_layers,
         dropout=config.model.dropout
     )
-    generator = Generator(
+    generator = Discriminator(
         in_dim=dataset.source_dataset.size(-1),
         out_dim=dataset.source_dataset.size(-1),
         num_heads=config.model.num_heads,

@@ -114,7 +114,7 @@ class TrainingRunConfig(BaseModel):
     model: ModelConfig
     """A config specification of the model."""
 
-    training: TrainingConfig
+    training: FinetuningConfig
     """A config specification of the training."""
 
     seed: int = 123

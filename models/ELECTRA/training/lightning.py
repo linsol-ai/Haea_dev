@@ -133,7 +133,7 @@ class FinetuningModule(pl.LightningModule):
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, self.var_list)
         
-         loss = rmse_loss(predict, label)
+        loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

@@ -103,7 +103,7 @@ class BertGAN(pl.LightningModule):
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
-        label = batch[1]
+        tgt = batch[1]
         lead_time = batch[2]
 
         var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)

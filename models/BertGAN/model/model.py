@@ -46,12 +46,6 @@ class CliBERT(nn.Module):
 
     def forward(self, x: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
-        var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
-        src_pe = positional_encoding(x.shape, x.device)
-        x = x.view(x.size(0), -1, x.size(-1))
-        lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
-
-        x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
         x = self.model(x)
         # out.shape = (batch, var_len, hidden)
         x = self.decoder(x)

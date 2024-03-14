@@ -76,7 +76,7 @@ class BertGAN(pl.LightningModule):
         self.config = config
         self.var_list = var_list
         self.embedding = Embedding(max_var_len, generator.in_dim, generator.dropout)
-        self.time_emb = 
+        self.time_emb = Le
 
         self.automatic_optimization = False
         self.save_hyperparameters()

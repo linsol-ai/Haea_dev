@@ -126,9 +126,10 @@ class FinetuningModule(pl.LightningModule):
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
-        src = batch['source']
-        src_id = batch['source_id']
-        label = batch['target']
+        src = batch[0]
+        label = batch[1]
+        delta = batch[2]
+        var_seq = batch[3]
         loss = self.model(src, label, self.var_list, src_id)
         
         self.log(f"{mode}/mlm_loss", loss, prog_bar=mode == "train", sync_dist=True)

@@ -146,6 +146,10 @@ class BertGAN(pl.LightningModule):
         self.manual_backward(err_d)
         d_opt.step()
 
+        ######################
+        # Optimize Generator #
+        ######################
+
         err_g = F.binary_cross_entropy_with_logits(
             self.discriminator(tgt_fake),
             real_label

@@ -96,6 +96,7 @@ class PretrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         self.model.eval()
 
+
 class PretrainModule(pl.LightningModule):
 
     def __init__(self, *, model: CliBERTLM, mean_std: torch.Tensor, var_list: torch.Tensor,

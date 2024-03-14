@@ -123,7 +123,11 @@ class BertGAN(pl.LightningModule):
             self.discriminator(tgt),
             real_label
         )
-        
+        err_real = F.binary_cross_entropy_with_logits(
+            self.discriminator(tgt),
+            real_label
+        )
+
         
 
         

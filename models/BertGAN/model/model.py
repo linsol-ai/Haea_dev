@@ -76,7 +76,7 @@ class Discriminator(nn.Module):
     def forward(self, x: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         x = self.model(x)
-        # out.shape = (batch, var_len, hidden)
+        # x.shape = (batch, var_len, hidden)
         logits = self.dense(x)
-        # out.shape = (batch, var_len)
+        # logits.shape = (batch, var_len)
         return logits

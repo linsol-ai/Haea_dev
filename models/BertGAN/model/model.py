@@ -52,3 +52,6 @@ class Generator(nn.Module):
         x = self.decoder(x)
         return x
 
+
+
+

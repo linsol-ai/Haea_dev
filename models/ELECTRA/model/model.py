@@ -134,7 +134,18 @@ class CliBERT(nn.Module):
                  max_lead_time=500):
         super().__init__()
         self.in_dim = in_dim
-        
+        encoder_layers = nn.TransformerEncoderLayer(
+            d_model=in_dim,
+            nhead=num_heads,
+            dim_feedforward=in_dim*4,
+            dropout=dropout,
+            batch_first=True,
+            activation=F.gelu
+        )
+        self.model = nn.TransformerEncoder(
+            encoder_layers,
+            n_layers
+        )
         self.encoder = encoder
         self.decoder = decoder
         self.embedding = embedding

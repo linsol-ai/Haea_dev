@@ -26,7 +26,7 @@ class BertGAN(pl.LightningModule):
         
         super().__init__()
         self.generator = generator
-        self.
+        self.discriminator = discriminator
         self.max_iters = max_iters
         self.mean_std = mean_std
         self.config = config

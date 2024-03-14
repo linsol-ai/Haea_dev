@@ -19,6 +19,30 @@ def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
 
+def positional_encoding(shape, device):
+    with torch.no_grad(): 
+        batch, time_len, var_len, d_model = shape 
+        pe = torch.zeros(batch, time_len, d_model, device=device).float()
+        position = torch.arange(0, time_len).float().unsqueeze(1)
+        
+        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
+
+        pe[:, :, 0::2] = torch.sin(position * div_term)
+        pe[:, :, 1::2] = torch.cos(position * div_term)
+
+    return pe.repeat_interleave(var_len, dim=1)
+
+
+class VariableEmbedding(nn.Embedding):
+    def __init__(self, var_len, embed_size=768):
+        super().__init__(var_len, embed_size)
+
+
+class LeadTimeEmbedding(nn.Embedding):
+    def __init__(self, max_lead_time, embed_size=768):
+        super().__init__(max_lead_time, embed_size)
+
+
 class BertGAN(pl.LightningModule):
 
     def __init__(self, *, generator: Generator, discriminator: Discriminator, var_list: torch.Tensor,

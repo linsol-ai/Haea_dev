@@ -39,7 +39,7 @@ class BertGAN(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
 
 
-    def configure_optimizers(self):  # noqa: D102
+    def configure_optimizers(self):
         g_opt = torch.optim.Adam(self.generator.parameters(), lr=self.config.learning_rate)
         d_opt = torch.optim.Adam(self.discriminator.parameters(), lr=self.config.learning_rate)
 

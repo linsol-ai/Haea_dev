@@ -21,9 +21,10 @@ def rmse_loss(x, y):
 
 
 def positional_encoding(shape, device):
-    batch, time_len, var_len, d_model = shape 
-    pe = torch.zeros(batch, time_len, d_model, device=device).float()
-    position = torch.arange(0, time_len).float().unsqueeze(1)
+    with torch.no_grad(): 
+        batch, time_len, var_len, d_model = shape 
+        pe = torch.zeros(batch, time_len, d_model, device=device).float()
+        position = torch.arange(0, time_len).float().unsqueeze(1)
         
         div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
 

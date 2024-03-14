@@ -72,7 +72,7 @@ class Discriminator(nn.Module):
         self.dense = nn.Linear(in_dim, 1)
     
 
-    def forward(self, x: torch.Tensor):
+    def forward(self, src: torch.Tensor, tgt: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         x = self.model(x)
         # out.shape = (batch, var_len, hidden)

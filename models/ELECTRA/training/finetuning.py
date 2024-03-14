@@ -122,7 +122,7 @@ def main(argv):
     print(f"max_iters: {max_iters}")
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-    model = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
+    model = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
     
     model = ClimateTransformer(
         in_dim=dataset.source_dataset.size(-1),

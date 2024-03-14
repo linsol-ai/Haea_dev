@@ -111,7 +111,7 @@ class BertGAN(pl.LightningModule):
         lead_time = lead_time.unsqueeze(1).repeat(1, src.size(1))
 
         src = src.view(src.size(0), -1, src.size(-1))
-        src = (self.embedding(src, var_seq, src_pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)
+        src = (self.embedding(src, var_seq, pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)
 
         tgt = tgt.view(src.size(0), -1, src.size(-1))
 

@@ -130,7 +130,8 @@ class FinetuningModule(pl.LightningModule):
         label = batch[1]
         delta = batch[2]
 
-        loss = self.model(src, label, self.var_list, src_id)
+        label = label.view(label.size(0), -1, label.size(-1))
+        predict = self.model(src, delta, var_seq)
         
         self.log(f"{mode}/mlm_loss", loss, prog_bar=mode == "train", sync_dist=True)
         return loss

@@ -109,7 +109,7 @@ class BertGAN(pl.LightningModule):
         var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         pe = positional_encoding(src.shape, src.device)
         lead_time = lead_time.unsqueeze(1).repeat(1, src.size(1))
-        time_emb = 
+        time_emb = self.time_emb(lead_time)
 
         src = src.view(src.size(0), -1, src.size(-1))
         src = (self.embedding(src, var_seq, pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)

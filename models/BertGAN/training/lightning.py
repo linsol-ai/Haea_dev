@@ -154,11 +154,6 @@ class BertGAN(pl.LightningModule):
         self.log_dict({"g_loss": errG, "d_loss": errD}, prog_bar=True)
         
 
-        
-        label = label.view(label.size(0), -1, label.size(-1))
-        predict = self.model(src, delta, var_seq)
-        loss = rmse_loss(predict, label)
-        self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 
     

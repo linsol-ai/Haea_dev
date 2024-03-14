@@ -19,7 +19,7 @@ from models.ELECTRA.model.model import CliBERTLM, CliBERTPM
 
 from models.ELECTRA.training.configs import FinetuningConfig
 from models.ELECTRA.training.configs import FinetuningRunConfig
-from models.ELECTRA.training.lightning import TrainFinetuningModule
+from models.ELECTRA.training.lightning import T,FinetuningModule
 
 import os
 env_cp = os.environ.copy()

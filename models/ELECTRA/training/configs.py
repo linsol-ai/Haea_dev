@@ -68,3 +68,20 @@ class TrainingRunConfig(BaseModel):
 
     seed: int = 123
     """The random seed."""  
+
+
+
+class ModelConfig(BaseModel):
+    """A config specification of model."""
+
+    num_heads: int = Field(ge=5, default=10)
+
+    g_layers: int = Field(ge=1, default=6)
+
+    d_layers: int = Field(ge=1, default=6)
+
+    dropout: float = Field(ge=0, default=0.1)
+
+    disc_weight: float = 50.
+
+    gen_weight: float = 1.

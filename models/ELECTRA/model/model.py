@@ -130,7 +130,7 @@ class CliBERTLM(nn.Module):
 
 
 class CliBERT(nn.Module):
-    def __init__(self, in_dim: int, out_dim: int, , in_dim: int, 
+    def __init__(self, in_dim: int, out_dim: int,
                  max_lead_time=500):
         super().__init__()
         self.in_dim = in_dim

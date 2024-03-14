@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
-from models.BertGAN.
+from models.BertGAN.model.model import 
 from models.CiT.training.configs import TrainingConfig
 from models.CiT.training.params_schedule import CosineWarmupScheduler
 import wandb

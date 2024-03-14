@@ -138,7 +138,7 @@ class BertGAN(pl.LightningModule):
         )
 
         err_fake = F.binary_cross_entropy_with_logits(
-            self.discriminator(tgt_fake.detach()),
+            self.discriminator(tgt_fake),
             fake_label
         )
         err_d = err_real + err_fake

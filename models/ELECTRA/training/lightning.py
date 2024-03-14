@@ -99,7 +99,7 @@ class PretrainModule(pl.LightningModule):
 
 class FinetuningModule(pl.LightningModule):
 
-    def __init__(self, *, model: CliBERTLM, mean_std: torch.Tensor, var_list: torch.Tensor,
+    def __init__(self, *, model: Cli, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):
         
         super().__init__()

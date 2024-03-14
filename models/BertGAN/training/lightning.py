@@ -119,6 +119,10 @@ class BertGAN(pl.LightningModule):
         # fake.shape = (batch, time * var, hidden)
         fake = self.generator(src)
 
+        ##########################
+        # Optimize Discriminator #
+        ##########################
+
         label = label.view(src.size(0), -1, src.size(-1))
 
         tgt_real = (self.embedding(label, var_seq, pe) + time_emb) * math.sqrt(self.generator.in_dim)

@@ -19,7 +19,7 @@ def rmse_loss(x, y):
     return torch.sqrt(F.mse_loss(x, y))
 
 
-class TrainModule(pl.LightningModule):
+class B(pl.LightningModule):
 
     def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor,
                  max_iters: int, config: TrainingConfig):

@@ -155,7 +155,7 @@ class CliBERTPM(nn.Module):
         super().__init__()
         self.in_dim = in_dim
         self.encoder = encoder
-        self.
+        self.decoder = decoder
         self.embedding = embedding
         self.time_emb = LeadTimeEmbedding(max_lead_time, in_dim)
     

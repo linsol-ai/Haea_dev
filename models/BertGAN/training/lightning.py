@@ -111,6 +111,8 @@ class BertGAN(pl.LightningModule):
         src = src.view(src.size(0), -1, src.size(-1))
 
         
+
+        
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)
         loss = rmse_loss(predict, label)

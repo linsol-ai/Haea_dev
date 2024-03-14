@@ -139,7 +139,7 @@ class BertGAN(pl.LightningModule):
         error_d = err_real + err_fake
         
         d_opt.zero_grad()
-        self.manual_backward(error)
+        self.manual_backward(error_d)
         d_opt.step()
         
 

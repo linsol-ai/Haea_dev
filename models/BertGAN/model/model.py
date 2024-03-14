@@ -21,6 +21,8 @@ class CliBERT(nn.Module):
             encoder_layers,
             n_layers
         )
+        self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
+        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
     def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_list: torch.Tensor):

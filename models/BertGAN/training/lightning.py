@@ -139,7 +139,7 @@ class BertGAN(pl.LightningModule):
         err_d = err_real + err_fake
         
         d_opt.zero_grad()
-        self.manual_backward(error_d)
+        self.manual_backward(err_d)
         d_opt.step()
 
         err_g = F.binary_cross_entropy_with_logits(

@@ -144,6 +144,7 @@ class BertGAN(pl.LightningModule):
       
         err_d = err_real + err_fake
 
+        err_d.requires_grad_(True)
         
         d_opt.zero_grad()
         self.manual_backward(err_d)

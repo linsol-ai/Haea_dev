@@ -125,11 +125,7 @@ def main(argv):
     model = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
     
     model = CliBERTPM(
-        in_dim=dataset.source_dataset.size(-1),
-        out_dim=dataset.source_dataset.size(-1),
-        num_heads=config.model.num_heads,
-        n_layers=config.model.n_layers,
-        dropout=config.model.dropout
+        
     )
 
     print("setting lr rate: ", config.training.learning_rate)

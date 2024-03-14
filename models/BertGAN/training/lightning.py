@@ -50,7 +50,7 @@ class BertGAN(pl.LightningModule):
             d_opt, warmup=self.config.warmup_step, max_iters=self.max_iters
         )
 
-        return optimizer
+        return g_opt, d_opt
 
 
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:

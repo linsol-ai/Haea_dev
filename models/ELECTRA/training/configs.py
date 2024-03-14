@@ -71,7 +71,7 @@ class TrainingRunConfig(BaseModel):
 
 
 
-class TrainingConfig(BaseModel):
+class FinetuningConfig(BaseModel):
     """A config specification of training the DVAE."""
 
     learning_rate: float = 2e-4

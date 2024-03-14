@@ -136,7 +136,7 @@ class BertGAN(pl.LightningModule):
             self.discriminator(tgt_fake),
             fake_label
         )
-        error_d = err_real + err_fake
+        err_d = err_real + err_fake
         
         d_opt.zero_grad()
         self.manual_backward(error_d)

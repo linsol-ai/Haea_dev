@@ -90,7 +90,7 @@ class FinetuningConfig(BaseModel):
 
     time_len: int = Field(ge=0, default=7)
 
-    mask_ratio: float = 0.3
+    max_lead_time: int = Field(ge=0, default=72)
 
     air_variable: List[str]
 

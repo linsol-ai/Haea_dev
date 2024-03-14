@@ -130,7 +130,7 @@ def main(argv):
         embedding=bert.embedding,
         decoder=bert.decoder,
         in_dim=dataset.source_dataset.size(-1),
-
+        
     )
 
     print("setting lr rate: ", config.training.learning_rate)

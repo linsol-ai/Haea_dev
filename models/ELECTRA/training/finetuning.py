@@ -129,7 +129,7 @@ def main(argv):
         encoder=bert.model,
         embedding=bert.embedding,
         decoder=bert.decoder,
-        in_dim=
+        in_dim=data_module.time_vocab.dataset.size(-1),
     )
 
     print("setting lr rate: ", config.training.learning_rate)

@@ -155,7 +155,7 @@ def main(argv):
 
     print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = BertGAN(generator=generator, discriminator=discriminator, mean_std=mean_std, var_list=date,
+    model_pl = BertGAN(generator=generator, discriminator=discriminator, mean_std=mean_std, var_list=data_module.var_list,
                        max_iters=max_iters, config=config.training)
 
     summary = ModelSummary(model_pl, max_depth=-1)

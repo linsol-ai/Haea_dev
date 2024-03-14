@@ -19,7 +19,7 @@ from models.BertGAN.model.model import Discriminator, Generator
 
 from models.BertGAN.training.configs import TrainingConfig
 from models.BertGAN.training.configs import TrainingRunConfig
-from models.BertGAN.training.lightning import TrainModule
+from models.BertGAN.training.lightning import BertGAN
 
 import os
 env_cp = os.environ.copy()

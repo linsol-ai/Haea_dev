@@ -158,7 +158,6 @@ class CliBERTPM(nn.Module):
         
         self.embedding = embedding
         self.time_emb = LeadTimeEmbedding(max_lead_time, in_dim)
-        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 
     def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_list: torch.Tensor):

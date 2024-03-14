@@ -42,6 +42,7 @@ class Generator(nn.Module):
             n_layers
         )
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
+        self.
     
 
     def forward(self, x: torch.Tensor):

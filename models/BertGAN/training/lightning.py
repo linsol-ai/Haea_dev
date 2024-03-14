@@ -107,7 +107,7 @@ class BertGAN(pl.LightningModule):
         lead_time = batch[2]
 
         real_label = torch.ones((src.size(0), 1), device=self.device)
-        fake_label = torch.zeros((batch_size, 1), device=self.device)
+        fake_label = torch.zeros((src.size(0), 1), device=self.device)
 
         var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         pe = positional_encoding(src.shape, src.device)

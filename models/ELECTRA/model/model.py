@@ -185,7 +185,7 @@ class Discriminator(nn.Module):
         self.dense = nn.Linear(in_dim, 1)
     
 
-    def forward(self, x: torch.Tensor, lead_time: torch.Tensor, var_list: torch.Tensor):
+    def forward(self, src: torch.Tensor, tgt: torch.Tensor, ):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
         src_pe = positional_encoding(x.shape, x.device)

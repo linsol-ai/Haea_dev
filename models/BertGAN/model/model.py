@@ -78,4 +78,3 @@ class Discriminator(nn.Module):
         # out.shape = (batch, var_len, hidden)
         logits = self.dense(x[:, 0])
         return logits
-

@@ -124,7 +124,6 @@ class BertGAN(pl.LightningModule):
         tgt_real = (self.embedding(label, var_seq, pe) + time_emb) * math.sqrt(self.generator.in_dim)
         tgt_fake = (self.embedding(fake, var_seq, pe) + time_emb) * math.sqrt(self.generator.in_dim)
 
-
         real_label = torch.ones((tgt_real.size(0), tgt_real.size(1)), device=self.device)
         fake_label = torch.zeros((tgt_real.size(0), tgt_real.size(1)), device=self.device)
 
@@ -142,7 +141,7 @@ class BertGAN(pl.LightningModule):
         self.manual_backward(error_d)
         d_opt.step()
 
-        
+
         
 
         

@@ -71,7 +71,7 @@ class TrainingRunConfig(BaseModel):
 
 
 
-class ModelConfig(BaseModel):
+class PredictModelConfig(BaseModel):
     """A config specification of model."""
 
     num_heads: int = Field(ge=5, default=10)

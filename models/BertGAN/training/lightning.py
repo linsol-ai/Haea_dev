@@ -160,6 +160,8 @@ class BertGAN(pl.LightningModule):
             real_label
         )
 
+        
+
         g_opt.zero_grad()
         self.manual_backward(err_g)
         self.clip_gradients(g_opt, gradient_clip_val=self.config.gradient_clip_val, gradient_clip_algorithm="norm")

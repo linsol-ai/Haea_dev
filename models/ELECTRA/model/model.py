@@ -151,7 +151,7 @@ class CliBERTLM(nn.Module):
 
 class CliBERTPM(nn.Module):
     def __init__(self, encoder: nn.TransformerEncoder, embedding: Embedding, decoder: LinearDecoder, in_dim: int, 
-                 max_lead_time=500, max_var_len=300):
+                 max_lead_time=500):
         super().__init__()
         self.in_dim = in_dim
         self.encoder = encoder

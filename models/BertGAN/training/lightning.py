@@ -30,6 +30,7 @@ class BertGAN(pl.LightningModule):
         self.max_iters = max_iters
         self.mean_std = mean_std
         self.config = config
+        self.automatic_optimization = False
         self.save_hyperparameters()
 
     

@@ -111,9 +111,6 @@ class FinetuningConfig(BaseModel):
 class TrainingRunConfig(BaseModel):
     """A config specification of the training run."""
 
-    model: ModelConfig
-    """A config specification of the model."""
-
     training: FinetuningConfig
     """A config specification of the training."""
 

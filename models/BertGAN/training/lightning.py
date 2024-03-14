@@ -152,9 +152,6 @@ class BertGAN(pl.LightningModule):
         g_opt.step()
 
         self.log_dict({"g_loss": errG, "d_loss": errD}, prog_bar=True)
-        
-
-        return loss
 
     
 

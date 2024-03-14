@@ -123,7 +123,7 @@ def main(argv):
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
     pretrain_model = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
-    bert : CliBERTLM = model.model
+    bert : CliBERTLM = pretrain_model.model
     
     model = CliBERTPM(
         encoder=bert.model,

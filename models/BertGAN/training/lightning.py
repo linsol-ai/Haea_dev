@@ -141,6 +141,8 @@ class BertGAN(pl.LightningModule):
         d_opt.zero_grad()
         self.manual_backward(error_d)
         d_opt.step()
+
+        
         
 
         

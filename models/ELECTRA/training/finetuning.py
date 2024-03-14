@@ -126,7 +126,7 @@ def main(argv):
     bert : CliBERTLM = model.model
     
     model = CliBERTPM(
-        encoder=bert.en
+        encoder=bert.m
     )
 
     print("setting lr rate: ", config.training.learning_rate)

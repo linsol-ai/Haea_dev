@@ -114,6 +114,8 @@ class BertGAN(pl.LightningModule):
         x = (self.embedding(src, var_seq, src_pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)
 
         
+
+        
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)
         loss = rmse_loss(predict, label)

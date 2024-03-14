@@ -162,10 +162,7 @@ class CliBERTPM(nn.Module):
             batch_first=True,
             activation=F.gelu
         )
-        self.encoder = nn.TransformerEncoder(
-            encoder_layers,
-            n_layers
-        )
+        self.encoder = encoder
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.time_emb = LeadTimeEmbedding(max_lead_time, in_dim)

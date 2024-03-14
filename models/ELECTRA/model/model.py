@@ -148,7 +148,7 @@ class CliBERT(nn.Module):
         )
         self.encoder = encoder
         self.decoder = decoder
-        self.embedding = embedding
+        self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.time_emb = LeadTimeEmbedding(max_lead_time, in_dim)
     
 

@@ -8,7 +8,6 @@ import math
 from models.BertGAN.model.model import Discriminator, Generator
 from models.BertGAN.training.configs import TrainingConfig
 from models.BertGAN.training.params_schedule import CosineWarmupScheduler
-import wandb
 
 def denormalize(inputs, mean_std) -> torch.Tensor:
     mean = mean_std[:, 0].view(1, mean_std.size(0), 1)

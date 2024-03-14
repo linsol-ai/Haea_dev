@@ -126,7 +126,7 @@ class BertGAN(pl.LightningModule):
         fake_label = torch.zeros((tgt_real.size(0), tgt_real.size(1)), device=self.device)
 
         err_real = F.binary_cross_entropy_with_logits(
-            self.discriminator(tgt),
+            self.discriminator(tgt_real),
             real_label
         )
         

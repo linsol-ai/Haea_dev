@@ -5,7 +5,6 @@ from torch.optim import Adam
 import torch.nn.functional as F
 from torch import nn
 import math
-
 from models.BertGAN.model.model import Discriminator, Generator
 from models.BertGAN.training.configs import TrainingConfig
 from models.BertGAN.training.params_schedule import CosineWarmupScheduler

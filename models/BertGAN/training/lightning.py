@@ -116,7 +116,7 @@ class BertGAN(pl.LightningModule):
         tgt = tgt.view(src.size(0), -1, src.size(-1))
         tgt = (self.embedding(tgt, var_seq, pe) + self.time_emb(lead_time)) * math.sqrt(self.generator.in_dim)
 
-        fake = self.generator(input)
+        
         
 
         

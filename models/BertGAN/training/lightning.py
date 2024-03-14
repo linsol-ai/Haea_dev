@@ -134,7 +134,7 @@ class BertGAN(pl.LightningModule):
             self.discriminator(tgt_fake),
             fake_label
         )
-        error = 
+        error = err_real + 
         
 
         

@@ -156,7 +156,7 @@ class CliBERTPM(nn.Module):
         self.in_dim = in_dim
         self.encoder = encoder
         
-        self.embedding = Embedding(max_var_len, in_dim, dropout)
+        self.embedding = embedding
         self.time_emb = LeadTimeEmbedding(max_lead_time, in_dim)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     

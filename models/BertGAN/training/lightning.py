@@ -25,8 +25,8 @@ class BertGAN(pl.LightningModule):
                  mean_std: torch.Tensor, max_iters: int, config: TrainingConfig):
         
         super().__init__()
+        
         self.max_iters = max_iters
-
         self.mean_std = mean_std
         self.config = config
         self.save_hyperparameters()

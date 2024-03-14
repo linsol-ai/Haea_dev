@@ -21,7 +21,7 @@ def rmse_loss(x, y):
 
 class BertGAN(pl.LightningModule):
 
-    def __init__(self, *, generator: Generator, discriminator: Discriminator, 
+    def __init__(self, *, generator: Generator, discriminator: Discriminator, var_list: torch.Tensor,
                  mean_std: torch.Tensor, max_iters: int, config: TrainingConfig):
         
         super().__init__()

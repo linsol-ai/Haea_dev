@@ -154,14 +154,6 @@ class CliBERTPM(nn.Module):
                  num_heads=12, n_layers=3, dropout=0.1, max_lead_time=500, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
-        encoder_layers = nn.TransformerEncoderLayer(
-            d_model=in_dim,
-            nhead=num_heads,
-            dim_feedforward=in_dim*4,
-            dropout=dropout,
-            batch_first=True,
-            activation=F.gelu
-        )
         self.encoder = encoder
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

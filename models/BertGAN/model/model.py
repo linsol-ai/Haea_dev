@@ -69,7 +69,7 @@ class Discriminator(nn.Module):
             encoder_layers,
             n_layers
         )
-        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
+        self.decoder = nn.Linear(in_dim, 1)
     
 
     def forward(self, x: torch.Tensor):

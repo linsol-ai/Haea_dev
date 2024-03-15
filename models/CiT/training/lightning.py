@@ -29,7 +29,7 @@ def mse_loss(x, y, delta):
     mean_mse = mse.mean(dim=list(range(1, mse.ndim)))
     weight = sigmoid_function(delta)
     # 최종 RMSE를 계산합니다.
-    return mean_mse
+    return mean_mse * weight
 
 
 class TrainModule(pl.LightningModule):

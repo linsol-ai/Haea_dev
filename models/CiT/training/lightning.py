@@ -66,7 +66,7 @@ class TrainModule(pl.LightningModule):
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)
         loss = mse_loss(predict, label, delta)
-        loss = loss.mean(dim=0)
+        loss = torch.sqrt(loss.mean(dim=0)
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

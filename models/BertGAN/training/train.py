@@ -153,8 +153,6 @@ def main(argv):
         dropout=config.model.dropout
     )
 
-    print("setting lr rate: ", config.training.learning_rate)
-
     model_pl = BertGAN(generator=generator, discriminator=discriminator, mean_std=mean_std, var_list=data_module.var_list,
                        max_iters=max_iters, config=config.training)
 

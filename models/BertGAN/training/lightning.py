@@ -61,7 +61,9 @@ class Embedding(nn.Module):
         var_emb = self.variable(variable_seq)
         if lead_time_seq is not None:
             time_emb = self.time(lead_time_seq)
-        return self.dropout(x + var_emb + time_emb + pos_emb)
+            return self.dropout(x + var_emb + time_emb + pos_emb)
+        else:
+            
     
 
 class BertGAN(pl.LightningModule):

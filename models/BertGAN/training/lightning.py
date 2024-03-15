@@ -95,7 +95,7 @@ class BertGAN(pl.LightningModule):
         d_opt = torch.optim.Adam(self.discriminator.parameters(), lr=self.config.learning_rate)
 
         self.g_scheduler = CosineWarmupScheduler(
-            g_opt, warmup=self.config.warmup_step, max_iters=self.max_iters
+            g_opt, warmup=self.config.g_warmup_step, max_iters=self.max_iters
         )
 
         self.d_scheduler = CosineWarmupScheduler(

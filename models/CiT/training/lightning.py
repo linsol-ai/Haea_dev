@@ -17,7 +17,7 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
 
 def sigmoid_function(x):
   x = x / 200
-  return 1 - np.abs(1/(1+np.exp(-x)) - 0.5)
+  return 1 - torch.abs(1/(1+np.exp(-x)) - 0.5)
 
 
 def mse_loss(x, y):

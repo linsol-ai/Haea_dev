@@ -24,6 +24,8 @@ class TrainingConfig(BaseModel):
 
     warmup_step: int = Field(ge=0, default=4000)
 
+    warmup_step: int = Field(ge=0, default=4000)
+
     batch_size: int = Field(ge=0, default=256)
     """"The batch size."""
 

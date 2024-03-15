@@ -117,9 +117,6 @@ class BertGAN(pl.LightningModule):
 
         src = src.view(src.size(0), -1, src.size(-1))
         src_lead_time = lead_time.unsqueeze(1).repeat(1, src.size(1))
-        tgt_lead_time = torch.zeros_like(src_lead_time, device=self.device)
-
-        print(tgt_lead_time)
      
         src = self.embedding(src, var_seq, pe, src_lead_time) * math.sqrt(self.generator.in_dim)
 

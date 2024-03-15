@@ -108,6 +108,7 @@ class BertGAN(pl.LightningModule):
         src = batch[0]
         label = batch[1]
         lead_time = batch[2]
+        print(src_lead_time)
 
         var_seq = self.var_list.repeat_interleave(src.size(1), dim=0).unsqueeze(0).repeat_interleave(src.size(0), dim=0)
         pe = positional_encoding(src.shape, src.device)

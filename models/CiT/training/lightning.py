@@ -16,7 +16,14 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
     return denormalized
 
 def rmse_loss(x, y):
-    return torch.sqrt(F.mse_loss(x, y))
+    # MSE 손실을 계산합니다. reduction='none'은 각 요소의 손실을 유지합니다.
+    mse = F.mse_loss(x, y, reduction='none')
+    # 배치 차원을 제외한 나머지 차원에 대해 평균을 계산합니다.
+    # 여기서는 mse의 모든 차원에 대해 mean을 사용하지만, 배치 차원이 아닌 차원에만 적용됩니다.
+    mean_mse = mse.mean(dim=list(range(1, mse.ndim)))
+    # 최종 RMSE를 계산합니다.
+    rmse = torch.sqrt(mean_mse)
+    return rmse
 
 
 class TrainModule(pl.LightningModule):

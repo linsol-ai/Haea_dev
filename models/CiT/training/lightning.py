@@ -15,6 +15,11 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
     denormalized = (inputs * std) + mean
     return denormalized
 
+def sigmoid_function(x):
+  x = x / 200
+  return 1 - np.abs(1/(1+np.exp(-x)) - 0.5)
+
+
 def mse_loss(x, y):
     # MSE 손실을 계산합니다. reduction='none'은 각 요소의 손실을 유지합니다.
     mse = F.mse_loss(x, y, reduction='none')
@@ -59,7 +64,7 @@ class TrainModule(pl.LightningModule):
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, var_seq)
         loss = mse_loss(predict, label)
-        
+
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss
 

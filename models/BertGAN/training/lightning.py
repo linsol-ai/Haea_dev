@@ -128,7 +128,7 @@ class BertGAN(pl.LightningModule):
         label = label.view(src.size(0), -1, src.size(-1))
 
         tgt_real = (self.embedding(label, var_seq, pe, tgt_lead_time)) * math.sqrt(self.generator.in_dim)
-        tgt_fake = (self.embedding(fake, var_seq, pe)) * math.sqrt(self.generator.in_dim)
+        tgt_fake = (self.embedding(fake, var_seq, pe, tgt_lead_time)) * math.sqrt(self.generator.in_dim)
 
         real_label = torch.ones((tgt_real.size(0), tgt_real.size(1)), device=self.device)
         fake_label = torch.zeros((tgt_real.size(0), tgt_real.size(1)), device=self.device)

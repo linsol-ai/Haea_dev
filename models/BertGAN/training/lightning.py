@@ -153,7 +153,7 @@ class BertGAN(pl.LightningModule):
         self.manual_backward(err_d)
         self.clip_gradients(d_opt, gradient_clip_val=self.config.gradient_clip_val, gradient_clip_algorithm="norm")
         d_opt.step()
-        self..step()
+        self.d.step()
 
         ######################
         # Optimize Generator #

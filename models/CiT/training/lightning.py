@@ -15,6 +15,7 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
     denormalized = (inputs * std) + mean
     return denormalized
 
+
 def sigmoid_function(x):
     x = x / 200
     return 1 - torch.abs(1/(1+torch.exp(-x)) - 0.5)

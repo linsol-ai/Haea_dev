@@ -15,7 +15,7 @@ def denormalize(inputs, mean_std) -> torch.Tensor:
     denormalized = (inputs * std) + mean
     return denormalized
 
-def rmse_loss(x, y):
+def mse_loss(x, y):
     # MSE 손실을 계산합니다. reduction='none'은 각 요소의 손실을 유지합니다.
     mse = F.mse_loss(x, y, reduction='none')
     # 배치 차원을 제외한 나머지 차원에 대해 평균을 계산합니다.

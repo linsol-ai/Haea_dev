@@ -22,7 +22,7 @@ class TrainingConfig(BaseModel):
     d_lr: float = 2e-4
     """The learning rate."""
 
-    warmup_step: int = Field(ge=0, default=4000)
+    g_warmup_step: int = Field(ge=0, default=4000)
 
     warmup_step: int = Field(ge=0, default=4000)
 

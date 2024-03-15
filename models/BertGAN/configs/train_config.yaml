@@ -9,7 +9,7 @@ training:
   g_lr: 2e-5
   d_lr: 2e-5
   g_warmup_step: 5000
-  g_warmup_step: 5000
+  d_warmup_step: 5000
   batch_size: 12
   max_epochs: 20
   gradient_clip_val: 0.5

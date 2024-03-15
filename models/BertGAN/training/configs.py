@@ -18,6 +18,8 @@ class TrainingConfig(BaseModel):
     """A config specification of training the DVAE."""
 
     g_lr: float = 2e-4
+
+    d_lr: float = 2e-4
     """The learning rate."""
 
     warmup_step: int = Field(ge=0, default=4000)

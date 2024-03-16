@@ -106,7 +106,7 @@ class TrainModule(pl.LightningModule):
         with torch.no_grad():
             batch_size = batch[0].size(0)
             src = batch[0].to(self.device)
-            src = src.view(-1, src.size(2), src.size(3), src(4))
+            src = src.view(-1, src.size(2), src.size(3), src.size(4))
             delta = batch[2].to(self.device)
             var_seq = batch[3].to(self.device)
             predict = self.model(src, delta, var_seq)

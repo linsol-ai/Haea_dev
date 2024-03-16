@@ -104,6 +104,7 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
         with torch.no_grad():
+            batch_size = 
             src = batch[0].to(self.device)
             delta = batch[2].to(self.device)
             var_seq = batch[3].to(self.device)

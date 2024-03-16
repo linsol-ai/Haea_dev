@@ -40,5 +40,5 @@ class ValidationDataset(Dataset):
         return self.source_dataset.size(0)
 
 
-    def __getitem__(self, t):
+    def __getitem__(self, day):
         

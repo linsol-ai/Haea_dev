@@ -41,4 +41,4 @@ class ValidationDataset(Dataset):
 
 
     def __getitem__(self, day):
-        src = (day+1)
+        src = (day+1) * 

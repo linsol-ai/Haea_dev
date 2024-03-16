@@ -42,4 +42,4 @@ class ValidationDataset(Dataset):
 
     def __getitem__(self, day):
         src_st, src_ed = (day) * self.time_len, (day+1) * self.time_len
-        tgt
+        tgt_

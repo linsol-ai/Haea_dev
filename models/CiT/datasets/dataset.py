@@ -46,6 +46,6 @@ class ValidationDataset(Dataset):
         tgt_ed = tgt_st + self.time_len
         #src.shape (lead_days, time, var_len, hidden)
         src = self.source_dataset[src_st:src_ed].unsqueeze(0).repeat_interleave(repeats=self.sample.size(0), dim=0)
-        tgt = torch.zeros
+        tgt = torch.zeros()
         for i in range(self.sample.size(0)):
 

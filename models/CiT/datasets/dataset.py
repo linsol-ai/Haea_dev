@@ -26,3 +26,4 @@ class CustomDataset(Dataset):
         return src, tgt, delta, self.var_seq
         
 
+class V

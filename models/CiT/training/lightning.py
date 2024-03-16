@@ -108,7 +108,7 @@ class TrainModule(pl.LightningModule):
             src = src.squeeze(0)
 
             delta = batch[2].to(self.device)
-            delta = delta.squeeze(0).unsqueeze(1)
+            delta = delta.squeeze(0)
 
             print(delta.shape)
 

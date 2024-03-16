@@ -120,7 +120,6 @@ class TrainModule(pl.LightningModule):
             label = batch[1].to(self.device)
             label = label.view(-1, label.size(2), label.size(3), label.size(4))
 
-
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
             # loss.shape = (batch, time_len, var_len, hidden)

@@ -104,7 +104,6 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]) -> Tuple[torch.Tensor, torch.Tensor]:
         with torch.no_grad():
-            batch_size = batch[0].size(0)
             src = batch[0].to(self.device)
             src = src.view(-1, src.size(2), src.size(3), src.size(4))
 

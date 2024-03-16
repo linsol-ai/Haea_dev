@@ -50,4 +50,4 @@ class ValidationDataset(Dataset):
         for i in range(self.sample.size(0)):
             tgt.append(self.source_dataset[tgt_st[i]:tgt_ed[i]].unsqueeze(0))
         tgt = torch.cat(tgt, dim=0)
-        return src, tgt, self.sample
+        return src, tgt, self.sample, self.var_seq

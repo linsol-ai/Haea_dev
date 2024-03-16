@@ -48,4 +48,4 @@ class ValidationDataset(Dataset):
         src = self.source_dataset[src_st:src_ed].unsqueeze(0).repeat_interleave(repeats=self.sample.size(0), dim=0)
         tgt = []
         for i in range(self.sample.size(0)):
-            tgt.append()
+            tgt.append(self.source_dataset[src_st:src_ed])

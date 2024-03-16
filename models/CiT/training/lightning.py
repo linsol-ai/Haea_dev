@@ -110,6 +110,8 @@ class TrainModule(pl.LightningModule):
             delta = batch[2].to(self.device)
             delta = delta.squeeze(0).unsqueeze(1)
 
+            print(del)
+
             var_seq = batch[3].to(self.device)
             var_seq = var_seq.squeeze(0).unsqueeze(1)
 

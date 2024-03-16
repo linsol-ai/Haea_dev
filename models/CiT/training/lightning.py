@@ -102,10 +102,10 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         self.model.eval()
 
-    def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]) -> Tuple[torch.Tensor, torch.Tensor]:
+    def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor,]) -> Tuple[torch.Tensor, torch.Tensor]:
         with torch.no_grad():
             batch_size = batch[0].size(0)
-            src = batch[0].to(self.device).view(-1, )
+            src = batch[0].to(self.device).view()
             delta = batch[2].to(self.device)
             var_seq = batch[3].to(self.device)
             predict = self.model(src, delta, var_seq)

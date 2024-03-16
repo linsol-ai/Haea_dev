@@ -44,4 +44,5 @@ class ValidationDataset(Dataset):
         src_st, src_ed = (day) * self.time_len, (day+1) * self.time_len
         tgt_st = self.sample + src_ed
         tgt_ed = tgt_st + self.time_len
+        (time, var_len, hidden)
         src = self.source_dataset[src_st:src_ed].unsqueeze(0).repeat_interleave(repeats=self.sample.size(0), dim=0)

@@ -126,6 +126,6 @@ class TrainModule(pl.LightningModule):
             # loss.shape = (batch(lead_days), time_len, var_len)
             loss = loss.mean(dim=-1)
         
-        return loss, delta
+        return loss
     
 

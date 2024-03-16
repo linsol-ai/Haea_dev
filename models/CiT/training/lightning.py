@@ -109,7 +109,7 @@ class TrainModule(pl.LightningModule):
             src = src.view(-1, src.size(2), src.size(3), src.size(4))
 
             delta = batch[2].to(self.device)
-            delta = delta.view(-1, delta.size(2), src.size(3), src.size(4))
+            delta = delta.view(-1, delta.size(2))
 
             var_seq = batch[3].to(self.device)
             predict = self.model(src, delta, var_seq)

@@ -37,7 +37,7 @@ class ValidationDataset(Dataset):
 
 
     def __len__(self):
-        return (self.source_dataset.size(0) // 24
+        return self.source_dataset.size(0) // 24
 
 
     def __getitem__(self, day):

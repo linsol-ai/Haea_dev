@@ -207,6 +207,7 @@ class WeatherDataset:
         variables = air_variable + surface_variable + only_input_variable
         dataset = self.datasets[0].sel(time=slice(self.start_date, self.end_date))
         print(min(dataset.time), max(dataset.time))
+        
         if len(level) > 0:
             dataset = dataset.sel(level=level)
 

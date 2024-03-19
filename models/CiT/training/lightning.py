@@ -124,10 +124,10 @@ class TrainModule(pl.LightningModule):
             
             if location is not None:
                 p_pred = predict[:, :, idx, location]
-                if len(precipitation.shape) == 4:
-                    precipitation = precipitation.mean(dim=-1)
+                if len(p_pred.shape) == 4:
+                    p_pred = p_pred.mean(dim=-1)
             else:
-                precipitation = predict[:, :, idx]
+                p_pred = p_pred[:, :, idx]
                 precipitation = precipitation.mean(dim=-1)
             
 

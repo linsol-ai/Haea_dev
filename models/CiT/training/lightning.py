@@ -135,8 +135,8 @@ class TrainModule(pl.LightningModule):
                 p_label = label[:, :, idx] * 1000
                 p_pred = p_pred.mean(dim=-1)
                 p_label = p_label.mean(dim=-1)
-            
-            
+
+    
 
 
             # loss.shape = (batch, time_len, var_len, hidden)

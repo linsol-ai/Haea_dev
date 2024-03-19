@@ -120,6 +120,8 @@ class TrainModule(pl.LightningModule):
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
 
+            
+
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
             
             if location is not None:
@@ -134,7 +136,7 @@ class TrainModule(pl.LightningModule):
                 p_label = label[:, :, idx]
                 p_label = p_label.mean(dim=-1)
             
-            
+
 
 
             # loss.shape = (batch, time_len, var_len, hidden)

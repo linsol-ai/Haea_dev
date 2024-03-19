@@ -146,7 +146,7 @@ class TrainModule(pl.LightningModule):
             acc = ((p_h + p_c) / (p_h + p_m + p_f + p_c))
             pod = p_h / (p_h + p_m)
 
-            print(pod)
+            print(p_m)
 
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')

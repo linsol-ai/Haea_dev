@@ -123,7 +123,8 @@ class TrainModule(pl.LightningModule):
             loss = F.mse_loss(predict, label, reduction='none')
             # loss.shape = (batch(lead_days), time_len, var_len)
 
-            if location is not None
+            if location is not None:
+                loss = loss
             loss = loss.mean(dim=-1)
         
         return loss

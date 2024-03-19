@@ -120,7 +120,7 @@ class TrainModule(pl.LightningModule):
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
 
-            idx = len(self.config.air_variable) * len(self.config.training.levels) + i
+            idx = len(self.config.air_variable) * len(self.config.levels) + i
 
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')

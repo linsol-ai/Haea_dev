@@ -136,7 +136,7 @@ class TrainModule(pl.LightningModule):
                 p_pred = p_pred.mean(dim=-1)
                 p_label = p_label.mean(dim=-1)
 
-            p_t =
+            p_t = 
 
 
             # loss.shape = (batch, time_len, var_len, hidden)

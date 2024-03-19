@@ -138,7 +138,7 @@ class TrainModule(pl.LightningModule):
 
             # loss.shape = (batch, time_len)
 
-            p_h = torch.sum(torch.logical_and( (p_pred >= p_threshold), ((p_label >= p_threshold))), dim=-1) # 강수 맞힘
+            p_h = torch.logical_and( (p_pred >= p_threshold), ((p_label >= p_threshold))) # 강수 맞힘
             p_f = torch.sum(torch.logical_and( (p_pred >= p_threshold), ((p_label < p_threshold))), dim=-1)  # 강수 틀림
             p_m = torch.sum(torch.logical_and( (p_pred < p_threshold), ((p_label >= p_threshold))), dim=-1) # 강수 놓침
             p_c = torch.sum(torch.logical_and( (p_pred < p_threshold), ((p_label < p_threshold))), dim=-1) # 강수 없음 맞힘

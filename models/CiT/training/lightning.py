@@ -122,8 +122,11 @@ class TrainModule(pl.LightningModule):
 
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
 
+              if location is not None:
+                loss = loss[:, :, :, location]
+
             precipitation = predict[:, :, idx]
-            
+
 
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')

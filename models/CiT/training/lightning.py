@@ -127,10 +127,11 @@ class TrainModule(pl.LightningModule):
                 p_label = label[:, :, idx, location]
                 if len(p_pred.shape) == 4:
                     p_pred = p_pred.mean(dim=-1)
-                    p_pred = p_pred.mean(dim=-1)
+                    p_label = p_label.mean(dim=-1)
             else:
                 p_pred = predict[:, :, idx]
                 p_pred = p_pred.mean(dim=-1)
+                
             
 
 

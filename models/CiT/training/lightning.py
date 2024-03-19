@@ -125,7 +125,7 @@ class TrainModule(pl.LightningModule):
 
             if location is not None:
                 loss = loss[:, :, :, location]
-                if 
+                if loss.sh
             loss = loss.mean(dim=-1)
         
         return loss

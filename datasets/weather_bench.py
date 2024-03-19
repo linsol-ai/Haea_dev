@@ -128,7 +128,8 @@ class VariableVocab:
     
 
     def get_location(self, latitude, longitude):
-        if latitude is None
+        if latitude is None:
+            return None
         lat_indices = np.where((self.dataset.latitude >= latitude[0]) & (self.dataset.latitude <= latitude[1]))[0]
         lon_indices = np.where((self.dataset.longitude >= longitude[0]) & (self.dataset.longitude <= longitude[1]))[0]
         ind = lat_indices * 36 + np.expand_dims(lon_indices, axis=1)

@@ -131,7 +131,8 @@ class TrainModule(pl.LightningModule):
             else:
                 p_pred = predict[:, :, idx]
                 p_pred = p_pred.mean(dim=-1)
-                
+                p_pred = predict[:, :, idx]
+                p_pred = p_pred.mean(dim=-1)
             
 
 

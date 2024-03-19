@@ -124,7 +124,7 @@ class TrainModule(pl.LightningModule):
             
             if location is not None:
                 p_pred = predict[:, :, idx, location]
-                p_label = predict[:, :, idx, location]
+                p_label = label[:, :, idx, location]
                 if len(p_pred.shape) == 4:
                     p_pred = p_pred.mean(dim=-1)
             else:

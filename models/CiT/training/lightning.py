@@ -122,6 +122,8 @@ class TrainModule(pl.LightningModule):
 
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
 
+            
+
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')
             # loss.shape = (batch(lead_days), time_len, var_len, hidden)

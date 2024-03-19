@@ -120,7 +120,7 @@ class TrainModule(pl.LightningModule):
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
 
-            idx = (len(self.config.air_variable) * len(self.config.levels)) + self.config.surface_variable.index('')
+            idx = (len(self.config.air_variable) * len(self.config.levels)) + self.config.surface_variable.index('total_precipitation')
             
             if location is not None:
                 p_pred = predict[:, :, idx, location] * 1000

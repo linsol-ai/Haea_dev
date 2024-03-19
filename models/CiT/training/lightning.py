@@ -125,7 +125,7 @@ class TrainModule(pl.LightningModule):
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
             
             if location is not None:
-                p_pred = predict[:, :, idx, location] * 100 * 10
+                p_pred = predict[:, :, idx, location] * 1000
                 p_label = label[:, :, idx, location]
                 if len(p_pred.shape) == 4:
                     p_pred = p_pred.mean(dim=-1)

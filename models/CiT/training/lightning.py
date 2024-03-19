@@ -142,7 +142,7 @@ class TrainModule(pl.LightningModule):
             p_c = torch.logical_and( (p_pred < p_threshold), ((p_label < p_threshold))).sum() # 강수 없음 맞힘
 
             acc = ((p_h + p_c) / (p_h + p_m + p_f + p_c)) * 100
-            pod = p_h / (p_h + p_c)
+            pod = p_h / (p_h + p_m)
 
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')

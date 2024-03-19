@@ -120,7 +120,7 @@ class TrainModule(pl.LightningModule):
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
 
-            threshold
+            p_threshold
 
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
             

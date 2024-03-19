@@ -123,7 +123,7 @@ class TrainModule(pl.LightningModule):
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
             
             if location is not None:
-                p = predict[:, :, idx, location]
+                p_ = predict[:, :, idx, location]
                 if len(precipitation.shape) == 4:
                     precipitation = precipitation.mean(dim=-1)
             else:

@@ -128,7 +128,8 @@ class VariableVocab:
     
 
     def get_location(self, latitude, longitude):
-        
+        lat_indices = np.where((source_dataset.latitude >= 33) & (source_dataset.latitude <= 43))[0]
+lon_indices = np.where((source_dataset.longitude >= 124) & (source_dataset.longitude <= 132))[0]
 
 
     def __len__(self):

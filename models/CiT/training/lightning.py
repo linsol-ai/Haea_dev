@@ -120,8 +120,6 @@ class TrainModule(pl.LightningModule):
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
 
-            p_threshold = 0.1
-
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
             
             if location is not None:

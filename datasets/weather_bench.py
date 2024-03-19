@@ -127,7 +127,7 @@ class VariableVocab:
         return torch.tensor(codes)
     
 
-    def get_
+    def get_lo
 
 
     def __len__(self):

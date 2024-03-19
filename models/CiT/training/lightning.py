@@ -124,6 +124,7 @@ class TrainModule(pl.LightningModule):
 
             if location is not None:
                 precipitation = predict[:, :, :, location]
+            
 
             precipitation = predict[:, :, idx]
 

@@ -128,6 +128,7 @@ class TrainModule(pl.LightningModule):
                     precipitation = precipitation.mean(dim=-1)
             else:
                 precipitation = predict[:, :, idx]
+                precipitation = precipitation.mean(dim=-1)
 
 
             # loss.shape = (batch, time_len, var_len, hidden)

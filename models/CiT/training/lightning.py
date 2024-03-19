@@ -123,7 +123,7 @@ class TrainModule(pl.LightningModule):
             idx = len(self.config.air_variable) * len(self.config.levels) + 5
 
             if location is not None:
-                precipitation = predict[:, :, :, location]
+                precipitation = predict[:, :, idx, location]
             
 
             precipitation = predict[:, :, idx]

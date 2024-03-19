@@ -127,8 +127,8 @@ class TrainModule(pl.LightningModule):
                 if len(p_pred.shape) == 4:
                     p_pred = p_pred.mean(dim=-1)
             else:
-                p_pred = p_pred[:, :, idx]
-                precipitation = precipitation.mean(dim=-1)
+                p_pred = predict[:, :, idx]
+                p_pred = precipitation.mean(dim=-1)
             
 
 

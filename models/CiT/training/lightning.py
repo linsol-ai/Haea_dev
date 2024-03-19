@@ -124,7 +124,7 @@ class TrainModule(pl.LightningModule):
             # loss.shape = (batch(lead_days), time_len, var_len, hidden)
 
             if location is not None:
-                loss = loss[:, :, :, ]
+                loss = loss[:, :, :, location]
             loss = loss.mean(dim=-1)
         
         return loss

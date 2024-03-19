@@ -131,7 +131,7 @@ class TrainModule(pl.LightningModule):
                     p_pred = p_pred.mean(dim=-1)
                     p_label = p_label.mean(dim=-1)
             else:
-                p_pred = predict[:, :, idx]
+                p_pred = predict[:, :, idx] * 1000
                 p_pred = p_pred.mean(dim=-1)
                 p_label = label[:, :, idx]
                 p_label = p_label.mean(dim=-1)

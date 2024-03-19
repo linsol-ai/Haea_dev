@@ -138,7 +138,7 @@ class TrainModule(pl.LightningModule):
 
             p_h = torch.logical_and( (p_pred >= p_threshold), ((p_label >= p_threshold))).sum()
             p_f = torch.logical_and( (p_pred >= p_threshold), ((p_label < p_threshold))).sum()
-            p_f = torch.logical_and( (p_pred >= p_threshold), ((p_label < p_threshold))).sum()
+            p_m = torch.logical_and( (p_pred >= p_threshold), ((p_label < p_threshold))).sum()
 
 
             # loss.shape = (batch, time_len, var_len, hidden)

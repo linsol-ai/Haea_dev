@@ -143,7 +143,6 @@ class TrainModule(pl.LightningModule):
             p_m = torch.sum(torch.logical_and( (p_pred < p_threshold), ((p_label >= p_threshold))), dim=-1) # 강수 놓침
             p_c = torch.sum(torch.logical_and( (p_pred < p_threshold), ((p_label < p_threshold))), dim=-1) # 강수 없음 맞힘
 
-            print(.shape)
 
             acc = ((p_h + p_c) / (p_h + p_m + p_f + p_c))
             pod = p_h / (p_h + p_m)

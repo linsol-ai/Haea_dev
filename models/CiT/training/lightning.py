@@ -101,7 +101,7 @@ class TrainModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         self.model.eval()
 
-    def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]) -> torch.Tensor:
+    def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], location=No) -> torch.Tensor:
         with torch.no_grad():
             src = batch[0].to(self.device)
             src = src.squeeze(0)

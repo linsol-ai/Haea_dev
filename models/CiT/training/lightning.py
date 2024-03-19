@@ -151,6 +151,6 @@ class TrainModule(pl.LightningModule):
             else:
                 loss = loss.mean(dim=-1)
         
-        return loss, acc, pod
+        return loss, p_pred, p_label
     
 

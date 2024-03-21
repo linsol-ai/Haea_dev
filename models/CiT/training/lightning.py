@@ -49,7 +49,7 @@ class TrainModule(pl.LightningModule):
     def setup(self, stage: str) -> None:
         print(stage)
         self.mean_std = self.mean_std.to(self.device)
-        self.mean_std = self.mean_std.to(self.device)
+        self.var_list = self.mean_std.to(self.device)
 
 
     def configure_optimizers(self) -> Adam:  # noqa: D102

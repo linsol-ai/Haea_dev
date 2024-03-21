@@ -34,7 +34,7 @@ def mse_loss(x, y, delta):
 
 class TrainModule(pl.LightningModule):
 
-    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor, var_list: 
+    def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):
         
         super().__init__()

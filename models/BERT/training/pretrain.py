@@ -136,7 +136,7 @@ def main(argv):
         in_dim=data_module.time_vocab.dataset.size(-1),
         out_dim=data_module.time_vocab.dataset.size(-1),
         num_heads=config.model.num_heads,
-        n_layers=config.model.n,
+        n_layers=config.model.num_heads,
         dropout=config.model.dropout,
         max_var_len=len(data_module.var_vocab)
     )

@@ -13,7 +13,7 @@ training:
   gradient_clip_val: 0.5
   time_len: 24
   mask_ratio: 0.2
-
+  
   train_start: 2013-01-01
   train_end: 2023-01-01
   

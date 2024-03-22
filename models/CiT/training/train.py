@@ -141,17 +141,17 @@ def main(argv):
     
     if FLAGS.MODEL_PATH is None:
     
-    model = ClimateTransformer(
-        in_dim=dataset.source_dataset.size(-1),
-        out_dim=dataset.source_dataset.size(-1),
-        num_heads=config.model.num_heads,
-        n_layers=config.model.n_layers,
-        dropout=config.model.dropout
-    )
+        model = ClimateTransformer(
+            in_dim=dataset.source_dataset.size(-1),
+            out_dim=dataset.source_dataset.size(-1),
+            num_heads=config.model.num_heads,
+            n_layers=config.model.n_layers,
+            dropout=config.model.dropout
+        )
 
-    print("setting lr rate: ", config.training.learning_rate)
+        print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
+        model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
 
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)

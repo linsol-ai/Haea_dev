@@ -117,21 +117,6 @@ class DataModule(pl.LightningDataModule):
 
 def main(argv):
 
-    config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
-
-    try:
-        with open(config_path) as f:
-            config_dict = yaml.safe_load(f)
-        config: FinetuningRunConfig = FinetuningRunConfig.parse_obj(config_dict)
-    except FileNotFoundError:
-        logging.error(f"Config file {config_path} does not exist. Exiting.")
-    except yaml.YAMLError:
-        logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
-    except ValidationError as e:
-        logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
-    else:
-        pl.seed_everything(config.seed)
-
     data_module = DataModule(config.training)
     dataset = data_module.dataset
     mean_std = data_module.mean_std

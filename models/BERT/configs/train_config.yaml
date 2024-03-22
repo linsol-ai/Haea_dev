@@ -4,7 +4,7 @@ model:
   num_heads: 16
   n_layers: 12
   dropout: 0.1
-  
+
 training:
   learning_rate: 2e-5
   warmup_step: 5000
@@ -12,7 +12,8 @@ training:
   max_epochs: 10
   gradient_clip_val: 0.5
   time_len: 24
-  mask_ratio: 0.15
+  mask_ratio: 0.3
+  
   train_start: 2013-01-01
   train_end: 2023-01-01
   

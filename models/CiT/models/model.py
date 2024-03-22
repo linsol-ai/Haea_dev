@@ -197,7 +197,6 @@ class CliBERT(nn.Module):
 def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
     # indicate.shape = (batch, max_len)
     result = []
-    mask_ind = []
     var_len = var_list.size(0)
 
     for batch in indicate:

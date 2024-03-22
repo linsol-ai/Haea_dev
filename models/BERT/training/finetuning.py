@@ -29,7 +29,7 @@ FLAGS = flags.FLAGS
 WORLD_SIZE = flags.DEFINE_integer('WORLD_SIZE', None, help='define gpu size')
 MODEL_PATH = flags.DEFINE_string('MODEL_PATH', None, help='get pretrained model')
 flags.mark_flag_as_required("WORLD_SIZE")
-flags.mark_flag_as_required("WORLD_SIZE")
+flags.mark_flag_as_required("MODEL_PATH")
 
 if 'NODE_RANK' in env_cp.keys():
     node_rank, local_rank, world_size = int(env_cp['NODE_RANK']), int(env_cp['LOCAL_RANK']), int(env_cp['WORLD_SIZE'])

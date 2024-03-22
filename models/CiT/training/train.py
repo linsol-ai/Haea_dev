@@ -153,6 +153,8 @@ def main(argv):
 
         model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
 
+
+
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)
 

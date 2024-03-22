@@ -14,11 +14,11 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset, VariableVocab
 from models.BERT.datasets.denoised_dataset import DenoisingDataset, TimeVocab
-from models.ELECTRA.model.model import CliBERTLM
+from models.BERT.model.model import CliBERTLM
 
-from models.ELECTRA.training.configs import TrainingConfig
-from models.ELECTRA.training.configs import TrainingRunConfig
-from models.ELECTRA.training.lightning import PretrainModule
+from models.BERT.training.configs import TrainingConfig
+from models.BERT.training.configs import TrainingRunConfig
+from models.BERT.training.lightning import PretrainModule
 
 
 import os

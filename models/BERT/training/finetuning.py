@@ -66,7 +66,7 @@ def split_datetime_range(start, end, n):
     return intervals
 
 
-def get_normal_dataset(config: TrainingConfig):
+def get_normal_dataset(config: FinetuningConfig):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
@@ -87,7 +87,7 @@ def get_normal_dataset(config: TrainingConfig):
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: TrainingConfig):
+    def __init__(self, config: FinetuningConfig):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)

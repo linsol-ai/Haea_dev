@@ -139,7 +139,7 @@ def main(argv):
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
     
-    if 
+    if FLAGS.MODEL_PATH is not N
     
     model = ClimateTransformer(
         in_dim=dataset.source_dataset.size(-1),

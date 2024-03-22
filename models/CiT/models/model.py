@@ -35,7 +35,7 @@ class Embedding(nn.Module):
 
 
 class Embedding(nn.Module):
-    def __init__(self, max_lead_time, var_len, embed_size, dropout=0.1):
+    def __init__(self, var_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size
         :param embed_size: embedding size of token embedding

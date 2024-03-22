@@ -2,7 +2,7 @@
 # specific options.
 model:
   num_heads: 16
-  g_layers: 12
+  n_layers: 12
   d_layers: 12
   dropout: 0.1
   disc_weight: 1000

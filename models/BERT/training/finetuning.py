@@ -17,7 +17,7 @@ from datasets.weather_bench import WeatherDataset
 from models.BERT.datasets.dataset import CustomDataset
 from models.BERT.model.model import CliBERT
 
-from models.BERT.training.configs import TrainingConfig
+from models.BERT.training.configs import FinetuningConfig
 from models.BERT.training.configs import TrainingRunConfig
 from models.BERT.training.lightning import FinetuningModule, PretrainModule
 

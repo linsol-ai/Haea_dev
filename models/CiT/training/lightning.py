@@ -151,7 +151,7 @@ class TrainModule(pl.LightningModule):
         return loss, p_pred, p_label
 
 
-class PrerainModule(pl.LightningModule):
+class PretrainModule(pl.LightningModule):
 
     def __init__(self, *, model: ClimateTransformer, mean_std: torch.Tensor, var_list: torch.Tensor,
                  max_iters: int, config: TrainingConfig):

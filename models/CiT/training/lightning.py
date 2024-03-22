@@ -179,7 +179,7 @@ class PretrainModule(pl.LightningModule):
         return optimizer
 
 
-    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+    def _step(self, batch: Dict, mode: str) -> torch.Tensor:
         src = batch[0]
         label = batch[1]
         delta = batch[2]

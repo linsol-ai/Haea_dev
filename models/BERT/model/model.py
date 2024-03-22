@@ -29,6 +29,7 @@ class BERTEmbedding(nn.Module):
         var_emb = self.variable(variable_seq)
         return self.dropout(x + var_emb + pos_emb)
 
+
 class LinearDecoder(nn.Module):
     def __init__(self, in_dim, out_dim, dropout=0.1):
         """
@@ -49,7 +50,7 @@ class LinearDecoder(nn.Module):
        # x.shape = (batch, time * var, hidden)
        return self.seq(x)
 
-       
+
 
 class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 

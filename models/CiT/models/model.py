@@ -163,7 +163,7 @@ class CliBERT(nn.Module):
             n_layers
         )
         
-        self.embedding = Embedding(max_lead_time, max_var_len, in_dim, dropout)
+        self.embedding = BERTEmbedding(max_lead_time, max_var_len, in_dim, dropout)
         self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
     
 

@@ -34,7 +34,7 @@ class Embedding(nn.Module):
         return self.dropout(x + var_emb + time_emb + pos_emb)
 
 
-class Embedding(nn.Module):
+class BERTEmbedding(nn.Module):
     def __init__(self, var_len, embed_size, dropout=0.1):
         """
         :param vocab_size: total vocab size

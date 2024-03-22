@@ -4,7 +4,17 @@ from torch.nn import functional as F
 import math
 from models.BERT.datasets.denoised_dataset import TimeVocab
 
+class VariableEmbedding(nn.Embedding):
+    def __init__(self, var_len, embed_size=768):
+        super().__init__(var_len, embed_size)
 
+
+class LeadTimeEmbedding(nn.Embedding):
+    def __init__(self, max_lead_time, embed_size=768):
+        super().__init__(max_lead_time, embed_size)
+
+
+        
 class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, n_layers=3, dropout=0.1, max_lead_time=500, max_var_len=300):

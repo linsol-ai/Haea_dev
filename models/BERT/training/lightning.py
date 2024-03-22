@@ -4,8 +4,8 @@ from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
 from models.BERT.model.model import CliBERTLM, CliBERTPM
-from models.ELECTRA.training.configs import TrainingConfig, FinetuningConfig
-from models.ELECTRA.training.params_schedule import CosineWarmupScheduler
+from models.BERT.training.configs import TrainingConfig, FinetuningConfig
+from models.BERT.training.params_schedule import CosineWarmupScheduler
 from typing import Dict
 
 def denormalize(inputs, mean_std) -> torch.Tensor:

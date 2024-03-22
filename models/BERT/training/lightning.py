@@ -185,7 +185,7 @@ class FinetuningModule(pl.LightningModule):
             delta = batch[2].to(self.device)
             delta = delta.squeeze(0)
 
-            predict = self.model(src, delta, self.var_list)
+            predict = self.model(src, self.var_list)
             predict = predict.view(predict.size(0), self.config.time_len, -1, predict.size(-1))
 
             label = batch[1].to(self.device)

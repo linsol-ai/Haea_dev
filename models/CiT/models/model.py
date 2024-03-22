@@ -127,7 +127,7 @@ class ClimateTransformer(nn.Module):
 
 
 
-class CliB(nn.Module):
+class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, n_layers=3, dropout=0.1, max_lead_time=500, max_var_len=300):
         super().__init__()
@@ -154,7 +154,6 @@ class CliB(nn.Module):
         var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
-        lead_time = lead_time.unsqueeze(1).repeat(1, x.size(1))
 
         x = self.embedding(x, var_seq, lead_time, src_pe) * math.sqrt(self.in_dim)
         x = self.encoder(x)

@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import math
-from models.ELECTRA.datasets.denoised_dataset import TimeVocab
+from models.BERT.datasets.denoised_dataset import TimeVocab
 
 
 class CliBERT(nn.Module):

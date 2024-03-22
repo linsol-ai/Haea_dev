@@ -127,22 +127,7 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
 class CliBERTPM(nn.Module):
     def __init__(self, model: CliBERT):
         super().__init__()
-        self.in_dim = in_dim
-        encoder_layers = nn.TransformerEncoderLayer(
-            d_model=in_dim,
-            nhead=num_heads,
-            dim_feedforward=in_dim*4,
-            dropout=dropout,
-            batch_first=True,
-            activation=F.gelu
-        )
-        self.encoder = nn.TransformerEncoder(
-            encoder_layers,
-            n_layers
-        )
-        
-        self.embedding = BERTEmbedding(max_var_len, in_dim, dropout)
-        self.decoder = LinearDecoder(in_dim, out_dim, dropout=dropout)
+        self.model = 
     
 
     def forward(self, x: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

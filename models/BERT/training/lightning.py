@@ -175,6 +175,7 @@ class FinetuningModule(pl.LightningModule):
 
     def setting(self):
         self.mean_std = self.mean_std.to(self.device)
+        self.var_list = self.var_list.to(self.device)
         self.model.eval()
 
     def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], location=None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:

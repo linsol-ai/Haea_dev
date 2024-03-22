@@ -127,7 +127,7 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
 class CliBERTPM(nn.Module):
     def __init__(self, model: CliBERT):
         super().__init__()
-        self.model = 
+        self.model = model
     
 
     def forward(self, x: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):

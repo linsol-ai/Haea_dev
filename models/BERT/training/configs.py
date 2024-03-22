@@ -10,8 +10,6 @@ class ModelConfig(BaseModel):
 
     n_layers: int = Field(ge=1, default=6)
 
-    d_layers: int = Field(ge=1, default=6)
-
     dropout: float = Field(ge=0, default=0.1)
 
     disc_weight: float = 50.

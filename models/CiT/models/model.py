@@ -193,6 +193,31 @@ class CliBERT(nn.Module):
 
         return pe.repeat_interleave(var_len, dim=1)
 
+
+def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
+    # indicate.shape = (batch, max_len)
+    result = []
+    mask_ind = []
+    var_len = var_list.size(0)
+
+    for batch in indicate:
+        seq = []
+        mask = []
+        for i, item in enumerate(batch):
+            if item == TimeVocab.SPECIAL_TOKEN_MASK:
+                    seq.append(torch.full_like(var_list, TimeVocab.SPECIAL_TOKEN_MASK, device=device))
+                    mask.extend(range(i*var_len, i*var_len + var_len, 1))
+            else:
+                seq.append(var_list)
+
+        seq = torch.cat(seq, dim=0)
+        
+        result.append(seq)
+        mask_ind.append(mask)
+            
+    result = torch.stack(result, dim=0)
+    return result, mask_ind
+
     
 
 

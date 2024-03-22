@@ -212,7 +212,6 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
         seq = torch.cat(seq, dim=0)
         
         result.append(seq)
-        mask_ind.append(mask)
             
     result = torch.stack(result, dim=0)
     return result, mask_ind

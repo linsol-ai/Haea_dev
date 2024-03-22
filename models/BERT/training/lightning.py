@@ -177,22 +177,50 @@ class FinetuningModule(pl.LightningModule):
         self.mean_std = self.mean_std.to(self.device)
         self.model.eval()
 
-    def forward(self, batch) -> Tuple[torch.Tensor, torch.Tensor]:
+   def forward(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor], location=None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         with torch.no_grad():
             src = batch[0].to(self.device)
+            src = src.squeeze(0)
+
             delta = batch[2].to(self.device)
-            var_seq = batch[3].to(self.device)
-            predict = self.model(src, delta, var_seq)
+            delta = delta.squeeze(0)
+
+            predict = self.model(src, delta, self.var_list)
             predict = predict.view(predict.size(0), self.config.time_len, -1, predict.size(-1))
 
             label = batch[1].to(self.device)
+            label = label.squeeze(0)
+
             label = denormalize(label, self.mean_std)
             predict = denormalize(predict, self.mean_std)
+
+            idx = (len(self.config.air_variable) * len(self.config.levels)) + self.config.surface_variable.index('total_precipitation')
+            
+            if location is not None:
+                p_pred = predict[:, :, idx, location] * 1000
+                p_label = label[:, :, idx, location] * 1000
+                if len(p_pred.shape) == 3:
+                    p_pred = p_pred.mean(dim=-1)
+                    p_label = p_label.mean(dim=-1)
+            else:
+                p_pred = predict[:, :, idx] * 1000
+                p_label = label[:, :, idx] * 1000
+                p_pred = p_pred.mean(dim=-1)
+                p_label = p_label.mean(dim=-1)
+
+            # loss.shape = (batch, time_len)
+
             # loss.shape = (batch, time_len, var_len, hidden)
             loss = F.mse_loss(predict, label, reduction='none')
-            # loss.shape = (batch, time_len, var_len)
-            loss = loss.mean(dim=-1)
+            # loss.shape = (batch(lead_days), time_len, var_len, hidden)
+
+            if location is not None:
+                loss = loss[:, :, :, location]
+                if len(loss.shape) == 4:
+                    loss = loss.mean(dim=-1)
+            else:
+                loss = loss.mean(dim=-1)
         
-        return loss, delta
+        return loss, p_pred, p_label
     
 

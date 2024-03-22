@@ -51,6 +51,7 @@ class Embedding(nn.Module):
         var_emb = self.variable(variable_seq)
         time_emb = self.time(lead_time_seq)
         return self.dropout(x + var_emb + time_emb + pos_emb)
+    
 
 
 class LinearDecoder(nn.Module):

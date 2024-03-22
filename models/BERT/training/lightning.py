@@ -129,7 +129,6 @@ class FinetuningModule(pl.LightningModule):
     def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
         src = batch[0]
         label = batch[1]
-        delta = batch[2]
 
         label = label.view(label.size(0), -1, label.size(-1))
         predict = self.model(src, delta, self.var_list)

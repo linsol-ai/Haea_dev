@@ -156,6 +156,7 @@ def main(argv):
     else:
         model_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
 
+
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)
 

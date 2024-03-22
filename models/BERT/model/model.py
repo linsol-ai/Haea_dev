@@ -80,6 +80,8 @@ class CliBERT(nn.Module):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         if src_id is not None:
             var_seq = get_var_seq(var_list, src_id, x.device)
+        else:
+            
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
 

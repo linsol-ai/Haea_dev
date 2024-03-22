@@ -154,7 +154,7 @@ def main(argv):
         model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
 
     else:
-        model_pl = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
+        model_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
 
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)

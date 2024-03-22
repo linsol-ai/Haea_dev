@@ -139,22 +139,7 @@ def main(argv):
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
     
-    if FLAGS.MODEL_PATH is None:
-    
-        model = ClimateTransformer(
-            in_dim=dataset.source_dataset.size(-1),
-            out_dim=dataset.source_dataset.size(-1),
-            num_heads=config.model.num_heads,
-            n_layers=config.model.n_layers,
-            dropout=config.model.dropout
-        )
-
-        print("setting lr rate: ", config.training.learning_rate)
-
-        model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
-
-    else:
-        model_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
+    imodel_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
 
 
     summary = ModelSummary(model_pl, max_depth=-1)

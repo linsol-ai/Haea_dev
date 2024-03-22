@@ -139,7 +139,7 @@ def main(argv):
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
     
-    imodel_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
+    model_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
 
 
     summary = ModelSummary(model_pl, max_depth=-1)

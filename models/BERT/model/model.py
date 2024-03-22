@@ -13,8 +13,22 @@ class LeadTimeEmbedding(nn.Embedding):
     def __init__(self, max_lead_time, embed_size=768):
         super().__init__(max_lead_time, embed_size)
 
+class BERTEmbedding(nn.Module):
+    def __init__(self, var_len, embed_size, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.variable = VariableEmbedding(var_len, embed_size)
+        self.dropout = nn.Dropout(p=dropout)
+        self.embed_size = embed_size
 
-        
+    def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, pos_emb: torch.Tensor) -> torch.Tensor:
+        var_emb = self.variable(variable_seq)
+        return self.dropout(x + var_emb + pos_emb)
+
 class CliBERT(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, 
                  num_heads=12, n_layers=3, dropout=0.1, max_lead_time=500, max_var_len=300):

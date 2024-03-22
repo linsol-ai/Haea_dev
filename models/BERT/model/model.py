@@ -82,7 +82,7 @@ class CliBERT(nn.Module):
             var_seq = get_var_seq(var_list, src_id, x.device)
         else:
             var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
-            
+
         src_pe = self.positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
 
@@ -125,32 +125,3 @@ def get_var_seq(var_list: torch.Tensor, indicate: torch.Tensor, device):
             
     result = torch.stack(result, dim=0)
     return result
-
-
-
-class CliBERTPM(nn.Module):
-    def __init__(self, model: CliBERT):
-        super().__init__()
-        self.model = model
-    
-
-    def forward(self, x: torch.Tensor, var_list: torch.Tensor):
-        var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
-        src_pe = self.positional_encoding(x.shape, x.device)
-        x = x.view(x.size(0), -1, x.size(-1))
-
-        return x
-
-
-    def positional_encoding(self, shape, device):       
-        batch, time_len, var_len, d_model = shape 
-        pe = torch.zeros(batch, time_len, d_model, device=device).float()
-        pe.require_grad = False
-        position = torch.arange(0, time_len).float().unsqueeze(1)
-        
-        div_term = (torch.arange(0, d_model, 2).float() * -(math.log(10000.0) / d_model)).exp()
-
-        pe[:, :, 0::2] = torch.sin(position * div_term)
-        pe[:, :, 1::2] = torch.cos(position * div_term)
-
-        return pe.repeat_interleave(var_len, dim=1)

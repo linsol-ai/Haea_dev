@@ -130,7 +130,7 @@ class CliBERTPM(nn.Module):
         self.model = model
     
 
-    def forward(self, x: torch.Tensor, var_list: torch.Tensor, src_id: torch.Tensor):
+    def forward(self, x: torch.Tensor, var_list: torch.Tensor):
         # src.shape = (batch, time, var_len, hidden), lead_time.shape = (batch)
         var_seq = get_var_seq(var_list, src_id, x.device)
         src_pe = self.positional_encoding(x.shape, x.device)

@@ -19,7 +19,7 @@ from models.BERT.models.model import Cli
 
 from models.BERT.training.configs import TrainingConfig
 from models.BERT.training.configs import TrainingRunConfig
-from models.BERT.training.lightning import FinetuningModule
+from models.BERT.training.lightning import FinetuningModule, P
 
 import os
 env_cp = os.environ.copy()

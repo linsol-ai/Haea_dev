@@ -142,7 +142,10 @@ def main(argv):
     
     model = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
 
-
+    model_pl = FinetuningModule(
+        model=model.model, mean_std=data_module.mean_std, max_iters=max_iters,
+        var_list=data_module.var_list, config=config.training)
+    
 
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)

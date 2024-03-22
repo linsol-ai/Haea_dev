@@ -8,7 +8,7 @@ class ModelConfig(BaseModel):
 
     num_heads: int = Field(ge=5, default=10)
 
-    g_layers: int = Field(ge=1, default=6)
+    n_layers: int = Field(ge=1, default=6)
 
     d_layers: int = Field(ge=1, default=6)
 

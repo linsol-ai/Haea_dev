@@ -14,12 +14,12 @@ from pytorch_lightning.utilities.model_summary import ModelSummary
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset
-from models.ELECTRA.datasets.dataset import CustomDataset
-from models.ELECTRA.model.model import CliBERTLM, CliBERTPM
+from models.CiT.datasets.dataset import CustomDataset
+from models.CiT.models.model import ClimateTransformer
 
-from models.ELECTRA.training.configs import FinetuningConfig
-from models.ELECTRA.training.configs import FinetuningRunConfig
-from models.ELECTRA.training.lightning import PretrainModule, FinetuningModule
+from models.CiT.training.configs import TrainingConfig
+from models.CiT.training.configs import TrainingRunConfig
+from models.CiT.training.lightning import TrainModule
 
 import os
 env_cp = os.environ.copy()
@@ -29,7 +29,6 @@ FLAGS = flags.FLAGS
 WORLD_SIZE = flags.DEFINE_integer('WORLD_SIZE', None, help='define gpu size')
 MODEL_PATH = flags.DEFINE_string('MODEL_PATH', None, help='get pretrained model')
 flags.mark_flag_as_required("WORLD_SIZE")
-flags.mark_flag_as_required("MODEL_PATH")
 
 if 'NODE_RANK' in env_cp.keys():
     node_rank, local_rank, world_size = int(env_cp['NODE_RANK']), int(env_cp['LOCAL_RANK']), int(env_cp['WORLD_SIZE'])
@@ -37,13 +36,13 @@ else:
     world_size = 1
     local_rank = 0
 
-config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/finetuning_config.yaml')
+config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
 
 
 try:
     with open(config_path) as f:
         config_dict = yaml.safe_load(f)
-    config: FinetuningRunConfig = FinetuningRunConfig.parse_obj(config_dict)
+    config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
 except FileNotFoundError:
     logging.error(f"Config file {config_path} does not exist. Exiting.")
 except yaml.YAMLError:
@@ -66,7 +65,7 @@ def split_datetime_range(start, end, n):
     return intervals
 
 
-def get_normal_dataset(config: FinetuningConfig):
+def get_normal_dataset(config: TrainingConfig):
     device = ("cuda" if torch.cuda.is_available() else "cpu" )
     device = torch.device(device)
 
@@ -82,12 +81,12 @@ def get_normal_dataset(config: FinetuningConfig):
     
     var_list = var_vocab.get_code(vars)
     print(var_list)
-    dataset = CustomDataset(source, var_list, config.time_len, config.max_lead_time)
+    dataset = CustomDataset(source, config.time_len, config.max_lead_time)
     return dataset, mean_std, var_list
 
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, config: FinetuningConfig):
+    def __init__(self, config: TrainingConfig):
         super().__init__()
         self.config = config
         self.dataset, self.mean_std, self.var_list = get_normal_dataset(self.config)
@@ -116,6 +115,22 @@ class DataModule(pl.LightningDataModule):
 
 
 def main(argv):
+
+    config_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'configs/train_config.yaml')
+
+    try:
+        with open(config_path) as f:
+            config_dict = yaml.safe_load(f)
+        config: TrainingRunConfig = TrainingRunConfig.parse_obj(config_dict)
+    except FileNotFoundError:
+        logging.error(f"Config file {config_path} does not exist. Exiting.")
+    except yaml.YAMLError:
+        logging.error(f"Config file {config_path} is not valid YAML. Exiting.")
+    except ValidationError as e:
+        logging.error(f"Config file {config_path} is not valid. Exiting.\n{e}")
+    else:
+        pl.seed_everything(config.seed)
+
     data_module = DataModule(config.training)
     dataset = data_module.dataset
     mean_std = data_module.mean_std
@@ -123,19 +138,24 @@ def main(argv):
     print(f"max_iters: {max_iters}")
 
     logger = WandbLogger(save_dir=os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'tb_logs'), name="my_model")
-    pretrain_model = PretrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
-    bert : CliBERTLM = pretrain_model.model
     
-    model = CliBERTPM(
-        encoder=bert.model,
-        embedding=bert.embedding,
-        decoder=bert.decoder,
-        in_dim=dataset.source_dataset.size(-1),
-    )
+    if FLAGS.MODEL_PATH is None:
+    
+        model = ClimateTransformer(
+            in_dim=dataset.source_dataset.size(-1),
+            out_dim=dataset.source_dataset.size(-1),
+            num_heads=config.model.num_heads,
+            n_layers=config.model.n_layers,
+            dropout=config.model.dropout
+        )
 
-    print("setting lr rate: ", config.training.learning_rate)
+        print("setting lr rate: ", config.training.learning_rate)
 
-    model_pl = FinetuningModule(model=model, mean_std=mean_std, var_list=data_module.var_list, config=config.training, max_iters=max_iters)
+        model_pl = TrainModule(model=model, mean_std=mean_std, var_list=data_module.var_list, max_iters=max_iters, config=config.training)
+
+    else:
+        model_pl = TrainModule.load_from_checkpoint(FLAGS.MODEL_PATH)
+
 
     summary = ModelSummary(model_pl, max_depth=-1)
     print(summary)

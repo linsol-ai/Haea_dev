@@ -53,6 +53,7 @@ class PretrainModule(pl.LightningModule):
         label = batch['target']
         loss = self.model(src, label, self.var_list, src_id)
         
+        
         self.log(f"{mode}/mlm_loss", loss, prog_bar=mode == "train", sync_dist=True)
         return loss
 

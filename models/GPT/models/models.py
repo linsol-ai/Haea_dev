@@ -171,7 +171,7 @@ class CliGPT(nn.Module):
         )
 
         self.model = TransformerDecoder(
-            decoder_layer=self.decoder_layer,
+            self.decoder_layer,
             n_layers=self.n_layers
         )
         

@@ -64,7 +64,7 @@ class TrainModule(pl.LightningModule):
         label2 = batch[:, 2:]
         label1 = label1.view(label1.size(0), -1, label1.size(-1))
         label2 = label2.view(label2.size(0), -1, label2.size(-1))
-        loss = F.mse_loss(prd1)
+        loss = F.mse_loss(prd1, )
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
 
         return loss

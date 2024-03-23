@@ -122,7 +122,7 @@ class TransformerDecoderLayer(nn.Module):
 
 
 
-class TransformerDecoder(Module):
+class TransformerDecoder(nn.Module):
     r"""TransformerDecoder is a stack of N decoder layers.
 
     Args:

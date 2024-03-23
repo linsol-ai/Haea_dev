@@ -15,7 +15,7 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, t):
         t = max(t, 1)
-        t = min(t + self.time_len + 2, self.source_dataset.size(0) - 1) - (self.time_len + 2)
+        t = min(t + self.time_len + 1, self.source_dataset.size(0) - 1) - (self.time_len + 2)
         src = self.source_dataset[t:t + self.time_len + 2]
         return src
         

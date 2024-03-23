@@ -12,7 +12,7 @@ training:
   gradient_clip_val: 0.5
   time_len: 24
   train_start: 2013-01-01
-  train_end: 2013-01-01
+  train_end: 2022-01-01
 
   air_variable:
     - geopotential

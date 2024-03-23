@@ -164,7 +164,7 @@ class CliGPT(nn.Module):
         self.decoder_layer = TransformerDecoderLayer(
             d_model=in_dim,
             nhead=num_heads,
-            dim_feedforward=in_dim*2,
+            dim_feedforward=in_dim*4,
         )
 
         self.model = TransformerDecoder(

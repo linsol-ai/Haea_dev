@@ -193,6 +193,9 @@ class CliGPT(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
+        nn.init.normal_(self.linear2.weight, std=0.02)
+        nn.init.normal_(self.linear2.bias, 0)
+
 
     def forward(self, x: torch.Tensor, var_list: torch.Tensor, mask: torch.Tensor):
         var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)

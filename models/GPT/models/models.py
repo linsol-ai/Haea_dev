@@ -150,7 +150,7 @@ class TransformerDecoder(nn.Module):
         self.num_layers = num_layers
         self.norm = norm
 
-    def forward(self, tgt: Tensor, memory: Tensor, tgt_mask: Optional[Tensor] = None,
+    def forward(self, tgt: Tensor, tgt_mask: Optional[Tensor] = None,
                 memory_mask: Optional[Tensor] = None, tgt_key_padding_mask: Optional[Tensor] = None,
                 memory_key_padding_mask: Optional[Tensor] = None, tgt_is_causal: Optional[bool] = None,
                 memory_is_causal: bool = False) -> Tensor:

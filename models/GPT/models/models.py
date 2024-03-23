@@ -67,7 +67,7 @@ class TransformerDecoderLayer(nn.Module):
         self.norm3 = nn.LayerNorm(d_model, eps=layer_norm_eps, bias=bias, **factory_kwargs)
         self.dropout1 = nn.Dropout(dropout)
         self.dropout2 = nn.Dropout(dropout)
-        self.dropout3 = Dropout(dropout)
+        self.dropout3 = nn.Dropout(dropout)
 
         # Legacy string support for activation function.
         if isinstance(activation, str):

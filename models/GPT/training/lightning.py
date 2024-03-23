@@ -61,6 +61,7 @@ class TrainModule(pl.LightningModule):
         # predict.shape = (batch, time * var + 1, hidden)
         prd1, prd2 = self.model(src, self.var_list, self.tgt_mask)
         label1 = batch[:, 1:]
+        
         label = label.view(label.size(0), -1, label.size(-1))
         loss = rmse_loss(predict, label)
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

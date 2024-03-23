@@ -93,7 +93,6 @@ class TransformerDecoderLayer(nn.Module):
     def forward(
         self,
         tgt: Tensor,
-        memory: Tensor,
         tgt_mask: Optional[Tensor] = None,
         tgt_key_padding_mask: Optional[Tensor] = None,
         tgt_is_causal: bool = False,

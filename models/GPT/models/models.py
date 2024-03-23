@@ -199,7 +199,7 @@ class CliGPT(nn.Module):
         x = x.view(x.size(0), -1, x.size(-1))
 
         x1 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)
-        x2 = self.out(self.model)
+        x2 = self.out(self.model())
         return out
 
 

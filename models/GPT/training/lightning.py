@@ -58,7 +58,7 @@ class TrainModule(pl.LightningModule):
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         src = batch[:, :-2]
         # predict.shape = (batch, time * var + 1, hidden)
-        predict = self.model(src, self.var_list self.tgt_mask)
+        predict = self.model(src, self.var_list, self.tgt_mask)
         label = label[:, 1:]
         label = label.view(label.size(0), -1, label.size(-1))
         loss = rmse_loss(predict, label)

@@ -170,7 +170,7 @@ class CliGPT(nn.Module):
         )
 
         self.model = TransformerDecoder(
-            
+            self.decoder_layer
         )
         
         self.embedding = Embedding(max_var_len, in_dim, dropout)

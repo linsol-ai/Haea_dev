@@ -197,6 +197,7 @@ class CliGPT(nn.Module):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         pe1 = positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
+        
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)
         tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)
 

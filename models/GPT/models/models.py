@@ -192,6 +192,7 @@ class CliGPT(nn.Module):
         self.embedding = Embedding(max_var_len, in_dim, dropout)
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
+
     def forward(self, src: torch.Tensor, tgt: torch.Tensor, 
                 src_var_seq: torch.Tensor, tgt_var_seq: torch.Tensor, tgt_mask: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)

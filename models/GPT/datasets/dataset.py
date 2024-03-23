@@ -15,6 +15,8 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, t):
         t = max(t, 1)
+
+        
         delta = self.sample[torch.randint(0, self.sample.size(0), (1,))].item()
         t = t - max(0, (t + delta + self.time_len) - (self.source_dataset.size(0) - 1))
         src = self.source_dataset[t-self.time_len+1:t+1]

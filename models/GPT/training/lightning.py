@@ -57,10 +57,6 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         src = batch[:, :-2]
-
-        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
-        src_seq = src_seq.to(self.device)
-        tgt_seq = tgt_seq.to(self.device)
       
         # predict.shape = (batch, time * var + 1, hidden)
         predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)

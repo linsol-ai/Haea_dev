@@ -14,7 +14,7 @@ def _get_activation_fn(activation: str) -> Callable[[Tensor], Tensor]:
 
     raise RuntimeError(f"activation should be relu/gelu, not {activation}")
 
-    
+
 
 class TransformerDecoderLayer(nn.Module):
     r"""TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.
@@ -101,35 +101,6 @@ class TransformerDecoderLayer(nn.Module):
         tgt_is_causal: bool = False,
         memory_is_causal: bool = False,
     ) -> Tensor:
-        r"""Pass the inputs (and mask) through the decoder layer.
-
-        Args:
-            tgt: the sequence to the decoder layer (required).
-            memory: the sequence from the last layer of the encoder (required).
-            tgt_mask: the mask for the tgt sequence (optional).
-            memory_mask: the mask for the memory sequence (optional).
-            tgt_key_padding_mask: the mask for the tgt keys per batch (optional).
-            memory_key_padding_mask: the mask for the memory keys per batch (optional).
-            tgt_is_causal: If specified, applies a causal mask as ``tgt mask``.
-                Default: ``False``.
-                Warning:
-                ``tgt_is_causal`` provides a hint that ``tgt_mask`` is
-                the causal mask. Providing incorrect hints can result in
-                incorrect execution, including forward and backward
-                compatibility.
-            memory_is_causal: If specified, applies a causal mask as
-                ``memory mask``.
-                Default: ``False``.
-                Warning:
-                ``memory_is_causal`` provides a hint that
-                ``memory_mask`` is the causal mask. Providing incorrect
-                hints can result in incorrect execution, including
-                forward and backward compatibility.
-
-        Shape:
-            see the docs in Transformer class.
-        """
-        # see Fig. 1 of https://arxiv.org/pdf/2002.04745v1.pdf
 
         x = tgt
         if self.norm_first:

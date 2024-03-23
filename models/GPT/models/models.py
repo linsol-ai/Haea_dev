@@ -54,7 +54,7 @@ class TransformerDecoderLayer(nn.Module):
         super().__init__()
         self.self_attn = nn.MultiheadAttention(d_model, nhead, dropout=dropout, batch_first=batch_first,
                                             bias=bias, **factory_kwargs)
-        self.multihead_attn = MultiheadAttention(d_model, nhead, dropout=dropout, batch_first=batch_first,
+        self.multihead_attn = nn.MultiheadAttention(d_model, nhead, dropout=dropout, batch_first=batch_first,
                                                  bias=bias, **factory_kwargs)
         # Implementation of Feedforward model
         self.linear1 = Linear(d_model, dim_feedforward, bias=bias, **factory_kwargs)

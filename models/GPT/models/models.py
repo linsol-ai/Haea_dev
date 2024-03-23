@@ -198,7 +198,7 @@ class CliGPT(nn.Module):
         pe1 = positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
 
-        src = (self.embedding(src, src_var_seq) + pe1) * math.sqrt(self.in_dim)
+        src = (self.embedding(x, var_seq) + pe1) * math.sqrt(self.in_dim)
         tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)
 
         transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)

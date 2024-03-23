@@ -3,7 +3,7 @@ import torch.optim.optimizer
 from typing import Tuple
 from torch.optim import Adam
 import torch.nn.functional as F
-from models.
+from models.models
 from models.GPT.training.configs import TrainingConfig
 from models.GPT.training.params_schedule import CosineWarmupScheduler
 import wandb

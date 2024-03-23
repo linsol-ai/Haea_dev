@@ -199,10 +199,7 @@ class CliGPT(nn.Module):
         x = x.view(x.size(0), -1, x.size(-1))
 
         x1 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)
-        tgt =  (self.embedding(tgt, tgt_var_seq) + tgt_pe) * math.sqrt(self.in_dim)
-
-        transformer_out = self.transformer(src, tgt, tgt_mask=tgt_mask, src_key_padding_mask=None, tgt_key_padding_mask=None)
-        out = self.out(transformer_out)
+        
         return out
 
 

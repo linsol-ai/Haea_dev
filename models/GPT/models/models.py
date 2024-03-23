@@ -89,21 +89,7 @@ class TransformerDecoderLayer(nn.Module):
 
 
 class TransformerDecoder(nn.Module):
-    r"""TransformerDecoder is a stack of N decoder layers.
-
-    Args:
-        decoder_layer: an instance of the TransformerDecoderLayer() class (required).
-        num_layers: the number of sub-decoder-layers in the decoder (required).
-        norm: the layer normalization component (optional).
-
-    Examples::
-        >>> decoder_layer = nn.TransformerDecoderLayer(d_model=512, nhead=8)
-        >>> transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
-        >>> memory = torch.rand(10, 32, 512)
-        >>> tgt = torch.rand(20, 32, 512)
-        >>> out = transformer_decoder(tgt, memory)
-    """
-
+  
     __constants__ = ['norm']
 
     def __init__(self, decoder_layer, num_layers, norm=None):
@@ -129,4 +115,3 @@ class TransformerDecoder(nn.Module):
 
 
 class CliGPT(nn.Module):
-    

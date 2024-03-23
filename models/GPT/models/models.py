@@ -113,6 +113,7 @@ class TransformerDecoder(nn.Module):
 
         return output
 
+
 class VariableEmbedding(nn.Embedding):
     def __init__(self, var_len, embed_size=768):
         super().__init__(var_len, embed_size)

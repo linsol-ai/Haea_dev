@@ -128,4 +128,5 @@ class TransformerDecoder(nn.Module):
         return output
 
 
-class CliGPT(nn.Module)
+class CliGPT(nn.Module):
+    

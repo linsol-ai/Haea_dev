@@ -25,7 +25,6 @@ class ValidationDataset(Dataset):
         self.source_dataset = source_dataset
         self.max_lead_time = max_lead_time
         self.time_len = time_len
-        self.sample = torch.arange(0, max_lead_time, step=time_len, dtype=torch.int32)
 
 
     def __len__(self):

@@ -20,42 +20,7 @@ def _get_clones(module, N):
 
 
 class TransformerDecoderLayer(nn.Module):
-    r"""TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.
 
-    This standard decoder layer is based on the paper "Attention Is All You Need".
-    Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez,
-    Lukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in
-    Neural Information Processing Systems, pages 6000-6010. Users may modify or implement
-    in a different way during application.
-
-    Args:
-        d_model: the number of expected features in the input (required).
-        nhead: the number of heads in the multiheadattention models (required).
-        dim_feedforward: the dimension of the feedforward network model (default=2048).
-        dropout: the dropout value (default=0.1).
-        activation: the activation function of the intermediate layer, can be a string
-            ("relu" or "gelu") or a unary callable. Default: relu
-        layer_norm_eps: the eps value in layer normalization components (default=1e-5).
-        batch_first: If ``True``, then the input and output tensors are provided
-            as (batch, seq, feature). Default: ``False`` (seq, batch, feature).
-        norm_first: if ``True``, layer norm is done prior to self attention, multihead
-            attention and feedforward operations, respectively. Otherwise it's done after.
-            Default: ``False`` (after).
-        bias: If set to ``False``, ``Linear`` and ``LayerNorm`` layers will not learn an additive
-            bias. Default: ``True``.
-
-    Examples::
-        >>> decoder_layer = nn.TransformerDecoderLayer(d_model=512, nhead=8)
-        >>> memory = torch.rand(10, 32, 512)
-        >>> tgt = torch.rand(20, 32, 512)
-        >>> out = decoder_layer(tgt, memory)
-
-    Alternatively, when ``batch_first`` is ``True``:
-        >>> decoder_layer = nn.TransformerDecoderLayer(d_model=512, nhead=8, batch_first=True)
-        >>> memory = torch.rand(32, 10, 512)
-        >>> tgt = torch.rand(32, 20, 512)
-        >>> out = decoder_layer(tgt, memory)
-    """
 
     __constants__ = ['norm_first']
 

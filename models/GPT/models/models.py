@@ -100,7 +100,7 @@ class TransformerDecoderLayer(nn.Module):
             x = x + self._ff_block(self.norm2(x))
         else:
             x = self.norm1(x + self._sa_block(x, tgt_mask, tgt_key_padding_mask, tgt_is_causal))
-            x = self.norm23(x + self._ff_block(x))
+            x = self.norm2(x + self._ff_block(x))
 
         return x
 

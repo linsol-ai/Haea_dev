@@ -134,6 +134,7 @@ class Embedding(nn.Module):
         x = x + self.variable(variable_seq)
         return self.dropout(x)
 
+
 class LinearDecoder(nn.Module):
     def __init__(self, in_dim, out_dim, dropout=0.1):
         """
@@ -153,5 +154,5 @@ class LinearDecoder(nn.Module):
     def forward(self, x):
        return self.seq(x)
 
-       
+
 class CliGPT(nn.Module):

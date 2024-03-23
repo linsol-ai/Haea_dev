@@ -21,7 +21,6 @@ def _get_clones(module, N):
 
 class TransformerDecoderLayer(nn.Module):
 
-
     __constants__ = ['norm_first']
 
     def __init__(self, d_model: int, nhead: int, dim_feedforward: int = 2048, dropout: float = 0.1,

@@ -6,6 +6,16 @@ from torch import Tensor
 import math
 
 
+def _get_activation_fn(activation: str) -> Callable[[Tensor], Tensor]:
+    if activation == "relu":
+        return F.relu
+    elif activation == "gelu":
+        return F.gelu
+
+    raise RuntimeError(f"activation should be relu/gelu, not {activation}")
+
+    
+
 class TransformerDecoderLayer(nn.Module):
     r"""TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.
 

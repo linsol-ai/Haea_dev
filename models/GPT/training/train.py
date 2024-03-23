@@ -141,7 +141,7 @@ def main(argv):
     
     if FLAGS.MODEL_PATH is None:
     
-        model = ClimateTransformer(
+        model = CliGPT(
             in_dim=dataset.source_dataset.size(-1),
             out_dim=dataset.source_dataset.size(-1),
             num_heads=config.model.num_heads,

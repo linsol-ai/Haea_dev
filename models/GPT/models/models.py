@@ -152,6 +152,7 @@ class TransformerDecoder(nn.Module):
 
     def forward(self, tgt: Tensor, tgt_mask: Optional[Tensor] = None,
                 tgt_key_padding_mask: Optional[Tensor] = None) -> Tensor:
+        
         output = tgt
 
         for mod in self.layers:

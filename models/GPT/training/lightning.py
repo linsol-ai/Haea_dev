@@ -55,7 +55,7 @@ class TrainModule(pl.LightningModule):
         return optimizer
 
 
-    def _step(self, batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor], mode: str) -> torch.Tensor:
+    def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         src = batch[0]
         tgt = label[:, :-1]
 

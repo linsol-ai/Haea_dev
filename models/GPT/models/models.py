@@ -145,9 +145,9 @@ class Embedding(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
 
-    def forward(self, x, variable_seq):
-        x = x + self.variable(variable_seq)
-        return self.dropout(x)
+    def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, pos_emb: torch.Tensor) -> torch.Tensor:
+        var_emb = self.variable(variable_seq)
+        return self.dropout(x + var_emb + pos_emb)
 
 
 class LinearDecoder(nn.Module):

@@ -112,6 +112,7 @@ class TransformerDecoder(nn.Module):
         self.layers = _get_clones(decoder_layer, num_layers)
         self.num_layers = num_layers
         self.norm = norm
+        nn.init.normal_(self.embedding.weight, std=0.02)
 
     def forward(self, tgt: Tensor, tgt_mask: Optional[Tensor] = None,
                 tgt_key_padding_mask: Optional[Tensor] = None) -> Tensor:

@@ -201,7 +201,7 @@ class CliGPT(nn.Module):
         x1 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)
         out1 = self.out(self.model(x1, mask))
 
-        x2 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)
+        x2 = self.embedding(out1, var_seq, pe1) * math.sqrt(self.in_dim)
 
         return out
 

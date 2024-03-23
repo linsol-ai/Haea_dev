@@ -19,7 +19,7 @@ def _get_clones(module, N):
     return nn.ModuleList([copy.deepcopy(module) for i in range(N)])
 
 
-def positional_encoding(self, shape, device):       
+def positional_encoding(shape, device):       
         batch, time_len, var_len, d_model = shape 
         pe = torch.zeros(batch, time_len, d_model, device=device).float()
         pe.require_grad = False

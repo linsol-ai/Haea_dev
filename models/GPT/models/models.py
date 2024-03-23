@@ -200,7 +200,7 @@ class CliGPT(nn.Module):
 
     def forward(self, x: torch.Tensor, var_list: torch.Tensor, mask: torch.Tensor):
         var_seq = var_list.repeat_interleave(x.size(1), dim=0).unsqueeze(0).repeat_interleave(x.size(0), dim=0)
-        pe1 = positional_encoding(x.shape, x.device)
+        pe = positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
 
         out1 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)

@@ -147,6 +147,7 @@ class Embedding(nn.Module):
         self.variable = VariableEmbedding(var_len, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         self.embed_size = embed_size
+                nn.init.normal_(self.embedding.weight, std=0.02)
 
     def forward(self, x: torch.Tensor, variable_seq: torch.Tensor, pos_emb: torch.Tensor) -> torch.Tensor:
         var_emb = self.variable(variable_seq)

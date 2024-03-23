@@ -171,7 +171,7 @@ class LinearDecoder(nn.Module):
 
 
 class CliGPT(nn.Module):
-    def __init__(self, in_dim: int, out_dim: int, max_var_len=300):
+    def __init__(self, in_dim: int, out_dim: int, num_heads=12, n_layers=3, dropout=0.1, max_var_len=300):
         super().__init__()
         self.in_dim = in_dim
         self.n_layers = n_layers

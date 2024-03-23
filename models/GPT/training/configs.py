@@ -31,8 +31,6 @@ class TrainingConfig(BaseModel):
 
     time_len: int = Field(ge=0, default=7)
 
-    tgt_time_len: int = Field(ge=0, default=7)
-
     train_offset: int = 0
 
     air_variable: List[str]

@@ -60,7 +60,7 @@ class TrainModule(pl.LightningModule):
         src = batch[:, :-2]
         # predict.shape = (batch, time * var + 1, hidden)
         prd1, prd2 = self.model(src, self.var_list, self.tgt_mask)
-        label1 = batch[:, 1:]
+        label1 = batch[:, 1:-1]
         label2 = batch[:, 2:]
         label1 = label1.view(label1.size(0), -1, label1.size(-1))
         label2 = label2.view(label2.size(0), -1, label2.size(-1))

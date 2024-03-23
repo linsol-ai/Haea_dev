@@ -196,7 +196,6 @@ class CliGPT(nn.Module):
     def forward(self, x: torch.Tensor, var_list: torch.Tensor, mask: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src_pe = self.positional_encoding(src.shape, src.device)
-        tgt_pe = self.positional_encoding(tgt.shape, tgt.device)
 
         src, tgt = src.view(src.size(0), -1, src.size(-1)), tgt.view(tgt.size(0), -1, tgt.size(-1))
         src = (self.embedding(src, src_var_seq) + src_pe) * math.sqrt(self.in_dim)

@@ -55,6 +55,7 @@ class TransformerDecoderLayer(nn.Module):
         self.norm2 = nn.LayerNorm(d_model, eps=layer_norm_eps, bias=bias, **factory_kwargs)
         self.dropout1 = nn.Dropout(dropout)
         self.dropout2 = nn.Dropout(dropout)
+        
         nn.init.normal_(self.linear1.weight, std=0.02)
         nn.init.normal_(self.linear2.weight, std=0.02)
 

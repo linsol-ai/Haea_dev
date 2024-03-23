@@ -113,5 +113,26 @@ class TransformerDecoder(nn.Module):
 
         return output
 
+class VariableEmbedding(nn.Embedding):
+    def __init__(self, var_len, embed_size=768):
+        super().__init__(var_len, embed_size)
+
+
+class Embedding(nn.Module):
+    def __init__(self, var_len, embed_size, dropout=0.1):
+        """
+        :param vocab_size: total vocab size
+        :param embed_size: embedding size of token embedding
+        :param dropout: dropout rate
+        """
+        super().__init__()
+        self.variable = VariableEmbedding(var_len, embed_size)
+        self.dropout = nn.Dropout(p=dropout)
+        self.embed_size = embed_size
+
+    def forward(self, x, variable_seq):
+        x = x + self.variable(variable_seq)
+        return self.dropout(x)
+
 
 class CliGPT(nn.Module):

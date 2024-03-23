@@ -95,7 +95,6 @@ class TransformerDecoderLayer(nn.Module):
         tgt: Tensor,
         memory: Tensor,
         tgt_mask: Optional[Tensor] = None,
-        memory_mask: Optional[Tensor] = None,
         tgt_key_padding_mask: Optional[Tensor] = None,
         tgt_is_causal: bool = False,
     ) -> Tensor:

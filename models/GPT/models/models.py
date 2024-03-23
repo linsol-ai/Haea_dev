@@ -16,7 +16,7 @@ def _get_activation_fn(activation: str) -> Callable[[Tensor], Tensor]:
 
 def _get_clones(module, N):
     # FIXME: copy.deepcopy() is not defined on nn.module
-    return ModuleList([copy.deepcopy(module) for i in range(N)])
+    return nn.ModuleList([copy.deepcopy(module) for i in range(N)])
 
 
 class TransformerDecoderLayer(nn.Module):

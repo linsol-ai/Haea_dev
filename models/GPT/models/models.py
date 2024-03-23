@@ -124,7 +124,8 @@ class TransformerDecoderLayer(nn.Module):
         return self.dropout2(x)
 
 
-class GPT(nn.Module):
+
+class TransformerDecoder(nn.Module):
     r"""TransformerDecoder is a stack of N decoder layers.
 
     Args:

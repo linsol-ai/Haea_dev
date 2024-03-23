@@ -181,7 +181,8 @@ class CliGPT(nn.Module):
             nhead=num_heads,
             dim_feedforward=in_dim*4,
             dropout=dropout,
-            batch_first=True
+            batch_first=True,
+            activation=F.gelu
         )
 
         self.model = TransformerDecoder(

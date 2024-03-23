@@ -203,7 +203,7 @@ class CliGPT(nn.Module):
         pe = positional_encoding(x.shape, x.device)
         x = x.view(x.size(0), -1, x.size(-1))
 
-        out1 = self.embedding(x, var_seq, pe1) * math.sqrt(self.in_dim)
+        out1 = self.embedding(x, var_seq, pe) * math.sqrt(self.in_dim)
         out1 = self.out(self.model(out1, mask))
 
         out2 = self.embedding(out1, var_seq, pe1) * math.sqrt(self.in_dim)

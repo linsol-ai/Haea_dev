@@ -8,7 +8,6 @@ class CustomDataset(Dataset):
         self.source_dataset = source_dataset
         self.time_len = time_len
 
-
     def __len__(self):
         return self.source_dataset.size(0)
 

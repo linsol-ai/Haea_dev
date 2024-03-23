@@ -193,7 +193,7 @@ class CliGPT(nn.Module):
         self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)
 
 
-    def forward(self, x: torch.Tensor, var_list: torch.Tensor, tgt_mask: torch.Tensor):
+    def forward(self, x: torch.Tensor, var_list: torch.Tensor, mask: torch.Tensor):
         # src.shape = (batch, 1, 99, 1450), tgt.shape = (batch, tgt_time_len, 99, 1450)
         src_pe = self.positional_encoding(src.shape, src.device)
         tgt_pe = self.positional_encoding(tgt.shape, tgt.device)

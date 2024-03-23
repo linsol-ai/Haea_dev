@@ -1,3 +1,6 @@
+m
+
+
 class TransformerDecoder(nn.Module):
     def __init__(self, vocab_size, seq_len, d_model, n_layers, n_heads, d_ff, embd_pdrop, attn_pdrop, resid_pdrop, pad_id):
         super(TransformerDecoder, self).__init__()

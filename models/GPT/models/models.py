@@ -157,3 +157,19 @@ class LinearDecoder(nn.Module):
 
 
 class CliGPT(nn.Module):
+    def __init__(self, in_dim: int, out_dim: int, max_var_len=300, num_heads=12, n_encoder_layers=3, n_decoder_layers=3, dropout=0.1):
+        super().__init__()
+        self.in_dim = in_dim
+
+        self.transformer = nn.Transformer(
+            d_model=in_dim,
+            nhead=num_heads,
+            num_encoder_layers=n_encoder_layers,
+            num_decoder_layers=n_decoder_layers,
+            dim_feedforward=in_dim*2,
+            dropout=dropout,
+            batch_first=True
+        )
+        
+        self.embedding = Embedding(max_var_len, in_dim, dropout)
+        self.out = LinearDecoder(in_dim, out_dim, dropout=dropout)

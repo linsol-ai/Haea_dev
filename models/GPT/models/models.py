@@ -186,7 +186,6 @@ class TransformerDecoder(nn.Module):
         for mod in self.layers:
             output = mod(output, tgt_mask=tgt_mask,
                          tgt_key_padding_mask=tgt_key_padding_mask,
-                         memory_key_padding_mask=memory_key_padding_mask,
                          tgt_is_causal=tgt_is_causal,
                          memory_is_causal=memory_is_causal)
 

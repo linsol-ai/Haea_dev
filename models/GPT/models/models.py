@@ -161,7 +161,9 @@ class CliGPT(nn.Module):
         super().__init__()
         self.in_dim = in_dim
 
-        self.decoder_layer = TransformerDecoderLayer
+        self.decoder_layer = TransformerDecoderLayer(
+            
+        )
 
         self.model = TransformerDecoder(
             d_model=in_dim,

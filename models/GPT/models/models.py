@@ -184,9 +184,6 @@ class TransformerDecoder(nn.Module):
         """
         output = tgt
 
-        seq_len = _get_seq_len(tgt, self.layers[0].self_attn.batch_first)
-        tgt_is_causal = _detect_is_causal_mask(tgt_mask, tgt_is_causal, seq_len)
-
         for mod in self.layers:
             output = mod(output, memory, tgt_mask=tgt_mask,
                          memory_mask=memory_mask,

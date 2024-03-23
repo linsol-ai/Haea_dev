@@ -58,7 +58,6 @@ class TrainModule(pl.LightningModule):
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
         src = batch[:, :-2]
-        print(src.shape)
         # predict.shape = (batch, time * var + 1, hidden)
         prd1, prd2 = self.model(src, self.var_list, self.tgt_mask)
         label1 = batch[:, 1:-1]

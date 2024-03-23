@@ -70,7 +70,6 @@ class TrainModule(pl.LightningModule):
         return loss
 
     
-
     def optimizer_step(self, *args, **kwargs):
         super().optimizer_step(*args, **kwargs)
         self.lr_scheduler.step()  # Step per iteration

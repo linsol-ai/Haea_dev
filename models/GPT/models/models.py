@@ -4,7 +4,7 @@ from torch.nn import functional as F
 from typing import Optional, Any, Union, Callable
 from torch import Tensor
 import math
-
+import copy
 
 def _get_activation_fn(activation: str) -> Callable[[Tensor], Tensor]:
     if activation == "relu":

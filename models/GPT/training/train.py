@@ -15,7 +15,7 @@ import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 from datasets.weather_bench import WeatherDataset
 from models.GPT.datasets.dataset import CustomDataset
-from models.GPT.models.model import ClimateTransformer
+from models.GPT.models.model import 
 
 from models.GPT.training.configs import TrainingConfig
 from models.GPT.training.configs import TrainingRunConfig

@@ -6,7 +6,7 @@ from torch.nn import functional as F
 import math
 
 
-class TransformerDecoderLayer(Module):
+class TransformerDecoderLayer(nn.Module):
     r"""TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.
 
     This standard decoder layer is based on the paper "Attention Is All You Need".

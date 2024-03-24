@@ -92,7 +92,7 @@ class TrainModule(pl.LightningModule):
         super().optimizer_step(*args, **kwargs)
         
 
-    def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102
+    def training_step(self, batch: torch.Tensor, _: int)  # noqa: D102
         self._step(batch, "train")
 
     def validation_step(self, batch: torch.Tensor, batch_idx: int) -> torch.Tensor:  # noqa: D102

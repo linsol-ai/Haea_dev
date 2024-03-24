@@ -72,7 +72,7 @@ class TrainModule(pl.LightningModule):
 
         pred = self.model(pred, self.var_list, self.tgt_mask)
         label = batch[:, 2:]
-
+        
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
 

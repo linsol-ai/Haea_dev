@@ -166,7 +166,6 @@ def main(argv):
             devices=1,
             max_epochs=config.training.max_epochs,
             logger=logger,
-            gradient_clip_val=config.training.gradient_clip_val,
             callbacks=[
             LearningRateMonitor(logging_interval="step"),
             ],

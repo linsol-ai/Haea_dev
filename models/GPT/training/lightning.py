@@ -63,7 +63,7 @@ class TrainModule(pl.LightningModule):
         # predict.shape = (batch, time * var, hidden)
         pred = self.model(src, self.var_list, self.tgt_mask)
         label = batch[:, 1:-1]
-        pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(-1))
+        pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
         loss = F.mse_loss(pred, label)
 
         optimizer.zero_grad()

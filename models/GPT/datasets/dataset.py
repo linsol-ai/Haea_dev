@@ -36,6 +36,5 @@ class ValidationDataset(Dataset):
         src = self.source_dataset[src_st:src_ed]
         tgt = self.source_dataset[src_ed:src_ed + self.max_lead_time]
 
-        return src, tgt, self.sample
-        
+        return src, tgt
 

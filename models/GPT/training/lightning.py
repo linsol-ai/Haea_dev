@@ -70,7 +70,7 @@ class TrainModule(pl.LightningModule):
         self.manual_backward(loss)
         optimizer.step()
 
-        
+        pred = self.model(src, self.var_list, self.tgt_mask)
 
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

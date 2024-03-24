@@ -107,6 +107,7 @@ class TrainModule(pl.LightningModule):
 
             label = denormalize(label, self.mean_std)
             predict_all = denormalize(predict_all, self.mean_std)
+            
 
             return loss
     

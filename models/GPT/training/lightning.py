@@ -120,7 +120,7 @@ class TrainModule(pl.LightningModule):
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
             loss1 = F.mse_loss(pred, label)
 
-            pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
+            pred = self.model(pred, self.var_list, self.tgt_mask)
             label = batch[:, 2:]
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
             loss2 = F.mse_loss(pred, label)

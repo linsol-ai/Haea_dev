@@ -127,7 +127,6 @@ class TrainModule(pl.LightningModule):
 
     def validation_step(self, batch: torch.Tensor, batch_idx: int):
         with torch.no_grad():
-            optimizer = self.optimizers()
             src = batch[:, :-2]
             # predict.shape = (batch, time * var, hidden)
             pred = self.model(src, self.var_list, self.tgt_mask)

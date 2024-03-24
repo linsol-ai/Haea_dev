@@ -109,7 +109,7 @@ class TrainModule(pl.LightningModule):
             predict_all = denormalize(predict_all, self.mean_std)
 
             loss = F.mse_loss(predict, label, reduction='none')
-            # loss.shape = (batch, time_len, var_len, hidden)
+            # loss.shape = (batch, max_lead_time, var_len, hidden)
 
             if location is not None:
                 loss = loss[:, :, :, location]

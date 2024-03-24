@@ -34,7 +34,7 @@ class ValidationDataset(Dataset):
         src_st, src_ed = (day) * self.time_len, (day+1) * self.time_len
         tgt_st = self.sample + src_ed
         tgt_ed = tgt_st + self.time_len
-        #src.shape (lead_days, time, var_len, hidden)
+        #src.shape (time, var_len, hidden)
         src = self.source_dataset[src_st:src_ed]
         tgt = []
         for i in range(self.sample.size(0)):

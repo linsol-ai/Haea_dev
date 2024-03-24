@@ -101,7 +101,7 @@ class TrainModule(pl.LightningModule):
                 predict = self.model(src, self.var_list, self.tgt_mask)
                 # token.shape = (batch, 1, var_len, hidden)
                 token = predict[:, -self.var_list.size(0):].unsqueeze(1)
-                predict_all.append()
+                predict_all.append(token)
                 src = torch.cat([src[:, 1:], token], dim=1)
 
 

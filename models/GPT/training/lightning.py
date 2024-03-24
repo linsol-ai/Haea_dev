@@ -92,6 +92,7 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch: torch.Tensor) -> torch.Tensor:
         with torch.no_grad():
+            batch = batch
             src = batch[0].to(self.device)
             
 

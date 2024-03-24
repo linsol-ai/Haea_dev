@@ -94,7 +94,7 @@ class TrainModule(pl.LightningModule):
         with torch.no_grad():
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]
-            for tgt 
+            for i in range()
             
 
             return loss

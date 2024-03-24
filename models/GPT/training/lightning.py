@@ -96,7 +96,7 @@ class TrainModule(pl.LightningModule):
             src = batch[:self.config.time_len]
             for i in range(1, src.size(1)-self.config.time_len + 1):
                 label = batch[i:i+self.config.time_len]
-                predi
+                predict = 
             
 
             return loss

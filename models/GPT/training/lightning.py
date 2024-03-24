@@ -85,7 +85,7 @@ class TrainModule(pl.LightningModule):
         self.lr_scheduler.step()
 
         self.log(f"{mode}/phase1_mse_loss", loss1, prog_bar=mode == "train")
-        self.log(f"{mode}/phase1_mse_loss", loss1, prog_bar=mode == "train")
+        self.log(f"{mode}/phase2_mse_loss", loss2, prog_bar=mode == "train")
 
     
     def optimizer_step(self, *args, **kwargs):

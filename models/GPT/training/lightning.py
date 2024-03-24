@@ -92,34 +92,7 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch: torch.Tensor) -> torch.Tensor:
         src = batch[0].to(self.device)
-        # (batch, time+1, var, hidden)
-        label = batch[1].to(self.device)
-        tgt = label[:, :-1]
-
-        src_seq, tgt_seq = get_var_seq(self.src_var_list, self.tgt_var_list, self.config.src_time_len, self.config.tgt_time_len, src.size(0))
-        src_seq = src_seq.to(self.device)
-        tgt_seq = tgt_seq.to(self.device)
-      
-        # predict.shape = (batch, time * var + 1, hidden)
-        predict = self.model(src, tgt, src_seq, tgt_seq, self.tgt_mask)
-        label = label[:, 1:]
-        predict = predict.view(predict.size(0), self.config.tgt_time_len, self.tgt_var_list.size(0), predict.size(-1))
-        # loss.shape = (batch, time_len * var_len, 1450)
-        loss = self.calculate_sqare_loss(predict, label)
-        # loss.shape = (batch, var_len, time_len, 1450)
-        loss = loss.swapaxes(1, 2)
-        # loss.shape = (batch, var_len, time_len)
-        loss = torch.mean(loss, dim=-1)
-        # loss.shape = (var_len, batch, time_len)
-        loss = loss.swapaxes(0, 1)
-
-        src_seq.cpu().detach()
-        tgt_seq.cpu().detach()
-        src.cpu().detach()
-
-        label.cpu().detach()
-        predict.cpu().detach()
-        loss = loss.cpu().detach()
+        
 
         return loss
     

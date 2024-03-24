@@ -100,7 +100,7 @@ class TrainModule(pl.LightningModule):
                 predict = self.model(src, self.var_list, self.tgt_mask)
                 token = predict[:, :-self.var_list.size(0)]
                 predict_all[:, i] = token
-                src = torch.cat([src[:, 1:], token], dim=)
+                src = torch.cat([src[:, 1:], token], dim=1)
 
 
             return loss

@@ -98,7 +98,7 @@ class TrainModule(pl.LightningModule):
             predict_all = torch.zeros(src.size(0), max_lead_time, src.size(2), src.size(3), device=self.device)
 
             for i in range(max_lead_time):
-                predict = self.model(src, self.var_list, self.tgt_mask)
+                predict = self.model(src, self.var_list, self.tgt_mask, predict=True)
                 # token.shape = (batch, 1, var_len, hidden)
                 token = predict[:, -self.var_list.size(0):]
                 predict_all[:, i] = token

@@ -96,7 +96,7 @@ class TrainModule(pl.LightningModule):
             src = batch[:self.config.time_len]
             for i in range(src.size(1)-self.config.time_len):
                 predict = self.model(src, self.var_list, self.tgt_mask)
-                token = 
+                token = predict[]
             
 
             return loss

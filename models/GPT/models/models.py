@@ -204,7 +204,8 @@ class CliGPT(nn.Module):
         x = x.view(x.size(0), -1, x.size(-1))
 
         if predict:
-            
+            out = self.embedding(x, var_seq, pe) * math.sqrt(self.in_dim)
+        out = self.out(self.model(out, mask))
 
         out = self.embedding(x, var_seq, pe) * math.sqrt(self.in_dim)
         out = self.out(self.model(out, mask))

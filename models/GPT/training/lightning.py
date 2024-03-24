@@ -65,7 +65,7 @@ class TrainModule(pl.LightningModule):
         label = batch[:, 1:-1]
         label = label.view(label.size(0), -1, label.size(-1))
         loss = F.mse_loss(pred, label)
-        d_opt.zero_grad()
+        optimizer.zero_grad()
         self.manual_backward(errD)
         d_opt.step()
 

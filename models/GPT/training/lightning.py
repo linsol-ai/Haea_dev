@@ -140,7 +140,7 @@ class TrainModule(pl.LightningModule):
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
             loss2 = F.mse_loss(pred, label)
 
-            self.log(f"train/mse_loss1", loss1, prog_bar=True)
+            self.log(f"train/mse_loss1", loss1, prog_bar=False)
             self.log(f"train/mse_loss2", loss2, prog_bar=True)
 
 

@@ -95,9 +95,8 @@ class TrainModule(pl.LightningModule):
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]
             for i in range(1, src.size(1)-self.config.time_len + 1):
-                label = batch[i:i+self.config.time_len]
                 predict = self.model(src, self.var_list, self.tgt_mask)
-                
+
             
 
             return loss

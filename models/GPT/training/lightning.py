@@ -49,12 +49,9 @@ class TrainModule(pl.LightningModule):
 
 
     def configure_optimizers(self) -> Adam:  # noqa: D102
-        opt1 = torch.optim.Adam(self.parameters(), lr=self.config.learning_rate)
-        self.lr1 = CosineWarmupScheduler(
-            opt1, warmup=self.config.warmup_step, max_iters=self.max_iters
-        )
-        self.lr1 = CosineWarmupScheduler(
-            opt1, warmup=self.config.warmup_step, max_iters=self.max_iters
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.config.learning_rate)
+        self.lr_scheduler = CosineWarmupScheduler(
+            optimizer, warmup=self.config.warmup_step, max_iters=self.max_iters
         )
         return optimizer
 
@@ -101,7 +98,7 @@ class TrainModule(pl.LightningModule):
             predict_all = torch.zeros(src.size(0), max_lead_time, src.size(2), src.size(3), device=self.device)
 
             for i in range(max_lead_time):
-                predict = self.model(src, self.var_list, self.tgt_mask, predict=True)
+                predict = self.model(src, self.var_list, self.tgt_mask, predict=T)
                 # token.shape = (batch, 1, var_len, hidden)
                 token = predict[:, -self.var_list.size(0):]
                 predict_all[:, i] = token

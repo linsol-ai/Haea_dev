@@ -126,35 +126,35 @@ class TrainModule(pl.LightningModule):
 
     def validation_step(self, batch: torch.Tensor, batch_idx: int):
         with torch.no_grad():
-        optimizer = self.optimizers()
-        src = batch[:, :-2]
-        # predict.shape = (batch, time * var, hidden)
-        pred = self.model(src, self.var_list, self.tgt_mask)
-        label = batch[:, 1:-1]
-        pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
-        loss1 = F.mse_loss(pred, label)
-        loss1.requires_grad_(True)
+            optimizer = self.optimizers()
+            src = batch[:, :-2]
+            # predict.shape = (batch, time * var, hidden)
+            pred = self.model(src, self.var_list, self.tgt_mask)
+            label = batch[:, 1:-1]
+            pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
+            loss1 = F.mse_loss(pred, label)
+            loss1.requires_grad_(True)
 
-        optimizer.zero_grad()
-        self.manual_backward(loss1)
-        self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
-        optimizer.step()
-        self.lr_scheduler.step()
+            optimizer.zero_grad()
+            self.manual_backward(loss1)
+            self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
+            optimizer.step()
+            self.lr_scheduler.step()
 
-        pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
-        label = batch[:, 2:]
-        pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
-        loss2 = F.mse_loss(pred, label)
-        loss2.requires_grad_(True)
+            pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
+            label = batch[:, 2:]
+            pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
+            loss2 = F.mse_loss(pred, label)
+            loss2.requires_grad_(True)
 
-        optimizer.zero_grad()
-        self.manual_backward(loss2)
-        self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
-        optimizer.step()
-        self.lr_scheduler.step()
+            optimizer.zero_grad()
+            self.manual_backward(loss2)
+            self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
+            optimizer.step()
+            self.lr_scheduler.step()
 
-        self.log(f"train/mse_loss1", loss1, prog_bar=True)
-        self.log(f"train/mse_loss2", loss2, prog_bar=True)
+            self.log(f"train/mse_loss1", loss1, prog_bar=True)
+            self.log(f"train/mse_loss2", loss2, prog_bar=True)
 
 
     def test_step(self, batch: torch.Tensor, _: int) -> None:  # noqa: D102

@@ -102,7 +102,7 @@ class TrainModule(pl.LightningModule):
                 # token.shape = (batch, 1, var_len, hidden)
                 token = predict[:, -self.var_list.size(0):]
                 predict_all[:, i] = token
-                token = token.unsqueeze()
+                token = token.unsqueeze(1)
                 src = torch.cat([src[:, 1:], token], dim=1)
 
 

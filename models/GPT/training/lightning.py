@@ -134,12 +134,6 @@ class TrainModule(pl.LightningModule):
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
             loss1 = F.mse_loss(pred, label)
 
-            optimizer.zero_grad()
-            self.manual_backward(loss1)
-            self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
-            optimizer.step()
-            self.lr_scheduler.step()
-
             pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
             label = batch[:, 2:]
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))

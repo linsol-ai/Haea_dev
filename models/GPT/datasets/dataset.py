@@ -34,10 +34,7 @@ class ValidationDataset(Dataset):
         src_st, src_ed = (day) * self.time_len, (day+1) * self.time_len
         #src.shape (time, var_len, hidden)
         src = self.source_dataset[src_st:src_ed]
-        tgt = []
-        for i in range(self.sample.size(0)):
-            tgt.append(self.source_dataset[tgt_st[i]:tgt_ed[i]].unsqueeze(0))
-        tgt = torch.cat(tgt, dim=0)
+        tgt = 
 
         return src, tgt, self.sample
         

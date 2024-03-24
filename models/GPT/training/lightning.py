@@ -104,7 +104,8 @@ class TrainModule(pl.LightningModule):
                 predict_all[:, i] = token
                 src = torch.cat([src[:, 1:], token], dim=1)
 
-            
+            label = denormalize(label, self.mean_std)
+            predict = denormalize(predict, self.mean_std)
 
             return loss
     

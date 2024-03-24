@@ -102,6 +102,7 @@ class TrainModule(pl.LightningModule):
                 predict_all[i] = token
                 
 
+
             return loss
     
 

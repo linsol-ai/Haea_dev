@@ -100,7 +100,7 @@ class TrainModule(pl.LightningModule):
             for i in range(max_lead_time):
                 predict = self.model(src, self.var_list, self.tgt_mask)
                 # token.shape = (batch, 1, var_len, hidden)
-                token = predict[:, -self.var_list.size(0):].unsqueeze(1)
+                token = predict[:, -self.var_list.size(0):]
                 predict_all[:, i] = token
                 src = torch.cat([src[:, 1:], token], dim=1)
 

@@ -94,6 +94,7 @@ class TrainModule(pl.LightningModule):
         with torch.no_grad():
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]
+            
             predict_all = torch.zeros(src.size(0), max_lead_time, src.size(2), src.size(3))
 
             for i in range(max_lead_time):
@@ -102,7 +103,7 @@ class TrainModule(pl.LightningModule):
                 predict_all[:, i] = token
                 src = torch.cat([src[:, 1:], token], dim=1)
 
-            
+
 
             return loss
     

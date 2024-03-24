@@ -124,6 +124,7 @@ class TrainModule(pl.LightningModule):
         self.log(f"train/mse_loss1", loss1, prog_bar=True)
         self.log(f"train/mse_loss2", loss2, prog_bar=True)
 
+
     def validation_step(self, batch: torch.Tensor, batch_idx: int):
         with torch.no_grad():
             optimizer = self.optimizers()

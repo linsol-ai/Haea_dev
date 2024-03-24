@@ -95,7 +95,7 @@ class TrainModule(pl.LightningModule):
         with torch.no_grad():
             src = batch[0].to(self.device)
             label = batch[1].to(self.device)
-            predict_all = torch.zeros(src.size(0), src)
+            predict_all = torch.zeros(src.size(0), src.size(2))
 
             for i in range(max_lead_time):
                 predict = self.model(src, self.var_list, self.tgt_mask)

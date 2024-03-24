@@ -99,7 +99,7 @@ class TrainModule(pl.LightningModule):
             for i in range(max_lead_time):
                 predict = self.model(src, self.var_list, self.tgt_mask)
                 token = predict[:, :-self.var_list.size(0)]
-                predict_all[i] = token
+                predict_all[:, i] = token
                 src = src[:, 1:] + 
 
 

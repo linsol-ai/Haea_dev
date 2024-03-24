@@ -207,7 +207,5 @@ class CliGPT(nn.Module):
         out = self.out(self.model(out, mask))
         return out
 
-        return out
-
 
 

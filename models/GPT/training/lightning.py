@@ -89,7 +89,6 @@ class TrainModule(pl.LightningModule):
     
     def optimizer_step(self, *args, **kwargs):
         super().optimizer_step(*args, **kwargs)
-        self.lr_scheduler.step()  # Step per iteration
         
 
     def training_step(self, batch: torch.Tensor, _: int) -> torch.Tensor:  # noqa: D102

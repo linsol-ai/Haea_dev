@@ -90,7 +90,7 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = self.tgt_mask.to(self.device)
         self.model.eval()
 
-    def forward(self, batch) -> torch.Tensor:
+    def forward(self, batch: torch.Tensor) -> torch.Tensor:
         src = batch[0].to(self.device)
         # (batch, time+1, var, hidden)
         label = batch[1].to(self.device)

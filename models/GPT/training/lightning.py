@@ -92,9 +92,9 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch: torch.Tensor) -> torch.Tensor:
         with torch.no_grad():
-        src = batch[0].to(self.device)
-        
+            src = batch[0].to(self.device)
+            
 
-        return loss
+            return loss
     
 

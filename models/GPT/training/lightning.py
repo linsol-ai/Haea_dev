@@ -58,7 +58,7 @@ class TrainModule(pl.LightningModule):
 
 
     def _step(self, batch: torch.Tensor, mode: str) -> torch.Tensor:
-        
+        optimizer = 
         src = batch[:, :-2]
         # predict.shape = (batch, time * var + 1, hidden)
         pred = self.model(src, self.var_list, self.tgt_mask)

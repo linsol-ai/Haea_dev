@@ -154,6 +154,7 @@ class TrainModule(pl.LightningModule):
 
         self.log(f"train/mse_loss1", loss1, prog_bar=True)
         self.log(f"train/mse_loss2", loss2, prog_bar=True)
+        
 
     def test_step(self, batch: torch.Tensor, _: int) -> None:  # noqa: D102
         self._step(batch, "test")

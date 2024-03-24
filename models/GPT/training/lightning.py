@@ -161,6 +161,7 @@ class TrainModule(pl.LightningModule):
 
             self.log(f"test/mse_loss1", loss1, prog_bar=False)
             self.log(f"test/mse_loss2", loss2, prog_bar=False)
+            
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)

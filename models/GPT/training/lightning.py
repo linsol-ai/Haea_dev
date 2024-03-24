@@ -95,6 +95,7 @@ class TrainModule(pl.LightningModule):
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]
             
+            
 
             return loss
     

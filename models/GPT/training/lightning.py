@@ -64,7 +64,7 @@ class TrainModule(pl.LightningModule):
         pred = self.model(src, self.var_list, self.tgt_mask)
         label = batch[:, 1:-1]
         pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
-        loss = F.mse_loss(pred, label)
+        loss1 = F.mse_loss(pred, label)
         loss.requires_grad_(True)
 
         optimizer.zero_grad()

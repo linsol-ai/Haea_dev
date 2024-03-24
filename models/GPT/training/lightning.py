@@ -90,7 +90,7 @@ class TrainModule(pl.LightningModule):
         self.tgt_mask = self.tgt_mask.to(self.device)
         self.model.eval()
 
-    def forward(self, batch: torch.Tensor, ) -> torch.Tensor:
+    def forward(self, batch: torch.Tensor, max_lead_time: int = 78) -> torch.Tensor:
         with torch.no_grad():
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]

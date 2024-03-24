@@ -53,6 +53,9 @@ class TrainModule(pl.LightningModule):
         self.lr1 = CosineWarmupScheduler(
             opt1, warmup=self.config.warmup_step, max_iters=self.max_iters
         )
+        self.lr1 = CosineWarmupScheduler(
+            opt1, warmup=self.config.warmup_step, max_iters=self.max_iters
+        )
         return optimizer
 
 

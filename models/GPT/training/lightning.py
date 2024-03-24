@@ -83,7 +83,6 @@ class TrainModule(pl.LightningModule):
         self.manual_backward(loss)
         optimizer.step()
         self.lr_scheduler.step()
-        self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")
         return loss

@@ -144,7 +144,22 @@ class TrainModule(pl.LightningModule):
 
 
     def test_step(self, batch: torch.Tensor, _: int) -> None:  # noqa: D102
-        self._step(batch, "test")
+        with torch.no_grad():
+            optimizer = self.optimizers()
+            src = batch[:, :-2]
+            # predict.shape = (batch, time * var, hidden)
+            pred = self.model(src, self.var_list, self.tgt_mask)
+            label = batch[:, 1:-1]
+            pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
+            loss1 = F.mse_loss(pred, label)
+
+            pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
+            label = batch[:, 2:]
+            pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
+            loss2 = F.mse_loss(pred, label)
+
+            self.log(f"train/mse_loss1", loss1, prog_bar=True)
+            self.log(f"train/mse_loss2", loss2, prog_bar=True)
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         return self(batch)

@@ -67,7 +67,7 @@ class TrainModule(pl.LightningModule):
         loss = F.mse_loss(pred, label)
         optimizer.zero_grad()
         self.manual_backward(errD)
-        d_opt.step()
+        optimizer.step()
 
 
         self.log(f"{mode}/mse_loss", loss, prog_bar=mode == "train")

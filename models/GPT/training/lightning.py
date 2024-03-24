@@ -138,13 +138,7 @@ class TrainModule(pl.LightningModule):
             label = batch[:, 2:]
             pred = pred.view(pred.size(0), self.config.time_len, self.var_list.size(0), pred.size(2))
             loss2 = F.mse_loss(pred, label)
-            loss2.requires_grad_(True)
 
-            optimizer.zero_grad()
-            self.manual_backward(loss2)
-            self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
-            optimizer.step()
-            self.lr_scheduler.step()
 
             self.log(f"train/mse_loss1", loss1, prog_bar=True)
             self.log(f"train/mse_loss2", loss2, prog_bar=True)

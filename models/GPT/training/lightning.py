@@ -66,7 +66,7 @@ class TrainModule(pl.LightningModule):
         label = label.view(label.size(0), -1, label.size(-1))
         loss = F.mse_loss(pred, label)
         optimizer.zero_grad()
-        self.manual_backward(errD)
+        self.manual_backward(loss)
         optimizer.step()
 
 

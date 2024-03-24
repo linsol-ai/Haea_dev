@@ -125,6 +125,7 @@ class TrainModule(pl.LightningModule):
         self.log(f"train/mse_loss2", loss2, prog_bar=True)
 
     def validation_step(self, batch: torch.Tensor, batch_idx: int):
+        with torch.no_grad():
         optimizer = self.optimizers()
         src = batch[:, :-2]
         # predict.shape = (batch, time * var, hidden)
@@ -154,7 +155,7 @@ class TrainModule(pl.LightningModule):
 
         self.log(f"train/mse_loss1", loss1, prog_bar=True)
         self.log(f"train/mse_loss2", loss2, prog_bar=True)
-        
+
 
     def test_step(self, batch: torch.Tensor, _: int) -> None:  # noqa: D102
         self._step(batch, "test")

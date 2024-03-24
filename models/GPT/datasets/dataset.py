@@ -35,7 +35,7 @@ class ValidationDataset(Dataset):
         tgt_st = self.sample + src_ed
         tgt_ed = tgt_st + self.time_len
         #src.shape (lead_days, time, var_len, hidden)
-        src = self.source_dataset[src_st:src_ed].unsqueeze(0).repeat_interleave(repeats=self.sample.size(0), dim=0)
+        src = self.source_dataset[src_st:src_ed].unsqueeze(0)
         tgt = []
         for i in range(self.sample.size(0)):
             tgt.append(self.source_dataset[tgt_st[i]:tgt_ed[i]].unsqueeze(0))

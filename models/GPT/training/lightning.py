@@ -71,6 +71,7 @@ class TrainModule(pl.LightningModule):
         self.manual_backward(loss)
         optimizer.step()
         self.lr_scheduler.step()
+           self.clip_gradients(optimizer, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
 
         pred = self.model(pred.detach(), self.var_list, self.tgt_mask)
         label = batch[:, 2:]

@@ -68,6 +68,7 @@ class TrainModule(pl.LightningModule):
 
         optimizer.zero_grad()
         self.manual_backward(loss)
+        self.clip_gradients(opt, gradient_clip_val=0.5, gradient_clip_algorithm="norm")
         optimizer.step()
 
         pred = self.model(pred, self.var_list, self.tgt_mask)

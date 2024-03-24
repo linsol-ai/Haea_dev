@@ -86,7 +86,6 @@ class TrainModule(pl.LightningModule):
 
         self.log(f"{mode}/phase1_mse_loss", loss1, prog_bar=mode == "train")
         self.log(f"{mode}/phase1_mse_loss", loss1, prog_bar=mode == "train")
-        return loss
 
     
     def optimizer_step(self, *args, **kwargs):

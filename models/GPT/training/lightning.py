@@ -95,7 +95,7 @@ class TrainModule(pl.LightningModule):
             batch = batch.to(self.device)
             src = batch[:self.config.time_len]
             predict_all = 
-            for i in range(src.size(1)-self.config.time_len):
+            for i in range(max_lead_time):
                 predict = self.model(src, self.var_list, self.tgt_mask)
                 token = predict[:, :-self.var_list.size(0)]
 

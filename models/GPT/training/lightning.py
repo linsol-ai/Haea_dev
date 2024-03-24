@@ -104,7 +104,7 @@ class TrainModule(pl.LightningModule):
                 predict_all.append(token)
                 src = torch.cat([src[:, 1:], token], dim=1)
 
-            predict_all = torch.stack(predict_all,)
+            predict_all = torch.stack(predict_all, dim=0)
             label = denormalize(label, self.mean_std)
             predict_all = denormalize(predict_all, self.mean_std)
 

@@ -50,7 +50,6 @@ class TrainModule(pl.LightningModule):
 
     def configure_optimizers(self) -> Adam:  # noqa: D102
         opt1 = torch.optim.Adam(self.parameters(), lr=self.config.learning_rate)
-        opt2 = torch.optim.Adam(self.parameters(), lr=self.config.learning_rate)
         self.lr1 = CosineWarmupScheduler(
             opt1, warmup=self.config.warmup_step, max_iters=self.max_iters
         )

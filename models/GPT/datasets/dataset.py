@@ -33,5 +33,5 @@ class ValidationDataset(Dataset):
         src_st, src_ed = (day) * self.time_len, (day+1) * self.time_len
         #src.shape (time, var_len, hidden)
         src = self.source_dataset[src_st:src_ed+1]
-        return src, tgt
+        return src
 

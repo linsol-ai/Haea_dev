@@ -141,7 +141,7 @@ class TrainModule(pl.LightningModule):
 
     def forward(self, batch: Tuple[torch.Tensor, torch.Tensor], max_lead_time: int, location=None) -> torch.Tensor:
         with torch.no_grad():
-            src = batch[:, :-2]
+            src = batch[:, :-1]
             # predict.shape = (batch, time * var, hidden)
             pred = self.model(src, self.var_list, self.tgt_mask)
 
